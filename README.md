@@ -2,6 +2,7 @@
 
 # Trabajo de Fin de Grado 
 > Este proyecto consiste en la creación de un sistema domótico autónomo que controle persianas y luces para dotar de mayor confort las viviendas.
+
 Para ello, se utilizará una placa Raspberry Pi y un recurso onLine que nos dote de información atualizada.
 
 
