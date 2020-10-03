@@ -8,13 +8,13 @@ Con este proyecto se pretende crear un sistema domótico automatizado que nos pe
 Nuestro simulador de presencia funcionará de forma autónoma subiendo y bajando persianas, así como encendiendo y apagando luces, desde una máquina RaspberryPi mediante relés. De esta forma la vivienda parece estar ocupada de forma que ahuyentamos a potenciales delincuentes.
 
 ## Puntos básicos
-Para ello debemos alcanzar algunos objetivos mínimos:
-•	El sistema domótico funcionará de forma autónoma.
-•	Debe ser un proyecto de bajo coste y asequible.
-•	Sistema Operativo GNU.
-•	Posibilidad de interacción multiplataforma.
-•	Fácilmente escalable.
-•	Conseguir un ahorro energético real.
+Para ello debemos alcanzar algunos objetivos mínimos:<\n>
+•	El sistema domótico funcionará de forma autónoma.<\n>
+•	Debe ser un proyecto de bajo coste y asequible.<\n>
+•	Sistema Operativo GNU.<\n>
+•	Posibilidad de interacción multiplataforma.<\n>
+•	Fácilmente escalable.<\n>
+•	Conseguir un ahorro energético real.<\n>
 
 ## Escalabilidad
 Además, este sistema domótico es fácilmente escalable con sistemas de acceso a la vivienda, telefonía IP, música, calefacción, telefonillo IP, etc.
