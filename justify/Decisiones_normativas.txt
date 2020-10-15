@@ -1,9 +1,16 @@
+
+*** Medio de comunicación
+
 En estos días he estado revisando la normativa de ICT y el Reglamento Electrotécnico de Baja tensión para comprobar los cambios añadidos en la última revisión (de este año 2020), y para cerciorarme de a que norma debo acogerme a la hora de realizar la instalación física para que quede conforme a los parámetros legales vigentes.
 Finalmente he decidido que el medio de comunicación de la instalación será el tradicional cable de cobre.
 Por ser un cable de cobre con señales eléctricas diferentes a una comunicación de datos, nos regiremos por el REBT y, más concretamente por el BT-21 recogido en éste.
 He subido la norma completa dentro de la carpeta 'justify' para que pueda comprobarse.
 El REBT se llama: BOE-326_Reglamento_electrotecnico_para_baja_tension_e_ITC.pdf
 La norma de ICT es: BOE-A-2020-2573.pdf
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+*** Cable de cobre y justificación
 
 Dado el número de hilos que debo llevar hasta los relés me he decantado por utilizar un cable UTP cat5e.
 
@@ -12,6 +19,6 @@ Por tanto, queda demostrado que podemos utilizar nuestros hilos de UTP5e para tr
 
 También he subido esta norma dentro de la carpeta 'justify' con el nombre: TIA-EIA-568-B.2(ANSI).pdf
 
-
+-------------------------------------------------------------------------------------------------------------------------------
 
 
