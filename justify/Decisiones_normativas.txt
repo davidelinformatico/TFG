@@ -1,1 +1,3 @@
 En estos días he estado revisando la normativa de ICT y el Reglamento Electrotécnico de Baja tensión para comprobar los cambios añadidos en la última revisión (de este año 2020), y para cerciorarme de a que norma debo acogerme a la hora de realizar la instalación física para que quede conforme a los parámetros legales vigentes.
+Finalmente he decidido que el medio de comunicación de la instalación será el tradicional cable de cobre.
+Por ser un cable de cobre con señales eléctricas diferentes a una comunicación de datos, nos regiremos por el REBT y, más concretamente por el BT-21 recogido en éste.
