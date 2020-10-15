@@ -7,6 +7,8 @@ La norma de ICT es: BOE-A-2020-2573.pdf
 
 Dado el número de hilos que debo llevar hasta los relés me he decantado por utilizar un cable UTP cat5e.
 
+He leído en muchos foros que los hilos de los UTP5e no soportan los 3.3VDC pero, si nos remitimos a la norma por la que se rige este cableado podemos ver que estos cables pasan una serie de pruebas. Y, nos publican que según el método 3 del test 3a del IES60512-2 soporta un voltaje de 500VDC.
+
 
 
 
