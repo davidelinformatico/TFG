@@ -10,7 +10,7 @@ Dado el número de hilos que debo llevar hasta los relés me he decantado por ut
 He leído en muchos foros que los hilos de los UTP5e no soportan los 3.3VDC pero, si nos remitimos a la norma por la que se rige este cableado podemos ver que estos cables pasan una serie de pruebas. Y, nos publican que según el método 3 del test 3a del IES60512-2 soporta un voltaje de 500VDC.
 Por tanto, queda demostrado que podemos utilizar nuestros hilos de UTP5e para transmitir la señal que sale de los GPIO hasta los relés puesto que esta señal será siempre de, entre 2V y 3.3V; que es el rango de voltaje que la Raspberry Pi considera una señal positiva.
 
-
+También he subido esta norma dentro de la carpeta 'justify' con el nombre: TIA-EIA-568-B.2(ANSI).pdf
 
 
 
