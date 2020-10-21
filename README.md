@@ -1,7 +1,7 @@
-<img width="320" src="https://www.raspberrypi.org/app/uploads/2017/06/Powered-by-Raspberry-Pi-Logo_Outline-Colour-Screen-500x153.png" align="right" />
+<img width="300" src="https://www.raspberrypi.org/app/uploads/2017/06/Powered-by-Raspberry-Pi-Logo_Outline-Colour-Screen-500x153.png" align="right" />
 
 # Trabajo de Fin de Grado 
-> Proyecto domótico autónomo que controla persianas y luces.
+> Proyecto domótico autónomo que controla persianas, calefacción y luces.
 
 ## Objeto
 Con este proyecto se pretende crear un sistema domótico automatizado que nos permita aumentar la sensación de confort y bienestar dentro de nuestros domicilios.
