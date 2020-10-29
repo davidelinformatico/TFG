@@ -13,11 +13,13 @@ En nuestro proyecto tendremos el control de la instalación domótica desde una 
 Para dar un enfoque muy general, podemos decir que las placas RaspberryPi son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
 
 Se diseñaron en su origen por la RaspBerry Pi Foundation en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
-Estas placas pueden ejecutar con agilidad distribuciones Linux y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”.
-\begin{center}
-\includegraphics[width=\textwidth]{img/RBP2B.pdf}
-\end{center}
-Imagen de \url{https://raspberryparatorpes.net} modificada por mí, ambas bajo licencia Creative Commons \url{https://creativecommons.org/licenses/by-sa/3.0/deed.es_ES}
+Estas placas pueden ejecutar con agilidad distribuciones Linux y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”, ver imagen \ref{Img:Especificaciones RBP2B}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/RBP2B.pdf}
+    \caption{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por mí, ambas bajo licencia Creative Commons \url{https://creativecommons.org/licenses/by-sa/3.0/deed.es_ES} } \label{Img:Especificaciones RBP2B}
+\end{figure}
 
 \section{GPIO}
 Éstos son unos puertos de entrada y salida conformados en forma de pines que están albergados en la placa, con los que enviaremos órdenes a otros dispositivos externos para que realicen las tareas que les designemos. En nuestro caso, servirán para controlar unos relés para conseguir una acción final.
@@ -29,31 +31,20 @@ Es un dispositivo electromagnético que desempeña la misma función de un inter
 \section{Distribución Linux (Raspbian)}
 Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPc. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente.
 
-\section{Funcionamiento autónomo}
-Se pretende que tras pocas configuraciones el sistema sea capaz de funcionar extrayendo información de Internet y decidiendo que acción realizar en cada caso a partir de ese momento.
-
-\section{Escalabilidad}
-Como cualquier proyecto de calidad debe ser escalable, esto es, debe existir la posibilidad de que sea ampliado fácilmente.
-
-\section{Acceso multiplataforma}
-En este caso dispondremos de un acceso GUI\footnote{Traducción del inglés: 'Graphical User Interface'} (Interfaz gráfica) o CLI\footnote{Traducción del inglés: 'Command Line Interface'} (Línea de comandos) a nuestro equipo.
-
-\section{Ahorro energético}
-El ahorro energético se produce al permitir que la temperatura exterior incida, o no, en la vivienda para conseguir las condiciones deseadas optimizando el consumo de recursos.
-
 \section{Web Scraping}
 Es una técnica utilizada para extraer información de una página web utilizando las etiquetas de que dispone para movernos por los elementos de ésta.
-En nuestro caso, podremos utilizarlo desde Python con beautifulsoup.
+En nuestro caso, podremos utilizarlo desde Python con beautifulsoup siempre que necesitemos obtener información de una página web.
 
 \section{API}
 Es el acrónimo de ‘Application Programming Interfaces’ que, traducido al castellano significa ‘Interfaz de Programación de Aplicaciones’. Estas interfaces nos sirven información que podremos utilizar en un desarrollo.
 Por ejemplo, para obtener la ubicación de la máquina Raspberry Pi accedemos a una API pública que nos devolverá información que podremos procesar a nuestro gusto.
-Podemos acceder a esta \url{http://ip-api.com/json/?fields=country,regionName,city,lat,lon,isp,query}.
-Y obtendremos los valores de país, región, ciudad, latitud, longitud, ISP y dirección IP.
-Estos valores, podremos procesarlos desde Python como json.
+Podemos acceder a una URL como esta  \url{http://ip-api.com/json/?fields=country,regionName,city,lat,lon,isp,query} y obtendremos los valores de país, región, ciudad, latitud, longitud, ISP y dirección IP.
+Estos valores, podremos recogerlos con beautifulsoup y procesarlos desde Python como json.
 
 \section{json}
-Es el acrónimo en inglés de ‘JavaScript Object Notation’ y sirve para almacenar información de forma estructurada mediante etiquetas.
+Es el acrónimo en inglés de ‘JavaScript Object Notation’ y sirve para almacenar información de forma estructurada mediante etiquetas <<key>> y etiquetas <<value>> del siguiente modo: \\
+\{\\``country'':``Spain'',\\ ``regionName'':``Madrid'',\\ ``city'':``Getafe'',\\\}\\
+En ella, podemos ver que las etiquetas <<key>> son las que están a la izquierda de los dos puntos y las etiquetas de la derecha son las <<value>>.
 
 \section{RETB}
 Es el acrónimo de Reglamento electrotécnico para baja tensión y en él se recoge la normativa eléctrica aplicable en domicilios.
@@ -87,35 +78,49 @@ Podemos revisar la normativa vigente al respecto en el propio IEEE\footnote{\url
 En este enlace podremos comprobar qué estándares dentro del 802.11 están vigentes y cuáles no.
 
 \section{UTP}
-Es un tipo de cableado de datos que se compone de 4 pares de cables sin apantallar que están albergados dentro de una camisa de PVC.
+Es un tipo de cableado de datos que se compone de 4 pares de cables sin apantallar que están albergados dentro de una camisa de PVC, ver imagen \ref{Img:Bobina UTP}
 
-  \begin{center}
-  \includegraphics[width=.6\textwidth]{img/bobina_UTP.pdf}\footnote{Licencia Creative Commons by https://solarmat.es}
-  \end{center}
+\begin{figure}
+    \centering
+    \includegraphics[width=.6\textwidth]{img/bobina_UTP.pdf}
+    \caption{Bobina UTP con muestra del mismo con corte de camisa exterior. Imagen de \url{https://solarmat.es} bajo licencia Creative Commons \url{https://cr.eativecommons.org/licenses/by-sa/3.0/deed.es_ES} } \label{Img:Bobina UTP}
+\end{figure}
+
+
 
 Existen diferentes tipos de cables de datos: UTP, STP, FTP:
 \begin{itemize}
-\item Los cables \textbf{UTP} no disponen de protección ante interferencias electromagnéticas.
-  \begin{center}
-  \includegraphics[width=0.4\textwidth]{img/UTP.pdf}
-  \end{center}
+\item Los cables \textbf{UTP} no disponen de protección ante interferencias electromagnéticas. Ver imagen \ref{Img:Muestra UTP}
 
-\item Los cables \textbf{FTP} disponen de una pantalla global contra interferencias electromagnéticas dentro de la camisa de PVC que recoge los 4 pares destinados a transmisión de datos.
-  \begin{center}
-  \includegraphics[width=0.4\textwidth]{img/FTP.pdf}
-  \end{center}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{img/UTP.pdf}
+    \caption{Diagrama de muestra de cable UTP} \label{Img:Muestra UTP}
+\end{figure}
+  
 
-\item Los cables \textbf{STP} disponen de una pantalla contra interferencias electromagnéticas por cada par de cables pero, además, también cuentan con una malla metálica exterior.
-  \begin{center}
-  \includegraphics[width=0.4\textwidth]{img/STP.pdf}
-  \end{center}
+\item Los cables \textbf{FTP} disponen de una pantalla global contra interferencias electromagnéticas dentro de la camisa de PVC que recoge los 4 pares destinados a transmisión de datos. Ver imagen \ref{Img:Muestra FTP}
 
-\emph{En nuestro caso utilizaremos UTP puesto que no necesitamos un apantallamiento ya que no transmitiremos datos y tampoco tendremos un alto grado de interferencias.}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{img/FTP.pdf}
+    \caption{Diagrama de muestra de cable UTP} \label{Img:Muestra FTP}
+\end{figure}
+
+\item Los cables \textbf{STP} disponen de una pantalla contra interferencias electromagnéticas por cada par de cables pero, además, también cuentan con una malla metálica exterior. Ver imagen \ref{Img:Muestra STP}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{img/STP.pdf}
+    \caption{Diagrama de muestra de cable UTP} \label{Img:Muestra STP}
+\end{figure}
+
+En nuestro caso utilizaremos UTP puesto que no necesitamos un apantallamiento ya que no transmitiremos datos y tampoco tendremos un alto grado de interferencias.
 
 \section{Placa de Pruebas o ProtoBoard}
 Es un tablero electrónico para realizar pruebas. Protoboard es la agrupación de los términos ingleses “prototype board”.
 Esta protoboard la he instalado para poder hacer fácilmente el interconexionado entre los cables que llegan de los relés y los que van a la Raspberry Pi, evitando posibles tirones y movimiento de cables a la hora de hacer alguna manipulación.
-Éstas, disponen de tres zonas diferenciadas:
+
+Éstas, disponen de tres zonas diferenciadas(Ver imagen \ref{Img:Protoboard}):
 
 \begin{itemize}
     \item \textbf{Canal Central}: Está situada en el medio de la placa y es donde se colocan los circuitos.
@@ -125,19 +130,25 @@ Esta protoboard la he instalado para poder hacer fácilmente el interconexionado
     \item \textbf{Pistas}: Se sitúan en la zona central de la placa y, conducen en sentido contrario de las líneas rojas y azul.
 \end{itemize}
 
-\begin{center}
-\includegraphics[width=0.9\textwidth]{img/protoboard.pdf}
-\end{center}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/protoboard.pdf}
+    \caption{Imagen de una placa <<protoboard>>. } \label{Img:Protoboard}
+\end{figure}
+
+
 
 \section{Router}
 Es un dispositivo que nos permite interconectar diferentes redes de datos. En mi caso dispongo de un router con WiFi integrado para poder dotar a la Raspberry Pi de salida a Internet.
 Al principio, estuve valorando la opción de ‘tirar’ un cable de datos desde la primera caja de derivación después del Cuadro General de Mando y Protección o Cuadro eléctrico, hasta el RTR (Registro Terminación de Red) que es donde tengo la línea de datos más cercana, pero en único tubo que comunica es de naturaleza eléctrica y no está bien mezclar tipos de instalaciones.
 
-Adjunto un pequeño dibujo informativo para que se pueda entender la instalación:
-\begin{center}
-\includegraphics[width=0.9\textwidth]{img/Diagrama Básico.pdf}
-\end{center}
+Adjunto un pequeño dibujo informativo en la imagen \ref{Img:DiagramaBasico} para que se pueda entender la instalación:
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/Diagrama Básico.pdf}
+    \caption{Dibujo informativo de como será la instalación física.} \label{Img:DiagramaBasico}
+\end{figure}
 
 \end{itemize}
 
