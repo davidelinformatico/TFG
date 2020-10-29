@@ -2,7 +2,7 @@
 
 Este punto nace ante la necesidad de enmarcar el proyecto dentro de las tecnologías y elementos que utilizaremos durante todo el proyecto y que no tienen por qué conocerse.
 
-El término ‘domótica’ es el pilar principal del proyecto y, por ello, comenzaré explicando lo que es y como lo enfocaremos:
+El término ‘domótica’ es el pilar principal del proyecto y, por ello, comenzaré explicando lo que es y cómo lo enfocaremos:
 
 \section{Domótica}
 La domótica podemos definirla como aquel conjunto de elementos capaces de automatizar una vivienda aportando un beneficio.
@@ -10,13 +10,14 @@ En nuestro caso, nuestro sistema domótico deberá controlar luces, persianas y 
 
 \section{RaspberryPi}
 En nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi. 
-Para dar un enfoque muy general, podemos decir que las placas RaspberryPi son microordenadores que disponen de poca potencia si las comparamos con equipos usuales pero, disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
+Para dar un enfoque muy general, podemos decir que las placas RaspberryPi son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
 
 Se diseñaron en su origen por la RaspBerry Pi Foundation en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
 Estas placas pueden ejecutar con agilidad distribuciones Linux y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”.
 \begin{center}
 \includegraphics[width=\textwidth]{img/RBP2B.pdf}
 \end{center}
+Imagen de \url{https://raspberryparatorpes.net} modificada por mí, ambas bajo licencia Creative Commons \url{https://creativecommons.org/licenses/by-sa/3.0/deed.es_ES}
 
 \section{GPIO}
 Éstos son unos puertos de entrada y salida conformados en forma de pines que están albergados en la placa, con los que enviaremos órdenes a otros dispositivos externos para que realicen las tareas que les designemos. En nuestro caso, servirán para controlar unos relés para conseguir una acción final.
@@ -69,14 +70,14 @@ Por otro lado, disponemos de guías para instaladores con dibujos y tablas que f
 
 De este punto, obtendremos la norma para introducir cableado ICT conforme a norma.
 
-Tras hacer un estudio en mi domicilio, no necesitaré utilizar la normativa de ICT porque toda la instalación se realizará mediante canales eléctricos, pero está bien conocer la norma para, en caso de necesitarla poder hacer uso de ella correctamente.
+Tras hacer un estudio en mi domicilio, no necesitaré utilizar la normativa de ICT porque toda la instalación se realizará mediante canales eléctricos, pero está bien conocer la norma para, en caso de necesitarla, poder hacer uso de ella correctamente.
 
 \section{Cableado estructurado}
 El establecimiento de un sistema de cableado estructurado consiste en la organización de los cables en un recinto conforme a una norma y constituye el nivel básico de cualquier red de comunicaciones.
 Al contar y cumplir con este estándar nos damos cuenta de que tendremos instalaciones limpias, uniformes, seguras y escalables, facilitando la supervisión, el mantenimiento y posibles migraciones de tecnologías.
 Un sistema de cableado genérico dispone de tres subsistemas, Troncal, de Edificio y Horizontal. En nuestro proyecto únicamente trataremos con el subsistema horizontal.
 
-\emph{En este proyecto no contaremos con un gran número de cables, pero no está de más realizar una instalación lo más correctamente posible con unas normas de referencia}
+En este proyecto no contaremos con un gran número de cables, pero no está de más realizar una instalación lo más correctamente posible con unas normas de referencia
 
 \section{WiFi}
 Es una tecnología de comunicaciones de forma inalámbrica o “Wireless”. WiFi\footnote{Traducción del inglés: 'Wireless Fidelity'} es el acrónimo traducido de “Fidelidad Inalámbrica”.
@@ -109,7 +110,7 @@ Existen diferentes tipos de cables de datos: UTP, STP, FTP:
   \includegraphics[width=0.4\textwidth]{img/STP.pdf}
   \end{center}
 
-\emphEn nuestro caso utilizaremos UTP puesto que no necesitamos un apantallamiento ya que no transmitiremos datos y tampoco tendremos un alto grado de interferencias.
+\emph{En nuestro caso utilizaremos UTP puesto que no necesitamos un apantallamiento ya que no transmitiremos datos y tampoco tendremos un alto grado de interferencias.}
 
 \section{Placa de Pruebas o ProtoBoard}
 Es un tablero electrónico para realizar pruebas. Protoboard es la agrupación de los términos ingleses “prototype board”.
