@@ -4,36 +4,13 @@ Este punto nace ante la necesidad de enmarcar el proyecto dentro de las tecnolog
 
 El término ‘domótica’ es el pilar principal del proyecto y, por ello, comenzaré explicando lo que es y cómo lo enfocaremos:
 
+
 \section{Domótica}
 La domótica podemos definirla como aquel conjunto de elementos capaces de automatizar una vivienda aportando un beneficio.
 En nuestro caso, nuestro sistema domótico deberá controlar luces, persianas y calefacción permitiendo un aumento del confort y la seguridad, además de permitir un consumo eficiente de recursos a la hora de climatizar la vivienda.
 
-\section{RaspberryPi}
-En nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi. 
-Para dar un enfoque muy general, podemos decir que las placas RaspberryPi son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
-
-Se diseñaron en su origen por la RaspBerry Pi Foundation en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
-Estas placas pueden ejecutar con agilidad distribuciones Linux y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”, ver imagen \ref{Img:Especificaciones RBP2B}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{img/RBP2B.pdf}
-    \caption{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por mí, ambas bajo licencia Creative Commons \url{https://creativecommons.org/licenses/by-sa/3.0/deed.es_ES} } \label{Img:Especificaciones RBP2B}
-\end{figure}
-
 \section{GPIO}
 Éstos son unos puertos de entrada y salida conformados en forma de pines que están albergados en la placa, con los que enviaremos órdenes a otros dispositivos externos para que realicen las tareas que les designemos. En nuestro caso, servirán para controlar unos relés para conseguir una acción final.
-
-
-\section{Relé}
-Es un dispositivo electromagnético que desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía eléctrica, o no, a nuestros dispositivos.
-
-\section{Distribución Linux (Raspbian)}
-Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPc. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente.
-
-\section{Web Scraping}
-Es una técnica utilizada para extraer información de una página web utilizando las etiquetas de que dispone para movernos por los elementos de ésta.
-En nuestro caso, podremos utilizarlo desde Python con beautifulsoup siempre que necesitemos obtener información de una página web.
 
 \section{API}
 Es el acrónimo de ‘Application Programming Interfaces’ que, traducido al castellano significa ‘Interfaz de Programación de Aplicaciones’. Estas interfaces nos sirven información que podremos utilizar en un desarrollo.
@@ -48,20 +25,19 @@ En ella, podemos ver que las etiquetas <<key>> son las que están a la izquierda
 
 \section{RETB}
 Es el acrónimo de Reglamento electrotécnico para baja tensión y en él se recoge la normativa eléctrica aplicable en domicilios.
-Esta norma acaba de ser actualizada y podemos disponer de la información en páginas oficiales como puede ser el BOE\footnote{\url{https://www.boe.es/biblioteca_juridica/codigos/abrir_pdf.php?fich=326_Reglamento_electrotecnico_para_baja_tension_e_ITC.pdf}}.
-Del documento ICT-BT-21\footnote{\url{http://eschoform.educarex.es/useruploads/r/c/886/scorm_imported/88234455166233572664/media/guia_bt_21.pdf}} podemos extraer información para realizar las instalaciones eléctricas de nuestro sistema domótico como el número máximo de cables a introducir por un tubo eléctrico.
-
+Esta norma acaba de ser actualizada y podemos disponer de la información en páginas oficiales como puede ser el BOE\cite{manual:REBT}.
+Del documento ICT-BT-21\cite{manual:ICT-BT-21} podemos extraer información para realizar las instalaciones eléctricas de nuestro sistema domótico como el número máximo de cables a introducir por un tubo eléctrico.
 
 \section{Normativa de ICT}
 Como figura en el BOE 143, de 16 de junio de 2011: “El Reglamento regulador de las infraestructuras comunes de telecomunicaciones para el acceso a los servicios de telecomunicación en el interior de las edificaciones, aprobado por el Real Decreto 346/2011, de 11 de marzo.
 Debemos regirnos por esta normativa a la hora de hacer cualquier instalación de comunicaciones nueva dentro de domicilios.
-Podemos informarnos y ampliar información en la publicación del BOE\footnote{\url{https://www.boe.es/buscar/pdf/2011/BOE-A-2011-10457-consolidado.pdf}}.
+Podemos informarnos y ampliar información en la publicación en la sección de ICT en el BOE\cite{manual:ICT}.
 
-Por otro lado, disponemos de guías para instaladores con dibujos y tablas que facilitan la comprensión, como puede ser la documentación que publica Televés\footnote{\url{https://docs.televes.com/web/Legislacion/m_ict2_3ed_reglamento_0.pdf}}
+Por otro lado, disponemos de guías para instaladores con dibujos y tablas que facilitan la comprensión, como puede ser la documentación que publica Televés\cite{manual:ICT-Televés}.
 
-De este punto, obtendremos la norma para introducir cableado ICT conforme a norma.
+De este punto, obtendremos la norma para introducir cableado ICT\cite{manual:ICT} conforme a norma.
 
-Tras hacer un estudio en mi domicilio, no necesitaré utilizar la normativa de ICT porque toda la instalación se realizará mediante canales eléctricos, pero está bien conocer la norma para, en caso de necesitarla, poder hacer uso de ella correctamente.
+Tras hacer un estudio en mi domicilio, no necesitaré utilizar la normativa de ICT\cite{manual:ICT} porque toda la instalación se realizará mediante canales eléctricos, pero está bien conocer la norma para, en caso de necesitarla, poder hacer uso de ella correctamente.
 
 \section{Cableado estructurado}
 El establecimiento de un sistema de cableado estructurado consiste en la organización de los cables en un recinto conforme a una norma y constituye el nivel básico de cualquier red de comunicaciones.
@@ -72,10 +48,8 @@ En este proyecto no contaremos con un gran número de cables, pero no está de m
 
 \section{WiFi}
 Es una tecnología de comunicaciones de forma inalámbrica o “Wireless”. WiFi\footnote{Traducción del inglés: 'Wireless Fidelity'} es el acrónimo traducido de “Fidelidad Inalámbrica”.
-Estas tecnologías inalámbricas se rigen por la norma \underline{IEEE 802.11}.
-
-Podemos revisar la normativa vigente al respecto en el propio IEEE\footnote{\url{https://standards.ieee.org/standard/802_11-2016.html}}
-En este enlace podremos comprobar qué estándares dentro del 802.11 están vigentes y cuáles no.
+Estas tecnologías inalámbricas se rigen por la norma \underline{IEEE 802.11}\cite{manual:IEEE802.11}.
+En la web oficial del organismo podremos comprobar qué estándares dentro del 802.11 están vigentes y cuáles no.
 
 \section{UTP}
 Es un tipo de cableado de datos que se compone de 4 pares de cables sin apantallar que están albergados dentro de una camisa de PVC, ver imagen \ref{Img:Bobina UTP}
@@ -83,72 +57,35 @@ Es un tipo de cableado de datos que se compone de 4 pares de cables sin apantall
 \begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{img/bobina_UTP.pdf}
-    \caption{Bobina UTP con muestra del mismo con corte de camisa exterior. Imagen de \url{https://solarmat.es} bajo licencia Creative Commons \url{https://cr.eativecommons.org/licenses/by-sa/3.0/deed.es_ES} } \label{Img:Bobina UTP}
+    \caption{Bobina UTP con muestra del mismo con corte de camisa exterior. Imagen de \url{https://solarmat.es}\cite{wiki:Creative}. \url{https://cr.eativecommons.org/licenses/by-sa/3.0/deed.es_ES} } \label{Img:Bobina UTP}
 \end{figure}
-
-
 
 Existen diferentes tipos de cables de datos: UTP, STP, FTP:
 \begin{itemize}
-\item Los cables \textbf{UTP} no disponen de protección ante interferencias electromagnéticas. Ver imagen \ref{Img:Muestra UTP}
+\item Los cables \textbf{UTP} (del ingles <<Unshielded Twisted Pair>> o <<Par trenzado no apantallado>>) no disponen de protección ante interferencias electromagnéticas. Ver imagen \ref{Img:Muestra UTP}.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{img/UTP.pdf}
     \caption{Diagrama de muestra de cable UTP} \label{Img:Muestra UTP}
 \end{figure}
-  
 
-\item Los cables \textbf{FTP} disponen de una pantalla global contra interferencias electromagnéticas dentro de la camisa de PVC que recoge los 4 pares destinados a transmisión de datos. Ver imagen \ref{Img:Muestra FTP}
+\item Los cables \textbf{FTP}(del inglés <<Foiled Twisted Pair>> o <<Par trenzado con pantalla global>>) disponen de una pantalla global contra interferencias electromagnéticas dentro de la camisa de PVC que recoge los 4 pares destinados a transmisión de datos. Ver imagen \ref{Img:Muestra FTP}.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{img/FTP.pdf}
-    \caption{Diagrama de muestra de cable UTP} \label{Img:Muestra FTP}
+    \caption{Diagrama de muestra de cable FTP} \label{Img:Muestra FTP}
 \end{figure}
 
-\item Los cables \textbf{STP} disponen de una pantalla contra interferencias electromagnéticas por cada par de cables pero, además, también cuentan con una malla metálica exterior. Ver imagen \ref{Img:Muestra STP}
+\item Los cables \textbf{STP}(del inglés <<Shielded Twisted Pair>> o <<Par trenzado apantallado>>) disponen de una pantalla contra interferencias electromagnéticas por cada par de cables pero, además, también cuentan con una malla metálica exterior. Ver imagen \ref{Img:Muestra STP}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{img/STP.pdf}
-    \caption{Diagrama de muestra de cable UTP} \label{Img:Muestra STP}
+    \caption{Diagrama de muestra de cable STP} \label{Img:Muestra STP}
 \end{figure}
 
 En nuestro caso utilizaremos UTP puesto que no necesitamos un apantallamiento ya que no transmitiremos datos y tampoco tendremos un alto grado de interferencias.
-
-\section{Placa de Pruebas o ProtoBoard}
-Es un tablero electrónico para realizar pruebas. Protoboard es la agrupación de los términos ingleses “prototype board”.
-Esta protoboard la he instalado para poder hacer fácilmente el interconexionado entre los cables que llegan de los relés y los que van a la Raspberry Pi, evitando posibles tirones y movimiento de cables a la hora de hacer alguna manipulación.
-
-Éstas, disponen de tres zonas diferenciadas(Ver imagen \ref{Img:Protoboard}):
-
-\begin{itemize}
-    \item \textbf{Canal Central}: Está situada en el medio de la placa y es donde se colocan los circuitos.
-    \item \textbf{Buses}: Se sitúan en los extremos de la placa y disponen de dos líneas:
-    \item \textbf{Línea roja}: Bus positivo o de voltaje.
-    \item \textbf{Línea azul}: Bus negativo o de tierra.
-    \item \textbf{Pistas}: Se sitúan en la zona central de la placa y, conducen en sentido contrario de las líneas rojas y azul.
-\end{itemize}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/protoboard.pdf}
-    \caption{Imagen de una placa <<protoboard>>. } \label{Img:Protoboard}
-\end{figure}
-
-
-
-\section{Router}
-Es un dispositivo que nos permite interconectar diferentes redes de datos. En mi caso dispongo de un router con WiFi integrado para poder dotar a la Raspberry Pi de salida a Internet.
-Al principio, estuve valorando la opción de ‘tirar’ un cable de datos desde la primera caja de derivación después del Cuadro General de Mando y Protección o Cuadro eléctrico, hasta el RTR (Registro Terminación de Red) que es donde tengo la línea de datos más cercana, pero en único tubo que comunica es de naturaleza eléctrica y no está bien mezclar tipos de instalaciones.
-
-Adjunto un pequeño dibujo informativo en la imagen \ref{Img:DiagramaBasico} para que se pueda entender la instalación:
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/Diagrama Básico.pdf}
-    \caption{Dibujo informativo de como será la instalación física.} \label{Img:DiagramaBasico}
-\end{figure}
 
 \end{itemize}
 
