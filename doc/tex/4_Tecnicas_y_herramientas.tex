@@ -3,11 +3,49 @@
 Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
 No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
 
-\section{Web Scraping}
-Es una técnica utilizada para extraer información de una página web utilizando las etiquetas de que dispone el propio lenguaje interpretado de HTML (del inglés <<HyperText Markup Language>> o lenguaje de marcas de hipertexto) para organizar elementos dentro de una página web, de forma que se introduce dentro de una etiqueta y subetiquetas hasta llegar al contenido del elemento requerido. Podemos entenderlo como si fueran contenedores lógicos configurables.
-En nuestro caso, podremos utilizarlo desde Python sirviéndonos de la librería <<beautifulsoup>> siempre que necesitemos obtener información de una página web.
 
-\section{Tirada de cable con guía pasacables}
+\section{Entorno Software}
+\subsection{Raspbian (Distribución Linux)}
+Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPc. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente. Una de estas distribuciones optimizadas y orientadas a estas placas es Raspbian\cite{misc:RbPWeb} o Raspberry Pi OS, que incluye software orientado a la educación, programación y otras de uso general. Algunas de estas aplicaciones son Python\cite{misc:Python} (Lenguaje de programación que pretende que se desarrolle cógigo de una forma sencilla, rápida, poco costosa y legible), Scratch\cite{misc:Scratch}(Simulador amigable para aprender programación.) o Java\cite{misc:Java}(Lenguaje de programación multiplataforma que utiliza una máquina virtual transparente para el usuario para ejecutarse), entre otros.
+
+\subsection{Entorno de desarrollo Bash}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://www.freebsd.org/cgi/man.cgi?query=vi&sektion=1}{Vi}, \href{https://www.vim.org/}{Vim}, \href{https://www.nano-editor.org/}{Nano}.
+    \item \textbf{Herramienta elegida:} \href{https://www.nano-editor.org/}{Nano}.
+\end{itemize}
+
+Nuestro Sistema Operativo Raspbian\cite{misc:RbPWeb}, al ser una distribución de Linux\cite{misc:Linux}, dispone de líneas de comandos, procesadores de texto plano y editores de texto integrados. Éste es un editor de textos básico que facilita la interacción con él pese a que Vi o Vim son mucho más potentes.
+
+\subsection{Entorno de desarrollo Python}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://www.jetbrains.com/es-es/pycharm/}{Jetbrains PyCharm} y \href{https://jupyter.org/}{Jupyter Notebook}.
+    \item \textbf{Herramienta elegida:} \href{https://jupyter.org/}{Jupyter Notebook}.
+\end{itemize}
+
+Jupyter Notebook es un entorno de desarrollo interactivo y open source, basado en cuadernos que estructuran el código pudiendo ejecutarlo todo o parte. Dispone de una interfaz limpia, ligera e interactiva que nos permite programar en 40 lenguajes, incluyendo Python\cite{misc:Python}.
+
+\section{Control de datos}
+\subsection{Web Scraping}
+Es una técnica utilizada para extraer información de una página web utilizando las etiquetas de que dispone el propio lenguaje interpretado de HTML (del inglés <<HyperText Markup Language>> o lenguaje de marcas de hipertexto) para organizar elementos dentro de una página web, de forma que se introduce dentro de una etiqueta y subetiquetas hasta llegar al contenido del elemento requerido. Podemos entenderlo como si fueran contenedores lógicos configurables.
+En nuestro caso, podremos utilizarlo desde Python\cite{misc:Python} sirviéndonos de la librería <<beautifulsoup>> siempre que necesitemos obtener información de una página web.
+
+\subsection{APIS}
+\begin{itemize}
+    \item \textbf{API situación geográfica}
+\end{itemize}
+En primer lugar estuve haciendo pruebas con la API de \url{www.ifconfig.me/ip} que devuelve la provincia en la que se encuentra tu IP pública pero quería una información más precisa ya que no tendremos la misma temperatura en El Escorial que en Aranjuez. Por ello, opté por \url{http://ip-api.com} que si obtiene correctamente la ciudad desde la que nos conectamos.
+
+\begin{itemize}
+    \item \textbf{API Tiempo}
+\end{itemize}
+Al principio probé la API de \url{www.weatherapi.com} pero me entregaba únicamente la hora de salida y puesta del sol, lo cual es correcto para el control básico de las persianas pero quería llevar el proyecto más allá obteniendo además, una previsión de las temperaturas para el día siguiente pudiendo trabajar con ésta haciendo gráficos y poder decidir si encenderemos la calefacción o no. Y, por ello, opté por probar con la API de \url{www.climacell.co} que además, aseguran que es un 60\% más fiable que otras APIS ya que obtiene información de teléfonos móviles, cámaras y otros servicios online.
+
+\subsection{json}
+La librería json\cite{misc:Json} para Python\cite{misc:Python} y Python v3 nos permite, entre otros, parsear el código json\cite{misc:Json} de archivos mediante la estructura de \textit{key:value}. En nuestro caso, tras obtener información de las APIs trataremos dicha información como json\cite{misc:Json} gracias a su librería para Python\cite{misc:Python}.
+
+\section{Técnicas manuales}
+
+\subsection{Tirada de cable con guía pasacables}
 El procedimiento a seguir es el siguiente:
 \begin{enumerate}
         \item Se abren las tapas de dos cajas de derivación próximas.
@@ -16,12 +54,78 @@ El procedimiento a seguir es el siguiente:
         \item Se tira del otro extremo de la guía pasacables hasta conseguir sacar el cable por éste.
 \end{enumerate}
 
-\section{RaspberryPi}
-En nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi. 
-Para dar un enfoque muy general, podemos decir que las placas RaspberryPi son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
+\section{Metodologías}
+\subsection{Scrum}
+Scrum\cite{manual:Scrum} es un marco de trabajo para el desarrollo de software mediante la metodología ágil en el que se busca realizar un trabajo colaborativo de desarrollo incremental. Se aplica una metodología basada en milestones y sprints de forma iterativa.
 
-Se diseñaron en su origen por la RaspBerry Pi Foundation en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
-Estas placas pueden ejecutar con agilidad distribuciones Linux y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”, ver imagen \ref{Img:Especificaciones RBP2B}
+\subsection{Modularidad}
+Utilizaremos la modularidad para subdividir la aplicación en pequeños subprogramas que tienen una pequeña funcionalidad. De esta manera es más fácil detectar errores y escalar el proyecto. Además, teniendo clara la entrada y salida de cada uno de los módulos se pueden lanzar pruebas a cada uno de los módulos para comprobar su correcto funcionamiento mejorando, también, el mantenimiento.
+
+\section{Entorno de desarrollo del Proyecto}
+
+\subsection{Control de versiones o CVS, Concurrent Versioning System}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://git-scm.com/}{Git}, \href{https://subversion.apache.org/}{SVN}.
+    \item \textbf{Herramienta elegida:} \href{https://git-scm.com/}{Git}.
+\end{itemize}
+
+Git es un software destinado al control de versiones software en el que se registran los cambios producidos en el mismo, facilitando la integración de código por parte de cualquiera de los integrantes del proyecto.
+La diferencia más notable entre ellos es que Git es distribuido y SVN es un sistema centralizado. Significa que Git nos permite disponer de una copia en cada uno de los equipos desde los que se trabaje haciendo un clonado del repositorio, mientras que en SVN se trabaja en la nube.
+
+\subsection{Hosting del Repositorio}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://github.com/}{Github} y \href{https://bitbucket.org/product/}{Bitbucket}.
+    \item \textbf{Herramienta elegida:} \href{https://github.com/}{Github}.
+\end{itemize}
+
+Ambas opciones de hosting de repositorios funcionan de forma similar aunque GitHub incorpora opciones como la revisión de código, Kanban, Wikis o tableros entre otros que me han hecho decantarme por esta opción.
+Ésta, es la plataforma principal de trabajo, que a su vez es una red social de código donde cualquiera puede contribuir en proyectos públicos y Open Source.
+
+
+\subsection{Gestión del proyecto}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://teams.microsoft.com/}{MS.Teams}, \href{https://www.zenhub.com/}{ZenHub}, \href{https://github.com/}{GitHub Projects}, \href{https://www.zenhub.com/}{Trello}, \href{https://www.atlassian.com/es/software/jira}{Jira}, \href{https://www.board.com/es#gref}{Board}, \href{https://monday.com/lang/es/}{Monday}, \href{https://zube.io/}{Zube}, \href{https://clubhouse.io/}{Clubhouse}.
+    \item \textbf{Herramienta elegida:} \href{https://www.zenhub.com/}{ZenHub}.
+\end{itemize}
+
+Es la única solución de colaboración en equipo integrada en GitHub y nos permite planificar hojas de ruta, generar informes, gestionar con Kanban, gestión ágil del proyecto mostrando la situación del proyecto para conseguir aumentar la productividad del equipo.
+
+\subsection{Editor del proyecto}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://atom.io/}{Atom}, \href{https://code.visualstudio.com/}{Visual Studio Code}, \href{https://www.sublimetext.com/}{Sublime}.
+    \item \textbf{Herramienta elegida:} \href{https://atom.io/}{Atom}.
+\end{itemize}
+
+Es un editor de código y texto creado por GitHub integrando las funciones de Git y GitHub, lo que nos facilita trabajar en nuestro equipo y replicar los cambios en Git, GitHub y ZenHub. Además, es un software multiplataforma, licencia open source, completamente personalizable, con temas y múltiples plugins, autocompletado y fácil navegación.
+En este proyecto se utilizará para publicar las actualizaciones del proyecto.
+
+
+
+\subsection{Dibujos, Diagramas y planos}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://fritzing.org/}{Fritzing}, \href{https://support.microsoft.com/es-es/windows/obtener-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9}{Paint, Paint3D}, \href{https://www.adobe.com/es/products/photoshop.html}{Photoshop}, y \href{www.draw.io}{Draw.io}.
+    \item \textbf{Herramienta elegida:} \href{https://fritzing.org/}{Fritzing} y \href{www.draw.io}{Draw.io}.
+\end{itemize}
+Realmente no pude decidirme por entre Fritzing y draw.io puesto que cada uno está orientado a un tipo de producto:
+
+Fritzing es un software con licencia Open Source\cite{misc:OpenSource} que nos permite realizar material electrónico fácilmente, aunque desde hace algún tiempo debemos hacer un pequeño desembolso por la descarga. En mi caso con el fin de entregar diagramas de calidad los haré con este software.
+
+Por otro lado, Draw.io está pensado para hacer planos y dibujos que no están orientados a la electrónica, por lo que es muy útil para hacer otro tipo de diagramas.
+
+\subsection{Procesador de textos \LaTeX}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://www.latex-project.org/}{\LaTeX}, \href{https://www.microsoft.com/es-es/microsoft-365/word}{MS Word}, \href{https://www.sublimetext.com/}{Sublime}, \href{https://www.overleaf.com/}{Overleaf}.
+    \item \textbf{Herramienta elegida:} \href{https://www.latex-project.org/}{\LaTeX} y \href{https://www.overleaf.com/}{Overleaf}.
+\end{itemize}
+\LaTeX es un editor de textos open source\cite{misc:OpenSource} con alta calidad tipográfica que trabaja con etiquetas permitiéndonos separar nuestro contenido del estilo del mismo. Para escribir el proyecto en \LaTeX utilizaré Overleaf por su capacidad de compilado instantáneo de forma que se puede comprobar como modificas la redacción en tiempo real.
+
+\section{Entorno físico}
+\subsection{RaspberryPi}
+En nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi\cite{misc:RbPWeb}. 
+Para dar un enfoque muy general, podemos decir que las placas RaspberryPi\cite{misc:RbPWeb} son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
+
+Se diseñaron en su origen por la RaspBerry Pi Foundation\cite{misc:RbPWeb} en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
+Estas placas pueden ejecutar con agilidad distribuciones Linux\cite{misc:Linux} y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”, ver imagen \ref{Img:Especificaciones RBP2B}
 
 \begin{figure}
     \centering
@@ -29,7 +133,7 @@ Estas placas pueden ejecutar con agilidad distribuciones Linux y, desde sus dist
     \caption{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por mí\cite{wiki:Creative}. }\label{Img:Especificaciones RBP2B}
 \end{figure}
 
-\section{Relé}
+\subsection{Relé}
 Es un dispositivo electromagnético que desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía eléctrica, o no, a nuestros dispositivos. Los relés se activan mediante impulsos eléctricos que abren o cierran el circuito según se predisponga. Podemos verlo en la imagen \ref{Img:Rele1}.
 \begin{figure}
     \centering
@@ -37,10 +141,7 @@ Es un dispositivo electromagnético que desempeña la misma función de un inter
     \caption{Estructura interna de un relé. Imagen de \url{https://https://commons.wikimedia.org/}\cite{manual:GNU}}. \label{Img:Rele1}
 \end{figure}
 
-\section{Distribución Linux (Raspbian)}
-Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPc. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente. Una de estas distribuciones optimizadas y orientadas a estas placas es Raspbian\cite{misc:RbPWeb} o Raspberry Pi OS, que incluye software orientado a la educación, programación y otras de uso general. Algunas de estas aplicaciones son Python\cite{misc:Python} (Lenguaje de programación que pretende que se desarrolle cógigo de una forma sencilla, rápida, poco costosa y legible), Scratch\cite{misc:Scratch}(Simulador amigable para aprender programación.) o Java\cite{misc:Java}(Lenguaje de programación multiplataforma que utiliza una máquina virtual transparente para el usuario para ejecutarse), entre otros.
-
-\section{Placa de Pruebas o ProtoBoard}
+\subsection{Placa de Pruebas o ProtoBoard}
 Es un tablero electrónico para realizar pruebas. Protoboard es la agrupación de los términos ingleses “prototype board”.
 Esta protoboard la he instalado para poder hacer fácilmente el interconexionado entre los cables que llegan de los relés y los que van a la Raspberry Pi, evitando posibles tirones y movimiento de cables a la hora de hacer alguna manipulación.
 
@@ -49,8 +150,8 @@ Esta protoboard la he instalado para poder hacer fácilmente el interconexionado
 \begin{itemize}
     \item \textbf{Canal Central}: Está situada en el medio de la placa y es donde se colocan los circuitos.
     \item \textbf{Buses}: Se sitúan en los extremos de la placa y disponen de dos líneas:
-    \item \textbf{Línea roja}: Bus positivo o de voltaje.
-    \item \textbf{Línea azul}: Bus negativo o de tierra.
+        \subitem \textbf{Línea roja}: Bus positivo o de voltaje.
+        \subitem \textbf{Línea azul}: Bus negativo o de tierra.
     \item \textbf{Pistas}: Se sitúan en la zona central de la placa y, conducen en sentido contrario de las líneas rojas y azul.
 \end{itemize}
 
@@ -60,67 +161,14 @@ Esta protoboard la he instalado para poder hacer fácilmente el interconexionado
     \caption{Imagen de una placa <<protoboard>>. } \label{Img:Protoboard}
 \end{figure}
 
-\section{Router}
+\subsection{Router}
 Es un dispositivo que nos permite interconectar diferentes redes de datos. En mi caso dispongo de un router con WiFi integrado para poder dotar a la Raspberry Pi de salida a Internet.
 
-
-
-\section{Imágenes}
-
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
-
-\imagen{escudoInfor}{Autómata para una expresión vacía}
-
-
-
-\section{Listas de items}
-
-Existen tres posibilidades:
-
+\section{Plataforma de interacción}
 \begin{itemize}
-	\item primer item.
-	\item segundo item.
+    \item \textbf{Herramientas valoradas:} \href{https://telegram.org/}{Telegram}, \href{https://palletsprojects.com/p/flask/}{Flask}.
+    \item \textbf{Herramienta elegida:} \href{https://telegram.org/}{Telegram}.
 \end{itemize}
+Para finalizar el proyecto con una interfaz de interacción se valoraron las opciones de página web ligera o una aplicación de mensajería.
+En primer lugar se propuso hacer una aplicación en Flask pero pareció más novedoso y potente hacer un Bot de Telegram de forma que podamos interactuar con él y enviarnos información bajo demanda. Además, se elimina el buscar hosting y dominio para albergar los servicios propios del sistema domótico abaratando más los costes, además de incrementar la seguridad al utilizar mensajería cifrada.
 
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
-
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
-\begin{itemize}
-\item 
-\end{itemize}
-
-\section{Tablas}
-
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
-
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 

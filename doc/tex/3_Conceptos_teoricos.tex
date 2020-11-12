@@ -4,7 +4,6 @@ Este punto nace ante la necesidad de enmarcar el proyecto dentro de las tecnolog
 
 El término ‘domótica’ es el pilar principal del proyecto y, por ello, comenzaré explicando lo que es y cómo lo enfocaremos:
 
-
 \section{Domótica}
 La domótica podemos definirla como aquel conjunto de elementos capaces de automatizar una vivienda aportando un beneficio.
 En nuestro caso, nuestro sistema domótico deberá controlar luces, persianas y calefacción permitiendo un aumento del confort y la seguridad, además de permitir un consumo eficiente de recursos a la hora de climatizar la vivienda.
@@ -18,7 +17,7 @@ Por ejemplo, para obtener la ubicación de la máquina Raspberry Pi accedemos a 
 Podemos acceder a una URL como esta  \url{http://ip-api.com/json/?fields=country,regionName,city,lat,lon,isp,query} y obtendremos los valores de país, región, ciudad, latitud, longitud, ISP y dirección IP.
 Estos valores, podremos recogerlos con beautifulsoup y procesarlos desde Python como json.
 
-\section{json}
+\section{json}{json\cite{misc:Json}}
 Es el acrónimo en inglés de ‘JavaScript Object Notation’ y sirve para almacenar información de forma estructurada mediante etiquetas <<key>> y etiquetas <<value>> del siguiente modo: \\
 \{\\``country'':``Spain'',\\ ``regionName'':``Madrid'',\\ ``city'':``Getafe'',\\\}\\
 En ella, podemos ver que las etiquetas <<key>> son las que están a la izquierda de los dos puntos y las etiquetas de la derecha son las <<value>>.
