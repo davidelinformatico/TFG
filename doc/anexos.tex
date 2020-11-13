@@ -17,7 +17,7 @@
 % Links
 \PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
 \hypersetup{
-	allcolors = {red}
+	allcolors = {black}
 }
 
 % Ecuaciones
@@ -311,6 +311,7 @@
 \makeatletter
 \usepackage{xcolor}
 \newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\tutors}[1]{\def\@tutors{#1}}
 \newcommand{\course}[1]{\def\@course{#1}}
 \definecolor{cpardoBox}{HTML}{E6E6FF}
 \def\maketitle{
@@ -334,7 +335,12 @@
   \hfill\begin{minipage}{.20\textwidth}
     \includegraphics[width=\textwidth]{escudoInfor}
   \end{minipage}
-  \vfill
+  
+\begin{center}
+\includegraphics[width=0.45\textwidth]{img/logoRBP.pdf}
+\end{center}
+
+
   % Datos de alumno, curso y tutores ------------------
   \begin{center}%
   {%
@@ -342,6 +348,7 @@
     Presentado por \@author{}\\ 
     en Universidad de Burgos --- \@date{}\\
     Tutor: \@tutor{}\\
+    Tutor: \@tutors{}\\
   }%
   \end{center}%
   \null
@@ -349,11 +356,11 @@
   }
 \makeatother
 
-
 % Datos de portada
-\title{título del TFG \\Documentación Técnica}
-\author{nombre alumno}
-\tutor{nombre tutor}
+\title{Sistema Domótico Inteligente \\Documentación Técnica}
+\author{\nombre}
+\tutor{Álvar Arnaiz-González}
+\tutors{Alejandro Merino Gómez}
 \date{\today}
 
 \begin{document}

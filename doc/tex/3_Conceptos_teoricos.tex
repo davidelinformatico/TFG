@@ -1,3 +1,4 @@
+
 \capitulo{3}{Conceptos teóricos}
 
 Este punto nace ante la necesidad de enmarcar el proyecto dentro de las tecnologías y elementos que utilizaremos durante todo el proyecto y que no tienen por qué conocerse.
@@ -9,17 +10,18 @@ La domótica podemos definirla como aquel conjunto de elementos capaces de autom
 En nuestro caso, nuestro sistema domótico deberá controlar luces, persianas y calefacción permitiendo un aumento del confort y la seguridad, además de permitir un consumo eficiente de recursos a la hora de climatizar la vivienda.
 
 \section{GPIO}
-Éstos son unos puertos de entrada y salida conformados en forma de pines que están albergados en la placa, con los que enviaremos órdenes a otros dispositivos externos para que realicen las tareas que les designemos. En nuestro caso, servirán para controlar unos relés para conseguir una acción final.
+Éstos son unos puertos de entrada y salida conformados en forma de pines que están albergados en las placas Raspberry Pi\cite{misc:RbPWeb}. Con ellos enviaremos órdenes a otros dispositivos externos para que realicen las tareas que les designemos. En nuestro caso, servirán para controlar unos relés para conseguir una acción final.
 
 \section{API}
 Es el acrónimo de ‘Application Programming Interfaces’ que, traducido al castellano significa ‘Interfaz de Programación de Aplicaciones’. Estas interfaces nos sirven información que podremos utilizar en un desarrollo.
 Por ejemplo, para obtener la ubicación de la máquina Raspberry Pi accedemos a una API pública que nos devolverá información que podremos procesar a nuestro gusto.
 Podemos acceder a una URL como esta  \url{http://ip-api.com/json/?fields=country,regionName,city,lat,lon,isp,query} y obtendremos los valores de país, región, ciudad, latitud, longitud, ISP y dirección IP.
-Estos valores, podremos recogerlos con beautifulsoup y procesarlos desde Python como json.
+Estos valores, podremos recogerlos con beautifulsoup\footnote{Beautifulsoup es una librería de Python para hacer web scraping} y procesarlos desde Python como json.
 
-\section{json}{json\cite{misc:Json}}
-Es el acrónimo en inglés de ‘JavaScript Object Notation’ y sirve para almacenar información de forma estructurada mediante etiquetas <<key>> y etiquetas <<value>> del siguiente modo: \\
+\section{Json}{json\cite{misc:Json}}
+Es el acrónimo en inglés de ‘JavaScript Object Notation’ y sirve para almacenar información de forma estructurada mediante etiquetas <<key>> y etiquetas <<value>> del siguiente modo: : \\
 \{\\``country'':``Spain'',\\ ``regionName'':``Madrid'',\\ ``city'':``Getafe'',\\\}\\
+
 En ella, podemos ver que las etiquetas <<key>> son las que están a la izquierda de los dos puntos y las etiquetas de la derecha son las <<value>>.
 
 \section{RETB}
@@ -28,11 +30,11 @@ Esta norma acaba de ser actualizada y podemos disponer de la información en pá
 Del documento ICT-BT-21\cite{manual:ICT-BT-21} podemos extraer información para realizar las instalaciones eléctricas de nuestro sistema domótico como el número máximo de cables a introducir por un tubo eléctrico.
 
 \section{Normativa de ICT}
-Como figura en el BOE 143, de 16 de junio de 2011: “El Reglamento regulador de las infraestructuras comunes de telecomunicaciones para el acceso a los servicios de telecomunicación en el interior de las edificaciones, aprobado por el Real Decreto 346/2011, de 11 de marzo.
+Como figura en el \textit{BOE 143, de 16 de junio de 2011, El Reglamento regulador de las infraestructuras comunes de telecomunicaciones para el acceso a los servicios de telecomunicación en el interior de las edificaciones, aprobado por el Real Decreto 346/2011, de 11 de marzo}:
 Debemos regirnos por esta normativa a la hora de hacer cualquier instalación de comunicaciones nueva dentro de domicilios.
 Podemos informarnos y ampliar información en la publicación en la sección de ICT en el BOE\cite{manual:ICT}.
 
-Por otro lado, disponemos de guías para instaladores con dibujos y tablas que facilitan la comprensión, como puede ser la documentación que publica Televés\cite{manual:ICT-Televés}.
+Por otro lado, disponemos de guías para instaladores con dibujos y tablas que facilitan la comprensión, como puede ser la documentación que publica Televés\cite{manual:ICT-Televes}.
 
 De este punto, obtendremos la norma para introducir cableado ICT\cite{manual:ICT} conforme a norma.
 
@@ -51,17 +53,17 @@ Estas tecnologías inalámbricas se rigen por la norma \underline{IEEE 802.11}\c
 En la web oficial del organismo podremos comprobar qué estándares dentro del 802.11 están vigentes y cuáles no.
 
 \section{UTP}
-Es un tipo de cableado de datos que se compone de 4 pares de cables sin apantallar que están albergados dentro de una camisa de PVC, ver imagen \ref{Img:Bobina UTP}
+Es un tipo de cableado de datos que se compone de 4 pares de cables sin apantallar que están albergados dentro de una camisa de PVC, ver imagen~\ref{Img:Bobina UTP}
 
 \begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{img/bobina_UTP.pdf}
-    \caption{Bobina UTP con muestra del mismo con corte de camisa exterior. Imagen de \url{https://solarmat.es}\cite{wiki:Creative}. \url{https://cr.eativecommons.org/licenses/by-sa/3.0/deed.es_ES} } \label{Img:Bobina UTP}
+    \caption[Bobina UTP]{Bobina UTP con muestra del mismo con corte de camisa exterior. Imagen de \url{https://solarmat.es}\cite{wiki:Creative}. \url{https://cr.eativecommons.org/licenses/by-sa/3.0/deed.es_ES} } \label{Img:Bobina UTP}
 \end{figure}
 
 Existen diferentes tipos de cables de datos: UTP, STP, FTP:
 \begin{itemize}
-\item Los cables \textbf{UTP} (del ingles <<Unshielded Twisted Pair>> o <<Par trenzado no apantallado>>) no disponen de protección ante interferencias electromagnéticas. Ver imagen \ref{Img:Muestra UTP}.
+\item Los cables \textbf{UTP} (del ingles <<Unshielded Twisted Pair>> o <<Par trenzado no apantallado>>) no disponen de protección ante interferencias electromagnéticas. Ver imagen ~\ref{Img:Muestra UTP}.
 
 \begin{figure}
     \centering
@@ -69,19 +71,19 @@ Existen diferentes tipos de cables de datos: UTP, STP, FTP:
     \caption{Diagrama de muestra de cable UTP} \label{Img:Muestra UTP}
 \end{figure}
 
-\item Los cables \textbf{FTP}(del inglés <<Foiled Twisted Pair>> o <<Par trenzado con pantalla global>>) disponen de una pantalla global contra interferencias electromagnéticas dentro de la camisa de PVC que recoge los 4 pares destinados a transmisión de datos. Ver imagen \ref{Img:Muestra FTP}.
+\item Los cables \textbf{FTP}(del inglés <<Foiled Twisted Pair>> o <<Par trenzado con pantalla global>>) disponen de una pantalla global contra interferencias electromagnéticas dentro de la camisa de PVC que recoge los 4 pares destinados a transmisión de datos. Ver imagen ~\ref{Img:Muestra FTP}.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{img/FTP.pdf}
-    \caption{Diagrama de muestra de cable FTP} \label{Img:Muestra FTP}
+    \caption[Diagrama de muestra de cable FTP]{Diagrama de muestra de cable FTP. Podemos observar la camisa exterior del cable} \label{Img:Muestra FTP}
 \end{figure}
 
-\item Los cables \textbf{STP}(del inglés <<Shielded Twisted Pair>> o <<Par trenzado apantallado>>) disponen de una pantalla contra interferencias electromagnéticas por cada par de cables pero, además, también cuentan con una malla metálica exterior. Ver imagen \ref{Img:Muestra STP}.
+\item Los cables \textbf{STP}(del inglés <<Shielded Twisted Pair>> o <<Par trenzado apantallado>>) disponen de una pantalla contra interferencias electromagnéticas por cada par de cables pero, además, también cuentan con una malla metálica exterior. Ver imagen ~\ref{Img:Muestra STP}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{img/STP.pdf}
-    \caption{Diagrama de muestra de cable STP} \label{Img:Muestra STP}
+    \caption[Diagrama de muestra de cable STP]{Diagrama de muestra de cable STP. Vemos camisa exterior y por pares} \label{Img:Muestra STP}
 \end{figure}
 
 En nuestro caso utilizaremos UTP puesto que no necesitamos un apantallamiento ya que no transmitiremos datos y tampoco tendremos un alto grado de interferencias.

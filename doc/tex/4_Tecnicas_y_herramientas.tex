@@ -1,8 +1,6 @@
 \capitulo{4}{Técnicas, herramientas y componentes}
 
-Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
-No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
-
+Durante el proyecto se han utilizado diferentes tecnologías, herramientas y componentes que son imprescindibles y necesitan conocerse antes de continuar con el proyecto. Para optar por éstos y no por otros, se ha realizado una valoración que queda plasmada en este apartado a modo de justificación.
 
 \section{Entorno Software}
 \subsection{Raspbian (Distribución Linux)}
@@ -33,7 +31,7 @@ En nuestro caso, podremos utilizarlo desde Python\cite{misc:Python} sirviéndono
 \begin{itemize}
     \item \textbf{API situación geográfica}
 \end{itemize}
-En primer lugar estuve haciendo pruebas con la API de \url{www.ifconfig.me/ip} que devuelve la provincia en la que se encuentra tu IP pública pero quería una información más precisa ya que no tendremos la misma temperatura en El Escorial que en Aranjuez. Por ello, opté por \url{http://ip-api.com} que si obtiene correctamente la ciudad desde la que nos conectamos.
+En primer lugar estuve haciendo pruebas con la API de \url{www.ifconfig.me/ip} que devuelve la provincia en la que se encuentra tu IP pública pero quería una información más precisa ya que no tendremos la misma temperatura en El Escorial que en Aranjuez. Por ello, opté por \url{http://ip-api.com} que sí obtiene correctamente la ciudad desde la que nos conectamos.
 
 \begin{itemize}
     \item \textbf{API Tiempo}
@@ -101,12 +99,12 @@ En este proyecto se utilizará para publicar las actualizaciones del proyecto.
 
 
 
-\subsection{Dibujos, Diagramas y planos}
+\subsection{Dibujos, diagramas y planos}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://fritzing.org/}{Fritzing}, \href{https://support.microsoft.com/es-es/windows/obtener-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9}{Paint, Paint3D}, \href{https://www.adobe.com/es/products/photoshop.html}{Photoshop}, y \href{www.draw.io}{Draw.io}.
     \item \textbf{Herramienta elegida:} \href{https://fritzing.org/}{Fritzing} y \href{www.draw.io}{Draw.io}.
 \end{itemize}
-Realmente no pude decidirme por entre Fritzing y draw.io puesto que cada uno está orientado a un tipo de producto:
+Realmente no pude decidirme por entre Fritzing y draw.io puesto que cada uno está orientado a un tipo de tarea:
 
 Fritzing es un software con licencia Open Source\cite{misc:OpenSource} que nos permite realizar material electrónico fácilmente, aunque desde hace algún tiempo debemos hacer un pequeño desembolso por la descarga. En mi caso con el fin de entregar diagramas de calidad los haré con este software.
 
@@ -117,7 +115,7 @@ Por otro lado, Draw.io está pensado para hacer planos y dibujos que no están o
     \item \textbf{Herramientas valoradas:} \href{https://www.latex-project.org/}{\LaTeX}, \href{https://www.microsoft.com/es-es/microsoft-365/word}{MS Word}, \href{https://www.sublimetext.com/}{Sublime}, \href{https://www.overleaf.com/}{Overleaf}.
     \item \textbf{Herramienta elegida:} \href{https://www.latex-project.org/}{\LaTeX} y \href{https://www.overleaf.com/}{Overleaf}.
 \end{itemize}
-\LaTeX es un editor de textos open source\cite{misc:OpenSource} con alta calidad tipográfica que trabaja con etiquetas permitiéndonos separar nuestro contenido del estilo del mismo. Para escribir el proyecto en \LaTeX utilizaré Overleaf por su capacidad de compilado instantáneo de forma que se puede comprobar como modificas la redacción en tiempo real.
+\LaTeX{} es un editor de textos open source\cite{misc:OpenSource} con alta calidad tipográfica que trabaja con etiquetas permitiéndonos separar nuestro contenido del estilo del mismo. Para escribir el proyecto en \LaTeX utilizaré Overleaf por su capacidad de compilado instantáneo de forma que se puede comprobar como modificas la redacción en tiempo real.
 
 \section{Entorno físico}
 \subsection{RaspberryPi}
@@ -125,27 +123,27 @@ En nuestro proyecto tendremos el control de la instalación domótica desde una 
 Para dar un enfoque muy general, podemos decir que las placas RaspberryPi\cite{misc:RbPWeb} son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
 
 Se diseñaron en su origen por la RaspBerry Pi Foundation\cite{misc:RbPWeb} en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
-Estas placas pueden ejecutar con agilidad distribuciones Linux\cite{misc:Linux} y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”, ver imagen \ref{Img:Especificaciones RBP2B}
+Estas placas pueden ejecutar con agilidad distribuciones Linux\cite{misc:Linux} y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”, ver imagen ~\ref{Img:Especificaciones RBP2B}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/RBP2B.pdf}
-    \caption{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por mí\cite{wiki:Creative}. }\label{Img:Especificaciones RBP2B}
+    \caption[Especificaciones de Raspberry Pi 2B]{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por mí\cite{wiki:Creative}. }\label{Img:Especificaciones RBP2B}
 \end{figure}
 
 \subsection{Relé}
-Es un dispositivo electromagnético que desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía eléctrica, o no, a nuestros dispositivos. Los relés se activan mediante impulsos eléctricos que abren o cierran el circuito según se predisponga. Podemos verlo en la imagen \ref{Img:Rele1}.
+Es un dispositivo electromagnético que desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía eléctrica, o no, a nuestros dispositivos. Los relés se activan mediante impulsos eléctricos que abren o cierran el circuito según se predisponga. Podemos verlo en la imagen ~\ref{Img:Rele1}.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/Rele_1.jpg}
-    \caption{Estructura interna de un relé. Imagen de \url{https://https://commons.wikimedia.org/}\cite{manual:GNU}}. \label{Img:Rele1}
+    \caption[Estructura interna de un relé]{Estructura interna de un relé. Imagen de \url{https://https://commons.wikimedia.org/}\cite{manual:GNU}}. \label{Img:Rele1}
 \end{figure}
 
 \subsection{Placa de Pruebas o ProtoBoard}
 Es un tablero electrónico para realizar pruebas. Protoboard es la agrupación de los términos ingleses “prototype board”.
 Esta protoboard la he instalado para poder hacer fácilmente el interconexionado entre los cables que llegan de los relés y los que van a la Raspberry Pi, evitando posibles tirones y movimiento de cables a la hora de hacer alguna manipulación.
 
-Éstas, disponen de tres zonas diferenciadas(Ver imagen \ref{Img:Protoboard}):
+Éstas, disponen de tres zonas diferenciadas(Ver imagen ~\ref{Img:Protoboard}):
 
 \begin{itemize}
     \item \textbf{Canal Central}: Está situada en el medio de la placa y es donde se colocan los circuitos.
@@ -169,6 +167,6 @@ Es un dispositivo que nos permite interconectar diferentes redes de datos. En mi
     \item \textbf{Herramientas valoradas:} \href{https://telegram.org/}{Telegram}, \href{https://palletsprojects.com/p/flask/}{Flask}.
     \item \textbf{Herramienta elegida:} \href{https://telegram.org/}{Telegram}.
 \end{itemize}
-Para finalizar el proyecto con una interfaz de interacción se valoraron las opciones de página web ligera o una aplicación de mensajería.
+Para finalizar el proyecto con una interfaz de interacción se valoraron las opciones de desaroolar un página web ligera o una aplicación de mensajería.
 En primer lugar se propuso hacer una aplicación en Flask pero pareció más novedoso y potente hacer un Bot de Telegram de forma que podamos interactuar con él y enviarnos información bajo demanda. Además, se elimina el buscar hosting y dominio para albergar los servicios propios del sistema domótico abaratando más los costes, además de incrementar la seguridad al utilizar mensajería cifrada.
 

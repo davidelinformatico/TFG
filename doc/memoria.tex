@@ -318,6 +318,7 @@
 \makeatletter
 \usepackage{xcolor}
 \newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\tutors}[1]{\def\@tutors{#1}}
 \newcommand{\course}[1]{\def\@course{#1}}
 \definecolor{cpardoBox}{HTML}{E6E6FF}
 \def\maketitle{
@@ -355,6 +356,7 @@
     Presentado por \@author{}\\ 
     en Universidad de Burgos --- \@date{}\\
     Tutor: \@tutor{}\\
+    Tutor: \@tutors{}\\
   }%
   
   \end{center}%
@@ -369,6 +371,7 @@
 \title{Sistema Domótico Inteligente}
 \author{\nombre}
 \tutor{Álvar Arnaiz-González}
+\tutors{Alejandro Merino Gómez}
 \date{\today}
 
 \begin{document}
@@ -435,12 +438,9 @@ D. Merino Gómez, Alejandro
 \begin{abstract}
 El proyecto pretende integrar diversas tecnologías para confeccionar una solución domótica generalista y de bajo costo. Es decir, se pretende publicar un producto final que pueda ser utilizado por quien lo desee para confeccionar su propio sistema domótico básico dentro de su domicilio y, para ello, se ha desarrollado un código completamente comentado así como vídeos explicativos para su correcta comprensión.
 
-El sistema utiliza una placa Raspberry Pi con un Sistema Operativo propio con licencia GNU, para obtener información de diferentes APIS y páginas web permitiendo al sistema tomar decisiones conforme a estos datos y controlar diferentes dispositivos eléctricos mediante la activación de relés. Para añadir usabilidad y facilitar la capacidad de transmisión de información del sistema se desarrollará un Bot en Telegram con el que poder interactuar.
+El sistema utiliza una placa Raspberry Pi con un Sistema Operativo propio con licencia GNU, para obtener información de diferentes APIS y páginas web, como pueden ser la hora a la que amanece, anochece, la temperatura por horas, velocidad del viento, etc; permitiendo al sistema tomar decisiones conforme a estos datos y controlar diferentes dispositivos eléctricos mediante la activación de relés. Para añadir usabilidad y facilitar la capacidad de transmisión de información del sistema se desarrollará un Bot en Telegram con el que poder interactuar.
 
 En el proyecto se incluye la documentación que se debe consultar antes de realizar cualquier tipo de instalación de telecomunicaciones o eléctrica en el ámbito doméstico pese a que, finalmente, el proyecto se basa en el REBT\footnote{Reglamento Electrotécnico de Baja Tensión}. Esta documentación es la necesaria para implementar este proyecto de forma profesional por una empresa. 
-
-Cabe destacar que se ha desarrollado en diferentes fases; desde las primeras tomas de contacto y búsqueda de ideas en otros proyectos y soluciones, pasando por todo el estudio y compra de materiales así como la instalación física y puesta en producción junto a un sistema desarrollado mediante una API de Telegram para que podamos interactuar con nuetro sistema domótico en todo momento.
-
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
@@ -455,14 +455,12 @@ Android, Raspberry Pi, GPIO, REBT, ICT, Autónomo, Sistema Domótico, Linux, Bot
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-The project aims to integrate several technologies to make a generalist and low-cost home automation solution. That is to say, it is intended to publish a final product that can be used by whoever wishes to make their own basic home automation system within their home and, for this, a fully commented code has been developed as well as explanatory videos for their correct understanding.
 
-The system uses a Raspberry Pi board with its own Operating System with GNU license, to obtain information from different APIs and web pages, allowing the system to make decisions based on this data and control different electrical devices by activating relays. To add usability and facilitate the information transmission capacity of the system, a Telegram Bot will be developed with which to interact.
+The project aims to integrate various technologies to make a generalist and low-cost home automation solution. That is to say, it is intended to publish a final product that can be used by whoever wishes to make their own basic home automation system within their home and, for this, a fully commented code has been developed as well as explanatory videos for their correct understanding.
 
-The project includes the documentation that must be consulted before carrying out any type of telecommunications or electrical installation in the domestic sphere, despite the fact that, finally, the project is based on the REBT\footnote{Low Voltage Electrotechnical Regulation}. This documentation is necessary to implement this project professionally by a company.
+The system uses a Raspberry Pi board with its own operating system with a GNU license, to obtain information from different APIs and web pages, such as the time of sunrise, sunset, hourly temperature, wind speed, etc; allowing the system to make decisions based on this data and control different electrical devices by activating relays. To add usability and facilitate the information transmission capacity of the system, a Telegram Bot will be developed with which to interact.
 
-It should be noted that it has been developed in different phases; From the first contact and search for ideas in other projects and solutions, going through the study and purchase of materials as well as the physical installation and putting into production together with a system developed using a Telegram API so that we can interact with our home automation system at all times.
-\cite{wiki:REBT}
+The project includes the documentation that must be consulted before carrying out any type of telecommunications or electrical installation in the domestic sphere, despite the fact that, finally, the project is based on the REBT \footnote {Low Voltage Electrotechnical Regulation}. This documentation is necessary to implement this project professionally by a company.
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptors}
