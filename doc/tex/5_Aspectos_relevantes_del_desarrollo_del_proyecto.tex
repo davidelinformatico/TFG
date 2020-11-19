@@ -1,19 +1,26 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Borrar
+\begin{comment}
 Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto, comentados por los autores del mismo.
 Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
 Se busca que no sea una mera operación de copiar y pegar diagramas y extractos del código fuente, sino que realmente se justifiquen los caminos de solución que se han tomado, especialmente aquellos que no sean triviales.
 Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
 Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
 
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMIENZO
 
-REUBICAR (SOBRE EL ROUTER)
-Al principio, estuve valorando la opción de ‘tirar’ un cable de datos desde la primera caja de derivación después del Cuadro General de Mando y Protección o Cuadro eléctrico, hasta el RTR (Registro Terminación de Red) que es donde tengo la línea de datos más cercana, pero en único tubo que comunica es de naturaleza eléctrica y no está bien mezclar tipos de instalaciones.
+En este punto se recogerán los aspectos más relevantes del desarrollo comentando en cada caso las decisiones tomadas para llegar a nuestros objetivos haciendo un resumen de la experiencia práctica del proyecto, de cómo se solucionaron los problemas encontrados en cada caso y la relevancia que tuvieron en el alcance total del proyecto.
 
-Adjunto un pequeño dibujo informativo en la imagen \ref{Img:DiagramaBasico} para que se pueda entender la instalación:
+\section{Motivación del proyecto}
+El proyecto se me ocurrió hace años cuando me emancipé a una vivienda con las persianas motorizadas que me parecieron que podrían hacer una función mayor si dispusieran de cierto equipamiento, y cogió fuerza con la llegada de la pandemia del COVID19 este año al salir en conversaciones que había quien no podía acercarse a sus segundas viviendas y estaban preocupados por una posible ocupación. Tras darle vueltas a esta situación surgió la idea de crear un sistema domótico para poder ayudar a quien lo precise con este proyecto.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/Diagrama Básico.pdf}
-    \caption{Dibujo informativo de como será la instalación física.} \label{Img:DiagramaBasico}
-\end{figure}
+\section{Formación necesaria}
+El proyecto requirió muchas horas de búsqueda de ideas por la web ya que no existe información de como realizar una instalación de estas características sino que existen muchos pequeños proyectos amateur que se centran en cubrir una pequeña necesidad; siendo proyectos que no disponen de un respaldo documental detrás, abundan las soluciones de profesionales de otros campos que quieren probar a hacer sus propias soluciones de carácter amateur.
+
+Por ello, para poder desarrollar el proyecto me vi en la necesidad de visitar numerosas páginas web de distinta índole para hacerme a la idea de cómo podría enfocar el proyecto. Aunque, el mayor hándicap a la hora de realizar este proyecto es la desinformación, por lo que me apoyé sobre todo en el REBT y en mis conocimientos básicos de motores fruto de formación pasada.
+
+La información de cómo funcionan los GPIO la obtuve tras realizar el curso de: “Control de GPIO con Python en Raspberry Pi” de Programo Ergo Sum\cite{inbook:CursoAPES}.
+Aunque, en parte la información de la web de \url{bujarra.com}\cite{misc:BujarraGPIO} está desactualizada, esta publicación me ayudó a comprender cuál era el funcionamiento real de un relé y como conectarlo a los GPIO.
+
+Otro punto importante a la hora de enfocar correctamente el proyecto fue el estudio del REBT\cite{manual:REBT}, de su apartado BT-21\cite{manual:ICT-BT-21}, del reglamento de ICT\cite{manual:ICT} y los estándares de comunicaciones como son el IEEE802.11\cite{manual:IEEE802.11} y el TIA568\cite{manual:568.1}\cite{manual:568.2}. Todos ellos necesarios para realizar un proyecto de nivel profesional y documentalmente respaldado.
