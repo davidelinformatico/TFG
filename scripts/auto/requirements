@@ -1,0 +1,10 @@
+urllib
+json
+datetime
+pycurl
+requests
+os 
+datetime
+pandas
+matplotlib.pyplot
+bs4
