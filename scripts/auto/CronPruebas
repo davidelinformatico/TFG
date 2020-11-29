@@ -56,4 +56,4 @@
 #Lanzamos el script de toma de horas
 05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && sudo sh LanzaTodoElProceso.sh
 
-#Este CRON ha sido generado en el instante Sun Nov 29 20:19:38 2020
+#Este CRON ha sido generado en el instante Sun Nov 29 20:23:45 2020

@@ -4,7 +4,7 @@ gpio -g mode 21 in
 gpio -g mode 7 in
 gpio -g mode 8 in
 
-echo "Apagamos la luz de la cocina"
+echo "Apagamos la luz de las Máquinas"
 gpio -g mode 16 in
 sleep 15
 
