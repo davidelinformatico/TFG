@@ -39,11 +39,16 @@
 32 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/Subir.sh
 38 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
+#Encendemos las luces
+0 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Bajamos TODAS
 5 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 6 18 * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh
 12 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+
+#Apagamos las luces
+12 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Todos los días se  reinicia la máquina par que el demonio siempre esté correcto por la mañana
 05 04 * * * sudo reboot
@@ -51,4 +56,4 @@
 #Lanzamos el script de toma de horas
 05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && sudo sh LanzaTodoElProceso.sh
 
-#Este CRON ha sido generado en el instante Sun Nov 29 19:46:13 2020
+#Este CRON ha sido generado en el instante Sun Nov 29 20:19:38 2020

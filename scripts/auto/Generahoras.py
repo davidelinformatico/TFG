@@ -60,9 +60,13 @@ media_hora =str(hoy)+" "+str('00:30:00')
 from datetime import datetime # Esto es necesario aquí
 datetime_Bajada_Buena = datetime.strptime(enlaza, "%Y-%m-%d %H:%M:%S")
 import datetime # Esto es necesario aquí
+real_On = datetime_Bajada_Buena + datetime.timedelta(minutes=10)
 real_down_1 = datetime_Bajada_Buena + datetime.timedelta(minutes=15)
 real_down_2 = datetime_Bajada_Buena + datetime.timedelta(minutes=16)
 real_down_3 = datetime_Bajada_Buena + datetime.timedelta(minutes=22)
+
+hora_enciendeLuz = real_On.hour
+minuto_enciendeLuz = real_On.minute
 hora_bajada_1 = real_down_1.hour
 minuto_bajada_1 = real_down_1.minute
 hora_bajada_2 = real_down_2.hour
@@ -104,11 +108,16 @@ file.write(str("31 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 file.write(str("32 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/Subir.sh")+ os.linesep)
 file.write(str("38 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh")+ os.linesep)
 file.write(""+ os.linesep)
+file.write(str("#Encendemos las luces")+ os.linesep)
+file.write(str(minuto_enciendeLuz)+" "+str(hora_enciendeLuz)+" * * * sh /home/pi/source/TFG/scripts/LucesOn.sh"+ os.linesep)
 file.write(""+ os.linesep)
 file.write(str("#Bajamos TODAS")+ os.linesep)
 file.write(str(minuto_bajada_1)+" "+str(hora_bajada_1)+" * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh"+ os.linesep)
 file.write(str(minuto_bajada_2)+" "+str(hora_bajada_2)+" * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh"+ os.linesep)
 file.write(str(minuto_bajada_3)+" "+str(hora_bajada_3)+" * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh"+ os.linesep)
+file.write(""+ os.linesep)
+file.write(str("#Apagamos las luces")+ os.linesep)
+file.write(str(minuto_bajada_3)+" "+str(hora_bajada_3)+" * * * sh /home/pi/source/TFG/scripts/LucesOn.sh"+ os.linesep)
 file.write(""+ os.linesep)
 file.write(str("#Todos los días se  reinicia la máquina par que el demonio siempre esté correcto por la mañana")+ os.linesep)
 file.write(str("05 04 * * * sudo reboot")+ os.linesep)
