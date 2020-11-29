@@ -92,12 +92,11 @@ minuto_subida_2 = real_up_2.minute
 hora_subida_3 = real_up_3.hour
 minuto_subida_3 = real_up_3.minute
 
-
 # Generamos el CRON nuevo en un archivo intermedio para poder volcarlo posteriormente al archivo en producción
 ## Llamamos a archivos de bash porque los de python a veces generan errores
 file = open ('CronPruebas','w')
-file.write(cabecera+ os.linesep) 
-file.write(" "+ os.linesep)
+file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
+file.write(str("#Este CRON ha sido generado en el instante ")+str(ahora)+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
 file.write("#Código de control Automático de Persianas "+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
@@ -128,7 +127,7 @@ file.write(""+ os.linesep)
 file.write(str("#Lanzamos el script de toma de horas")+ os.linesep)
 file.write(str("05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && sudo sh LanzaTodoElProceso.sh")+ os.linesep)
 file.write(""+ os.linesep)
-file.write(str("#Este CRON ha sido generado en el instante ")+str(ahora)+ os.linesep)
+
 file.close()
 # Log externo
 file = open ('log.cron','w')

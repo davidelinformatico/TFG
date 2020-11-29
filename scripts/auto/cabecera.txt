@@ -11,14 +11,6 @@
 ##   @hourly    Run once an hour at the beginning of the hour 0 * * * *
 ##   @reboot    Run at startup  @reboot
 ##   
-##   *    *    *    *    *  command to be executed
-##   ┬    ┬    ┬    ┬    ┬
-##   │    │    │    │    └───── day of week (0 - 7) (0 or 7 are Sunday, or use names)
-##   │    │    │    └────────── month (1 - 12)
-##   │    │    └─────────────── day of month (1 - 31)
-##   │    └──────────────────── hour (0 - 23)
-##   └───────────────────────── min (0 - 59)
-# 
 # For more information see the manual pages of crontab(5) and cron(8)
 # 
 #minute (0-59),
