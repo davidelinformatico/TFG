@@ -1,12 +1,12 @@
 #--------------------------------------------------------------------------------------------------
-#Este CRON ha sido generado en el instante Sun Nov 29 22:36:32 2020
+#Este CRON ha sido generado en el instante Mon Nov 30 00:05:07 2020
 #--------------------------------------------------------------------------------------------------
 #Código de control Automático de Persianas 
 #--------------------------------------------------------------------------------------------------
 #Subimos las persianas Modo mañana de Lunes a Viernes
-17 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
-18 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/Subir.sh
-24 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+18 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+19 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/Subir.sh
+25 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Subimos las persianas Modo mañana de Sabado y Domingo
 31 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
@@ -14,15 +14,15 @@
 38 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Encendemos las luces
-0 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
+59 17 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Bajamos TODAS
-5 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
-6 18 * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh
-12 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+4 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+5 18 * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh
+11 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Apagamos las luces
-12 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
+11 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Todos los días se  reinicia la máquina par que el demonio siempre esté correcto por la mañana
 05 04 * * * sudo reboot
