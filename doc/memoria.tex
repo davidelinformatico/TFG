@@ -8,6 +8,44 @@
 \usepackage{lmodern} % Scalable font
 \usepackage{microtype}
 \usepackage{placeins}
+\usepackage{csquotes}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
@@ -370,7 +408,7 @@
 % Datos de portada
 \title{Sistema Domótico Inteligente}
 \author{\nombre}
-\tutor{Álvar Arnaiz-González}
+\tutor{Álvar Arnaiz González}
 \tutors{Alejandro Merino Gómez}
 \date{\today}
 
@@ -388,7 +426,7 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D.Álvar Arnaiz-González, profesor del departamento de área de Lenguajes y Sistemas Informáticos.
+\noindent D.Álvar Arnaiz-González, profesor del departamento de Ingeniería Informática del área de Lenguajes y Sistemas Informáticos.
 
 \noindent Expone:
 
@@ -436,9 +474,9 @@ D. Merino Gómez, Alejandro
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-El proyecto pretende integrar diversas tecnologías para confeccionar una solución domótica generalista y de bajo costo. Es decir, se pretende publicar un producto final que pueda ser utilizado por quien lo desee para confeccionar su propio sistema domótico básico dentro de su domicilio y, para ello, se ha desarrollado un código completamente comentado así como vídeos explicativos para su correcta comprensión.
+El proyecto pretende integrar diversas tecnologías para confeccionar una solución domótica generalista y de bajo costo. Es decir, se pretende publicar un producto final que pueda ser utilizado por quien lo desee para confeccionar su propio sistema domótico básico dentro de su domicilio y, para ello, se ha desarrollado un software así como vídeos explicativos para su correcta comprensión.
 
-El sistema utiliza una placa Raspberry Pi con un Sistema Operativo propio con licencia GNU, para obtener información de diferentes APIS y páginas web, como pueden ser la hora a la que amanece, anochece, la temperatura por horas, velocidad del viento, etc; permitiendo al sistema tomar decisiones conforme a estos datos y controlar diferentes dispositivos eléctricos mediante la activación de relés. Para añadir usabilidad y facilitar la capacidad de transmisión de información del sistema se desarrollará un Bot en Telegram con el que poder interactuar.
+El sistema utiliza una placa Raspberry Pi con un Sistema Operativo propio con licencia GNU, para obtener información de diferentes APIS y páginas web, como pueden ser la hora a la que amanece, anochece, la temperatura por horas, velocidad del viento, etc; permitiendo al sistema tomar decisiones conforme a estos datos y controlar diferentes dispositivos eléctricos mediante la activación de relés. Para añadir usabilidad y facilitar la capacidad de transmisión de información del sistema, se desarrollará un Bot en Telegram con el que poder interactuar.
 
 En el proyecto se incluye la documentación que se debe consultar antes de realizar cualquier tipo de instalación de telecomunicaciones o eléctrica en el ámbito doméstico pese a que, finalmente, el proyecto se basa en el REBT\footnote{Reglamento Electrotécnico de Baja Tensión}. Esta documentación es la necesaria para implementar este proyecto de forma profesional por una empresa. 
 \end{abstract}

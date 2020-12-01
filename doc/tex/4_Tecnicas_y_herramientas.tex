@@ -4,7 +4,7 @@ Durante el proyecto se han utilizado diferentes tecnologías, herramientas y com
 
 \section{Entorno Software}
 \subsection{Raspbian (Distribución Linux)}
-Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPc. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente. Una de estas distribuciones optimizadas y orientadas a estas placas es Raspbian\cite{misc:RbPWeb} o Raspberry Pi OS, que incluye software orientado a la educación, programación y otras de uso general. Algunas de estas aplicaciones son Python\cite{misc:Python} (Lenguaje de programación que pretende que se desarrolle cógigo de una forma sencilla, rápida, poco costosa y legible), Scratch\cite{misc:Scratch}(Simulador amigable para aprender programación.) o Java\cite{misc:Java}(Lenguaje de programación multiplataforma que utiliza una máquina virtual transparente para el usuario para ejecutarse), entre otros.
+Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPC. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente. Una de estas distribuciones optimizadas y orientadas a estas placas es Raspbian~\cite{misc:RbPWeb} o Raspberry Pi OS, que incluye software orientado a la educación, programación y otras de uso general. Algunas de estas aplicaciones son Python~\cite{misc:Python} (Lenguaje de programación que pretende que se desarrolle cógigo de una forma sencilla, rápida, poco costosa y legible), Scratch~\cite{misc:Scratch}(Simulador amigable para aprender programación.) o Java\cite{misc:Java}(Lenguaje de programación multiplataforma que utiliza una máquina virtual transparente para el usuario para ejecutarse), entre otros.
 
 \subsection{Entorno de desarrollo Bash}
 \begin{itemize}
@@ -12,7 +12,7 @@ Como he comentado anteriormente, pretendo correr una distribución Linux en nues
     \item \textbf{Herramienta elegida:} \href{https://www.nano-editor.org/}{Nano}.
 \end{itemize}
 
-Nuestro Sistema Operativo Raspbian\cite{misc:RbPWeb}, al ser una distribución de Linux\cite{misc:Linux}, dispone de líneas de comandos, procesadores de texto plano y editores de texto integrados. Éste es un editor de textos básico que facilita la interacción con él pese a que Vi o Vim son mucho más potentes.
+Nuestro Sistema Operativo Raspbian\cite{misc:RbPWeb}, al ser una distribución de Linux~\cite{misc:Linux}, dispone de líneas de comandos, procesadores de texto plano y editores de texto integrados. Éste es un editor de textos básico que facilita la interacción con él pese a que Vi o Vim son mucho más potentes.
 
 \subsection{Entorno de desarrollo Python}
 \begin{itemize}
@@ -20,12 +20,12 @@ Nuestro Sistema Operativo Raspbian\cite{misc:RbPWeb}, al ser una distribución d
     \item \textbf{Herramienta elegida:} \href{https://jupyter.org/}{Jupyter Notebook}.
 \end{itemize}
 
-Jupyter Notebook es un entorno de desarrollo interactivo y open source, basado en cuadernos que estructuran el código pudiendo ejecutarlo todo o parte. Dispone de una interfaz limpia, ligera e interactiva que nos permite programar en 40 lenguajes, incluyendo Python\cite{misc:Python}.
+Jupyter Notebook es un entorno de desarrollo interactivo y open source, basado en cuadernos que estructuran el código pudiendo ejecutarlo todo o parte. Dispone de una interfaz limpia, ligera e interactiva que nos permite programar en 40 lenguajes, incluyendo Python~\cite{misc:Python}.
 
 \section{Control de datos}
 \subsection{Web Scraping}
 Es una técnica utilizada para extraer información de una página web utilizando las etiquetas de que dispone el propio lenguaje interpretado de HTML (del inglés <<HyperText Markup Language>> o lenguaje de marcas de hipertexto) para organizar elementos dentro de una página web, de forma que se introduce dentro de una etiqueta y subetiquetas hasta llegar al contenido del elemento requerido. Podemos entenderlo como si fueran contenedores lógicos configurables.
-En nuestro caso, podremos utilizarlo desde Python\cite{misc:Python} sirviéndonos de la librería <<beautifulsoup>> siempre que necesitemos obtener información de una página web.
+En nuestro caso, podremos utilizarlo desde Python~\cite{misc:Python} sirviéndonos de la librería <<beautifulsoup>> siempre que necesitemos obtener información de una página web.
 
 \subsection{APIS}
 \begin{itemize}
@@ -39,7 +39,7 @@ En primer lugar estuve haciendo pruebas con la API de \url{www.ifconfig.me/ip} q
 Al principio probé la API de \url{www.weatherapi.com} pero me entregaba únicamente la hora de salida y puesta del sol, lo cual es correcto para el control básico de las persianas pero quería llevar el proyecto más allá obteniendo además, una previsión de las temperaturas para el día siguiente pudiendo trabajar con ésta haciendo gráficos y poder decidir si encenderemos la calefacción o no. Y, por ello, opté por probar con la API de \url{www.climacell.co} que además, aseguran que es un 60\% más fiable que otras APIS ya que obtiene información de teléfonos móviles, cámaras y otros servicios online.
 
 \subsection{json}
-La librería json\cite{misc:Json} para Python\cite{misc:Python} y Python v3 nos permite, entre otros, parsear el código json\cite{misc:Json} de archivos mediante la estructura de \textit{key:value}. En nuestro caso, tras obtener información de las APIs trataremos dicha información como json\cite{misc:Json} gracias a su librería para Python\cite{misc:Python}.
+La librería json~\cite{misc:Json} para Python~\cite{misc:Python} y Python v3 nos permite, entre otros, parsear el código json~\cite{misc:Json} de archivos mediante la estructura de \textit{key:value}. En nuestro caso, tras obtener información de las APIs trataremos dicha información como json~\cite{misc:Json} gracias a su librería para Python~\cite{misc:Python}.
 
 \section{Técnicas manuales}
 
@@ -120,23 +120,23 @@ Por otro lado, Draw.io está pensado para hacer planos y dibujos que no están o
 \section{Entorno físico}
 \subsection{RaspberryPi}
 En nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi\cite{misc:RbPWeb}. 
-Para dar un enfoque muy general, podemos decir que las placas RaspberryPi\cite{misc:RbPWeb} son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
+Para dar un enfoque muy general, podemos decir que las placas RaspberryPi~\cite{misc:RbPWeb} son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
 
-Se diseñaron en su origen por la RaspBerry Pi Foundation\cite{misc:RbPWeb} en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
-Estas placas pueden ejecutar con agilidad distribuciones Linux\cite{misc:Linux} y, desde sus distribuciones podemos interactuar con sus famosos “GPIO”, ver imagen ~\ref{Img:Especificaciones RBP2B}
+Se diseñaron en su origen por la RaspBerry Pi Foundation~\cite{misc:RbPWeb} en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
+Estas placas pueden ejecutar con agilidad distribuciones Linux~\cite{misc:Linux} y, desde sus distribuciones podemos interactuar con sus famosos <<GPIO>>, ver imagen ~\ref{Img:Especificaciones RBP2B}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/RBP2B.pdf}
-    \caption[Especificaciones de Raspberry Pi 2B]{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por mí\cite{wiki:Creative}. }\label{Img:Especificaciones RBP2B}
+    \caption[Especificaciones de Raspberry Pi 2B]{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por el autor del TFG~\cite{wiki:Creative}. }\label{Img:Especificaciones RBP2B}
 \end{figure}
 
 \subsection{Relé}
-Es un dispositivo electromagnético que desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía eléctrica, o no, a nuestros dispositivos. Los relés se activan mediante impulsos eléctricos que abren o cierran el circuito según se predisponga. Podemos verlo en la imagen ~\ref{Img:Rele1}.
+Es un dispositivo electromagnético que desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía eléctrica, o no, a nuestros dispositivos. Los relés se activan mediante impulsos eléctricos que abren o cierran el circuito según se predisponga. Podemos verlo en la imagen~\ref{Img:Rele1}.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/Rele_1.jpg}
-    \caption[Estructura interna de un relé]{Estructura interna de un relé. Imagen de \url{https://https://commons.wikimedia.org/}\cite{manual:GNU}}. \label{Img:Rele1}
+    \caption[Estructura interna de un relé]{Estructura interna de un relé. Imagen de \url{https://commons.wikimedia.org/}\cite{manual:GNU}} \label{Img:Rele1}
 \end{figure}
 
 \subsection{Placa de Pruebas o ProtoBoard}
