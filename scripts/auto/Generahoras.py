@@ -38,7 +38,7 @@ hora_minima = f.read()
 f.close()
 
 #Leemos la cabecera del futuro archivo CRON, se puede obtener mediante 'cat' pero prefiero tener copia de seguridad.
-c = open (rutaPrincipal+'cabecera.txt','r')
+c = open (rutaPrincipal+'cabecera.txt')
 cabecera = c.read()
 c.close()
 
@@ -111,6 +111,7 @@ minuto_subida_3 = real_up_3.minute
 # Generamos el CRON nuevo en un archivo intermedio para poder volcarlo posteriormente al archivo en producción
 ## Llamamos a archivos de bash porque los de python a veces generan errores
 file = open (rutaPrincipal+'CronPruebas','w')
+file.write(str(cabecera)+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
 file.write(str("#Este CRON ha sido generado en el instante ")+str(ahora)+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)

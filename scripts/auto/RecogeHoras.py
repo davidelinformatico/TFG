@@ -150,6 +150,9 @@ hora_minima = min(temperatura_hora, key=temperatura_hora.get)
 #Abrimos el archivo
 os.chdir(rutaPrincipal)
 file = open ('CronPruebas','a')
+file.write(""+ os.linesep)
+file.write("# Comprueba cada minuto que el bot está corriendo"+ os.linesep)
+file.write("*/1 * * * * /home/pi/source/TFG/scripts/bot/compuebaBot.sh"+ os.linesep + os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
 file.write("#Código de control Automático de Calefacción "+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
@@ -177,8 +180,11 @@ file.write(str("Temperaturas por horas:")+ os.linesep)
 file.write(str("--------------------------------------")+ os.linesep)
 for i in lists:
     file.write(str(i)+ os.linesep)
+
+
 file.write(""+ os.linesep)
 file.write(""+ os.linesep)
+
 file.close()
 
 try:

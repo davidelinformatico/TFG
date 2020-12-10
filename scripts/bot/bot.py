@@ -3,6 +3,8 @@ from telebot import types
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 import time, requests, os, datetime, sys
 
+# En CRON: */1 * * * * /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+
 
 # Registro de eventos
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)

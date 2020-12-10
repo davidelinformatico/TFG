@@ -10,3 +10,5 @@ for i in range(len(ruta)-3):
 ruta=salida[1:]+str("/")
 
 print(ruta)
+
+
