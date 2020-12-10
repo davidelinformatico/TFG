@@ -21,7 +21,8 @@ commands = {
              'reiniciar': 'Reinicia la Raspberry PI',
              'info': 'Información de la RaspberryPi',
              'datos': 'Hora de recopilación de datos',
-             'hora': 'Hora a la que suben las persianas'
+             'hora': 'Hora a la que suben las persianas',
+             'generar': 'Genera los archivos de control'
             }
 
 # Configuración básica de nuestro Bot
@@ -197,7 +198,6 @@ def command_long_text(m):
 
 # Cambio de hora mínima de subida de persianas
 @bot.message_handler(commands=['cambiar'])
-
 def command_long_text(m):
     usuario = m.chat.id
     if (compruebaUsuario(m)):
@@ -207,67 +207,77 @@ def command_long_text(m):
             f = open("./../auto/HoraMinima")
             horaAntigua = f.read()
             f.close()
-            
             # Leemos la hora introducida por parámetro
             horaNueva=str((m.text[len("/cambiar"):].split())[0])
-            f = open("./../auto/HoraMinima", "w")
-            f.write(str(horaNueva))
-            f.close()
+            if len(horaNueva)==8:
+                f = open("./../auto/HoraMinima", "w")
+                f.write(str(horaNueva))
+                f.close()
 
-            #Comprobamos el cambio de hora
-            f = open("./../auto/HoraMinima")
-            horaNueva = f.read()
-            f.close()
-            #Leemos hora a cambiar
-            bot.send_message(usuario, "La hora ha cambiado de "+str(horaAntigua) + " a *"+str(horaNueva)+"*",parse_mode=telegram.ParseMode.MARKDOWN)
-
+                #Comprobamos el cambio de hora
+                f = open("./../auto/HoraMinima")
+                horaNueva = f.read()
+                f.close()
+                #Leemos hora a cambiar
+                bot.send_message(usuario, "La hora ha cambiado de "+str(horaAntigua) + " a *"+str(horaNueva)+"*",parse_mode=telegram.ParseMode.MARKDOWN)
+            else:
+                bot.send_message(usuario, "Introduce el formato correcto: HH:MM:SS")    
         except:
             bot.send_message(usuario, "Error!\n")
 
-
-
-
-# Diagrama de temperaturas (enviar imagen)
-@bot.message_handler(commands=['d'])
-@bot.message_handler(func=lambda message: message.text == "d")
-@bot.message_handler(func=lambda message: message.text == "D")
+# Cambio de hora mínima de subida de persianas
+@bot.message_handler(commands=['cambiar'])
 def command_long_text(m):
     usuario = m.chat.id
     if (compruebaUsuario(m)):
         # Obtenemos la 'última imagen dentro de la ruta de imágenes
-        try:    
-            subdirectorio = "/auto/diagramas/"
-            pwdImagenes = pwdBot[:-4]+subdirectorio
-            os.chdir(pwdImagenes)
-            result = os.popen('ls -r').read()
-            imagenPorDefecto=((result.split("\n"))[0])
-            os.chdir(pwdBot)
-            
-            imagenDefecto=(str(pwdImagenes)+str(imagenPorDefecto))
-        
-            print(len(m.text[len("/d"):].split()))
-            #d = os.popen(m.text[len("/d"):])
-            if ((len(m.text[len("/d "):])) > 0):
-                nombre= str(m.text[len("/d "):])
-                imagenUsuario=(str(pwdImagenes)+str(nombre)+".png")
-                print(imagenUsuario)
-                bot.send_photo(usuario,photo=open(imagenUsuario, 'rb'))
+        try:
+            # Leemos hora antigua
+            f = open("./../auto/HoraMinima")
+            horaAntigua = f.read()
+            f.close()
+            # Leemos la hora introducida por parámetro
+            horaNueva=str((m.text[len("/cambiar"):].split())[0])
+            if len(horaNueva)==8:
+                f = open("./../auto/HoraMinima", "w")
+                f.write(str(horaNueva))
+                f.close()
+
+                #Comprobamos el cambio de hora
+                f = open("./../auto/HoraMinima")
+                horaNueva = f.read()
+                f.close()
+                #Leemos hora a cambiar
+                bot.send_message(usuario, "La hora ha cambiado de "+str(horaAntigua) + " a *"+str(horaNueva)+"*",parse_mode=telegram.ParseMode.MARKDOWN)
             else:
-                bot.send_photo(usuario,photo=open(imagenDefecto, 'rb'))
+                bot.send_message(usuario, "Introduce el formato correcto: HH:MM:SS")    
         except:
-            subdirectorio = "/auto/diagramas/"
-            pwdImagenes = pwdBot[:-4]+subdirectorio
-            os.chdir(pwdImagenes)
-            bot.send_message(usuario, "Imagen incorrecta. Prueba con alguna de estas:\n")
-            result = os.popen('ls -r | rev | cut -f 2- -d "." | rev').read()
-            cosa=((result.split("\n")))
-            
-            #Últimas 10 imágenes para no recargar la salida
-            for i in range(len(cosa)):
-                while i<10:
-                    bot.send_message(usuario, cosa[i])
-                    print(cosa[i])
-                    i=i+1
+            bot.send_message(usuario, "Error!\n")
+
+
+# Lanzar Todo el proceso y generar nuevo CRON
+@bot.message_handler(commands=['generar'])
+@bot.message_handler(func=lambda message: message.text == "g")
+@bot.message_handler(func=lambda message: message.text == "g")
+def command_long_text(m):
+    usuario = m.chat.id
+    if (compruebaUsuario(m)):
+        # Obtenemos la 'última imagen dentro de la ruta de imágenes
+        try:
+            bot.send_message(usuario, "Comenzamos el proceso...")
+            p = os.popen("bash ./../auto/LanzaTodoElProceso.sh")
+            bot.send_message(usuario, "Terminamos el proceso ^^")
+
+            #Leemos información del archivo        
+            f = open("./../auto/log.cron", "r")
+            data = f.read()
+            f.close()
+        
+            #Obtenemos la primera línea aunque se puede cambiar a la segunda...
+            matrix1 = data.split('\n')
+            bot.send_message(usuario, "Datos obtenidos el "+matrix1[0]+" a las "+matrix1[1].split(' ')[3])
+        except:
+            bot.send_message(usuario, "Error!\n")
 
 #Información de obtención de datos (Última línea del log)
 @bot.message_handler(commands=['datos'])
