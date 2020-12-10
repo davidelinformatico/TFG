@@ -21,7 +21,7 @@
 #| | | | |   commands
 
 #--------------------------------------------------------------------------------------------------
-#Este CRON ha sido generado en el instante Thu Dec 10 22:34:04 2020
+#Este CRON ha sido generado en el instante Thu Dec 10 23:03:43 2020
 #--------------------------------------------------------------------------------------------------
 #Código de control Automático de Persianas 
 #--------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@
 
 
 # Comprueba cada minuto que el bot está corriendo
-*/1 * * * * /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+* * * * * sh /home/pi/source/TFG/scripts/bot/compuebaBot.sh
 
 #--------------------------------------------------------------------------------------------------
 #Código de control Automático de Calefacción 

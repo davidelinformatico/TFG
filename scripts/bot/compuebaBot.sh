@@ -1,9 +1,9 @@
 #!/bin/bash
-path=$(pwd)
 
 if ps | grep bot; then
     echo "todo bien"
 else
-    python3 bot.py
+    cd /home/pi/source/TFG/scripts/bot/
+    python3 /home/pi/source/TFG/scripts/bot/bot.py
 fi
 

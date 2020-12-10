@@ -31,6 +31,7 @@ commands = {
 def configBot():
     #Calculamos ruta
     pwdBot=os.getcwd()
+    print(pwdBot)
     rutaPrincipal=pwdBot.split('/')
     ruta=pwdBot.split('/')
     salida=""
