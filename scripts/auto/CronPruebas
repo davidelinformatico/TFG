@@ -1,12 +1,12 @@
 #--------------------------------------------------------------------------------------------------
-#Este CRON ha sido generado en el instante Mon Nov 30 00:05:07 2020
+#Este CRON ha sido generado en el instante Thu Dec 10 11:43:16 2020
 #--------------------------------------------------------------------------------------------------
 #Código de control Automático de Persianas 
 #--------------------------------------------------------------------------------------------------
 #Subimos las persianas Modo mañana de Lunes a Viernes
-18 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
-19 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/Subir.sh
-25 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+28 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+29 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/Subir.sh
+35 8 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Subimos las persianas Modo mañana de Sabado y Domingo
 31 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh

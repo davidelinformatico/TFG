@@ -3,6 +3,9 @@ from datetime import date
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+
+print("Ha comenzado el proceso de cálculo de temperaturas.")
+
 # Obtención de los seriales
 
 # Llamamos a mi key personal de Climacell, que está en otro directorio.
@@ -140,11 +143,17 @@ file.write(""+ os.linesep)
 file.write(""+ os.linesep)
 file.close()
 
+file = open ('log.cron','a')
+file.write(str("--------------------------------------")+ os.linesep)
+file.write(str("Temperaturas por horas:")+ os.linesep)
+file.write(str("--------------------------------------")+ os.linesep)
+for i in lists:
+    file.write(str(i)+ os.linesep)
+file.write(""+ os.linesep)
+file.write(""+ os.linesep)
+file.close()
 
-
-
-
-
+print("Ha terminado el proceso de cálculo de temperaturas.")
 
 
 

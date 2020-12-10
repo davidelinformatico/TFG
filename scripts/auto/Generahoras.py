@@ -3,6 +3,9 @@ import datetime, time
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+
+print("Ha comenzado el proceso de cálculo de horas.")
+
 # Obtención de los seriales
 
 # Llamamos a mi key personal de Climacell, que está en otro directorio.
@@ -132,6 +135,14 @@ file.close()
 # Log externo
 file = open ('log.cron','w')
 file.write(str(hoy)+ os.linesep) 
-file.write(str(ahora)+ os.linesep) 
+file.write(str(ahora)+ os.linesep)
+file.write(str("--------------------------------------")+ os.linesep)
+file.write(str("Control de persianas:")+ os.linesep)
+file.write(str("Amanece: ")+str(real_up_1)+os.linesep)
+file.write(str("Luces: ")+str(real_On)+os.linesep)
+file.write(str("Anochece: ")+str(real_down_1)+os.linesep)
 file.close()
+
+print("Ha terminado el proceso de cálculo de horas.")
+
 
