@@ -27,8 +27,22 @@ commands = {
 
 # Configuración básica de nuestro Bot
 def configBot():
+    #Calculamos ruta
+    pwdBot=os.getcwd()
+    rutaPrincipal=pwdBot.split('/')
+    ruta=pwdBot.split('/')
+    salida=""
+    for i in range(len(ruta)-3):
+        salida=str(salida)+"/"+str(ruta[i])
+    rutaCred=salida[1:]+str("/credentials/")
+    
+    cosa=""
+    for i in range(len(rutaPrincipal)-1):
+        cosa=str(cosa)+"/"+str(rutaPrincipal[i])
+    rutaAuto=cosa[1:]+str("/auto/")
+    
     # Leemos el archivo
-    f = open("./../../../credentials/config.bot")
+    f = open(rutaCred+"config.bot")
     data = f.read()
     f.close()
     
@@ -43,14 +57,10 @@ def configBot():
     usuarios= datos[4].split(', ')
     # Generamos la hora de inicio del sistema
     hora=time.strftime("%H:%M:%S")
-    result = os.popen('pwd').read()
-    pwdBot=result.split("\n")[0]
-    
-    return tokenBot, bot, usuarios, hora, pwdBot
 
+    return tokenBot, bot, usuarios, hora, pwdBot, rutaAuto
 
-tokenBot, bot, usuarios, hora, pwdBot = configBot()
-
+tokenBot, bot, usuarios, hora, pwdBot, rutaAuto = configBot()
 
 # Listener recibira los mensajes que envian los usuarios.
 def listener(messages):
@@ -173,7 +183,7 @@ def command_long_text(m):
     if (compruebaUsuario(m)):
         try:
             #Leemos información del archivo        
-            f = open("./../auto/log.cron", "r")
+            f = open(rutaAuto+"log.cron", "r")
             data = f.read()
             f.close()
         
@@ -204,18 +214,18 @@ def command_long_text(m):
         # Obtenemos la 'última imagen dentro de la ruta de imágenes
         try:
             # Leemos hora antigua
-            f = open("./../auto/HoraMinima")
+            f = open(rutaAuto+"HoraMinima")
             horaAntigua = f.read()
             f.close()
             # Leemos la hora introducida por parámetro
             horaNueva=str((m.text[len("/cambiar"):].split())[0])
             if len(horaNueva)==8:
-                f = open("./../auto/HoraMinima", "w")
+                f = open(rutaAuto+"HoraMinima", "w")
                 f.write(str(horaNueva))
                 f.close()
 
                 #Comprobamos el cambio de hora
-                f = open("./../auto/HoraMinima")
+                f = open(rutaAuto+"HoraMinima")
                 horaNueva = f.read()
                 f.close()
                 #Leemos hora a cambiar
@@ -223,37 +233,47 @@ def command_long_text(m):
             else:
                 bot.send_message(usuario, "Introduce el formato correcto: HH:MM:SS")    
         except:
-            bot.send_message(usuario, "Error!\n")
+            bot.send_message(usuario, "Debes introducir una hora con formato HH:MM:SS\n")
 
-# Cambio de hora mínima de subida de persianas
-@bot.message_handler(commands=['cambiar'])
+# Diagrama de temperaturas (enviar imagen)
+@bot.message_handler(commands=['d'])
+@bot.message_handler(func=lambda message: message.text == "d")
+@bot.message_handler(func=lambda message: message.text == "D")
 def command_long_text(m):
     usuario = m.chat.id
     if (compruebaUsuario(m)):
         # Obtenemos la 'última imagen dentro de la ruta de imágenes
-        try:
-            # Leemos hora antigua
-            f = open("./../auto/HoraMinima")
-            horaAntigua = f.read()
-            f.close()
-            # Leemos la hora introducida por parámetro
-            horaNueva=str((m.text[len("/cambiar"):].split())[0])
-            if len(horaNueva)==8:
-                f = open("./../auto/HoraMinima", "w")
-                f.write(str(horaNueva))
-                f.close()
-
-                #Comprobamos el cambio de hora
-                f = open("./../auto/HoraMinima")
-                horaNueva = f.read()
-                f.close()
-                #Leemos hora a cambiar
-                bot.send_message(usuario, "La hora ha cambiado de "+str(horaAntigua) + " a *"+str(horaNueva)+"*",parse_mode=telegram.ParseMode.MARKDOWN)
+        try:    
+            pwdImagenes = rutaAuto+"diagramas/"
+            os.chdir(pwdImagenes)
+            result = os.popen('ls -r').read()
+            imagenPorDefecto=((result.split("\n"))[0])
+            os.chdir(pwdBot)
+            
+            imagenDefecto=(str(pwdImagenes)+str(imagenPorDefecto))
+        
+            print(len(m.text[len("/d"):].split()))
+            #d = os.popen(m.text[len("/d"):])
+            if ((len(m.text[len("/d "):])) > 0):
+                nombre= str(m.text[len("/d "):])
+                imagenUsuario=(str(pwdImagenes)+str(nombre)+".png")
+                print(imagenUsuario)
+                bot.send_photo(usuario,photo=open(imagenUsuario, 'rb'))
             else:
-                bot.send_message(usuario, "Introduce el formato correcto: HH:MM:SS")    
+                bot.send_photo(usuario,photo=open(imagenDefecto, 'rb'))
         except:
-            bot.send_message(usuario, "Error!\n")
-
+            pwdImagenes = rutaAuto+"diagramas/"
+            os.chdir(pwdImagenes)
+            bot.send_message(usuario, "Error. Prueba con alguna de estas con formato AAAA-MM-DD:\n")
+            result = os.popen('ls -r | rev | cut -f 2- -d "." | rev').read()
+            cosa=((result.split("\n")))
+            
+            #Últimas 10 imágenes para no recargar la salida
+            for i in range(len(cosa)):
+                while i<10:
+                    bot.send_message(usuario, cosa[i])
+                    print(cosa[i])
+                    i=i+1
 
 # Lanzar Todo el proceso y generar nuevo CRON
 @bot.message_handler(commands=['generar'])
@@ -265,11 +285,11 @@ def command_long_text(m):
         # Obtenemos la 'última imagen dentro de la ruta de imágenes
         try:
             bot.send_message(usuario, "Comenzamos el proceso...")
-            p = os.popen("bash ./../auto/LanzaTodoElProceso.sh")
+            p = os.popen("bash " +rutaAuto+"LanzaTodoElProceso.sh")
             bot.send_message(usuario, "Terminamos el proceso ^^")
 
             #Leemos información del archivo        
-            f = open("./../auto/log.cron", "r")
+            f = open(rutaAuto+"log.cron", "r")
             data = f.read()
             f.close()
         
@@ -289,7 +309,7 @@ def command_text_hi(m):
     if (compruebaUsuario(m)):
         try:
             #Leemos información del archivo        
-            f = open("./../auto/log.cron", "r")
+            f = open(rutaAuto+"log.cron", "r")
             data = f.read()
             f.close()
         
@@ -323,7 +343,7 @@ def command_text_hi(m):
     if (compruebaUsuario(m)):
         try:
             #Leemos información del archivo        
-            f = open("./../auto/HoraMinima")
+            f = open(rutaAuto+"HoraMinima")
             data = f.read()
             f.close()
            

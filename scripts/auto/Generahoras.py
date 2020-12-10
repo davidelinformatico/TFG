@@ -1,31 +1,44 @@
+#!/usr/bin/env python3
 import urllib, json, datetime, pycurl, requests, os 
 import datetime, time
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+#Calculamos ruta
+ruta=os.getcwd().split('/')
+rutaPrincipal=os.getcwd().split('/')
+salida=""
+for i in range(len(ruta)-3):
+    salida=str(salida)+"/"+str(ruta[i])
+ruta=salida[1:]+str("/credentials")
 
-print("Ha comenzado el proceso de cálculo de horas.")
+cosa=""
+for i in range(len(rutaPrincipal)-1):
+    cosa=str(cosa)+"/"+str(rutaPrincipal[i])
+rutaPrincipal=cosa[1:]+str("/auto/")
+#print("Ha comenzado el proceso de cálculo de horas.")
 
 # Obtención de los seriales
 
 # Llamamos a mi key personal de Climacell, que está en otro directorio.
-result = open('./../../../credentials/KeyClimacell')
+result = open(ruta+'/KeyClimacell')
 KeyClimacell = result.read()
 result.close() 
-
 # Llamamos a mi key personal de Climacell, que está en otro directorio.
-result = open('./../../../credentials/KeyWeatherapi')
+result = open(ruta+'/KeyWeatherapi')
 KeyWeatherapi = result.read()
 result.close() 
 id_weatherapi = KeyWeatherapi 
 
+
 # Hora más temprana de subida de persianas (configurable desde el bot)
-f = open('./HoraMinima')
+HoraMinima=rutaPrincipal+"HoraMinima"
+f = open(HoraMinima)
 hora_minima = f.read()
 f.close()
 
 #Leemos la cabecera del futuro archivo CRON, se puede obtener mediante 'cat' pero prefiero tener copia de seguridad.
-c = open ('./cabecera.txt','r')
+c = open (rutaPrincipal+'cabecera.txt','r')
 cabecera = c.read()
 c.close()
 
@@ -97,7 +110,7 @@ minuto_subida_3 = real_up_3.minute
 
 # Generamos el CRON nuevo en un archivo intermedio para poder volcarlo posteriormente al archivo en producción
 ## Llamamos a archivos de bash porque los de python a veces generan errores
-file = open ('CronPruebas','w')
+file = open (rutaPrincipal+'CronPruebas','w')
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
 file.write(str("#Este CRON ha sido generado en el instante ")+str(ahora)+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
@@ -133,7 +146,7 @@ file.write(""+ os.linesep)
 
 file.close()
 # Log externo
-file = open ('log.cron','w')
+file = open (rutaPrincipal+'log.cron','w')
 file.write(str(hoy)+ os.linesep) 
 file.write(str(ahora)+ os.linesep)
 file.write(str("--------------------------------------")+ os.linesep)
@@ -143,6 +156,6 @@ file.write(str("Luces: ")+str(real_On)+os.linesep)
 file.write(str("Anochece: ")+str(real_down_1)+os.linesep)
 file.close()
 
-print("Ha terminado el proceso de cálculo de horas.")
+#print("Ha terminado el proceso de cálculo de horas.")
 
 

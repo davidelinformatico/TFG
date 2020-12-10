@@ -1,5 +1,8 @@
-echo "Ha comenzado el proceso de generación de ficheros"
-python3 Generahoras.py
-python3 RecogeHoras.py
-sh reescribeCron.sh
-echo "Ha finalizado el proceso de generación de ficheros"
+#!/bin/bash
+path=$(pwd)
+echo $path
+echo "${path%/*}"
+
+python3 ${path%/*}/auto/Generahoras.py
+python3 ${path%/*}/auto/RecogeHoras.py
+sh ${path%/*}/auto/reescribeCron.sh

@@ -1,20 +1,36 @@
-import urllib, json, pycurl, requests, datetime, os
+#!/usr/bin/env python3
+import urllib, json, pycurl, requests, datetime, os,time
 from datetime import date
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+    
+#Calculamos ruta
+ruta=os.getcwd().split('/')
+rutaPrincipal=os.getcwd().split('/')
+salida=""
+for i in range(len(ruta)-3):
+    salida=str(salida)+"/"+str(ruta[i])
+ruta=salida[1:]+str("/credentials/")
 
-print("Ha comenzado el proceso de cálculo de temperaturas.")
+cosa=""
+for i in range(len(rutaPrincipal)-1):
+    cosa=str(cosa)+"/"+str(rutaPrincipal[i])
+rutaPrincipal=cosa[1:]+str("/auto/")
 
+try:
+    print("Ha comenzado el proceso de cálculo de temperaturas.")
+except:
+    pass
 # Obtención de los seriales
 
 # Llamamos a mi key personal de Climacell, que está en otro directorio.
-result = open('./../../../credentials/KeyClimacell')
+result = open(ruta+'KeyClimacell')
 KeyClimacell = result.read()
 result.close()
 
 # Temperatura a la que encenderemos la calefacción
-f = open('./TemperaturaCalefaccion')
+f = open(rutaPrincipal+'TemperaturaCalefaccion')
 temperatura = f.read()
 f.close()
 
@@ -31,15 +47,23 @@ fecha_manana = fecha_hoy + datetime.timedelta(days=1)
 try:
     response = requests.get(url_ip)
 except:
-    response = -1000
-    print("No se puede comunicar con la web!!")
-
+    try:
+        response = -1000
+        print("No se puede comunicar con la web!!")
+    except:
+        pass
 # Comprobamos si la conexión devuelve el valor de correcta conexión '<Response [200]>'
 respuesta=str(response).find("<Response [200]>")
 if respuesta != -1:
-    print("Se ha conectado correctamente")
+    try:
+        print("Se ha conectado correctamente")
+    except:
+        pass
 else:
-    print("Ha habido un error")
+    try:
+        print("Ha habido un error")
+    except:
+        pass
 
 # Obtenemos el contenido de la url:
 sopa = requests.get(url_ip)
@@ -70,7 +94,11 @@ sopa_tiempo_json = sopa_tiempo.json()
 th = {}
 # Guardamos fecha
 b = str(fecha_manana)
-print("")
+try:
+    print("")
+except:
+    pass
+
 #print("De esta manera obtenemos la hora y la temperatura del día de mañana:")
 for i in range (100):
     a = (str(sopa_tiempo_json[i]['observation_time']['value'][:10]))
@@ -108,7 +136,7 @@ plt.xticks([i for i in range(24)])
 plt.plot(x, y)
 
 # Exportamos imagen con la fecha como nombre
-os.chdir("./diagramas")
+os.chdir(rutaPrincipal+"diagramas")
 plt.savefig(b+".png")
 
 # Calculamos la hora a la que tenemos más temperatura
@@ -120,7 +148,7 @@ hora_minima = min(temperatura_hora, key=temperatura_hora.get)
 # Pin caldera: GPIO 10, pin 19
 
 #Abrimos el archivo
-os.chdir("../")
+os.chdir(rutaPrincipal)
 file = open ('CronPruebas','a')
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
 file.write("#Código de control Automático de Calefacción "+ os.linesep)
@@ -143,7 +171,7 @@ file.write(""+ os.linesep)
 file.write(""+ os.linesep)
 file.close()
 
-file = open ('log.cron','a')
+file = open (rutaPrincipal+'log.cron','a')
 file.write(str("--------------------------------------")+ os.linesep)
 file.write(str("Temperaturas por horas:")+ os.linesep)
 file.write(str("--------------------------------------")+ os.linesep)
@@ -153,8 +181,10 @@ file.write(""+ os.linesep)
 file.write(""+ os.linesep)
 file.close()
 
-print("Ha terminado el proceso de cálculo de temperaturas.")
-
+try:
+    print("Ha terminado el proceso de cálculo de temperaturas.")
+except:
+    pass
 
 
 
