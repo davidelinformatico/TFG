@@ -7,3 +7,4 @@ else
     python3 /home/pi/source/TFG/scripts/bot/bot.py
 fi
 
+exit $1

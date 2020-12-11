@@ -21,10 +21,10 @@ commands = {
              'cambiar': 'Cambiar hora subida',
              'datos': 'Hora de recopilación de datos',
              'hora': 'Hora a la que suben las persianas',
-             'generar': 'Genera los archivos de control',
+             'generar': 'Genera los archivos de control'
              'info': 'Información de la RaspberryPi',
              'apagar': ' Apagar sistema domótico',
-             'reiniciar': 'Reinicia la Raspberry PI'
+             'reiniciar': 'Reinicia la Raspberry PI',
             }
 
 # Configuración básica de nuestro Bot
