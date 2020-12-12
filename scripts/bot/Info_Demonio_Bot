@@ -1,0 +1,34 @@
+
+# Para poder controlar de forma sencilla nuestro bot, he generado un demonio para poder iniciarlo o pararlo fácilmente:
+
+# He generado el archivo el archivo de nuestro demonio en lib/systemd/system/ con la extensión .service
+# Lo he escrito fácilmente con nano: sudo nano /lib/systemd/system/bot.service
+
+# El contenido del archivo es:
+
+    [Unit]
+    Description=Lanza el bot de control domótico
+    After=network.target
+    StartLimitIntervalSec=0
+    
+    [Service]
+    Type=simple
+    Restart=always
+    RestartSec=1
+    User=pi
+    WorkingDirectory=/home/pi/source/TFG/scripts/bot/
+    ExecStart=/usr/bin/env python3 /home/pi/source/TFG/scripts/bot/bot.py
+    
+    [Install]
+    WantedBy=multi-user.target
+    
+# Después debemos actualizar los demonios con: systemctl daemon-reload
+# Iniciar el demonio: sudo systemctl start bot
+# Parar el demonio: sudo systemctl stop bot
+
+# Estado del demonio: sudo systemctl status bot
+    - Con este comando podemos conocer el pid, que siempre es útil
+
+# Para incluirlo en el inicio de la máquina habría que moverlo a /etc/init.d 
+    - y luego ejecutar: $ sudo update-rc.d bot defaults
+
