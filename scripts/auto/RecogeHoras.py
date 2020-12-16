@@ -3,7 +3,7 @@ import urllib, json, pycurl, requests, datetime, os,time
 from datetime import date
 import pandas as pd 
 import matplotlib.pyplot as plt
-
+import matplotlib
     
 #Calculamos ruta
 ruta=os.getcwd().split('/')
@@ -138,6 +138,23 @@ plt.plot(x, y)
 # Exportamos imagen con la fecha como nombre
 os.chdir(rutaPrincipal+"diagramas")
 plt.savefig(b+".png")
+plt.clf()
+plt.cla()
+plt.close()
+
+#fig = plt.figure(figsize=(6,0.00001))
+#tabla = plt.table(cellText=lists,
+#          colLabels=("H","Temp"), 
+#          cellLoc ="center",
+#          colWidths=[0.15 for x in lists])
+#tabla.scale(2,6)
+#tabla.set_fontsize(32)
+#plt.axis('off')
+#plt.grid('off')
+
+# Exportamos imagen con la fecha como nombre
+#os.chdir(rutaPrincipal+"diagramas")
+#plt.savefig('lista.png', dpi='figure', bbox_inches='tight', pad_inches=0.5)
 
 # Calculamos la hora a la que tenemos más temperatura
 hora_maxima = max(temperatura_hora, key=temperatura_hora.get)
@@ -146,6 +163,7 @@ hora_maxima = max(temperatura_hora, key=temperatura_hora.get)
 hora_minima = min(temperatura_hora, key=temperatura_hora.get)
 
 # Pin caldera: GPIO 10, pin 19
+
 
 #Abrimos el archivo
 os.chdir(rutaPrincipal)

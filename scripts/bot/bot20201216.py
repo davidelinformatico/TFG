@@ -4,6 +4,9 @@ from telebot import types
 from telegram import ParseMode
 
 
+# En CRON: */1 * * * * /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+
+
 # Registro de eventos
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger('SDI_domo.log')
@@ -194,43 +197,24 @@ def command_long_text(m):
     usuario = m.chat.id
     if (compruebaUsuario(m)):
         try:
-            #Leemos información del archivo
+            #Leemos información del archivo        
             f = open(rutaAuto+"log.cron", "r")
             data = f.read()
             f.close()
-
+        
             bot.send_chat_action(usuario, 'typing')
             time.sleep(1)
 
             #Obtenemos la primera línea aunque se puede cambiar a la segunda...
             matrix1 = data.split('\n')
+
             bot.send_message(usuario, "Las temperaturas por hora son:")
+            bot.send_message(usuario, "hr Temp")
+            bot.send_message(usuario, "-- ---------")
 
-            ss = str(int(matrix1[4].split(" ")[2].split(":")[0]))
-            ll = matrix1[5].split(" ")[2].split(":")[0]
-            bb = matrix1[6].split(" ")[2].split(":")[0]
-
-            compilado = "|  Hora  |Temperatura|"
             for i in range(len(matrix1)-1):
-                if ((i >10) and (i<20)):
-                    compilado += str("\n|    ")+matrix1[i].split(", ")[0][1:]
-                    if len(matrix1[i].split(", ")[1][:-1])==4:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
-                    if len(matrix1[i].split(", ")[1][:-1])==5:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
-                    if (matrix1[i].split(", ")[0][1:]==ss):
-                        compilado += str("&#127774;")+str(matrix1[4].split(" ")[2][:-3])
-                if ((i >20) and (i<34)):
-                    compilado += str("\n|   ")+matrix1[i].split(", ")[0][1:]
-                    if len(matrix1[i].split(", ")[1][:-1])==4:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
-                    if len(matrix1[i].split(", ")[1][:-1])==5:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
-                    if (matrix1[i].split(", ")[0][1:]==bb):
-                        compilado += str("&#128161;&#127770;")+str(matrix1[5].split(" ")[2][:-3])
-            print(compilado)
-            bot.send_message(usuario, text='<pre><code class="language-python">'+compilado+'</code></pre>', parse_mode=ParseMode.HTML)
-            
+                if ((i >10) and (i<34)):
+                    bot.send_message(usuario, matrix1[i].split(", ")[0][1:]+str(" ")+matrix1[i].split(", ")[1][:-1]+str("ºC"))
         except:
             bot.send_message(usuario, "Error en la lectura del archivo")
 
@@ -247,8 +231,7 @@ def command_long_text(m):
             f.close()
             # Leemos la hora introducida por parámetro
             horaNueva=str((m.text[len("/cambiar"):].split())[0])
-            if len(horaNueva)==5:
-                horaNueva += str(":00")
+            if len(horaNueva)==8:
                 f = open(rutaAuto+"HoraMinima", "w")
                 f.write(str(horaNueva))
                 f.close()
@@ -258,11 +241,11 @@ def command_long_text(m):
                 horaNueva = f.read()
                 f.close()
                 #Leemos hora a cambiar
-                bot.send_message(usuario, "La hora ha cambiado de "+str(horaAntigua) + " a *"+str(horaNueva[:-3])+"*",parse_mode=telegram.ParseMode.MARKDOWN)
+                bot.send_message(usuario, "La hora ha cambiado de "+str(horaAntigua) + " a *"+str(horaNueva)+"*",parse_mode=telegram.ParseMode.MARKDOWN)
             else:
-                bot.send_message(usuario, "Introduce el formato correcto: HH:MM")    
+                bot.send_message(usuario, "Introduce el formato correcto: HH:MM:SS")    
         except:
-            bot.send_message(usuario, "Debes introducir una hora con formato HH:MM\n")
+            bot.send_message(usuario, "Debes introducir una hora con formato HH:MM:SS\n")
 
 # Diagrama de temperaturas (enviar imagen)
 @bot.message_handler(commands=['d'])
@@ -340,20 +323,23 @@ def command_text_hi(m):
             f = open(rutaAuto+"log.cron", "r")
             data = f.read()
             f.close()
-
+        
             bot.send_chat_action(usuario, 'typing')
             time.sleep(1)
 
             #Obtenemos la primera línea aunque se puede cambiar a la segunda...
             matrix1 = data.split('\n')
-            
-            mm = str("Datos generados el <b>"+matrix1[0]+"</b> a las <strong>"+matrix1[1].split(' ')[3]+str("</strong>:\n<pre>|"))
-            mm += matrix1[4].split(" ")[0]+str("  | ")+matrix1[4].split(" ")[2]+ str(" | &#127774; \n|")
-            mm += matrix1[5].split(" ")[0]+str("    | ")+matrix1[5].split(" ")[2]+ str(" | &#128161; \n|")
-            mm += matrix1[6].split(" ")[0]+str(" | ")+matrix1[6].split(" ")[2]+ str(" | &#127770; \n</pre>")
 
-            bot.send_message(usuario, text=mm, parse_mode=ParseMode.HTML)
-           
+            bot.send_message(usuario, "Datos obtenidos el "+matrix1[0]+" a las "+matrix1[1].split(' ')[3])
+            bot.send_message(usuario, matrix1[4].split(" ")[0]+str(" ")+matrix1[4].split(" ")[2])
+            bot.send_message(usuario, matrix1[5].split(" ")[0]+str(" ")+matrix1[5].split(" ")[2])
+            bot.send_message(usuario, matrix1[6].split(" ")[0]+str(" ")+matrix1[6].split(" ")[2])
+            #bot.send_message(usuario, "Las temperaturas por hora son:")
+            #bot.send_message(usuario, "hr Temp")
+            #bot.send_message(usuario, "-- ---------")
+            #for i in range(len(matrix1)-1):
+            #    if ((i >10) and (i<34)):
+            #        bot.send_message(usuario, matrix1[i].split(", ")[0][1:]+str(" ")+matrix1[i].split(", ")[1][:-1]+str("ºC"))
         except:
             bot.send_message(usuario, "Error en la lectura del archivo")
 
@@ -378,7 +364,7 @@ def command_text_hi(m):
             #Obtenemos la primera línea aunque se puede cambiar a la segunda...
             matrix1 = data.split('\n')
             mm=matrix1[:1][0]
-            bot.send_message(usuario, "Las persianas se subirán como pronto a las *"+mm[:-3]+"*",parse_mode=telegram.ParseMode.MARKDOWN)
+            bot.send_message(usuario, "Las persianas se subirán como pronto a las "+mm)
         except:
             bot.send_message(usuario, "Error al obtener la hora")
 
@@ -424,38 +410,14 @@ def command_long_text(m):
             temperatura=temp()
             
             bot.send_message(usuario, text="*Espacio en disco*:\n",parse_mode=telegram.ParseMode.MARKDOWN)
-            #tab = '\t'
-            mm=""
-            mm += str("| B")+str(primero[0][0][1:]) + str("    | ") + str(primero[0][1]) + str(" |\n")
-            mm += str("| ")+str(primero[1][0][:-1]) + str("      | ") + str(primero[1][1]) + str("  |\n")
-            mm += str("| ")+str(primero[2][0][:-1]) + str(" | ") + str(primero[2][1]) + str(" |\n")
-            mm += str("| ")+str(primero[3][0]) + str("       | ") + str(primero[3][1]) + str("       |\n")
-
-            bot.send_message(usuario, text='<pre><code class="language-python">'+mm+'</code></pre>', parse_mode='html')
-
-            # Preparamos los datos de la RAM:
-            pp=""
-            for i in result:
-                pp += str(i)
-            ll=" ".join(pp.split())
-            oo=ll.split("M")
-            yep=[]
-            for o in oo:
-                yep.append(o.split(" "))
-            
-            mm = ""
-            mm += str("| ")+str(yep[1][1])+str(" ")+str(yep[1][2])+str("    | ") +str(yep[0][0]) + str(" Mb |\n")
-            mm += str("| ")+str(yep[2][1])+str(" ")+str(yep[2][2])+str("     | ") +str(yep[1][3]) + str(" Mb |\n")
-            mm += str("| ")+str(yep[3][1])+str(" ")+str(yep[3][2])+str("   | ") +str(yep[2][3]) + str(" Mb |\n")
-            mm += str("| ")+str(yep[4][1])+str(" ")+str(yep[4][2])+str(" | ") +str(yep[3][3]) + str(" Mb |\n")
-
-            bot.send_message(usuario, text="*Estado RAM*:\n",parse_mode=telegram.ParseMode.MARKDOWN)
-            bot.send_message(usuario, text='<pre><code class="language-python">'+mm+'</code></pre>', parse_mode='html')
-
+            tab = '\t'
+            for i in primero:                
+                bot.send_message(usuario, str(i[0]) + str(" > ") + str(i[1]) + str("\n"))
+            bot.send_message(usuario, text="*Estado RAM*:\n"+result,parse_mode=telegram.ParseMode.MARKDOWN)
             bot.send_message(usuario, text="*Temperatura CPU*: "+str(temperatura)+"ºC\n",parse_mode=telegram.ParseMode.MARKDOWN)
 
             fecha = str(datetime.datetime.today())
-            bot.send_message(usuario, text="*Fecha: *"+str(fecha[:-7]),parse_mode=telegram.ParseMode.MARKDOWN)
+            bot.send_message(usuario, text="*Fecha: *"+str(fecha),parse_mode=telegram.ParseMode.MARKDOWN)
         except:
             bot.send_message(usuario, text="*Hay algún problema en la obtención de datos.*",parse_mode=telegram.ParseMode.MARKDOWN)
 
@@ -463,10 +425,16 @@ def command_long_text(m):
 @bot.message_handler(func=lambda message: message.text == "x")
 def command_long_text(m):
     usuario = m.chat.id
-    if (compruebaUsuario(m)):
-        pass
-    
-    
+    #try:    
+    #mensaje="<pre>|   H   |   Temp   ||------:|---------:||  1   |    6.45   ||   2   |   5.88   ||   3   |   5.52   ||</pre>"
+    #print(mensaje)
+    bot.send_message(usuario, text='<pre><code class="language-python">|   H   |   Temp   |\n|------:|---------:|\n|   1   |   6.45   |\n|   2   |   5.88   |\n|   3   |   5.52   |</code></pre>', parse_mode=ParseMode.HTML)
+
+    #except:
+    #    bot.send_message(usuario, text="error ;)")
+
+
+
 # Control para cualquier otro texto.
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def command_default(m):
