@@ -3,83 +3,136 @@
 Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
 \end{comment}
 
-Como he comentado anteriormente, el tiempo invertido en la búsqueda de información válida ha sido abundante por lo que creo interesante reflejar la parte que me ha servido de ayuda para darle forma al proyecto.
+\capitulo{6}{Trabajos relacionados}
 
-%https://github.com/ubutfgm/plantillaLatex/tree/master/tex
+Desde la aparición de elementos electrónicos accesibles y asequibles se ha intentado, con mayor o menor fortuna, generar sistemas que nos ayuden en nuestro día a día. A continuación se exponen proyectos con objetivos similares.
 
-\subsection{Artículos}
-\subsubsection{Utilidades para Raspberry Pi}
-En este repositorio de Github encontramos como se conecta una pantalla LCD mediante los puertos GPIO.
+\section{Comparativa con otros proyectos}
+En este apartado mostraré otras opciones de acometer un proyecto similar y compararé los principales puntos de éstos con el presente proyecto para poder tener una visión global entre estas opciones.
+
+\section{Presentación de los proyectos}
+\subsection{Interacción remota para elementos de un hogar mediante una red de sensores actuadores}
+Se trata de un proyecto de control domótico que se centra en un conjunto de sensores instalados en el domicilio utilizando nodos intermedios para realizar el control de los dispositivos finales y la comunicación con los sensores.
+
+En la tabla ~\ref{tabla_Interacción} podemos ver algunas características de este proyecto.
+En las tablas se representará con la primera palabra del nombre del proyecto: "Interacción".
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Características & Interacción  \\
+\midrule
+Proyecto libre                          & \cellcolor{green!25} {$\checkmark$}\\
+No precisa montar servicios             &  \cellcolor{red!25} {$\times$}  \\
+No requiere lenguajes no nativos en el SO & \cellcolor{red!25} {$\times$} \\
+Obtiene información externa contrastada & \cellcolor{red!25} {$\times$} \\
+Interacción multiplataforma             & \cellcolor{green!25} {$\checkmark$} \\
+No necesita nodos intermedios           & \cellcolor{red!25} {$\times$} \\
+Cableado entre elementos                & \cellcolor{red!25} {$\times$} \\
+WiFi entre elementos                    & \cellcolor{green!25} {$\checkmark$} \\
+\bottomrule
+\end{tabular}
+\caption{Comparativa de las características de los proyectos.}
+\label{tabla_Interacción}
+\end{table}
+
+\subsection{Diseño e implementación de un sistema domótico basado en Raspberry Pi}
+Se trata de un proyecto de control domótico que se centra en un conjunto de sensores instalados en el domicilio.
+
 \begin{itemize}
-    \item Url del artículo: \url{https://github.com/tidus747/Utilidades_RaspberryPi}
+    \item Url del trabajo: \url{https://e-archivo.uc3m.es/bitstream/handle/10016/26313/TFG_Hector_Santos_Senra.pdf?sequence=1&isAllowed=y}
 \end{itemize}
 
-\subsubsection{Tutoriales básicos de programación en Raspberry Pi}
-En este repositorio de Github se publican algunos ejercicios parte de un tutorial básico con Raspberry Pi.
-\begin{itemize}
-    \item Url del artículo: \url{https://github.com/tidus747/Tutoriales_RaspberryPi}
-\end{itemize}
-
-\subsubsection{Control eléctrico mediante Raspberry Pi}
-En el proyecto controlan la salida de fluido eléctrico mediante relés y una interfaz HTML+CSS.
-\begin{itemize}
-    \item Url del artículo: \url{https://chemise23.wordpress.com/2013/09/19/domotica-con-raspberry/}
-\end{itemize}
-
-\subsubsection{Control de LEDs desde una interfaz web HTML}
-En el proyecto se genera una página web en Flask desde la que se controlan unos LEDs.
-\begin{itemize}
-    \item Url del artículo: \url{https://github.com/WilliBobadilla/Domotica}
-\end{itemize}
-
-\subsubsection{Control de LEDs desde una apk}
-El proyecto genera una aplicación android desde la que controlar un led.
-\begin{itemize}
-    \item Url del artículo: \url{https://github.com/rpi-jefer/domotica_raspberry_pi/tree/master/domotica_app/Domotica}
-\end{itemize}
-
-\subsubsection{Controlando las persianas con Shelly 2.5 y Home Assistant}
-En el artículo explica como controlar persianas cun Shelly desde Home assistant. Este artículo me ayudó a valorar otras opciones de comuniacción para subir y bajar persianas.
-\begin{itemize}
-    \item Url del artículo: \url{https://www.bujarra.com/controlando-las-persianas-con-shelly-2-5-y-home-assistant/}
-\end{itemize}
-
-\subsubsection{Crear Menú interactivo en Telegram}
-Muestra como generar un menú mediante botones en un bot de Telegram.
-\begin{itemize}
-    \item Url del artículo: \url{https://domology.es/crear-menu-interactivo-en-telegram/}
-\end{itemize}
-
-\subsubsection{Bots: An introduction for developers}
-Introducción a la creación de bots en Telegram. Ofrece información para comenzar a crear tu propio bot.
-\begin{itemize}
-    \item Url del artículo: \url{https://domology.es/crear-menu-interactivo-en-telegram/}
-\end{itemize}
-
-\subsubsection{Introducing Bot API 2.0}
-Introducción a la API del BOT de Telegram v2.0. Ofrece inforamción de como generar algunas opciones en el bot, como pueden ser botones.
-\begin{itemize}
-    \item Url del artículo: \url{https://domology.es/crear-menu-interactivo-en-telegram/}
-\end{itemize}
-
-
-\subsection{Proyectos}
-
-\subsubsection{Repositorio con plantilla Latex}
-En este repositorio se incluye la plantilla que la parte docente facilita para realizar la redacción del proyecto.
-\begin{itemize}
-    \item Url del artículo: \url{https://github.com/ubutfgm/plantillaLatex}
-\end{itemize}
-
-\subsubsection{Diseño e implementación de un sistema domótico basado en Raspberry Pi}
-Incluye el control domótico asistencial según parámetros internos de una vivienda. La idea es muy buena pero en mi caso se pretende implantar físicamente la instalación de forma que necesitaría hacer pequeños desperfectos en la vivienda para acoplar los sensores.
-\begin{itemize}
-    \item Url del artículo: \url{https://e-archivo.uc3m.es/bitstream/handle/10016/26313/TFG_Hector_Santos_Senra.pdf?sequence=1&isAllowed=y}
-\end{itemize}
+En la tabla ~\ref{tabla_Diseño} podemos ver algunas características de este proyecto.
+En las tablas se representará con la primera palabra del nombre del proyecto: "Diseño".
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Características & Diseño  \\
+\midrule
+Proyecto libre                          & \cellcolor{red!25} {$\times$} \\
+No precisa montar servicios             & \cellcolor{red!25} {$\times$} \\
+No requiere lenguajes no nativos en el SO  & \cellcolor{red!25} {$\times$} \\
+Obtiene información externa contrastada & \cellcolor{red!25} {$\times$} \\
+Interacción multiplataforma             & \cellcolor{green!25} {$\checkmark$} \\
+No necesita nodos intermedios           & \cellcolor{green!25} {$\checkmark$} \\
+Cableado entre elementos                & \cellcolor{green!25} {$\checkmark$} \\
+WiFi entre elementos                    & \cellcolor{red!25} {$\times$} \\
+\bottomrule
+\end{tabular}
+\caption{Comparativa de las características de los proyectos.}
+\label{tabla_Diseño}
+\end{table}
 
 \section{Fortalezas y debilidades del proyecto}
 
+Las principales fortalezas del proyecto son:
 
-[[FALTA]]
+\begin{itemize}
+\tightlist
+\item
+    Éste es un proyecto que cualquiera puede implementar fácilmente en su domicilio haciendo una copia local del repositorio y haciendo unas sencillas configuraciones en el archivo de configuración.
+    
+\item
+    En este proyecto se ha tenido en cuenta la eficiencia de recursos y de consumo de la propia máquina Raspberry Pi\cite{misc:RbPWeb}, por lo que no se han incluido servicios extraordinarios como puede ser un servidor de bases de datos o web, como sucede en otros proyectos. Se ha optado por incluir un bot que 'escucha' las órdenes y actúa conforme a un pequeño archivo de configuración y actúa contra la máquina utilizando los lenguajes nativos de la máquina. De esta manera, el gasto en cómputo es menor y también el utilizado en mantener los servicios en memoria, quedando recursos suficientes para continuar haciendo un uso normal de la máquina para cualquier otra tarea.
+    Además, al no tener servidores levantados y con puertos de comunicaciones abiertos, aumentamos la seguridad de nuestra instalación.
+
+\item
+    Se ha procurado utilizar los lenguajes integrados de forma nativa en el Sistema Operativo para evitar posibles fallos de integración entre ellos y aumentando la fiabilidad del sistema. Estos son Python~\cite{misc:Python} y Bash~\cite{misc:Linux}. 
+    
+\item
+    El sistema automatizado de nuestro proyecto se nutre de la información contrastable obtenida de API's reconocidas.
+    
+\item
+    Se puede interactuar con el sistema domótico de varias formas. La más cómoda es mediante el bot de Telegram creado en exclusiva para controlar las funcionalidades principales de nuestro sistema domótico, aunque también se puede contectar de forma remota desde otra máquina mediante VNC~\footnote{VNC: "Virtual Network Computing", programa de control remoto de equipos informáticos basado en una estructura cliente-servidor} siempre que se esté en la misma red. Se puede interactuar con el bot mediante aplicaciones Android o IOs, o desde navegadores de uso extendido como Chrome, Firefox o Edge, entre otros.
+    
+\item
+    No se necesitan elementos intermedios de ningún tipo, únicamente tenemos nuestra Raspberry Pi~\cite{misc:RbPWeb} y los actuadores o relés~\ref{Img:Rele1}. De esta manera evitamos posibles fallos de los elementos intermedios.
+    \begin{comment}
+        --> TODO: Esta situación podemos comprobarla en la imagen PLANO GENERAL DE LA INSTALACIÓN
+    \end{comment}
+    
+\item
+    Se ha preferido cablear la instalación para evitar que los elementos receptores puedan quedar en un estado no deseado así como evitar reconfigurar elementos ante cualquier posible cambio de alguno de los elementos como pueden ser el dongle WiFi~\ref{concepto:WIFI} o el router.
+    También, al dejar libres los canales WiFi, evitamos contribuir a la actual saturación de frecuencias en los espectros de 2.4GHz y 5GHz~\cite{manual:IEEE802.11}.
+
+\end{itemize}
 
 
+Podemos ver en la tabla~\ref{tabla:comparativa-proyectos} de comparativa de proyectos lo anteriormente expuesto.
+
+\begin{itemize}
+\tightlist
+\end{itemize}
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Características & SDI & Interacción & Diseño  \\
+\midrule
+Proyecto libre                          & \cellcolor{green!25} {$\checkmark$} & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} \\
+No precisa montar servicios             & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{red!25} {$\times$} \\
+No requiere lenguajes no nativos en el SO  & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{red!25} {$\times$} \\
+Obtiene información externa contrastada & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{red!25} {$\times$} \\
+Interacción multiplataforma             & \cellcolor{green!25} {$\checkmark$} & \cellcolor{green!25} {$\checkmark$} & \cellcolor{green!25} {$\checkmark$} \\
+No necesita nodos intermedios           & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{green!25} {$\checkmark$} \\
+Cableado entre elementos                & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{green!25} {$\checkmark$} \\
+WiFi entre elementos                    & \cellcolor{red!25} {$\times$} & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} \\
+\bottomrule
+\end{tabular}
+\caption{Comparativa de las características de los proyectos.}
+\label{tabla:comparativa-proyectos}
+\end{table}
+
+Las principales debilidades del proyecto son:
+
+\begin{itemize}
+\tightlist
+\item
+    Hace falta cierta soltura a la hora de trabajar con el cableado UTP~\ref{4:guiaPasacables}.
+\item
+    Es necesaria una línea de datos para que se actualicen los parámetros de los scripts.
+
+\end{itemize}
