@@ -3,10 +3,10 @@
 Durante el proyecto se han utilizado diferentes tecnologías, herramientas y componentes que son imprescindibles y necesitan conocerse antes de continuar con el proyecto. Para optar por éstos y no por otros, se ha realizado una valoración que queda plasmada en este apartado a modo de justificación.
 
 \section{Entorno Software}
-\subsection{Raspbian (Distribución Linux)}
+\subsection{Raspbian (Distribución Linux)}\label{4:RaspbianOS}
 Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPC. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente. Una de estas distribuciones optimizadas y orientadas a estas placas es Raspbian~\cite{misc:RbPWeb} o Raspberry Pi OS, que incluye software orientado a la educación, programación y otras de uso general. Algunas de estas aplicaciones son Python~\cite{misc:Python} (Lenguaje de programación que pretende que se desarrolle cógigo de una forma sencilla, rápida, poco costosa y legible), Scratch~\cite{misc:Scratch}(Simulador amigable para aprender programación.) o Java\cite{misc:Java}(Lenguaje de programación multiplataforma que utiliza una máquina virtual transparente para el usuario para ejecutarse), entre otros.
 
-\subsection{Entorno de desarrollo Bash}
+\subsection{Entorno de desarrollo Bash}\label{4:BASH}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://www.freebsd.org/cgi/man.cgi?query=vi&sektion=1}{Vi}, \href{https://www.vim.org/}{Vim}, \href{https://www.nano-editor.org/}{Nano}.
     \item \textbf{Herramienta elegida:} \href{https://www.nano-editor.org/}{Nano}.
@@ -14,7 +14,7 @@ Como he comentado anteriormente, pretendo correr una distribución Linux en nues
 
 Nuestro Sistema Operativo Raspbian\cite{misc:RbPWeb}, al ser una distribución de Linux~\cite{misc:Linux}, dispone de líneas de comandos, procesadores de texto plano y editores de texto integrados. Éste es un editor de textos básico que facilita la interacción con él pese a que Vi o Vim son mucho más potentes.
 
-\subsection{Entorno de desarrollo Python}
+\subsection{Entorno de desarrollo Python}\label{4:Python}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://www.jetbrains.com/es-es/pycharm/}{Jetbrains PyCharm} y \href{https://jupyter.org/}{Jupyter Notebook}.
     \item \textbf{Herramienta elegida:} \href{https://jupyter.org/}{Jupyter Notebook}.
@@ -23,27 +23,27 @@ Nuestro Sistema Operativo Raspbian\cite{misc:RbPWeb}, al ser una distribución d
 Jupyter Notebook es un entorno de desarrollo interactivo y open source, basado en cuadernos que estructuran el código pudiendo ejecutarlo todo o parte. Dispone de una interfaz limpia, ligera e interactiva que nos permite programar en 40 lenguajes, incluyendo Python~\cite{misc:Python}.
 
 \section{Control de datos}
-\subsection{Web Scraping}
+\subsection{Web Scraping}\label{4:WebScraping}
 Es una técnica utilizada para extraer información de una página web utilizando las etiquetas de que dispone el propio lenguaje interpretado de HTML (del inglés <<HyperText Markup Language>> o lenguaje de marcas de hipertexto) para organizar elementos dentro de una página web, de forma que se introduce dentro de una etiqueta y subetiquetas hasta llegar al contenido del elemento requerido. Podemos entenderlo como si fueran contenedores lógicos configurables.
 En nuestro caso, podremos utilizarlo desde Python~\cite{misc:Python} sirviéndonos de la librería <<beautifulsoup>> siempre que necesitemos obtener información de una página web.
 
-\subsection{APIS}
+\subsection{APIS}\label{4:APIS}
 \begin{itemize}
     \item \textbf{API situación geográfica}
 \end{itemize}
 En primer lugar estuve haciendo pruebas con la API de \url{www.ifconfig.me/ip} que devuelve la provincia en la que se encuentra tu IP pública pero quería una información más precisa ya que no tendremos la misma temperatura en El Escorial que en Aranjuez. Por ello, opté por \url{http://ip-api.com} que sí obtiene correctamente la ciudad desde la que nos conectamos.
 
 \begin{itemize}
-    \item \textbf{API Tiempo}
+    \item \textbf{API Tiempo}\label{4:API_Tiempo}
 \end{itemize}
 Al principio probé la API de \url{www.weatherapi.com} pero me entregaba únicamente la hora de salida y puesta del sol, lo cual es correcto para el control básico de las persianas pero quería llevar el proyecto más allá obteniendo además, una previsión de las temperaturas para el día siguiente pudiendo trabajar con ésta haciendo gráficos y poder decidir si encenderemos la calefacción o no. Y, por ello, opté por probar con la API de \url{www.climacell.co} que además, aseguran que es un 60\% más fiable que otras APIS ya que obtiene información de teléfonos móviles, cámaras y otros servicios online.
 
-\subsection{json}
+\subsection{json}\label{4:JSON}
 La librería json~\cite{misc:Json} para Python~\cite{misc:Python} y Python v3 nos permite, entre otros, parsear el código json~\cite{misc:Json} de archivos mediante la estructura de \textit{key:value}. En nuestro caso, tras obtener información de las APIs trataremos dicha información como json~\cite{misc:Json} gracias a su librería para Python~\cite{misc:Python}.
 
 \section{Técnicas manuales}
 
-\subsection{Tirada de cable con guía pasacables}
+\subsection{Tirada de cable con guía pasacables}\label{4:guiaPasacables}
 El procedimiento a seguir es el siguiente:
 \begin{enumerate}
         \item Se abren las tapas de dos cajas de derivación próximas.
@@ -53,15 +53,15 @@ El procedimiento a seguir es el siguiente:
 \end{enumerate}
 
 \section{Metodologías}
-\subsection{Scrum}
+\subsection{Scrum}\label{4:SCRUM}
 Scrum\cite{manual:Scrum} es un marco de trabajo para el desarrollo de software mediante la metodología ágil en el que se busca realizar un trabajo colaborativo de desarrollo incremental. Se aplica una metodología basada en milestones y sprints de forma iterativa.
 
-\subsection{Modularidad}
+\subsection{Modularidad}\label{4:Modularidad}
 Utilizaremos la modularidad para subdividir la aplicación en pequeños subprogramas que tienen una pequeña funcionalidad. De esta manera es más fácil detectar errores y escalar el proyecto. Además, teniendo clara la entrada y salida de cada uno de los módulos se pueden lanzar pruebas a cada uno de los módulos para comprobar su correcto funcionamiento mejorando, también, el mantenimiento.
 
 \section{Entorno de desarrollo del Proyecto}
 
-\subsection{Control de versiones o CVS, Concurrent Versioning System}
+\subsection{Control de versiones o CVS, Concurrent Versioning System}\label{4:controlVersiones}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://git-scm.com/}{Git}, \href{https://subversion.apache.org/}{SVN}.
     \item \textbf{Herramienta elegida:} \href{https://git-scm.com/}{Git}.
@@ -70,7 +70,7 @@ Utilizaremos la modularidad para subdividir la aplicación en pequeños subprogr
 Git es un software destinado al control de versiones software en el que se registran los cambios producidos en el mismo, facilitando la integración de código por parte de cualquiera de los integrantes del proyecto.
 La diferencia más notable entre ellos es que Git es distribuido y SVN es un sistema centralizado. Significa que Git nos permite disponer de una copia en cada uno de los equipos desde los que se trabaje haciendo un clonado del repositorio, mientras que en SVN se trabaja en la nube.
 
-\subsection{Hosting del Repositorio}
+\subsection{Hosting del Repositorio}\label{4:GitHUb}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://github.com/}{Github} y \href{https://bitbucket.org/product/}{Bitbucket}.
     \item \textbf{Herramienta elegida:} \href{https://github.com/}{Github}.
@@ -80,7 +80,7 @@ Ambas opciones de hosting de repositorios funcionan de forma similar aunque GitH
 Ésta, es la plataforma principal de trabajo, que a su vez es una red social de código donde cualquiera puede contribuir en proyectos públicos y Open Source.
 
 
-\subsection{Gestión del proyecto}
+\subsection{Gestión del proyecto}\label{4:ZenHub}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://teams.microsoft.com/}{MS.Teams}, \href{https://www.zenhub.com/}{ZenHub}, \href{https://github.com/}{GitHub Projects}, \href{https://www.zenhub.com/}{Trello}, \href{https://www.atlassian.com/es/software/jira}{Jira}, \href{https://www.board.com/es#gref}{Board}, \href{https://monday.com/lang/es/}{Monday}, \href{https://zube.io/}{Zube}, \href{https://clubhouse.io/}{Clubhouse}.
     \item \textbf{Herramienta elegida:} \href{https://www.zenhub.com/}{ZenHub}.
@@ -88,7 +88,7 @@ Ambas opciones de hosting de repositorios funcionan de forma similar aunque GitH
 
 Es la única solución de colaboración en equipo integrada en GitHub y nos permite planificar hojas de ruta, generar informes, gestionar con Kanban, gestión ágil del proyecto mostrando la situación del proyecto para conseguir aumentar la productividad del equipo.
 
-\subsection{Editor del proyecto}
+\subsection{Editor del proyecto}\label{4:ATOM}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://atom.io/}{Atom}, \href{https://code.visualstudio.com/}{Visual Studio Code}, \href{https://www.sublimetext.com/}{Sublime}.
     \item \textbf{Herramienta elegida:} \href{https://atom.io/}{Atom}.
@@ -99,7 +99,7 @@ En este proyecto se utilizará para publicar las actualizaciones del proyecto.
 
 
 
-\subsection{Dibujos, diagramas y planos}
+\subsection{Dibujos, diagramas y planos}\label{4:plataformasDibujosYPlanos}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://fritzing.org/}{Fritzing}, \href{https://support.microsoft.com/es-es/windows/obtener-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9}{Paint, Paint3D}, \href{https://www.adobe.com/es/products/photoshop.html}{Photoshop}, y \href{www.draw.io}{Draw.io}.
     \item \textbf{Herramienta elegida:} \href{https://fritzing.org/}{Fritzing} y \href{www.draw.io}{Draw.io}.
@@ -110,7 +110,7 @@ Fritzing es un software con licencia Open Source\cite{misc:OpenSource} que nos p
 
 Por otro lado, Draw.io está pensado para hacer planos y dibujos que no están orientados a la electrónica, por lo que es muy útil para hacer otro tipo de diagramas.
 
-\subsection{Procesador de textos \LaTeX}
+\subsection{Procesador de textos \LaTeX}\label{4:latex}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://www.latex-project.org/}{\LaTeX}, \href{https://www.microsoft.com/es-es/microsoft-365/word}{MS Word}, \href{https://www.sublimetext.com/}{Sublime}, \href{https://www.overleaf.com/}{Overleaf}.
     \item \textbf{Herramienta elegida:} \href{https://www.latex-project.org/}{\LaTeX} y \href{https://www.overleaf.com/}{Overleaf}.
@@ -118,7 +118,7 @@ Por otro lado, Draw.io está pensado para hacer planos y dibujos que no están o
 \LaTeX{} es un editor de textos open source\cite{misc:OpenSource} con alta calidad tipográfica que trabaja con etiquetas permitiéndonos separar nuestro contenido del estilo del mismo. Para escribir el proyecto en \LaTeX utilizaré Overleaf por su capacidad de compilado instantáneo de forma que se puede comprobar como modificas la redacción en tiempo real.
 
 \section{Entorno físico}
-\subsection{RaspberryPi}
+\subsection{RaspberryPi}\label{4:RaspberryPi}
 En nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi\cite{misc:RbPWeb}. 
 Para dar un enfoque muy general, podemos decir que las placas RaspberryPi~\cite{misc:RbPWeb} son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
 
@@ -131,7 +131,7 @@ Estas placas pueden ejecutar con agilidad distribuciones Linux~\cite{misc:Linux}
     \caption[Especificaciones de Raspberry Pi 2B]{Especificaciones de Raspberry Pi 2B. Imagen de \url{https://raspberryparatorpes.net} modificada por el autor del TFG~\cite{wiki:Creative}. }\label{Img:Especificaciones RBP2B}
 \end{figure}
 
-\subsection{Relé}
+\subsection{Relé}\label{4:Relé}
 Es un dispositivo electromagnético que desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía eléctrica, o no, a nuestros dispositivos. Los relés se activan mediante impulsos eléctricos que abren o cierran el circuito según se predisponga. Podemos verlo en la imagen~\ref{Img:Rele1}.
 \begin{figure}
     \centering
@@ -139,7 +139,7 @@ Es un dispositivo electromagnético que desempeña la misma función de un inter
     \caption[Estructura interna de un relé]{Estructura interna de un relé. Imagen de \url{https://commons.wikimedia.org/}\cite{manual:GNU}} \label{Img:Rele1}
 \end{figure}
 
-\subsection{Placa de Pruebas o ProtoBoard}
+\subsection{Placa de Pruebas o ProtoBoard}\label{4:protoboard}
 Es un tablero electrónico para realizar pruebas. Protoboard es la agrupación de los términos ingleses “prototype board”.
 Esta protoboard la he instalado para poder hacer fácilmente el interconexionado entre los cables que llegan de los relés y los que van a la Raspberry Pi, evitando posibles tirones y movimiento de cables a la hora de hacer alguna manipulación.
 
@@ -159,10 +159,10 @@ Esta protoboard la he instalado para poder hacer fácilmente el interconexionado
     \caption{Imagen de una placa <<protoboard>>. } \label{Img:Protoboard}
 \end{figure}
 
-\subsection{Router}
+\subsection{Router}\label{4:Router}
 Es un dispositivo que nos permite interconectar diferentes redes de datos. En mi caso dispongo de un router con WiFi integrado para poder dotar a la Raspberry Pi de salida a Internet.
 
-\section{Plataforma de interacción}
+\section{Plataforma de interacción}\label{4:telegram}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://telegram.org/}{Telegram}, \href{https://palletsprojects.com/p/flask/}{Flask}.
     \item \textbf{Herramienta elegida:} \href{https://telegram.org/}{Telegram}.

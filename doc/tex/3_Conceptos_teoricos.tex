@@ -1,11 +1,11 @@
 
-\capitulo{3}{Conceptos teóricos}
+\capitulo{3}{Conceptos teóricos}\label{cap:Conceptos teóricos}
 
 Este punto nace ante la necesidad de enmarcar el proyecto dentro de las tecnologías y elementos que utilizaremos durante todo el proyecto y que no tienen por qué conocerse.
 
 El término ‘domótica’ es el pilar principal del proyecto y, por ello, comenzaré explicando lo qué es y cómo lo enfocaremos:
 
-\section{Domótica}
+\section{Domótica}\label{concepto:Domótica}
 La domótica podemos definirla como aquel conjunto de elementos capaces de automatizar una vivienda aportando un beneficio.
 En nuestro caso, nuestro sistema domótico deberá controlar luces, persianas y calefacción permitiendo un aumento del confort y la seguridad, además de permitir un consumo eficiente de recursos a la hora de climatizar la vivienda.
 
@@ -13,16 +13,16 @@ En nuestro caso, nuestro sistema domótico deberá controlar luces, persianas y 
 \Chapter{\textit{The home automation system can be applied to many areas including home security, lighting control, flame detection, smart heating, motion sensor and door control to provides its homeowner's comfort, security, energy efficiency (low operating costs) and convenience at all times. The Internet of Things (IoT) is anticipated to enable a variety of smart home services in which each service provides a set of home automation solutions. This proposed study consists of developing an automated home monitoring using Raspberry Pi that provides a customizable and cost-efficient platform for a smart home.}} \cite{inproceedings:CitaDomotica}
 \end{displayquote}
 
-\section{GPIO}
+\section{GPIO}\label{concepto:GPIO}
 Éstos son unos puertos de entrada y salida conformados en forma de pines que están albergados en las placas Raspberry Pi~\cite{misc:RbPWeb}. Con ellos enviaremos órdenes a otros dispositivos externos para que realicen las tareas que les designemos. En nuestro caso, servirán para controlar unos relés para conseguir una acción final.
 
-\section{API}
+\section{API}\label{concepto:API}
 Es el acrónimo de ‘Application Programming Interfaces’ que, traducido al castellano significa ‘Interfaz de Programación de Aplicaciones’. Estas interfaces nos sirven información que podremos utilizar en un desarrollo.
 Por ejemplo, para obtener la ubicación de la máquina Raspberry Pi accedemos a una API pública que nos devolverá información que podremos procesar a nuestro gusto.
 Podemos acceder a una URL como esta ~\url{http://ip-api.com/json/?fields=country,regionName,city,lat,lon,isp,query} y obtendremos los valores de país, región, ciudad, latitud, longitud, ISP y dirección IP.
 Estos valores, podremos recogerlos con beautifulsoup\footnote{Beautifulsoup es una librería de Python para hacer web scraping.} y procesarlos desde Python como json.
 
-\section{Json}
+\section{Json}\label{concepto:JSON}
 {Json~\cite{misc:Json}}, es el acrónimo en inglés de ‘JavaScript Object Notation’ y sirve para almacenar información de forma estructurada mediante etiquetas <<key>> y etiquetas <<value>> del siguiente modo:
 
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -34,16 +34,14 @@ Estos valores, podremos recogerlos con beautifulsoup\footnote{Beautifulsoup es u
 \end{lstlisting}
 
 
-
-
 En ella, podemos ver que las etiquetas <<key>> son las que están a la izquierda de los dos puntos y las etiquetas de la derecha son las <<value>>.
 
-\section{RETB}
+\section{RETB}\label{concepto:RETB}
 Es el acrónimo de Reglamento electrotécnico para baja tensión y en él se recoge la normativa eléctrica aplicable en domicilios.
 Esta norma acaba de ser actualizada y podemos disponer de la información en páginas oficiales como puede ser el BOE~\cite{manual:REBT}.
 Del documento ICT-BT-21~\cite{manual:ICT-BT-21} podemos extraer información para realizar las instalaciones eléctricas de nuestro sistema domótico como el número máximo de cables a introducir por un tubo eléctrico.
 
-\section{Normativa de ICT}
+\section{Normativa de ICT}\label{concepto:Normativa_ICT}
 Como figura en el \textit{BOE 143, de 16 de junio de 2011, El Reglamento regulador de las infraestructuras comunes de telecomunicaciones para el acceso a los servicios de telecomunicación en el interior de las edificaciones, aprobado por el Real Decreto 346/2011, de 11 de marzo}:
 Debemos regirnos por esta normativa a la hora de hacer cualquier instalación de comunicaciones nueva dentro de domicilios.
 Podemos informarnos y ampliar información en la publicación en la sección de ICT en el BOE~\cite{manual:ICT}.
@@ -54,19 +52,19 @@ De este punto, obtendremos la norma para introducir cableado ICT~\cite{manual:IC
 
 Tras hacer un estudio en mi domicilio, no necesitaré utilizar la normativa de ICT~\cite{manual:ICT} porque toda la instalación se realizará mediante canales eléctricos, pero está bien conocer la norma para, en caso de necesitarla, poder hacer uso de ella correctamente.
 
-\section{Cableado estructurado}
+\section{Cableado estructurado}\label{concepto:Cableado_estructurado}
 El establecimiento de un sistema de cableado estructurado consiste en la organización de los cables en un recinto conforme a una norma y constituye el nivel básico de cualquier red de comunicaciones.
 Al contar y cumplir con este estándar nos damos cuenta de que tendremos instalaciones limpias, uniformes, seguras y escalables, facilitando la supervisión, el mantenimiento y posibles migraciones de tecnologías.
 Un sistema de cableado genérico dispone de tres subsistemas, Troncal, de Edificio y Horizontal. En nuestro proyecto únicamente trataremos con el subsistema horizontal.
 
 En este proyecto no contaremos con un gran número de cables, pero no está de más realizar una instalación lo más correctamente posible con unas normas de referencia
 
-\section{WiFi}
+\section{WiFi}\label{concepto:WIFI}
 Es una tecnología de comunicaciones de forma inalámbrica o “Wireless”. WiFi\footnote{Traducción del inglés: 'Wireless Fidelity'} es el acrónimo traducido de “Fidelidad Inalámbrica”.
 Estas tecnologías inalámbricas se rigen por la norma \underline{IEEE 802.11}~\cite{manual:IEEE802.11}.
 En la web oficial del organismo podremos comprobar qué estándares dentro del 802.11 están vigentes y cuáles no.
 
-\section{UTP}
+\section{UTP}\label{concepto:UTP}
 Es un tipo de cableado de datos que se compone de 4 pares de cables sin apantallar que están albergados dentro de una camisa de PVC, ver imagen~\ref{Img:Bobina UTP}.
 
 \begin{figure}
