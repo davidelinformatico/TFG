@@ -11,13 +11,13 @@ logger = logging.getLogger('SDI_domo.log')
 #Diccionario con los comandos disponibles en el bot.
 commands = {
              'ayuda': 'Muestra información sobre los comandos',
-             #'e': 'Ejecuta un comando',
              'subir': 'Subir persianas',
              'bajar': 'Bajar persianas',
              'parar': 'Para las persianas',
              'temp': 'Listado de temperaturas',
              'd': 'Diagrama de temperaturas',
-             'cambiar': 'Cambiar hora subida',
+             'cambiar': 'Cambiar hora subida', 
+             'tempcal': 'Informa y cambia temperatura de calefacción',
              'datos': 'Hora de recopilación de datos',
              'hora': 'Hora a la que suben las persianas',
              'generar': 'Genera los archivos de control',
@@ -209,30 +209,69 @@ def command_long_text(m):
             ss = str(int(matrix1[4].split(" ")[2].split(":")[0]))
             ll = matrix1[5].split(" ")[2].split(":")[0]
             bb = matrix1[6].split(" ")[2].split(":")[0]
-
+           
             compilado = "|  Hora  |Temperatura|"
             for i in range(len(matrix1)-1):
                 if ((i >10) and (i<20)):
                     compilado += str("\n|    ")+matrix1[i].split(", ")[0][1:]
+                    if len(matrix1[i].split(", ")[1][:-1])==3:
+                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC   |")
                     if len(matrix1[i].split(", ")[1][:-1])==4:
                         compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
                     if len(matrix1[i].split(", ")[1][:-1])==5:
                         compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
                     if (matrix1[i].split(", ")[0][1:]==ss):
                         compilado += str("&#127774;")+str(matrix1[4].split(" ")[2][:-3])
-                if ((i >20) and (i<34)):
+                    print("-->"+matrix1[i].split(", ")[0][1:]+" |"+ss)
+                if ((i >=20) and (i<34)):
                     compilado += str("\n|   ")+matrix1[i].split(", ")[0][1:]
+                    if len(matrix1[i].split(", ")[1][:-1])==3:
+                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC   |")                    
                     if len(matrix1[i].split(", ")[1][:-1])==4:
                         compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
                     if len(matrix1[i].split(", ")[1][:-1])==5:
                         compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
+                    if (matrix1[i].split(", ")[0][1:]==ss):
+                        compilado += str("&#127774;")+str(matrix1[4].split(" ")[2][:-3])
                     if (matrix1[i].split(", ")[0][1:]==bb):
                         compilado += str("&#128161;&#127770;")+str(matrix1[5].split(" ")[2][:-3])
-            print(compilado)
+            #print("-->")
+            #print(compilado)
             bot.send_message(usuario, text='<pre><code class="language-python">'+compilado+'</code></pre>', parse_mode=ParseMode.HTML)
             
         except:
             bot.send_message(usuario, "Error en la lectura del archivo")
+
+
+# Informa y cambia temperatura de calefacción
+@bot.message_handler(commands=['tempcal'])
+@bot.message_handler(func=lambda message: message.text == "tc")
+@bot.message_handler(func=lambda message: message.text == "Tc")
+def command_long_text(m):
+    usuario = m.chat.id
+    if (compruebaUsuario(m)):
+        comandos=m.text.split(" ")
+        try:
+            f = open(rutaAuto+"TemperaturaCalefaccion")
+            temp = f.read()
+            f.close()
+            
+            if len(comandos)==1:
+                bot.send_message(usuario, "La temperatura está fijada en <b>"+temp+ "</b>ºC &#128293;",parse_mode=ParseMode.HTML)    
+            
+            if len(comandos)==2:
+                horaNueva=comandos[1][0:5]
+                f = open(rutaAuto+"TemperaturaCalefaccion", "w")
+                f.write(str(horaNueva))
+                f.close()
+                
+                f = open(rutaAuto+"TemperaturaCalefaccion")
+                temp = f.read()
+                f.close()
+                bot.send_message(usuario, "La temperatura se ha fijado en <b>"+temp+ "</b>ºC &#128293;",parse_mode=ParseMode.HTML)    
+        except:
+            pass
+
 
 # Cambio de hora mínima de subida de persianas
 @bot.message_handler(commands=['cambiar'])
@@ -258,7 +297,7 @@ def command_long_text(m):
                 horaNueva = f.read()
                 f.close()
                 #Leemos hora a cambiar
-                bot.send_message(usuario, "La hora ha cambiado de "+str(horaAntigua) + " a *"+str(horaNueva[:-3])+"*",parse_mode=telegram.ParseMode.MARKDOWN)
+                bot.send_message(usuario, "La hora ha cambiado de <i>"+str(horaAntigua[:-3]) + "</i> a <b>"+str(horaNueva[:-3])+"</b> &#128337;",parse_mode=ParseMode.HTML)
             else:
                 bot.send_message(usuario, "Introduce el formato correcto: HH:MM")    
         except:

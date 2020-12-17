@@ -1,36 +1,20 @@
 #!/usr/bin/env python3
-import urllib, json, pycurl, requests, datetime, os, time, stat
+import urllib, json, pycurl, requests, datetime, os, time, stat, obtencionDatos
 from datetime import date
 import pandas as pd 
 import matplotlib.pyplot as plt
 import matplotlib
-    
-#Calculamos ruta
-ruta=os.getcwd().split('/')
-rutaPrincipal=os.getcwd().split('/')
-salida=""
-for i in range(len(ruta)-3):
-    salida=str(salida)+"/"+str(ruta[i])
-ruta=salida[1:]+str("/credentials/")
 
-cosa=""
-for i in range(len(rutaPrincipal)-1):
-    cosa=str(cosa)+"/"+str(rutaPrincipal[i])
-rutaPrincipal=cosa[1:]+str("/auto/")
+tokenBot, users, KeyClimacell, KeyWeatherapi, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()
+
 
 try:
     print("Ha comenzado el proceso de cálculo de temperaturas.")
 except:
     pass
-# Obtención de los seriales
-
-# Llamamos a mi key personal de Climacell, que está en otro directorio.
-result = open(ruta+'KeyClimacell')
-KeyClimacell = result.read()
-result.close()
 
 # Temperatura a la que encenderemos la calefacción
-f = open(rutaPrincipal+'TemperaturaCalefaccion')
+f = open(rutaAuto+'TemperaturaCalefaccion')
 temperatura = f.read()
 f.close()
 
@@ -137,7 +121,7 @@ try:
     plt.plot(x, y)
 
     # Exportamos imagen con la fecha como nombre
-    os.chdir(rutaPrincipal+"diagramas")
+    os.chdir(rutaAuto+"diagramas")
     plt.savefig(b+".png")
     plt.clf()
     plt.cla()
@@ -160,11 +144,8 @@ hora_minima = min(temperatura_hora, key=temperatura_hora.get)
 
 
 #Abrimos el archivo
-os.chdir(rutaPrincipal)
+os.chdir(rutaAuto)
 file = open ('CronPruebas','a')
-file.write(""+ os.linesep)
-file.write("# Comprueba cada minuto que el bot está corriendo"+ os.linesep)
-file.write("* * * * * sh /home/pi/source/TFG/scripts/bot/compuebaBot.sh"+ os.linesep)
 file.write(""+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
 file.write("#Código de control Automático de Calefacción "+ os.linesep)
@@ -187,7 +168,7 @@ file.write(""+ os.linesep)
 file.write(""+ os.linesep)
 file.close()
 
-file = open (rutaPrincipal+'log.cron','a')
+file = open (rutaAuto+'log.cron','a')
 file.write(str("--------------------------------------")+ os.linesep)
 file.write(str("Temperaturas por horas:")+ os.linesep)
 file.write(str("--------------------------------------")+ os.linesep)

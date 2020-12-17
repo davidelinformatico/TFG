@@ -3,6 +3,6 @@ path=$(pwd)
 echo $path
 echo "${path%/*}"
 
-python3 ${path%/*}/auto/Generahoras.py
-python3 ${path%/*}/auto/RecogeHoras.py
+python3 ${path%/*}/auto/1_SistemaAutomatico.py
+python3 ${path%/*}/auto/2_SistemaTemperatura.py
 sh ${path%/*}/auto/reescribeCron.sh

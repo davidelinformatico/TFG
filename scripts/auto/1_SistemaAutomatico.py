@@ -1,44 +1,24 @@
 #!/usr/bin/env python3
-import urllib, json, datetime, pycurl, requests, os 
+import urllib, json, datetime, pycurl, requests, os, obtencionDatos
 import datetime, time
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+
+tokenBot, users, KeyClimacell, KeyWeatherapi, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()
+
 #Calculamos ruta
 ruta=os.getcwd().split('/')
 rutaPrincipal=os.getcwd().split('/')
-salida=""
-for i in range(len(ruta)-3):
-    salida=str(salida)+"/"+str(ruta[i])
-ruta=salida[1:]+str("/credentials")
-
-cosa=""
-for i in range(len(rutaPrincipal)-1):
-    cosa=str(cosa)+"/"+str(rutaPrincipal[i])
-rutaPrincipal=cosa[1:]+str("/auto/")
-#print("Ha comenzado el proceso de cálculo de horas.")
-
-# Obtención de los seriales
-
-# Llamamos a mi key personal de Climacell, que está en otro directorio.
-result = open(ruta+'/KeyClimacell')
-KeyClimacell = result.read()
-result.close() 
-# Llamamos a mi key personal de Climacell, que está en otro directorio.
-result = open(ruta+'/KeyWeatherapi')
-KeyWeatherapi = result.read()
-result.close() 
-id_weatherapi = KeyWeatherapi 
-
 
 # Hora más temprana de subida de persianas (configurable desde el bot)
-HoraMinima=rutaPrincipal+"HoraMinima"
+HoraMinima=rutaAuto+"HoraMinima"
 f = open(HoraMinima)
 hora_minima = f.read()
 f.close()
 
 #Leemos la cabecera del futuro archivo CRON, se puede obtener mediante 'cat' pero prefiero tener copia de seguridad.
-c = open (rutaPrincipal+'cabecera.txt')
+c = open (rutaAuto+'cabecera.txt')
 cabecera = c.read()
 c.close()
 
@@ -59,7 +39,7 @@ ip_publica = prueba['query']
 region = prueba['regionName']
 
 #Tiempo mañana en la ubicación de la máquina
-url_tiempo = "http://api.weatherapi.com/v1/astronomy.json?key="+str(id_weatherapi)+"&q="+ciudad+"&dt="+str(fecha_manana)+""
+url_tiempo = "http://api.weatherapi.com/v1/astronomy.json?key="+str(KeyWeatherapi)+"&q="+ciudad+"&dt="+str(fecha_manana)+""
 resp = requests.get(url_tiempo)
 diccionario = resp.json()
 loc = diccionario['astronomy']
@@ -110,7 +90,7 @@ minuto_subida_3 = real_up_3.minute
 
 # Generamos el CRON nuevo en un archivo intermedio para poder volcarlo posteriormente al archivo en producción
 ## Llamamos a archivos de bash porque los de python a veces generan errores
-file = open (rutaPrincipal+'CronPruebas','w')
+file = open (rutaAuto+'CronPruebas','w')
 file.write(str(cabecera)+ os.linesep)
 file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
 file.write(str("#Este CRON ha sido generado en el instante ")+str(ahora)+ os.linesep)
@@ -147,7 +127,7 @@ file.write(""+ os.linesep)
 
 file.close()
 # Log externo
-file = open (rutaPrincipal+'log.cron','w')
+file = open (rutaAuto+'log.cron','w')
 file.write(str(hoy)+ os.linesep) 
 file.write(str(ahora)+ os.linesep)
 file.write(str("--------------------------------------")+ os.linesep)
