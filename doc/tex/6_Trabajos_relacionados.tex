@@ -1,5 +1,5 @@
-\capitulo{6}{Trabajos relacionados}
 \begin{comment}
+\capitulo{6}{Trabajos relacionados}
 Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
 \end{comment}
 
@@ -10,14 +10,13 @@ Desde la aparición de elementos electrónicos accesibles y asequibles se ha int
 \section{Comparativa con otros proyectos}
 En este apartado mostraré otras opciones de acometer un proyecto similar y compararé los principales puntos de éstos con el presente proyecto para poder tener una visión global entre estas opciones.
 
-\section{Presentación de los proyectos}
 \subsection{Interacción remota para elementos de un hogar mediante una red de sensores actuadores}
 Se trata de un proyecto de control domótico que se centra en un conjunto de sensores instalados en el domicilio utilizando nodos intermedios para realizar el control de los dispositivos finales y la comunicación con los sensores.
 
-En la tabla ~\ref{tabla_Interacción} podemos ver algunas características de este proyecto.
-En las tablas se representará con la primera palabra del nombre del proyecto: "Interacción".
+En la tabla~\ref{tabla_Interacción} podemos ver algunas características de este proyecto.
+En las tablas se representará con la primera palabra del nombre del proyecto: <<Interacción>>.
 
-\begin{table}[H]
+\begin{table}
 \centering
 \begin{tabular}{lccc}
 \toprule
@@ -45,8 +44,8 @@ Se trata de un proyecto de control domótico que se centra en un conjunto de sen
 \end{itemize}
 
 En la tabla ~\ref{tabla_Diseño} podemos ver algunas características de este proyecto.
-En las tablas se representará con la primera palabra del nombre del proyecto: "Diseño".
-\begin{table}[H]
+En las tablas se representará con la primera palabra del nombre del proyecto: <<Diseño>>.
+\begin{table}
 \centering
 \begin{tabular}{lccc}
 \toprule
@@ -66,7 +65,7 @@ WiFi entre elementos                    & \cellcolor{red!25} {$\times$} \\
 \label{tabla_Diseño}
 \end{table}
 
-\section{Fortalezas y debilidades del proyecto}
+\section{Fortalezas y debilidades este proyecto: <<Sistema Domótico Inteligente>>}
 
 Las principales fortalezas del proyecto son:
 
@@ -76,7 +75,7 @@ Las principales fortalezas del proyecto son:
     Éste es un proyecto que cualquiera puede implementar fácilmente en su domicilio haciendo una copia local del repositorio y haciendo unas sencillas configuraciones en el archivo de configuración.
     
 \item
-    En este proyecto se ha tenido en cuenta la eficiencia de recursos y de consumo de la propia máquina Raspberry Pi\cite{misc:RbPWeb}, por lo que no se han incluido servicios extraordinarios como puede ser un servidor de bases de datos o web, como sucede en otros proyectos. Se ha optado por incluir un bot que 'escucha' las órdenes y actúa conforme a un pequeño archivo de configuración y actúa contra la máquina utilizando los lenguajes nativos de la máquina. De esta manera, el gasto en cómputo es menor y también el utilizado en mantener los servicios en memoria, quedando recursos suficientes para continuar haciendo un uso normal de la máquina para cualquier otra tarea.
+    En este proyecto se ha tenido en cuenta la eficiencia de recursos y de consumo de la propia máquina Raspberry Pi~\cite{misc:RbPWeb}, por lo que no se han incluido servicios extraordinarios como puede ser un servidor de bases de datos o web, como sucede en otros proyectos. Se ha optado por incluir un bot que `escucha' las órdenes y actúa conforme a un pequeño archivo de configuración y actúa contra la máquina utilizando los lenguajes nativos de la máquina. De esta manera, el gasto en cómputo es menor y también el utilizado en mantener los servicios en memoria, quedando recursos suficientes para continuar haciendo un uso normal de la máquina para cualquier otra tarea.
     Además, al no tener servidores levantados y con puertos de comunicaciones abiertos, aumentamos la seguridad de nuestra instalación.
 
 \item
@@ -95,7 +94,7 @@ Las principales fortalezas del proyecto son:
     \end{comment}
     
 \item
-    Se ha preferido cablear la instalación para evitar que los elementos receptores puedan quedar en un estado no deseado así como evitar reconfigurar elementos ante cualquier posible cambio de alguno de los elementos como pueden ser el dongle WiFi~\ref{concepto:WIFI} o el router.
+    Se ha preferido cablear la instalación para evitar que los elementos receptores puedan quedar en un estado no deseado así como evitar reconfigurar elementos ante cualquier posible cambio de alguno de los elementos como pueden ser el \textit{dongle} WiFi o el router, ver secciones ~\ref{concepto:WIFI} y \ref{4:Router} respectivamente.
     También, al dejar libres los canales WiFi, evitamos contribuir a la actual saturación de frecuencias en los espectros de 2.4GHz y 5GHz~\cite{manual:IEEE802.11}.
 
 \end{itemize}
@@ -106,7 +105,7 @@ Podemos ver en la tabla~\ref{tabla:comparativa-proyectos} de comparativa de proy
 \begin{itemize}
 \tightlist
 \end{itemize}
-\begin{table}[H]
+\begin{table}
 \centering
 \begin{tabular}{lccc}
 \toprule
@@ -131,8 +130,10 @@ Las principales debilidades del proyecto son:
 \begin{itemize}
 \tightlist
 \item
-    Hace falta cierta soltura a la hora de trabajar con el cableado UTP~\ref{4:guiaPasacables}.
+    Hace falta cierta soltura a la hora de trabajar con el cableado UTP, ver sección~\ref{4:guiaPasacables}.
 \item
     Es necesaria una línea de datos para que se actualicen los parámetros de los scripts.
 
 \end{itemize}
+
+%TODO No me queda claro por qué hay tres tablas separadas  en vez de todo integrado... Me lo explicas hoy
