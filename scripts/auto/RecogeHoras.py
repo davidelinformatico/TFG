@@ -120,41 +120,32 @@ for i in range (24):
 # Ordenamos los valores por la hora
 lists = sorted(temperatura_hora.items())
 
-# Hacemos las asignaciones x,y
-x, y = zip(*lists) 
+try:
+    # Hacemos las asignaciones x,y
+    x, y = zip(*lists) 
 
-fig = plt.figure(dpi=600)
-fig.set_figwidth(11)
+    fig = plt.figure(dpi=600)
+    fig.set_figwidth(11)
 
-plt.grid()
-plt.title("Temperaturas día "+b)
-plt.xlabel("Horas")
-plt.ylabel("Temperatura C")
-plt.xticks([i for i in range(24)]) 
+    plt.grid()
+    plt.title("Temperaturas día "+b)
+    plt.xlabel("Horas")
+    plt.ylabel("Temperatura C")
+    plt.xticks([i for i in range(24)]) 
 
-# Corrección y graficado de las temperaturas del día de mañana
-plt.plot(x, y)
+    # Corrección y graficado de las temperaturas del día de mañana
+    plt.plot(x, y)
 
-# Exportamos imagen con la fecha como nombre
-os.chdir(rutaPrincipal+"diagramas")
-plt.savefig(b+".png")
-plt.clf()
-plt.cla()
-plt.close()
+    # Exportamos imagen con la fecha como nombre
+    os.chdir(rutaPrincipal+"diagramas")
+    plt.savefig(b+".png")
+    plt.clf()
+    plt.cla()
+    plt.close()
+except Exception as e:
+    print("Error:\n")
+    print(e)
 
-#fig = plt.figure(figsize=(6,0.00001))
-#tabla = plt.table(cellText=lists,
-#          colLabels=("H","Temp"), 
-#          cellLoc ="center",
-#          colWidths=[0.15 for x in lists])
-#tabla.scale(2,6)
-#tabla.set_fontsize(32)
-#plt.axis('off')
-#plt.grid('off')
-
-# Exportamos imagen con la fecha como nombre
-#os.chdir(rutaPrincipal+"diagramas")
-#plt.savefig('lista.png', dpi='figure', bbox_inches='tight', pad_inches=0.5)
 
 # Calculamos la hora a la que tenemos más temperatura
 hora_maxima = max(temperatura_hora, key=temperatura_hora.get)
