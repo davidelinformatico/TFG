@@ -21,14 +21,14 @@
 #| | | | |   commands
 
 #--------------------------------------------------------------------------------------------------
-#Este CRON ha sido generado en el instante Thu Dec 17 08:54:55 2020
+#Este CRON ha sido generado en el instante Thu Dec 17 10:53:15 2020
 #--------------------------------------------------------------------------------------------------
 #Código de control Automático de Persianas 
 #--------------------------------------------------------------------------------------------------
 #Subimos las persianas Modo mañana de Lunes a Viernes
-0 9 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
-1 9 * * 1-5 sh /home/pi/source/TFG/scripts/control/Subir.sh
-7 9 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+0 10 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+1 10 * * 1-5 sh /home/pi/source/TFG/scripts/control/Subir.sh
+7 10 * * 1-5 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Subimos las persianas Modo mañana de Sabado y Domingo
 31 09 * * 6-7 sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
@@ -51,6 +51,176 @@
 
 #Lanzamos el script de toma de horas
 05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && sudo sh LanzaTodoElProceso.sh
+
+
+# Comprueba cada minuto que el bot está corriendo
+* * * * * sh /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+
+#--------------------------------------------------------------------------------------------------
+#Código de control Automático de Calefacción 
+#--------------------------------------------------------------------------------------------------
+ 
+0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 1 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 2 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 3 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 4 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 5 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 6 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 7 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 8 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 9 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 10 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 11 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 12 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 13 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 14 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 15 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 16 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 17 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 18 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 19 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 20 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 21 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 22 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 23 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+
+
+
+# Comprueba cada minuto que el bot está corriendo
+* * * * * sh /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+
+#--------------------------------------------------------------------------------------------------
+#Código de control Automático de Calefacción 
+#--------------------------------------------------------------------------------------------------
+ 
+0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 1 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 2 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 3 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 4 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 5 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 6 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 7 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 8 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 9 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 10 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 11 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 12 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 13 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 14 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 15 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 16 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 17 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 18 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 19 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 20 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 21 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 22 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 23 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+
+
+
+# Comprueba cada minuto que el bot está corriendo
+* * * * * sh /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+
+#--------------------------------------------------------------------------------------------------
+#Código de control Automático de Calefacción 
+#--------------------------------------------------------------------------------------------------
+ 
+0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 1 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 2 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 3 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 4 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 5 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 6 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 7 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 8 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 9 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 10 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 11 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 12 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 13 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 14 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 15 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 16 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 17 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 18 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 19 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 20 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 21 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 22 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 23 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+
+
+
+# Comprueba cada minuto que el bot está corriendo
+* * * * * sh /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+
+#--------------------------------------------------------------------------------------------------
+#Código de control Automático de Calefacción 
+#--------------------------------------------------------------------------------------------------
+ 
+0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 1 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 2 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 3 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 4 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 5 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 6 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 7 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 8 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 9 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 10 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 11 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 12 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 13 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 14 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 15 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 16 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 17 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 18 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 19 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 20 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 21 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 22 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 23 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+
+
+
+# Comprueba cada minuto que el bot está corriendo
+* * * * * sh /home/pi/source/TFG/scripts/bot/compuebaBot.sh
+
+#--------------------------------------------------------------------------------------------------
+#Código de control Automático de Calefacción 
+#--------------------------------------------------------------------------------------------------
+ 
+0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 1 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 2 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 3 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 4 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 5 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 6 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 7 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 8 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 9 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 10 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 11 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 12 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 13 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 14 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 15 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 16 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 17 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 18 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 19 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 20 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 21 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 22 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 23 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+
 
 
 # Comprueba cada minuto que el bot está corriendo

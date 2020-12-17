@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import urllib, json, pycurl, requests, datetime, os,time
+import urllib, json, pycurl, requests, datetime, os, time, stat
 from datetime import date
 import pandas as pd 
 import matplotlib.pyplot as plt
@@ -142,8 +142,11 @@ try:
     plt.clf()
     plt.cla()
     plt.close()
+    os.chmod(b+".png", stat.S_IRWXU) # Cambiamos lo permisos para que el usuario pueda sobreescribirlo
+    #os.chmod(b+".png", stat.S_IRWXG)
+    #os.chmod(b+".png", stat.S_IRWXO)
 except Exception as e:
-    print("Error:\n")
+    print("Error en imagen:")
     print(e)
 
 

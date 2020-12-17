@@ -11,7 +11,6 @@ logger = logging.getLogger('SDI_domo.log')
 #Diccionario con los comandos disponibles en el bot.
 commands = {
              'ayuda': 'Muestra información sobre los comandos',
-             #'e': 'Ejecuta un comando',
              'subir': 'Subir persianas',
              'bajar': 'Bajar persianas',
              'parar': 'Para las persianas',
