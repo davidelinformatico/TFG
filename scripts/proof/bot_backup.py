@@ -16,7 +16,8 @@ commands = {
              'parar': 'Para las persianas',
              'temp': 'Listado de temperaturas',
              'd': 'Diagrama de temperaturas',
-             'cambiar': 'Cambiar hora subida',
+             'cambiar': 'Cambiar hora subida', 
+             'tempcal': 'Informa y cambia temperatura de calefacción',
              'datos': 'Hora de recopilación de datos',
              'hora': 'Hora a la que suben las persianas',
              'generar': 'Genera los archivos de control',
@@ -240,6 +241,37 @@ def command_long_text(m):
             
         except:
             bot.send_message(usuario, "Error en la lectura del archivo")
+
+
+# Informa y cambia temperatura de calefacción
+@bot.message_handler(commands=['tempcal'])
+@bot.message_handler(func=lambda message: message.text == "tc")
+@bot.message_handler(func=lambda message: message.text == "Tc")
+def command_long_text(m):
+    usuario = m.chat.id
+    if (compruebaUsuario(m)):
+        comandos=m.text.split(" ")
+        try:
+            f = open(rutaAuto+"TemperaturaCalefaccion")
+            temp = f.read()
+            f.close()
+            
+            if len(comandos)==1:
+                bot.send_message(usuario, "La temperatura está fijada en <b>"+temp+ "</b>ºC &#128293;",parse_mode=ParseMode.HTML)    
+            
+            if len(comandos)==2:
+                horaNueva=comandos[1][0:5]
+                f = open(rutaAuto+"TemperaturaCalefaccion", "w")
+                f.write(str(horaNueva))
+                f.close()
+                
+                f = open(rutaAuto+"TemperaturaCalefaccion")
+                temp = f.read()
+                f.close()
+                bot.send_message(usuario, "La temperatura se ha fijado en <b>"+temp+ "</b>ºC &#128293;",parse_mode=ParseMode.HTML)    
+        except:
+            pass
+
 
 # Cambio de hora mínima de subida de persianas
 @bot.message_handler(commands=['cambiar'])
