@@ -1,0 +1,3 @@
+import bbb
+
+bbb.bbb()
