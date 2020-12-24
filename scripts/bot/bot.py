@@ -18,10 +18,9 @@ commands = {
              'parar': 'Para las persianas',
              'temp': 'Listado de temperaturas',
              'd': 'Diagrama de temperaturas',
-             'cambiar': 'Cambiar hora subida', 
              'tempcal': 'Informa y cambia temperatura de calefacción',
              'datos': 'Hora de recopilación de datos',
-             'hora': 'Hora a la que suben las persianas',
+             'hora': 'Informa o cambia hora de subida de las persianas',
              'generar': 'Genera los archivos de control',
              'info': 'Información de la RaspberryPi',
              'apagar': ' Apagar sistema domótico',
@@ -168,11 +167,11 @@ def command_long_text(m):
 
 
 # Cambio de hora mínima de subida de persianas
-@bot.message_handler(commands=['cambiar'])
-def command_long_text(m):
-    usuario = m.chat.id
-    if (compruebaUsuario(m)):
-        horaSubida.horaSubida(m, bot)
+#@bot.message_handler(commands=['cambiar'])
+#def command_long_text(m):
+#    usuario = m.chat.id
+#    if (compruebaUsuario(m)):
+#        horaSubida.horaSubida(m, bot)
 
 
 # Diagrama de temperaturas (enviar imagen)
@@ -214,7 +213,7 @@ def command_text_hi(m):
 def command_text_hi(m):
     usuario = m.chat.id
     if (compruebaUsuario(m)):
-        horaSubida.consulta(m, bot)
+        horaSubida.horaSubida(m, bot)
 
 
 # Información de nuestra Raspberry Pi

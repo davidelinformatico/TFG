@@ -14,16 +14,16 @@ def diagrama(m, bot, pwdBot):
         
         imagenDefecto=(str(pwdImagenes)+str(imagenPorDefecto))
         
-        print(len(m.text[len("/d"):].split()))
+        #print(len(m.text[len("/d"):].split()))
         #d = os.popen(m.text[len("/d"):])
         if ((len(m.text[len("/d "):])) > 0):
             nombre= str(m.text[len("/d "):])
             imagenUsuario=(str(pwdImagenes)+str(nombre)+".png")
-            print(imagenUsuario)
             bot.send_photo(usuario,photo=open(imagenUsuario, 'rb'))
         else:
             bot.send_photo(usuario,photo=open(imagenDefecto, 'rb'))
     except:
+        tokenBot, users, climacellKey, weatherApiKey, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()
         pwdImagenes = rutaAuto+"diagramas/"
         os.chdir(pwdImagenes)
         bot.send_message(usuario, "Error. Prueba con alguna de estas con formato AAAA-MM-DD:\n")

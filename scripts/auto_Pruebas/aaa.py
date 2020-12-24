@@ -1,3 +1,0 @@
-import bbb
-
-bbb.bbb()

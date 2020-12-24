@@ -11,7 +11,7 @@ data = json.loads(f.read())
 f.close()
 
 # Hora más temprana de subida de persianas (configurable desde el bot)
-f = open("2_condicionantes")
+f = open(rutaAuto+"2_condicionantes")
 condicionantes = f.read()
 f.close()
 
@@ -138,6 +138,7 @@ try:
             #Apagar caldera
             file.write("0 "+str(i)+" * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh"+ os.linesep)
 
+    file.write(os.linesep+str("#Instante de grabado de datos: ")+str(hoy)+str(" - ")+str(ahora.split(" ")[3])+os.linesep)
     file.write(""+ os.linesep)
     file.write(""+ os.linesep)
 
@@ -149,10 +150,18 @@ try:
     file.write(str(ahora)+ os.linesep)
     file.write(str("--------------------------------------")+ os.linesep)
     file.write(str("Control de persianas:")+ os.linesep)
+    file.write(str("--------------------------------------")+ os.linesep)
     file.write(str("Amanece en casa: ")+str(planetaAmanece)+os.linesep)
     file.write(str("Persianas Suben: ")+str(real_up_1)+os.linesep)
     file.write(str("Encendido Luces: ")+str(real_On)+os.linesep)
     file.write(str("Persianas Bajan: ")+str(real_down_1)+os.linesep)
+    file.write(str("--------------------------------------")+ os.linesep)
+    file.write(str("Temperaturas por horas:")+ os.linesep)
+    file.write(str("--------------------------------------")+ os.linesep)
+    for i in range(len(data['temperaturas'])):
+        file.write(str("(")+str(i)+", "+str(data['temperaturas'][str(i)])+")\n")
+    file.write(os.linesep+str("#Instante de grabado de datos: ")+str(hoy)+str(" - ")+str(ahora.split(" ")[3])+os.linesep)
+    file.write(os.linesep)
     file.close()
 
 except Exception as e:

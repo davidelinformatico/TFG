@@ -12,7 +12,7 @@ def info(m, bot):
         
         #bot.send_message(usuario, text='<b>Espacio en disco:</b>\n', parse_mode=ParseMode.HTML)
         #tab = '\t'
-        m1='<b>Espacio en disco:</b><pre><code class="language-python">'
+        m1='<b>Espacio en disco:</b>\n<pre><code class="language-python">'
         m1 += str("| B")+str(primero[0][0][1:]) + str("    | ") + str(primero[0][1]) + str(" |\n")
         m1 += str("| ")+str(primero[1][0][:-1]) + str("      | ") + str(primero[1][1]) + str("  |\n")
         m1 += str("| ")+str(primero[2][0][:-1]) + str(" | ") + str(primero[2][1]) + str(" |\n")
@@ -29,7 +29,7 @@ def info(m, bot):
         for o in oo:
             yep.append(o.split(" "))
         
-        m1 += '\n<b>Estado RAM:</b><pre><code class="language-python">'
+        m1 += '\n<b>Estado RAM:</b>\n<pre><code class="language-python">'
         m1 += str("| ")+str(yep[1][1])+str(" ")+str(yep[1][2])+str("    | ") +str(yep[0][0]) + str(" Mb |\n")
         m1 += str("| ")+str(yep[2][1])+str(" ")+str(yep[2][2])+str("     | ") +str(yep[1][3]) + str(" Mb |\n")
         m1 += str("| ")+str(yep[3][1])+str(" ")+str(yep[3][2])+str("   | ") +str(yep[2][3]) + str(" Mb |\n")

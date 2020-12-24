@@ -1,6 +1,4 @@
-#Hora mínima a la que se subirán las persianas, formato HH:MM:SS:
-06:05:00
-#Temperatura de la calefacción,formato XX,XX:
-23,02
-
-
+# Hora mínima a la que se subirán las persianas, formato HH:MM:SS:
+12:02:00
+# Temperatura de la calefacción,formato XX,XX:
+6.0

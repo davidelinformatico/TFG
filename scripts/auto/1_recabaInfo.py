@@ -100,7 +100,7 @@ try:
     #print(lista)
     # Ordenamos los valores por la hora
     lists = sorted(temperatura_hora.items())
-    print(lists)
+    #print(lists)
 
 except Exception as e:
     print("Se ha producido un error en el módulo 2 de recabado de datos:"+str(e))
