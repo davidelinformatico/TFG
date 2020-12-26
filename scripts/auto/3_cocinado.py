@@ -1,34 +1,30 @@
 #!/usr/bin/env python3
 import urllib, json, datetime, pycurl, requests, os, obtencionDatos, stat, datetime, time, obtencionDatos
-#from datetime import datetime
 
 tokenBot, users, KeyClimacell, KeyWeatherapi, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()
 
-#try:
-#Lectura de archivo de datos
-f = open(rutaAuto+'InfoRecabada', "r")
-data = json.loads(f.read()) 
-f.close()
+try:
+    #Lectura de archivo de datos
+    f = open(rutaAuto+'InfoRecabada', "r")
+    data = json.loads(f.read()) 
+    f.close()
 
-# Hora más temprana de subida de persianas (configurable desde el bot)
-f = open(rutaAuto+"2_condicionantes")
-condicionantes = f.read()
-f.close()
+    # Hora más temprana de subida de persianas (configurable desde el bot)
+    f = open(rutaAuto+"2_condicionantes")
+    condicionantes = f.read()
+    f.close()
 
-cond=condicionantes.split("\n")
-horaMinima = cond[1]
-tempCalefaccion = float(cond[3].replace(',', '.'))
+    cond=condicionantes.split("\n")
+    horaMinima = cond[1]
+    tempCalefaccion = float(cond[3].replace(',', '.'))
 
-#Leemos la cabecera del futuro archivo CRON, se puede obtener mediante 'cat' pero prefiero tener copia de seguridad.
-c = open (rutaAuto+'cabecera.txt')
-cabecera = c.read()
-c.close()
+    #Leemos la cabecera del futuro archivo CRON, se puede obtener mediante 'cat' pero prefiero tener copia de seguridad.
+    c = open (rutaAuto+'cabecera.txt')
+    cabecera = c.read()
+    c.close()
 
-#print(horaMinima)
-#print(tempCalefaccion)
-
-#except Exception as e:
-#    print("Error en en módulo 1 de lectura de archivos"+str(e))
+except Exception as e:
+    print("Error en en módulo 1 de lectura de archivos"+str(e))
 
 try:
     ahora = time.ctime(time.time())
@@ -57,10 +53,6 @@ try:
     hora_bajada_3 = real_down_3.hour
     minuto_bajada_3 = real_down_3.minute
 
-    # Si amanece antes de la hora que queremos no permite que las persianas suban antes
-    #if amanece < hora_minima:
-    #    amanece = hora_minima
-
     planetaAmanece = str(hoy)+" "+str(data["Planeta"]["Amanecer"])
     horaPersianas = str(hoy)+" "+str(horaMinima)
     
@@ -69,7 +61,6 @@ try:
     else:
         enlaza = planetaAmanece
 
-    #enlaza = str(hoy)+" "+str(amanece)
     from datetime import datetime # Esto es necesario aquí
     datetime_Subida_Buena = datetime.strptime(enlaza, "%Y-%m-%d %H:%M:%S")
     
@@ -120,15 +111,12 @@ try:
     file.write(str("#Lanzamos el script de toma de horas")+ os.linesep)
     file.write(str("05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && sudo sh LanzaTodoElProceso.sh")+ os.linesep)
     file.write(""+ os.linesep)
-
     
-    #file = open ('CronPruebas','a')
     file.write(""+ os.linesep)
     file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
     file.write("#Código de control Automático de Calefacción "+ os.linesep)
     file.write("#--------------------------------------------------------------------------------------------------"+ os.linesep)
     file.write(" "+ os.linesep)
-
         
     for i in range(len(data["temperaturas"])):
         if (data["temperaturas"][str(i)] <= tempCalefaccion):

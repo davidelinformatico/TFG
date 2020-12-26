@@ -24,7 +24,7 @@ def temperaturas(m, bot):
         ll = matrix1[7].split(" ")[3].split(":")[0]
         bb = matrix1[8].split(" ")[3].split(":")[0]
 
-        print(matrix1)
+        texto="   |  "
         
         try:
             compilado = "|  Hora  |Temperatura|"
@@ -32,22 +32,22 @@ def temperaturas(m, bot):
                 if ((i >12) and (i<22)):
                     compilado += str("\n|    ")+matrix1[i].split(", ")[0][1:]
                     if len(matrix1[i].split(", ")[1][:-1])==3:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC   |")
+                        compilado += str(texto)+matrix1[i].split(", ")[1][:-1]+str(" ºC   |")
                     if len(matrix1[i].split(", ")[1][:-1])==4:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
+                        compilado += str(texto)+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
                     if len(matrix1[i].split(", ")[1][:-1])==5:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
+                        compilado += str(texto)+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
                     if (matrix1[i].split(", ")[0][1:]==ss):
                         compilado += str("&#127774;")+str(matrix1[6].split(" ")[3][:-3])
                     print("-->"+matrix1[i].split(", ")[0][1:]+" |"+ss)
                 if ((i >=22) and (i<36)):
                     compilado += str("\n|   ")+matrix1[i].split(", ")[0][1:]
                     if len(matrix1[i].split(", ")[1][:-1])==3:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC   |")                    
+                        compilado += str(texto)+matrix1[i].split(", ")[1][:-1]+str(" ºC   |")                    
                     if len(matrix1[i].split(", ")[1][:-1])==4:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
+                        compilado += str(texto)+matrix1[i].split(", ")[1][:-1]+str(" ºC  |")
                     if len(matrix1[i].split(", ")[1][:-1])==5:
-                        compilado += str("   |  ")+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
+                        compilado += str(texto)+matrix1[i].split(", ")[1][:-1]+str(" ºC |")
                     if (matrix1[i].split(", ")[0][1:]==ss):
                         compilado += str("&#127774;")+str(matrix1[6].split(" ")[3][:-3])
                     if (matrix1[i].split(", ")[0][1:]==bb):

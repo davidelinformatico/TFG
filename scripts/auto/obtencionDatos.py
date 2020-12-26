@@ -52,8 +52,6 @@ def obtencionDatos():
 
     return tokenBot, users, climacellKey, weatherApiKey, persianas, luces, calderas, rutaCred, rutaAuto
 
-#tokenBot, users, climacellKey, weatherApiKey, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos()
-
 
 
 

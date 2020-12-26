@@ -10,8 +10,6 @@ def info(m, bot):
         primero=diskSpace()
         temperatura=temp()
         
-        #bot.send_message(usuario, text='<b>Espacio en disco:</b>\n', parse_mode=ParseMode.HTML)
-        #tab = '\t'
         m1='<b>Espacio en disco:</b>\n<pre><code class="language-python">'
         m1 += str("| B")+str(primero[0][0][1:]) + str("    | ") + str(primero[0][1]) + str(" |\n")
         m1 += str("| ")+str(primero[1][0][:-1]) + str("      | ") + str(primero[1][1]) + str("  |\n")
@@ -39,12 +37,11 @@ def info(m, bot):
         bot.send_message(usuario, text=m1, parse_mode='html')
 
         m2="*Temperatura CPU: *"+ str(temperatura)[:5]+"ºC\n\n"+"*Fecha: *"+ str(datetime.datetime.today())[:-10]+"h"
-
         
         bot.send_message(usuario, m2, parse_mode=ParseMode.MARKDOWN)
 
     except:
-        #bot.send_message(usuario, text="*Hay algún problema en la obtención de datos.*",parse_mode=telegram.ParseMode.MARKDOWN)
+        bot.send_message(usuario, text="*Hay algún problema en la obtención de datos.*",parse_mode=telegram.ParseMode.MARKDOWN)
         print("error general")
         
 # INFO TEMP

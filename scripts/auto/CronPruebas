@@ -21,25 +21,25 @@
 #| | | | |   commands
 
 #--------------------------------------------------------------------------------------------------
-#Este CRON ha sido generado en el instante Thu Dec 24 19:51:09 2020
+#Este CRON ha sido generado en el instante Sat Dec 26 14:38:47 2020
 #--------------------------------------------------------------------------------------------------
 #Código de control Automático de Persianas 
 #--------------------------------------------------------------------------------------------------
 #Subimos las persianas Modo mañana de Lunes a Domingo
-2 12 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
-3 12 * * * sh /home/pi/source/TFG/scripts/control/Subir.sh
-9 12 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+36 8 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+37 8 * * * sh /home/pi/source/TFG/scripts/control/Subir.sh
+43 8 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Encendemos las luces
-5 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
+6 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Bajamos TODAS
-10 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
-11 18 * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh
-17 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+11 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+12 18 * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh
+18 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Apagamos las luces
-17 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
+18 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Todos los días se  reinicia la máquina par que el demonio siempre esté correcto por la mañana
 05 04 * * * sudo reboot
@@ -52,8 +52,8 @@
 #Código de control Automático de Calefacción 
 #--------------------------------------------------------------------------------------------------
  
-0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
-0 1 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
+0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 1 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 2 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 3 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 4 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
@@ -63,12 +63,12 @@
 0 8 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 9 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 10 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
-0 11 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
-0 12 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
-0 13 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
-0 14 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
-0 15 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
-0 16 * * 1-7 sh /home/pi/source/TFG/scripts/control/ApagarCaldera.sh
+0 11 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 12 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 13 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 14 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 15 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
+0 16 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 17 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 18 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 19 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
@@ -77,6 +77,6 @@
 0 22 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 23 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 
-#Instante de grabado de datos: 2020-12-24 - 19:51:09
+#Instante de grabado de datos: 2020-12-26 - 14:38:47
 
 

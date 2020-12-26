@@ -62,8 +62,9 @@ def horaSubida(m, bot):
                 bot.send_message(usuario, mensaje ,parse_mode=ParseMode.HTML)
             else:
                 bot.send_message(usuario, "Introduce el formato correcto: HH:MM")    
-    except:
+    except Exception as e:
         bot.send_message(usuario, "Debes introducir una hora con formato HH:MM\n")
+        print("Error: "+str(e))
 
 
 

@@ -6,6 +6,8 @@ def controlPersianas(m, bot):
         tokenBot, users, climacellKey, weatherApiKey, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()
         usuario = m.chat.id
         
+        ordenBash = "gpio -g mode "
+        
         todos=[]
         for i in persianas:
             todos.append(i[1])
@@ -14,7 +16,7 @@ def controlPersianas(m, bot):
         if ((len(m.text.split(" "))==1) and(m.text[1:]=="parar")):
             bot.send_message(usuario, "Paramos todas las persianas")
             for pin in todos:
-                os.system("gpio -g mode "+pin+" in")
+                os.system(ordenBash + pin + " in")
             bot.send_message(usuario, "Persianas paradas")
         
         elif ((len(m.text.split(" "))==3) and (sum((m.text.split(" ")[1]) in string for string in persianas)>0)):
@@ -31,21 +33,22 @@ def controlPersianas(m, bot):
             if condiciones[0][1:]=="subir":
                 bot.send_message(usuario, "Subimos la persiana de "+str(m.text.split(" ")[1]))
                 tiempo=str(m.text.split(" ")[2])
-                os.system("gpio -g mode "+pinSube+" out")
+                os.system(ordenBash + pinSube + " out")
                 os.system("sleep "+str(m.text.split(" ")[2]))
-                os.system("gpio -g mode "+pinSube+" in")
+                os.system(ordenBash + pinSube + " in")
                 bot.send_message(usuario, "Persiana parada")
                 
             if condiciones[0][1:]=="bajar": 
                 bot.send_message(usuario, "Bajamos la persiana de "+str(m.text.split(" ")[1]))
-                os.system("gpio -g mode "+pinBaja+" out")
+                os.system(ordenBash + pinBaja + " out")
                 os.system("sleep "+m.text.split(" ")[2])
-                os.system("gpio -g mode "+pinBaja+" in")
+                os.system(ordenBash + pinBaja + " in")
                 bot.send_message(usuario, "Persiana parada")
         else:
             bot.send_message(usuario, "No reconozco el comando, puedes probar con:")
             bot.send_message(usuario, "/parar, /subir ubicación tiempo, /bajar ubicación tiempo") 
 
-    except:
+    except Exception as e:
         bot.send_message(usuario, "No reconozco el comando, puedes probar con:")
-        bot.send_message(usuario, "/parar, /subir ubicación tiempo, /bajar ubicación tiempo")   
+        bot.send_message(usuario, "/parar, /subir ubicación tiempo, /bajar ubicación tiempo")
+        print("Error en módulo subirPararBajar:" +str(e))

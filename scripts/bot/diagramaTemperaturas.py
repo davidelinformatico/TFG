@@ -14,8 +14,6 @@ def diagrama(m, bot, pwdBot):
         
         imagenDefecto=(str(pwdImagenes)+str(imagenPorDefecto))
         
-        #print(len(m.text[len("/d"):].split()))
-        #d = os.popen(m.text[len("/d"):])
         if ((len(m.text[len("/d "):])) > 0):
             nombre= str(m.text[len("/d "):])
             imagenUsuario=(str(pwdImagenes)+str(nombre)+".png")

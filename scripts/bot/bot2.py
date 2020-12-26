@@ -31,9 +31,28 @@ commands = {
 def configBot():
     #Calculamos ruta
     pwdBot=os.getcwd()
+    rutaPrincipal=pwdBot.split('/')
+    ruta=pwdBot.split('/')
+    salida=""
+    for i in range(len(ruta)-3):
+        salida=str(salida)+"/"+str(ruta[i])
+    rutaCred=salida[1:]+str("/credentials/")
+
+    cosa=""
+    for i in range(len(rutaPrincipal)-1):
+        cosa=str(cosa)+"/"+str(rutaPrincipal[i])
+    rutaAuto=cosa[1:]+str("/auto/")
 
     tokenBot, users, climacellKey, weatherApiKey, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()
 
+    # Leemos el archivo
+    f = open(rutaCred+"config2.bot")
+    data = f.read()
+    f.close()
+        
+    # Preparamos los datos cortando por los saltos de línea
+    datos = data.split('\n')
+    
     #Obtenemos el Token
     bot = telebot.TeleBot(tokenBot)
     
@@ -68,6 +87,8 @@ def compruebaUsuario(message):
     chatId = message.chat.id
     nombreUsuario = message.chat.first_name
     if str(chatId) in usuarios:
+        #mensajeBienvenida = "Bienvenido, {nombre}. Selecciona una opción"
+        #bot.send_message(chat_Id, mensajeElse.format(mensajeBienvenida=nombreUsuario))
         return 1
     else:
         mensajeElse = "Hola {nombre}, este bot funciona con invitación."

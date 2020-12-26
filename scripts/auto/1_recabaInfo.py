@@ -5,10 +5,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #Ip's que vamos a utilizar
-#url_ip="http://ip-api.com/json/?fields=city,query,regionName"
 url_ip = "http://ip-api.com/json/?fields=city,query,regionName,status,message,continent,continentCode,country,countryCode,region,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting"
 url_tiempo = "https://api.climacell.co/v3/weather/forecast/hourly"
-#url_ip="http://ip-api.com/json/?fields=city,query,regionName,region,zip,lat,lon"
 
 #Obtenemos fecha de hoy y de mañana
 ahora = time.ctime(time.time())
@@ -18,8 +16,6 @@ fecha_manana = hoy + datetime.timedelta(1)
 try:
     #En esta parte preparamos la conexión de datos y las rutas a los archivos que necesitaremos
     tokenBot, users, KeyClimacell, KeyWeatherapi, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()
-    #ELIMINAR LA LÍNEA SIGUIENTE: <-------------------------------------------------------------------------------------------------------------------
-    #KeyClimacell="jCLRIML8YLfjXx3rYvZlidEHxAbu7vci"aaz4a5s779WbPLLRO8W95eETQHv8Yq11"
     
     #Calculamos ruta
     ruta=os.getcwd().split('/')
@@ -73,19 +69,12 @@ try:
     # Guardamos fecha
     b = str(fecha_manana)
 
-    print("")
-    #for i in range (100):
-        #print(sopa_tiempo_json[i])
-    #print("")
-
-
     #print("De esta manera obtenemos la hora y la temperatura del día de mañana:")
     for i in range (100):
         a = (str(sopa_tiempo_json[i]['observation_time']['value'][:10]))
         #print(a)
         if (a == b):
             th[i] = str(sopa_tiempo_json[i]['observation_time']['value'][11])+str(sopa_tiempo_json[i]['observation_time']['value'][12])+":"+str(sopa_tiempo_json[i]['temp']['value'])
-            #print(th[i])
 
     # Pasamos los valores a lista
     lista = list(th.values())
@@ -97,7 +86,6 @@ try:
         #lista[i][:2]
         temperatura_hora[i]=float(lista[i][3:])
 
-    #print(lista)
     # Ordenamos los valores por la hora
     lists = sorted(temperatura_hora.items())
     #print(lists)
@@ -128,8 +116,7 @@ try:
     plt.cla()
     plt.close()
     os.chmod(b+".png", stat.S_IRWXU) # Cambiamos lo permisos para que el usuario pueda sobreescribirlo
-    #os.chmod(b+".png", stat.S_IRWXG)
-    #os.chmod(b+".png", stat.S_IRWXO)
+
 except Exception as e:
     print("Error en imagen: "+str(e))
 
