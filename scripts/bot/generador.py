@@ -21,3 +21,5 @@ def generador(m, bot):
         bot.send_message(usuario, "Datos obtenidos el "+matrix1[0]+" a las "+matrix1[1].split(' ')[3] + "ya implantados.")
     except Exception as e:
         bot.send_message(usuario, "Error en módulo de obtención de datos: " + str(e))
+
+
