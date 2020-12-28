@@ -9,6 +9,15 @@
 \usepackage{microtype}
 \usepackage{placeins}
 \usepackage{csquotes}
+\usepackage{lscape} 
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{makecell}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
 
 
 % Mathematic font
@@ -101,9 +110,140 @@
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
 }
+\definecolor{maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{halfgray}{gray}{0.55}
+\definecolor{ipython_frame}{RGB}{207, 207, 207}
+\definecolor{ipython_bg}{RGB}{247, 247, 247}
+\definecolor{ipython_red}{RGB}{186, 33, 33}
+\definecolor{ipython_green}{RGB}{0, 128, 0}
+\definecolor{ipython_cyan}{RGB}{64, 128, 128}
+\definecolor{ipython_purple}{RGB}{170, 34, 255}
+
+\lstdefinelanguage{python}{
+    morekeywords={access,and,break,class,continue,def,del,elif,else,except,exec,finally,for,from,global,if,import,in,is,lambda,not,or,pass,print,raise,return,try,while},
+    morekeywords=[2]{abs,all,any,basestring,bin,bool,bytearray,callable,chr,classmethod,cmp,compile,complex,delattr,dict,dir,divmod,enumerate,eval,execfile,file,filter,float,format,frozenset,getattr,globals,hasattr,hash,help,hex,id,input,int,isinstance,issubclass,iter,len,list,locals,long,map,max,memoryview,min,next,object,oct,open,ord,pow,property,range,raw_input,reduce,reload,repr,reversed,round,set,setattr,slice,sorted,staticmethod,str,sum,super,tuple,type,unichr,unicode,vars,xrange,zip,apply,buffer,coerce,intern},
+    sensitive=true,
+    morecomment=[l]\#,
+    morestring=[b]',
+    morestring=[b]",
+    morestring=[s]{'''}{'''},
+    morestring=[s]{"""}{"""},
+    morestring=[s]{r'}{'},
+    morestring=[s]{r"}{"},
+    morestring=[s]{r'''}{'''},
+    morestring=[s]{r"""}{"""},
+    morestring=[s]{u'}{'},
+    morestring=[s]{u"}{"},
+    morestring=[s]{u'''}{'''},
+    morestring=[s]{u"""}{"""},
+    % {replace}{replacement}{lenght of replace}
+    % *{-}{-}{1} will not replace in comments and so on
+    literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\EUR}}1 {£}{{\pounds}}1
+    %
+    {^}{{{\color{ipython_purple}\^{}}}}1
+    {=}{{{\color{ipython_purple}=}}}1
+    %
+    {+}{{{\color{ipython_purple}+}}}1
+    {*}{{{\color{ipython_purple}$^\ast$}}}1
+    {/}{{{\color{ipython_purple}/}}}1
+    %
+    {+=}{{{+=}}}1
+    {-=}{{{-=}}}1
+    {*=}{{{$^\ast$=}}}1
+    {/=}{{{/=}}}1,
+    literate=
+    *{-}{{{\color{ipython_purple}-}}}1
+     {?}{{{\color{ipython_purple}?}}}1,
+    %
+    identifierstyle=\color{black}\ttfamily,
+    commentstyle=\color{ipython_cyan}\ttfamily,
+    stringstyle=\color{ipython_red}\ttfamily,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    rulecolor=\color{ipython_frame},
+    frame=single,
+    frameround={t}{t}{t}{t},
+    framexleftmargin=6mm,
+    numbers=left,
+    numberstyle=\tiny\color{halfgray},
+    backgroundcolor=\color{ipython_bg},
+    % extendedchars=true,
+    basicstyle=\scriptsize,
+    keywordstyle=\color{ipython_green}\ttfamily,
+}
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstdefinelanguage{ccc}{
+    backgroundcolor=\color{lbcolor},
+    tabsize=4,    
+    language=[GNU]C++,
+    basicstyle=\scriptsize,
+    upquote=true,
+    aboveskip={1.5\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=false,
+    breaklines=true,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=single,
+    numbers=left,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    identifierstyle=\ttfamily,
+    keywordstyle=\color[rgb]{0,0,1},
+    commentstyle=\color[rgb]{0.026,0.112,0.095},
+    stringstyle=\color[rgb]{0.627,0.126,0.941},
+    numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+}
 
 
 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{dred}{rgb}{0.545,0,0}
+\definecolor{dblue}{rgb}{0,0,0.545}
+\definecolor{lgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\lstdefinelanguage{cpp}{
+      backgroundcolor=\color{lgrey},  
+      basicstyle=\footnotesize \ttfamily \color{black} \bfseries,   
+      breakatwhitespace=false,       
+      breaklines=true,               
+      captionpos=b,                   
+      commentstyle=\color{dkgreen},   
+      deletekeywords={...},          
+      escapeinside={\%*}{*)},                  
+      frame=single,                  
+      language=C++,                
+      keywordstyle=\color{purple},  
+      morekeywords={BRIEFDescriptorConfig,string,TiXmlNode,DetectorDescriptorConfigContainer,istringstream,cerr,exit}, 
+      identifierstyle=\color{black},
+      stringstyle=\color{blue},      
+      numbers=right,                 
+      numbersep=5pt,                  
+      numberstyle=\tiny\color{black}, 
+      rulecolor=\color{black},        
+      showspaces=false,               
+      showstringspaces=false,        
+      showtabs=false,                
+      stepnumber=1,                   
+      tabsize=5,                     
+      title=\lstname,                 
+    }
 
 % El comando \figura nos permite insertar figuras comodamente, y utilizando
 % siempre el mismo formato. Los parametros son:
@@ -439,13 +579,13 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D.Álvar Arnaiz-González, profesor del departamento de Ingeniería Informática del área de Lenguajes y Sistemas Informáticos.
+\noindent D.Álvar Arnaiz-González, profesor del departamento de Ingeniería Informática del área de Lenguajes y Sistemas Informáticos y D. Alejandro Merino Gómez, profesor del departamento de Ingeniería Electromecánica del área de Ingeniería de Sistemas y Automática,
 
-\noindent Expone:
+\noindent Exponen:
 
 \noindent Que el alumno D. \nombre, con DNI 02287122W, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
 
-\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
+\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección de quienes suscriben, en virtud de lo cual se autoriza su presentación y defensa.
 
 \begin{center} %\large
 En Burgos, {\large \today}

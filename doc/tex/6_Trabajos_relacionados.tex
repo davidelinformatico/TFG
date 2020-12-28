@@ -4,73 +4,32 @@ Este apartado sería parecido a un estado del arte de una tesis o tesina. En un 
 \end{comment}
 
 \capitulo{6}{Trabajos relacionados}
-
 Desde la aparición de elementos electrónicos accesibles y asequibles se ha intentado, con mayor o menor fortuna, generar sistemas que nos ayuden en nuestro día a día. A continuación se exponen proyectos con objetivos similares.
 
 \section{Comparativa con otros proyectos}
 En este apartado mostraré otras opciones de acometer un proyecto similar y compararé los principales puntos de éstos con el presente proyecto para poder tener una visión global entre estas opciones.
 
-\subsection{Interacción remota para elementos de un hogar mediante una red de sensores actuadores}
-Se trata de un proyecto de control domótico que se centra en un conjunto de sensores instalados en el domicilio utilizando nodos intermedios para realizar el control de los dispositivos finales y la comunicación con los sensores.
+\subsection{Interacción remota para elementos de un hogar mediante una red de sensores actuadores}\label{Proy_Domo_1}
+Se trata de un  se trata de un TFG/TFM desarrollado en la Universidad de Salamanca que trata sobre el control domótico basado en un conjunto de sensores instalados en el domicilio utilizando nodos intermedios para realizar el control de los dispositivos finales y la comunicación con los sensores.
 
-En la tabla~\ref{tabla_Interacción} podemos ver algunas características de este proyecto.
-En las tablas se representará con la primera palabra del nombre del proyecto: <<Interacción>>.
+Podemos ver su referencia en la bibliografía en la referencia~\cite{misc:TFG_Salamanca}.
 
-\begin{table}
-\centering
-\begin{tabular}{lccc}
-\toprule
-Características & Interacción  \\
-\midrule
-Proyecto libre                          & \cellcolor{green!25} {$\checkmark$}\\
-No precisa montar servicios             &  \cellcolor{red!25} {$\times$}  \\
-No requiere lenguajes no nativos en el SO & \cellcolor{red!25} {$\times$} \\
-Obtiene información externa contrastada & \cellcolor{red!25} {$\times$} \\
-Interacción multiplataforma             & \cellcolor{green!25} {$\checkmark$} \\
-No necesita nodos intermedios           & \cellcolor{red!25} {$\times$} \\
-Cableado entre elementos                & \cellcolor{red!25} {$\times$} \\
-WiFi entre elementos                    & \cellcolor{green!25} {$\checkmark$} \\
-\bottomrule
-\end{tabular}
-\caption{Comparativa de las características de los proyectos.}
-\label{tabla_Interacción}
-\end{table}
+En la columna `Domo1' de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
 
-\subsection{Diseño e implementación de un sistema domótico basado en Raspberry Pi}
-Se trata de un proyecto de control domótico que se centra en un conjunto de sensores instalados en el domicilio.
+\subsection{Diseño e implementación de un sistema domótico basado en Raspberry Pi}\label{Proy_Domo_2}
+Éste es un TFG/TFM desarrollado en la Universidad Carlos III, en Madrid que trata sobre el control domótico de un domicilio basándose únicamente en un conjunto de sensores instalados en el domicilio.
 
 \begin{itemize}
     \item Url del trabajo: \url{https://e-archivo.uc3m.es/bitstream/handle/10016/26313/TFG_Hector_Santos_Senra.pdf?sequence=1&isAllowed=y}
 \end{itemize}
 
-En la tabla ~\ref{tabla_Diseño} podemos ver algunas características de este proyecto.
-En las tablas se representará con la primera palabra del nombre del proyecto: <<Diseño>>.
-\begin{table}
-\centering
-\begin{tabular}{lccc}
-\toprule
-Características & Diseño  \\
-\midrule
-Proyecto libre                          & \cellcolor{red!25} {$\times$} \\
-No precisa montar servicios             & \cellcolor{red!25} {$\times$} \\
-No requiere lenguajes no nativos en el SO  & \cellcolor{red!25} {$\times$} \\
-Obtiene información externa contrastada & \cellcolor{red!25} {$\times$} \\
-Interacción multiplataforma             & \cellcolor{green!25} {$\checkmark$} \\
-No necesita nodos intermedios           & \cellcolor{green!25} {$\checkmark$} \\
-Cableado entre elementos                & \cellcolor{green!25} {$\checkmark$} \\
-WiFi entre elementos                    & \cellcolor{red!25} {$\times$} \\
-\bottomrule
-\end{tabular}
-\caption{Comparativa de las características de los proyectos.}
-\label{tabla_Diseño}
-\end{table}
+En la columna `Domo2' de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
 
-\section{Fortalezas y debilidades este proyecto: <<Sistema Domótico Inteligente>>}
+\section{Fortalezas y debilidades este proyecto}
 
-Las principales fortalezas del proyecto son:
+Las principales fortalezas del proyecto que se presenta en esta memoria son:
 
 \begin{itemize}
-\tightlist
 \item
     Éste es un proyecto que cualquiera puede implementar fácilmente en su domicilio haciendo una copia local del repositorio y haciendo unas sencillas configuraciones en el archivo de configuración.
     
@@ -84,32 +43,11 @@ Las principales fortalezas del proyecto son:
 \item
     El sistema automatizado de nuestro proyecto se nutre de la información contrastable obtenida de API's reconocidas.
     
-\item
-    Se puede interactuar con el sistema domótico de varias formas. La más cómoda es mediante el bot de Telegram creado en exclusiva para controlar las funcionalidades principales de nuestro sistema domótico, aunque también se puede contectar de forma remota desde otra máquina mediante VNC~\footnote{VNC: "Virtual Network Computing", programa de control remoto de equipos informáticos basado en una estructura cliente-servidor} siempre que se esté en la misma red. Se puede interactuar con el bot mediante aplicaciones Android o IOs, o desde navegadores de uso extendido como Chrome, Firefox o Edge, entre otros.
-    
-\item
-    No se necesitan elementos intermedios de ningún tipo, únicamente tenemos nuestra Raspberry Pi~\cite{misc:RbPWeb} y los actuadores o relés~\ref{Img:Rele1}. De esta manera evitamos posibles fallos de los elementos intermedios.
-    \begin{comment}
-        --> TODO: Esta situación podemos comprobarla en la imagen PLANO GENERAL DE LA INSTALACIÓN
-    \end{comment}
-    
-\item
-    Se ha preferido cablear la instalación para evitar que los elementos receptores puedan quedar en un estado no deseado así como evitar reconfigurar elementos ante cualquier posible cambio de alguno de los elementos como pueden ser el \textit{dongle} WiFi o el router, ver secciones ~\ref{concepto:WIFI} y \ref{4:Router} respectivamente.
-    También, al dejar libres los canales WiFi, evitamos contribuir a la actual saturación de frecuencias en los espectros de 2.4GHz y 5GHz~\cite{manual:IEEE802.11}.
-
-\end{itemize}
-
-
-Podemos ver en la tabla~\ref{tabla:comparativa-proyectos} de comparativa de proyectos lo anteriormente expuesto.
-
-\begin{itemize}
-\tightlist
-\end{itemize}
 \begin{table}
 \centering
 \begin{tabular}{lccc}
 \toprule
-Características & SDI & Interacción & Diseño  \\
+Características & SDI & Domo_1 & Domo_2  \\
 \midrule
 Proyecto libre                          & \cellcolor{green!25} {$\checkmark$} & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} \\
 No precisa montar servicios             & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{red!25} {$\times$} \\
@@ -125,6 +63,25 @@ WiFi entre elementos                    & \cellcolor{red!25} {$\times$} & \cellc
 \label{tabla:comparativa-proyectos}
 \end{table}
 
+    
+\item
+    Se puede interactuar con el sistema domótico de varias formas. La más cómoda es mediante el bot de Telegram creado en exclusiva para controlar las funcionalidades principales de nuestro sistema domótico, aunque también se puede contectar de forma remota desde otra máquina mediante VNC~\footnote{VNC: "Virtual Network Computing", programa de control remoto de equipos informáticos basado en una estructura cliente-servidor} siempre que se esté en la misma red. Se puede interactuar con el bot mediante aplicaciones Android o IOs, o desde navegadores de uso extendido como Chrome, Firefox o Edge, entre otros.
+    
+\item
+    No se necesitan elementos intermedios de ningún tipo, únicamente tenemos nuestra Raspberry Pi~\cite{misc:RbPWeb} y los actuadores o relés~\ref{Img:Rele1}. De esta manera evitamos posibles fallos de los elementos intermedios. Podemos comprobarlo en la imagen~\ref{Img:diagramaBasico}.
+
+    
+\item
+    Se ha preferido cablear la instalación para evitar que los elementos receptores puedan quedar en un estado no deseado así como evitar reconfigurar elementos ante cualquier posible cambio de alguno de los elementos como pueden ser el \textit{dongle} WiFi o el router, ver secciones~\ref{concepto:WIFI} y~\ref{4:Router} respectivamente.
+    También, al dejar libres los canales WiFi, evitamos contribuir a la actual saturación de frecuencias en los espectros de 2.4GHz y 5GHz~\cite{manual:IEEE802.11}.
+
+\end{itemize}
+
+
+Podemos ver en la tabla~\ref{tabla:comparativa-proyectos} de comparativa de proyectos lo anteriormente expuesto.
+
+
+
 Las principales debilidades del proyecto son:
 
 \begin{itemize}
@@ -135,5 +92,3 @@ Las principales debilidades del proyecto son:
     Es necesaria una línea de datos para que se actualicen los parámetros de los scripts.
 
 \end{itemize}
-
-%TODO No me queda claro por qué hay tres tablas separadas  en vez de todo integrado... Me lo explicas hoy
