@@ -1,4 +1,52 @@
 \capitulo{7}{Conclusiones y Líneas de trabajo futuras}
-
+\begin{comment}
 Todo proyecto debe incluir las conclusiones que se derivan de su desarrollo. Éstas pueden ser de diferente índole, dependiendo de la tipología del proyecto, pero normalmente van a estar presentes un conjunto de conclusiones relacionadas con los resultados del proyecto y un conjunto de conclusiones técnicas. 
 Además, resulta muy útil realizar un informe crítico indicando cómo se puede mejorar el proyecto, o cómo se puede continuar trabajando en la línea del proyecto realizado. 
+\end{comment}
+
+
+En este apartado se detallan el punto final con que concluye este proyecto, desglosando cada uno de los objetivos superados en el mismo. Posteriormente se sugerirán algunas posibles líneas de trabajo futuras que puedan dar continuiidad al proyecto consiguiendo una mejora notable.
+
+\section{Conclusiones}
+Una vez finalizado el proyecto, podemos concluir con las siguientes afirmaciones:
+\begin{itemize}
+\item Se ha conseguido crear un Sistema de Simulación de Presencia que funciona según las horas de luz del día. En cada jornada, el Sistema genera una consulta de forma automática obteniendo los parámetros de ubicación, y posteriormente, los parámetros de salida y puesta de sol. Seguidamente cocina los datos para controlar los diferentes elementos externos.
+
+\item Además, se ha ampliado el Sistema de Simulación de Presencia con el Sistema Domótico que controla la caldera, las persianas y las luces. De esta manera, también controlamos a que hora se suben las persianas por las mañanas y se controla el encendido de la caldera. Esta parte es parcialmente automática ya que tenemos la opción de subir las persianas, tras el amanecer, a la hora que queramos.
+
+\item Se ha conseguido dotar al sistema de un control instantáneo de las persianas. Este apartado beneficia a la hora de querer controlar una persiana de forma individual y en un intervalo de tiempo corto.
+
+\item También, se han incluido órdenes informativas que funcionan a partir de la información recopilada porque no cuesta nada poder contar con la información recopilada de una forma limpia e instantánea siempre que la queramos. Además, se dibujan diariamente una gráfica con las temperaturas del día siguiente que también están a nuestra disposición siempre que solicitemos el envío de alguna de ellas
+
+\item El sistema es autónomo de la ubicación en la que está instalado ya que obtiene su ubicación en cada consulta lo cual es necesario para poder obtener las temperaturas del día siguiente.
+
+\item Se ha generado un bot para automatizar todo el proceso de comunicación con el Sistema Domótico Inteligente de forma que podemos interactuar con él desde cualquier lugar de una manera segura y minimizando el cómputo, los servicios activos y también los puertos abiertos.
+
+\item El sistema, finalmente, funciona con un mínimo de instrucciones y programas en background, lo cual contribuye a un mínimo consumo energético y pone a disposición del usuario los recursos de la máquina para realizar otras tareas que se precisen.
+
+\item Estoy satisfecho con la instalación física realizada en el domicilio, me parece profesional ya que sigue las líneas de las normativas legales vigentes por las que se rigen este tipo de instalaciones.
+
+\item Otro punto muy satisfactorio es el de la mínima inversión acometida en el proyecto junto a una funcionalidad completa hacen que sienta que el dinero ha sido muy bien invertido ya que ha aumentado notablemente la comodidad y confortabilidad del domicilio. Además se nota que, ahora en invierno, la temperatura de la vivienda desciende más despacio al bajarse las persianas cuando anochece.
+
+\item La única pega que le podría al proyecto es que al utilizar la versión 2B de la Raspberry Pi, algunas peticiones tardan unos segundos más de lo que me gustaría. Esto sucede cuando se le ordena que modifique la hora de subida de las persianas ya que debe abrir y modificar varios archivos, pero se soluciona con una versión más nueva de Raspberry Pi.
+
+\end{itemize}
+
+
+\section{Líneas de trabajo futuras}
+El proyecto ha quedado bastante <<redondo>>, es decir, se ha generado una funcionalidad completa y se ha dado solución a una necesidad dentro de los parámetros que se esperaba. No obstante, el proyecto es susceptible de crecer para aumentar el confort y mejorar el Sistema Simulador de Presencia y el Sistema Domótico.
+
+\begin{itemize}
+\item El proyecto se centra únicamente en valores externos como son el sol o la temperatura exterior. Se puede incluir un sensor de temperatura en la vivienda de forma que también se controle la calefacción siempre que la caldera esté encendida.
+
+\item Al Sistema Simulador de Presencia podemos incluirle sonido. Una buena opción puede ser conseguir emitir un programa en streaming~\footnote{Retransmisión en directo.}, ya sea solo audio o también con vídeo.
+
+\item Ya que hemos incluido Telegram y éste dispone de llamadas, podemos incluir un <<portero IP>> de forma que te llame a un usuario y puedas comunicarte con quien llame a la puerta. De esta manera no sólo simulas que estás en el domicilio sino que también sabes quién ha estado en tu puerta. Este portero puede ser sólo con voz o también con imagen.
+
+\item Al mismo sistema, se le pueden incorporar unos sensores PIR para saber en que parte de la casa hay movimiento y disponer un control de luces o grabado de imágenes.
+
+\item También se puede optar por crecer en la rama de seguridad añadiendo sensores de gas, agua y humo para y notifique las alertas.
+
+\item Si se vive en un lugar con puerta de garaje individual, se puede programar para interactuar con ésta permitiendo el acceso con un mensaje.
+
+\end{itemize}
