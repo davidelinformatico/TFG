@@ -41,6 +41,9 @@ def configBot():
     usuarios= users.split(', ')
     # Generamos la hora de inicio del sistema
     hora=time.strftime("%H:%M:%S")
+    
+    for usuario in usuarios:
+        bot.send_message(usuario, "Iniciando Sistema a las "+str(hora))
 
     return tokenBot, bot, usuarios, persianas, luces, calderas, rutaCred, rutaAuto, hora, pwdBot
 
