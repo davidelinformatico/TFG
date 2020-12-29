@@ -7,4 +7,4 @@ os
 datetime
 pandas
 matplotlib.pyplot
-bs4
+bs4 
