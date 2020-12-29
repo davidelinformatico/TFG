@@ -123,7 +123,6 @@ def command_long_text(m):
 @bot.message_handler(commands=['subir'])
 @bot.message_handler(commands=['parar'])
 def command_long_text(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         subirPararBajar.controlPersianas(m, bot)
      
@@ -133,7 +132,6 @@ def command_long_text(m):
 @bot.message_handler(func=lambda message: message.text == "t")
 @bot.message_handler(func=lambda message: message.text == "T")
 def command_long_text(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         temperaturasManana.temperaturas(m , bot)
 
@@ -143,17 +141,8 @@ def command_long_text(m):
 @bot.message_handler(func=lambda message: message.text == "tc")
 @bot.message_handler(func=lambda message: message.text == "Tc")
 def command_long_text(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         temperaturaCalefaccion.calefaccion(m, bot)
-
-
-# Cambio de hora mínima de subida de persianas
-#@bot.message_handler(commands=['cambiar'])
-#def command_long_text(m):
-#    usuario = m.chat.id
-#    if (compruebaUsuario(m)):
-#        horaSubida.horaSubida(m, bot)
 
 
 # Diagrama de temperaturas (enviar imagen)
@@ -161,7 +150,6 @@ def command_long_text(m):
 @bot.message_handler(func=lambda message: message.text == "d")
 @bot.message_handler(func=lambda message: message.text == "D")
 def command_long_text(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         diagramaTemperaturas.diagrama(m, bot, pwdBot)
         
@@ -171,7 +159,6 @@ def command_long_text(m):
 @bot.message_handler(func=lambda message: message.text == "g")
 @bot.message_handler(func=lambda message: message.text == "g")
 def command_long_text(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         generador.generador(m, bot)
         
@@ -181,7 +168,6 @@ def command_long_text(m):
 @bot.message_handler(func=lambda message: message.text == "Datos")
 @bot.message_handler(func=lambda message: message.text == "datos")
 def command_text_hi(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         datos.datos(m, bot)
         
@@ -193,7 +179,6 @@ def command_text_hi(m):
 @bot.message_handler(func=lambda message: message.text == "hora")
 @bot.message_handler(func=lambda message: message.text == "Hora")
 def command_text_hi(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         horaSubida.horaSubida(m, bot)
 
@@ -205,7 +190,6 @@ def command_text_hi(m):
 @bot.message_handler(func=lambda message: message.text == "I")
 @bot.message_handler(func=lambda message: message.text == "Info")
 def command_long_text(m):
-    usuario = m.chat.id
     if (compruebaUsuario(m)):
         info.info(m, bot)
 
