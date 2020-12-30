@@ -26,7 +26,7 @@ def diagrama(m, bot, pwdBot):
         os.chdir(pwdImagenes)
         bot.send_message(usuario, "Error. Prueba con alguna de estas con formato AAAA-MM-DD:\n")
         result = os.popen('ls -r | rev | cut -f 2- -d "." | rev').read()
-        cosa=((result.split("\n")))
+        cosa=(result.split("\n"))
         
         try:
             #Últimas 10 imágenes para no recargar la salida

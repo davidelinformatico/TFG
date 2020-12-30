@@ -40,9 +40,9 @@ def info(m, bot):
         
         bot.send_message(usuario, m2, parse_mode=ParseMode.MARKDOWN)
 
-    except:
+    except Exception as e:
         bot.send_message(usuario, text="*Hay algún problema en la obtención de datos.*",parse_mode=telegram.ParseMode.MARKDOWN)
-        print("error general")
+        print("error general"+str(e))
         
 # INFO TEMP
 def temp():
