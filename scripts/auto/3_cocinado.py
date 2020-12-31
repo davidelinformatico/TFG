@@ -109,7 +109,7 @@ try:
     file.write(str("05 04 * * * sudo reboot")+ os.linesep)
     file.write(""+ os.linesep)
     file.write(str("#Lanzamos el script de toma de horas")+ os.linesep)
-    file.write(str("05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && sudo sh LanzaTodoElProceso.sh")+ os.linesep)
+    file.write(str("05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && bash LanzaTodoElProceso.sh")+ os.linesep)
     file.write(""+ os.linesep)
     
     file.write(""+ os.linesep)

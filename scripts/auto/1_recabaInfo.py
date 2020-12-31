@@ -21,7 +21,7 @@ try:
     ruta=os.getcwd().split('/')
     rutaPrincipal=os.getcwd().split('/')
 
-   
+
 except Exception as e:
     print("Se ha producido un error en el módulo 1 de recabado de datos:"+str(e))
 
