@@ -21,7 +21,7 @@
 #| | | | |   commands
 
 #--------------------------------------------------------------------------------------------------
-#Este CRON ha sido generado en el instante Thu Dec 31 12:05:30 2020
+#Este CRON ha sido generado en el instante Sun Jan  3 00:05:28 2021
 #--------------------------------------------------------------------------------------------------
 #Código de control Automático de Persianas 
 #--------------------------------------------------------------------------------------------------
@@ -31,15 +31,15 @@
 45 8 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Encendemos las luces
-10 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
+12 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Bajamos TODAS
-15 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
-16 18 * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh
-22 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+17 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
+18 18 * * * sh /home/pi/source/TFG/scripts/control/Bajar.sh
+24 18 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
 
 #Apagamos las luces
-22 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
+24 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
 #Todos los días se  reinicia la máquina par que el demonio siempre esté correcto por la mañana
 05 04 * * * sudo reboot
@@ -77,6 +77,6 @@
 0 22 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 0 23 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
 
-#Instante de grabado de datos: 2020-12-31 - 12:05:30
+#Instante de grabado de datos: 2021-01-03 - 3
 
 
