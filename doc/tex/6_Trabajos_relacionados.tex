@@ -14,7 +14,7 @@ Se trata de un  se trata de un TFG/TFM desarrollado en la Universidad de Salaman
 
 Podemos ver su referencia en la bibliografía en la referencia~\cite{misc:TFG_Salamanca}.
 
-En la columna `Domo1' de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
+En la columna `Domo\_1' de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
 
 \subsection{Diseño e implementación de un sistema domótico basado en Raspberry Pi}\label{Proy_Domo_2}
 Éste es un TFG/TFM desarrollado en la Universidad Carlos III, en Madrid que trata sobre el control domótico de un domicilio basándose únicamente en un conjunto de sensores instalados en el domicilio.
@@ -23,7 +23,7 @@ En la columna `Domo1' de la tabla~\ref{tabla:comparativa-proyectos} podemos ver 
     \item Url del trabajo: \url{https://e-archivo.uc3m.es/bitstream/handle/10016/26313/TFG_Hector_Santos_Senra.pdf?sequence=1&isAllowed=y}
 \end{itemize}
 
-En la columna `Domo2' de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
+En la columna `Domo\_2' de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
 
 \section{Fortalezas y debilidades este proyecto}
 
@@ -47,16 +47,16 @@ Las principales fortalezas del proyecto que se presenta en esta memoria son:
 \centering
 \begin{tabular}{lccc}
 \toprule
-Características & SDI & Domo_1 & Domo_2  \\
+Características & SDI & Domo\_1 & Domo\_2  \\
 \midrule
-Proyecto libre                          & \cellcolor{green!25} {$\checkmark$} & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} \\
-No precisa montar servicios             & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{red!25} {$\times$} \\
-No requiere lenguajes no nativos en el SO  & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{red!25} {$\times$} \\
-Obtiene información externa contrastada & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{red!25} {$\times$} \\
-Interacción multiplataforma             & \cellcolor{green!25} {$\checkmark$} & \cellcolor{green!25} {$\checkmark$} & \cellcolor{green!25} {$\checkmark$} \\
-No necesita nodos intermedios           & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{green!25} {$\checkmark$} \\
-Cableado entre elementos                & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} & \cellcolor{green!25} {$\checkmark$} \\
-WiFi entre elementos                    & \cellcolor{red!25} {$\times$} & \cellcolor{green!25} {$\checkmark$} & \cellcolor{red!25} {$\times$} \\
+Proyecto libre                          & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} \\
+No precisa montar servicios             & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{red!25} {\xmark} \\
+No requiere lenguajes no nativos en el SO  & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{red!25} {\xmark} \\
+Obtiene información externa contrastada & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{red!25} {\xmark} \\
+Interacción multiplataforma             & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} \\
+No necesita nodos intermedios           & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{green!25} {\checkmark} \\
+Cableado entre elementos                & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{green!25} {\checkmark} \\
+WiFi entre elementos                    & \cellcolor{red!25} {\xmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} \\
 \bottomrule
 \end{tabular}
 \caption{Comparativa de las características de los proyectos.}
@@ -65,7 +65,7 @@ WiFi entre elementos                    & \cellcolor{red!25} {$\times$} & \cellc
 
     
 \item
-    Se puede interactuar con el sistema domótico de varias formas. La más cómoda es mediante el bot de Telegram creado en exclusiva para controlar las funcionalidades principales de nuestro sistema domótico, aunque también se puede contectar de forma remota desde otra máquina mediante VNC~\footnote{VNC: "Virtual Network Computing", programa de control remoto de equipos informáticos basado en una estructura cliente-servidor} siempre que se esté en la misma red. Se puede interactuar con el bot mediante aplicaciones Android o IOs, o desde navegadores de uso extendido como Chrome, Firefox o Edge, entre otros.
+    Se puede interactuar con el sistema domótico de varias formas. La más cómoda es mediante el bot de Telegram creado en exclusiva para controlar las funcionalidades principales de nuestro sistema domótico, aunque también se puede contectar de forma remota desde otra máquina mediante VNC~\footnote{VNC: <<Virtual Network Computing>>, programa de control remoto de equipos informáticos basado en una estructura <<cliente-servidor>>} siempre que se esté en la misma red. Se puede interactuar con el bot mediante aplicaciones Android o IOs, o desde navegadores de uso extendido como Chrome, Firefox o Edge, entre otros.
     
 \item
     No se necesitan elementos intermedios de ningún tipo, únicamente tenemos nuestra Raspberry Pi~\cite{misc:RbPWeb} y los actuadores o relés~\ref{Img:Rele1}. De esta manera evitamos posibles fallos de los elementos intermedios. Podemos comprobarlo en la imagen~\ref{Img:diagramaBasico}.

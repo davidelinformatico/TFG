@@ -71,6 +71,7 @@ Tras obtener la ubicación de la instalación y extraer los parámetros necesari
 
 De esta manera el control de los dispositivos se hará automáticamente desde <<Cron>> con los datos actualizados diariamente. Podemos ver un diagrama explicativo de este proceso en la imagen~\ref{Img:Cron1}. Además, podemos ver a continuación un ejemplo de archivo de recopilación de datos:
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=json, basicstyle=\small, caption={Ejemplo archivo de recopilado de datos.}]
 {
 "Planeta":
@@ -108,7 +109,7 @@ De esta manera el control de los dispositivos se hará automáticamente desde <<
 	}
 }
 \end{lstlisting}
-
+\end{minipage}
 
 Este archivo de datos es leído siempre que queremos modificar alguno de los parámetros de automatización desde el bot, como son la temperatura o la hora más temprana a la que pueden bajar las persianas, además de cuando se regenera el Cron.
 
@@ -124,9 +125,12 @@ pip install paquete
 pip3 install paquete
 \end{lstlisting}
 
-Controlaremos la Raspberry Pi y sus periféricos mediante comandos Bash y realizaremos el cocinado de datos con Python. Se ha tomado esta determinación para conseguir la mayor velocidad de procesamiento posible así como para evitar posibles problemas. Por ello, la automatización que haremos desde CRON que lanzará otros scripts será mediante bash. Podemos ver el resultado final del Cron que genera la máquina diariamente:
+Controlaremos la Raspberry Pi y sus periféricos mediante comandos Bash y realizaremos el cocinado de datos con Python. Se ha tomado esta determinación para conseguir la mayor velocidad de procesamiento posible así como para evitar posibles problemas. Por ello, la automatización que haremos desde CRON que lanzará otros scripts será mediante bash. 
 
-\begin{lstlisting}[language=cpp, basicstyle=\tiny, caption={Crontab funcionando correctamente.}]
+Podemos ver el resultado final del Cron que genera la máquina diariamente:
+
+
+\begin{lstlisting}[language=sh]
 # Edit this file to introduce tasks to be run by cron.
 # 
 ##   Entry              Description     Equivalent To
@@ -149,7 +153,7 @@ Controlaremos la Raspberry Pi y sus periféricos mediante comandos Bash y realiz
 #--------------------------------------------------------------------------
 #Este CRON ha sido generado en el instante Sun Dec 27 13:13:27 2020
 #--------------------------------------------------------------------------
-#Codigo de control Automático de Persianas 
+#Codigo de control Automatico de Persianas 
 #--------------------------------------------------------------------------
 #Subimos las persianas Modo mañana de Lunes a Domingo
 37 8 * * * sh /home/pi/source/TFG/scripts/control/GPIO_off.sh
@@ -167,15 +171,15 @@ Controlaremos la Raspberry Pi y sus periféricos mediante comandos Bash y realiz
 #Apagamos las luces
 19 18 * * * sh /home/pi/source/TFG/scripts/LucesOn.sh
 
-#Todos los días se  reinicia la máquina par que el demonio siempre 
-#esté correcto por la mañana
+#Todos los días se  reinicia la maquina par que el demonio siempre 
+#este correcto por la mañana
 05 04 * * * sudo reboot
 
 #Lanzamos el script de toma de horas
 05 00 * * * cd /home/pi/source/TFG/scripts/auto/ && sudo sh LanzaTodoElProceso.sh
 
 #--------------------------------------------------------------------------
-#Codigo de control Automático de Calefaccion 
+#Codigo de control Automatico de Calefaccion 
 #--------------------------------------------------------------------------
  
 0 0 * * 1-7 sh /home/pi/source/TFG/scripts/control/EncenderCaldera.sh
@@ -207,9 +211,9 @@ Controlaremos la Raspberry Pi y sus periféricos mediante comandos Bash y realiz
 
 \end{lstlisting}
 
-El script que lanza todo el código contiene las siguientes líneas:
+~\\~\\~\\El script que lanza todo el código contiene las siguientes líneas:
 
-\begin{lstlisting}[language=cpp, caption={Script que lanza el proceso automático completo.}]
+\begin{lstlisting}[language=sh, caption={Script que lanza el proceso automático completo.}]
 #!/bin/bash
 path=$(pwd)
 echo $path
@@ -223,7 +227,7 @@ sh ${path%}/4_reescribeCron.sh
 Este archivo es un archivo Bash porque desde Cron no he conseguido lanzar los scripts Python, sin embargo no he tenido problemas al lanzarlo desde este script Bash siempre que especifique nuevamente que se lance con python3.
 
 Por otro lado, para controlar los relés desde los GPIO, debemos configurarlos como OUT y con valor 1 para activarlos y, con valor 0 y configuración IN para desactivarlos. Podemos ver un ejemplo a continuación:
-\begin{lstlisting}[language=cpp, caption={Ejemplo activación y desactivación de relé.}]
+\begin{lstlisting}[language=sh, caption={Ejemplo activación y desactivación de relé.}]
 gpio -g mode 17 out # Activa el relé conectado al pin 17
 sleep 1             # Espera 1 segundo
 gpio -g mode 17 in  # Desactiva el relé conectado al pin 17
@@ -237,9 +241,9 @@ Quizás, la parte más compleja del proyecto ha sido la instalación física dad
 
 Al comienzo del proyecto, hubo una gran parte de investigación e instalación del sistema ya que quería realizar el proyecto de la forma más profesional posible. Por ello, me dispuse a bucar en el REBT~\cite{manual:REBT} y en la normativa de ICT~\cite{manual:ICT-BT-21} para no saltarme ningún paso y que la instalación fuera totalmente legal.
 
-Fue complejo leer tanto y comprender cómo realizar los cálculos de los cables dentro de los tubos y conseguir discernir entre la asignación real entre los diferentes canales de la vivienda. Una vez comprobado que utilizaría la norma actualizada de 2020 del REBT, realicé los cálculos para comprobar que podía 'tirar' el cable UTP por estos canales con seguridad. 
+Fue complejo leer tanto y comprender cómo realizar los cálculos de los cables dentro de los tubos y conseguir discernir entre la asignación real entre los diferentes canales de la vivienda. Una vez comprobado que utilizaría la norma actualizada de 2020 del REBT, realicé los cálculos para comprobar que podía `tirar' el cable UTP por estos canales con seguridad. 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{img/Diagrama Básico.pdf}
     \caption{Diagrama físico. } \label{Img:diagramaBasico}
@@ -254,7 +258,11 @@ Me he documentado sobre las características eléctricas de cada uno de los hilo
 
 El siguiente paso fue determinar la situación de la Raspberry Pi para que fuera lo más accesible posible ahorrando cable y que la instalación quedase lo más limpia posible, por lo que lo determiné para instalarla cerca de la primera caja de derivación eléctrica después del cuadro eléctrico general. Podemos ver un diagrama simplificado en la imagen~\ref{Img:diagramaBasico}. En ella podemos diferenciar varios elementos: Por un lado, tenemos el cuadro eléctrico y la primera caja de derivación, que ya vienen instaladas en el domicilio en la misma disposición que podemos ver en el diagrama (la caja de derivación encima del cuadro eléctrico), y en medio, me dispuesto la Raspberry Pi, para que puedan llegar los cables de datos fácilmente, ya que los hemos dispuesto por los canales eléctricos hasta los diferentes elementos a controlar (persianas, luz y calefacción).
 
-
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/CABLES.png}
+    \caption{Disposición interna cables UTP, FTP y STP.} \label{Img:CablesDatos}
+\end{figure}
 
 Sobre el medio de comunicación entre dispositivos electrónicos, ha sido complejo escoger entre:
 \begin{itemize}
@@ -266,22 +274,22 @@ Cabe destacar una particularidad de mi instalación: el router está albergado d
 
 Otro punto nuevo para mi fue el crimpado de los pines para poder trabajar con ellos. Al principio, no contaba con una crimpadora de estos pines JST-XH pero terminé haciéndome con una para que los cables quedaran correctamente fijados a los conectores.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{img/fotos/caja-persiana.jpeg}
     \caption{Caja de derivación secundaria instalada.} \label{Img:CajaDerivacion}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{img/fotos/explicación caja instalada.jpg}
     \caption{Caja de derivación principal instalada.} \label{Img:CajaDerivacionPrincipal}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{img/fotos/RBP-instalada.jpeg}
     \caption{Instalación domótica y caja de derivación principal.} \label{Img:InstalacionDomotica}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{img/fotos/protoboard-instalada.jpeg}
     \caption{Protoboard conectada.} \label{Img:ProtoboardConecada}
@@ -345,7 +353,7 @@ Resumiendo, la instalación mecánica y nuestra instalación mediante relés se 
     \caption{Plano de tablero de pruebas.} \label{Img:Plano_Placa_Pruebas}
 \end{figure}
 
-La primera prueba, consistía en la instalación de la Raspberry Pi (Ver imagen~\ref{Img:Especificaciones RBP2B}), con un relé (ver imagen~\ref{Img:Rele1}) y una bombilla conectada a 220VAC\footnote{VAC:Voltage Alternating Current}, y se llevó a cabo con éxito. Podemos ver un diagrama de como se conectó en la imagen~\ref{Img:Plano_Placa_Pruebas}.
+La primera prueba, consistía en la instalación de la Raspberry Pi con un relé (ver imagen~\ref{Img:Rele1}) y una bombilla conectada a 220VAC\footnote{VAC:Voltage Alternating Current}, y se llevó a cabo con éxito. Podemos ver un diagrama de como se conectó en la imagen~\ref{Img:Plano_Placa_Pruebas}.
 
 Llegados a este punto, era interesante el comprobar que se podía lanzar correctamente un script de este tipo desde CRON, encendiendo y apagando la bombilla, que también fue un éxito.
 
@@ -359,22 +367,22 @@ En ese punto he tenido problemas al intentar ejecutar scripts Python desde Cron 
 
 Uno de los puntos de la automatización es la generación de un demonio para nuestro bot de forma que se ejecutará con el inicio del sistema y podremos trabajar con el una sencilla sentencia:
 
-\begin{lstlisting}[language=cpp,firstnumber=0]
+\begin{lstlisting}[language=sh,firstnumber=0]
 sudo systemctl bot stop
 \end{lstlisting}
-\begin{lstlisting}[language=cpp]
+\begin{lstlisting}[language=sh]
 sudo systemctl bot start 
 \end{lstlisting}
 Para conseguirlo, he realizado los siguientes pasos:
 
 He generado el archivo el archivo de nuestro demonio en lib/systemd/system/ con la extensión <<.service>>. Lo he escrito fácilmente con nano: 
-\begin{lstlisting}[language=cpp, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0]
 sudo nano /lib/systemd/system/bot.service
 \end{lstlisting}
 El contenido del archivo es:
-\begin{lstlisting}[language=cpp, caption={Modificaciones en el archivo /lib/systemd/system/bot.service.}, firstnumber=0]
+\begin{lstlisting}[language=sh, caption={Modificaciones en el archivo /lib/systemd/system/bot.service.}, firstnumber=0]
 [Unit]
-Description=Lanza el bot de control domótico
+Description=Lanza el bot de control domotico
 After=network.target
 StartLimitIntervalSec=0
 
@@ -390,24 +398,24 @@ ExecStart=/usr/bin/env python3 /home/pi/source/TFG/scripts/bot/bot.py
 WantedBy=multi-user.target
 \end{lstlisting}
 Después debemos actualizar los demonios con: 
-\begin{lstlisting}[language=cpp, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0]
 systemctl daemon-reload
 \end{lstlisting}
 Iniciar el demonio: 
-\begin{lstlisting}[language=cpp, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0]
 sudo systemctl start bot
 \end{lstlisting}
 Parar el demonio: 
-\begin{lstlisting}[language=cpp, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0]
 sudo systemctl stop bot
 \end{lstlisting}
 Estado del demonio, con el que podremos conocer el pid~\footnote{Identificador del proceso}, que siempre es útil: 
-\begin{lstlisting}[language=cpp, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0]
 sudo systemctl status bot
 \end{lstlisting}
 
 Para incluirlo en el inicio de la máquina habría que moverlo a /etc/init.d y luego ejecutar: 
-\begin{lstlisting}[language=cpp, firstnumber=0]    
+\begin{lstlisting}[language=sh, firstnumber=0]    
 sudo update-rc.d bot defaults
 sudo systemctl daemon-reload
 sudo systemctl enable bot
@@ -416,14 +424,14 @@ sudo systemctl start bot
 
 
 \subsection{Telegram Bot}\label{5.TelegramBot}
-En primer lugar, explicaré que es un bot
+En primer lugar, explicaré qué es un bot
 
 El medio de comunicación con el sistema domótico es un bot de Telegram que he diseñado y programado para hacer completamente funcional el proyecto. Desde el Bot, podemos controlar las persianas de forma instantánea, modificar la configuración del sistema domótico y simulador de presencia, volver a generar recolección de datos y el grabado de los archivos. También podemos obtener información sobre la información recopilada, sobre nuestra Raspberry Pi y sobre el funcionamiento futuro del sistema domótico y simulador de presencia.
 
-Afortunadamente estaba mejor documentado que el resto del proyecto pero aún así no ha resultado tarea fácil entender la lógica del bot. 
+Afortunadamente estaba mejor documentado que el resto de la recursos que he consultado para el proyecto pero aún así no ha resultado tarea fácil entender la lógica del bot. 
 Podemos ver la lógica de comunicaciones del bot en la imagen~\ref{Img:FuncionamientoBot}. 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{img/Diagramas/FuncionamientoBot.png}
     \caption{Comunicación del bot. } \label{Img:FuncionamientoBot}
