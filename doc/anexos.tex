@@ -15,6 +15,8 @@
 \usepackage{graphicx}
 \usepackage{float} %required for the placement specifier H
 
+\usepackage{subfig}
+
 \usepackage{makecell}
 
 \renewcommand\theadalign{bc}
@@ -259,7 +261,53 @@
       title=\lstname,                 
     }
 
+%---------------------------------------------------------
+%\usepackage{xcolor}
 
+\definecolor{azulon}{rgb}{0,95,175}
+\definecolor{dgreen}{RGB}{0, 153, 0}
+
+
+
+\lstdefinelanguage{sh}
+{morekeywords={locate,ls,man,cmp,diff,mkdir,cp,more,chgrp,mv,chmod,chown,rm,file,rmdir,find,tail,grep,umask,head,wc,info,whatis,less,whereis,date,halt,shutdown,reboot,break,case,cat,cd,continue,do,done,elif,else,exec,exit,export,expr,false,fi,for,function,if,in,kill,login,new,nohup,ps,read,readonly,return,then,true,type,wait,while,as,command,declare,help,history,jobs,logout,printf,pushd,popd,readarray,select,set,type,wait,sleep,path,pwd,out,systemctl,nano,Install,Service,Unit}, 
+morecomment=[l]\#,
+morestring=[d]",
+morekeywords=[2]{sudo,bash,sh ,python3,\$,\{,\},\(,\),pip,pip3,gpio,stop,start,always,never,zero,enable,disable,default,install,echo}, %Lanzamientos
+morekeywords=[3]{bool,int,str,string,'\n','\t',+,-,*,/,=,\%,\$path,mode,User,ExecStart,WorkingDirectory,WantedBy,Restart,RestartSec,StartLimitIntervalSec,Description,After,Type  }, %operaciones
+%
+backgroundcolor=\color{lgrey},
+basicstyle=\scriptsize\ttfamily,
+identifierstyle=\color{black},
+keywordstyle=\color{dgreen}, %dblue
+keywordstyle={[2]\color{red}},
+keywordstyle={[3]\color{olive}},
+frame=tlb,% the frame is open on the right side
+resetmargins=false,
+rulesepcolor=\color{black},
+numbers=left,% % left
+numberstyle=\tiny,
+numbersep=5pt,
+extendedchars=true, 
+firstnumber=1,
+stepnumber=1,
+columns=fixed,% % to prevent inserting spaces
+fontadjust=true,
+keepspaces=true,
+basewidth=0.5em,
+captionpos=t,
+abovecaptionskip=\smallskipamount,% same amount as default
+belowcaptionskip=\smallskipamount,% in caption package
+stringstyle=\color{black},
+commentstyle=\color{teal}
+}[keywords,comments,strings]
+
+
+
+
+
+
+%---------------------------------------------------------
 
 
 % El comando \figura nos permite insertar figuras comodamente, y utilizando

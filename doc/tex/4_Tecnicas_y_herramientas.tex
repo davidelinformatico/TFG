@@ -4,7 +4,7 @@ Durante el proyecto se han utilizado diferentes tecnologías, herramientas y com
 
 \section{Entorno Software}
 \subsection{Raspbian (Distribución Linux)}\label{4:RaspbianOS}
-Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPC. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente. Una de estas distribuciones optimizadas y orientadas a estas placas es Raspbian~\cite{misc:RbPWeb} o Raspberry Pi OS, que incluye software orientado a la educación, programación y otras de uso general. Algunas de estas aplicaciones son Python~\cite{misc:Python} (Lenguaje de programación que pretende que se desarrolle cógigo de una forma sencilla, rápida, poco costosa y legible), Scratch~\cite{misc:Scratch}(Simulador amigable para aprender programación) o Java\cite{misc:Java}(Lenguaje de programación multiplataforma que utiliza una máquina virtual transparente para el usuario para ejecutarse), entre otros.
+Como he comentado anteriormente, pretendo correr una distribución Linux en nuestro microPC. Las placas Raspberry Pi disponen de unas distribuciones de Linux desarrolladas expresamente para su hardware desde la Raspberry Pi Foundation. De esta manera conseguimos que el entorno esté diseñado para el hardware donde será ejecutado incluyendo, además, utilidades preinstaladas para explotarlas más fácil y eficientemente. Una de estas distribuciones optimizadas y orientadas a estas placas es Raspbian~\cite{misc:RbPWeb} o Raspberry Pi OS, que incluye software orientado a la educación, programación y otras de uso general. Algunas de estas aplicaciones son Python~\cite{misc:Python} (Lenguaje de programación que pretende que se desarrolle cógigo de una forma sencilla, rápida, poco costosa y legible), Scratch~\cite{misc:Scratch}(Simulador amigable para aprender programación) o Java~\cite{misc:Java}(Lenguaje de programación multiplataforma que utiliza una máquina virtual transparente para el usuario para ejecutarse), entre otros.
 
 \subsection{Entorno de desarrollo Bash}\label{4:BASH}
 \begin{itemize}
@@ -23,16 +23,12 @@ Nuestro Sistema Operativo Raspbian\cite{misc:RbPWeb}, al ser una distribución d
 Jupyter Notebook es un entorno de desarrollo interactivo y open source, basado en cuadernos que estructuran el código pudiendo ejecutarlo todo o parte. Dispone de una interfaz limpia, ligera e interactiva que nos permite programar en 40 lenguajes, incluyendo Python~\cite{misc:Python}.
 
 \section{Control de datos}
-\subsection{Web Scraping}\label{4:WebScraping}
-Es una técnica utilizada para extraer información de una página web utilizando las etiquetas de que dispone el propio lenguaje interpretado de HTML (del inglés <<HyperText Markup Language>> o lenguaje de marcas de hipertexto) para organizar elementos dentro de una página web, de forma que se introduce dentro de una etiqueta y subetiquetas hasta llegar al contenido del elemento requerido. Podemos entenderlo como si fueran contenedores lógicos configurables.
-En nuestro caso, podremos utilizarlo desde Python~\cite{misc:Python} sirviéndonos de la librería <<beautifulsoup>> siempre que necesitemos obtener información de una página web.
-
 \subsection{APIS}\label{4:APIS}
 \begin{itemize}
     \item \textbf{API situación geográfica}
 \end{itemize}
 En primer lugar estuve haciendo pruebas con la API de \url{www.ifconfig.me/ip} que devuelve la provincia en la que se encuentra tu IP pública pero quería una información más precisa ya que no tendremos la misma temperatura en El Escorial que en Aranjuez. Por ello, opté por \url{http://ip-api.com} que sí obtiene correctamente la ciudad desde la que nos conectamos.
-
+~\\~\\~\\~\\~\\~\\
 \begin{itemize}
     \item \textbf{API Tiempo}\label{4:API_Tiempo}
 \end{itemize}
@@ -40,7 +36,7 @@ Al principio probé la API de \url{www.weatherapi.com} pero me entregaba únicam
 Como solución, opté por probar con la API de \url{www.climacell.co} que además, aseguran que es un 60\% más fiable que otras APIS ya que obtiene información de teléfonos móviles, cámaras y otros servicios online.
 
 \subsection{json}\label{4:JSON}
-La librería json~\cite{misc:Json} para Python~\cite{misc:Python} y Python v3 nos permite, entre otros, parsear el código json~\cite{misc:Json} de archivos mediante la estructura de \texttt{key:value}. En nuestro caso, tras obtener información de las APIs trataremos dicha información como json~\cite{misc:Json} gracias a su librería para Python~\cite{misc:Python}.
+La librería json~\cite{misc:Json} para Python~\cite{misc:Python} y Python v3 nos permite, entre otros, parsear el código json de archivos mediante la estructura de \texttt{key:value}. En nuestro caso, tras obtener información de las APIs trataremos dicha información como json gracias a su librería para Python.
 
 \section{Técnicas manuales}
 
@@ -128,16 +124,24 @@ En el mercado existen diversas opciones para poder generar un proyecto como este
 
 Entre estas dos opciones, optaremos por la primera por varios motivos. El motivo principal es el coste: es innecesario hacer mayor desembolso para implementar este sistema domótico. Otros motivos son el consumo, que es mucho menor en las placas SBC y la necesidad de una plataforma intermedia para poder controlar los relés, que también incrementaría el precio.
 
-\subsection{Comparativa SOC}
-Tras determinar la utilización de un SOC se hizo una comparativa entre las dos SBC principales, Arduino y Raspberry Pi teniendo en cuenta que son dos placas muy similares.
+\subsection{Comparativa SBC}
+Tras determinar la utilización de un SBC se hizo una comparativa entre las dos SBC principales, Arduino y Raspberry Pi teniendo en cuenta que son dos placas muy similares.
 
-\subsubsection{RaspberryPi}\label{4:RaspberryPi}
+\subsubsection{Raspberry Pi}\label{4:RaspberryPi}
 Para dar un enfoque muy general, podemos decir que las placas RaspberryPi~\cite{misc:RbPWeb} son microordenadores que disponen de poca potencia si las comparamos con equipos usuales, pero disponen de suficiente potencia para llevar a cabo este tipo de proyectos.
 
 Se diseñaron en su origen por la RaspBerry Pi Foundation~\cite{misc:RbPWeb} en el Reino Unido para dotar de equipos informáticos a los centros de estudios a un bajo coste, pero el proyecto ha evolucionado para poder desarrollar, además, otras muchas tareas como puede ser nuestro caso, que la utilizaremos como ‘núcleo’ de toda nuestra instalación domótica y, será donde configuremos todo el entorno domótico de la vivienda.
 Estas placas pueden ejecutar con agilidad distribuciones Linux~\cite{misc:Linux}, y desde sus éstas, podemos interactuar con sus famosos <<GPIO>>~\cite{misc:descubrearduino} como explicamos en el punto \ref{concepto:GPIO}, ver imagen ~\ref{Img:3.RaspberryPi}.
 
 Podemos ver en la tabla~\ref{tab:comp_RBP} una comparativa de los modelos B de Raspberry Pi. A modo de resumen, únicamente he representado los modelos B en al comparativa porque el proyecto se ha realizado con un modelo B.
+
+\subsubsection{Arduino}\label{4:Arduino}
+
+Un SoC Arduino es una placa construida para poder detectar y controlar otros elementos, acercando y facilitando la electrónica a múltiples proyectos de diferentes disciplinas. Por ello, también se valoró realizar el proyecto con Arduino pero quizás sea una opción más electrónica que informática.
+Podemos ver una comparativa de algunos Arduino en la tabla~\ref{tab:comp_Arduino} y ver un dibujo en la
+
+Adjunto también la imagen~\ref{Img:Arduino} sobre un Arduino para que quede representado también en el proyecto.
+
 
 \begin{landscape}
 \begin{table}[]
@@ -172,21 +176,6 @@ Podemos ver en la tabla~\ref{tab:comp_RBP} una comparativa de los modelos B de R
 \end{landscape}
 
 
-\subsubsection{Arduino}\label{4:Arduino}
-
-Un SoC Arduino es una placa construida para poder detectar y controlar otros elementos, acercando y facilitando la electrónica a múltiples proyectos de diferentes disciplinas. Por ello, también se valoró realizar el proyecto con Arduino pero quizás sea una opción más electrónica que informática.
-Podemos ver una comparativa de algunos Arduino en la tabla~\ref{tab:comp_Arduino}.
-
-Adjunto también la imagen~\ref{Img:Arduino} sobre un Arduino para que quede representado también en el proyecto.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/Diagramas/arduinoUno.PNG}
-    \caption{Dibujo de una placa Arduino.} \label{Img:Arduino}
-\end{figure}
-
-
-
 \begin{landscape}
 \begin{table}[]
 \centering
@@ -209,19 +198,26 @@ Mega 2560 & ATmega2560 & 5 V / 7-12 V & 16 MHz & 16/0 & 54/15 & 4 & 8 & 256 & Re
 \caption{Comparativa Arduinos}
 \label{tab:comp_Arduino}
 \end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/Diagramas/arduinoUno.PNG}
+    \caption{Dibujo de una placa Arduino.} \label{Img:Arduino}
+\end{figure}
+
 \end{landscape}
 
-\subsection{Decisión sobre SOC}\label{4.DecisionSOC}
-Finalmente he determinado que en nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi\cite{misc:RbPWeb}. La justificación se basa en la naturaleza de ambas placas y la necesidad del proyecto: las placas Raspberry Pi están orientadas a utilizarse como un ordenador de poca potencia, mientras que un Arduino está orientado a utilizarse como un equipo electrónico. 
-
-Podemos ver una imagen ilustrativa de las placas Raspberry Pi en~\ref{Img:3.RaspberryPi} y una de Arduino en la imagen~\ref{Img:Arduino}.
+\subsection{Decisión sobre SBC}\label{4.DecisionSOC}
+Finalmente he determinado que en nuestro proyecto tendremos el control de la instalación domótica desde una Raspberry Pi~\cite{misc:RbPWeb}. La justificación se basa en la naturaleza de ambas placas y la necesidad del proyecto: las placas Raspberry Pi están orientadas a utilizarse como un ordenador de poca potencia, mientras que un Arduino está orientado a utilizarse como un equipo electrónico. 
 
 Además, se pretende que el proyecto disponga de un Sistema Operativo sobre el que poder programar las funciones que queremos además de poder interactuar con éste de una forma natural además de facilitar el futuro mantenimiento.
+
+Podemos ver una imagen ilustrativa de las placas Raspberry Pi en~\ref{Img:3.RaspberryPi} y una de Arduino en la imagen~\ref{Img:Arduino}.
 
 Sobre las diferentes Raspberry Pi, podemos observar que prácticamente nos valdría cualquiera para el cometido que le vamos a encargar. En este caso optaré por la Raspberry Pi 2B frente a las demás porque dispongo de una placa en desuso; pero, en caso de tener que escoger una, elegiría una Raspberry Pi 3B+ por su escaso precio y capacidades superiores a la 2B. También deshecharía la 4B por su elevado precio con respecto a la seleccionada y sus problemas de sobrecalentamiento en la penúltima versión ya que al realizar la compra de la misma no dejan elegir la versión de la placa.\\
 
 \subsection{Relé}\label{4:Relé}
-Es un dispositivo electromagnético que permite, mediante un circuito primario, abrir o cerrar un circuito secundario. Dicho con otras palabras, desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía, o no, a nuestros dispositivos. Podemos ver el funcionamiento interno en la imagen~\ref{Img:Rele1}~\footnote{Imagen original de~\url{https://commons.wikimedia.org/}}. También podemos ver un diagrama, en la imagen~\ref{Img:ReleProyecto}, de como son los relés utilizados en este proyecto con una breve aclaración sobre las conexiones que están a nuestra disposición.
+Es un dispositivo electromagnético que permite, mediante un circuito primario, abrir o cerrar un circuito secundario. Dicho con otras palabras, desempeña la misma función de un interruptor, es decir, con nuestros relés, dejaremos pasar la energía, o no, a nuestros dispositivos. Podemos ver el funcionamiento interno en la imagen~\ref{Img:Rele1}~\footnote{Imagen original de~\url{https://commons.wikimedia.org/}~.}. También podemos ver un diagrama, en la imagen~\ref{Img:ReleProyecto}, de como son los relés utilizados en este proyecto con una breve aclaración sobre las conexiones que están a nuestra disposición.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{img/Rele_1.jpg}
@@ -238,14 +234,14 @@ Es un dispositivo electromagnético que permite, mediante un circuito primario, 
 Es un tablero electrónico para realizar pruebas. Protoboard es la agrupación de los términos ingleses “prototype board”.
 Esta protoboard la he configurado para poder hacer fácilmente el interconexionado entre los cables que llegan de los relés y los que van a la Raspberry Pi, evitando posibles tirones y movimiento de cables a la hora de hacer alguna manipulación.
 
-Éstas, disponen de tres zonas diferenciadas(Ver imagen ~\ref{Img:Protoboard}):
+Éstas, disponen de tres zonas diferenciadas (Ver imagen~\ref{Img:Protoboard}):
 
 \begin{itemize}
     \item \textbf{Canal Central}: Está situada en el medio de la placa, es donde está la zona de las pistas y es donde se colocan los circuitos.
     \item \textbf{Buses}: Se sitúan en los extremos de la placa y disponen de dos líneas:
         \subitem \textbf{Línea roja}: Bus positivo o de voltaje.
         \subitem \textbf{Línea azul}: Bus negativo o de tierra.
-    \item \textbf{Pistas}: Existen dos pistas en la zona central de la placa de la imagen y, conducen en sentido contrario de las líneas rojas y azul.
+    \item \textbf{Pistas}: Existen dos pistas en la zona central de la placa de la imagen que conducen en sentido contrario de las líneas rojas y azul, es decir, según está en la foto, en sentido vertical.
 \end{itemize}
 
 \begin{figure}
@@ -256,6 +252,17 @@ Esta protoboard la he configurado para poder hacer fácilmente el interconexiona
 
 \subsection{Router}\label{4:Router}
 Es un dispositivo que nos permite interconectar diferentes redes de datos. En mi caso dispongo de un router con WiFi integrado para poder dotar a la Raspberry Pi de salida a Internet.
+
+\subsection{Cable UPT cat5}
+Éste cable será el canal de comunicación entre la Raspberry Pi y los periféricos.
+Me he documentado sobre las características eléctricas de cada uno de los hilos del cable UPT cat5e y he visto que, según la norma TIA/EIA 568, el cableado debe soportar 500VDC (VDC:Voltage Direct Current), como podemos comprobar que figura en el punto A3 <<Insulation resistance>>, conforme a los test de voltaje que deben pasar de acuerdo con IEC60512-2 que figuran en la página 55 del documento de la norma~\cite{manual:568.2}. En cualquier caso, como las comunicaciones de nuestros gpio tienen un máximo de 3,3VDC y además dispone de dos salidas de 5VDC para alimentación de periféricos, necesitaremos soporte hasta 5V y nuestro cableado lo soporta sin problema puesto que el cable debe cumplir como mínimo con catalogación AWG~\cite{wiki:DefAWG} de, entre 22 y 24, lo que se traduce en que soporta 0.577A-0.92A~\cite{wiki:TablaAWG}, respectivamente.
+
+\begin{itemize}
+    \item \textbf{Tecnologías valoradas:} UTP cat5e (Ver imagen~\ref{Img:CablesDatos}), UTP cat6 (Ver imagen~\ref{Img:CablesDatos}), Coaxial (ANSI/TIA/EIA 568.4D), ZigBee (IEEE 802.15.4), Bluetooth\cite{manual:IEEE802.11}. 
+    \item \textbf{Tecnología elegida:} UTP cat5e (Ver imagen~\ref{Img:CablesDatos}).
+\end{itemize}
+
+
 
 \section{Plataforma de interacción}\label{4:telegram}
 \begin{itemize}

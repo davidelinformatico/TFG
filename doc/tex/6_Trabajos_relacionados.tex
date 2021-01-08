@@ -65,7 +65,7 @@ WiFi entre elementos                    & \cellcolor{red!25} {\xmark} & \cellcol
 
     
 \item
-    Se puede interactuar con el sistema domótico de varias formas. La más cómoda es mediante el bot de Telegram creado en exclusiva para controlar las funcionalidades principales de nuestro sistema domótico, aunque también se puede contectar de forma remota desde otra máquina mediante VNC~\footnote{VNC: <<Virtual Network Computing>>, programa de control remoto de equipos informáticos basado en una estructura <<cliente-servidor>>} siempre que se esté en la misma red. Se puede interactuar con el bot mediante aplicaciones Android o IOs, o desde navegadores de uso extendido como Chrome, Firefox o Edge, entre otros.
+    Se puede interactuar con el sistema domótico de varias formas. La más cómoda es mediante el bot de Telegram creado en exclusiva para controlar las funcionalidades principales de nuestro sistema domótico, aunque también se puede contectar de forma remota desde otra máquina mediante VNC~\footnote{VNC: <<Virtual Network Computing>>, programa de control remoto de equipos informáticos basado en una estructura <<cliente-servidor>>.} siempre que se esté en la misma red. Se puede interactuar con el bot mediante aplicaciones Android o IOs, o desde navegadores de uso extendido como Chrome, Firefox o Edge, entre otros.
     
 \item
     No se necesitan elementos intermedios de ningún tipo, únicamente tenemos nuestra Raspberry Pi~\cite{misc:RbPWeb} y los actuadores o relés~\ref{Img:Rele1}. De esta manera evitamos posibles fallos de los elementos intermedios. Podemos comprobarlo en la imagen~\ref{Img:diagramaBasico}.
@@ -86,9 +86,8 @@ Las principales debilidades del proyecto son:
 
 \begin{itemize}
 \tightlist
-\item
-    Hace falta cierta soltura a la hora de trabajar con el cableado UTP, ver sección~\ref{4:guiaPasacables}.
-\item
-    Es necesaria una línea de datos para que se actualicen los parámetros de los scripts.
+\item Hace falta cierta soltura a la hora de trabajar con el cableado UTP, ver sección~\ref{4:guiaPasacables}.
+\item Es necesaria una línea de datos para que se actualicen los parámetros de los scripts.
+\item Que el servicio de Telegram esté funcionando correctamente para que las órdenes lleguen al sistema.    
 
 \end{itemize}
