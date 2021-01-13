@@ -1,10 +1,10 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
-En este apartado se incluye la información técnica relacionada con la instalación física y con el código, incluyendo la estructura de directorios y el proceso de la instalación física así como los pasos necesarios para la obtención de los diferentes tokens.
+En este apartado se incluye la información técnica relacionada con la acometida y con el código, incluyendo la estructura de directorios y todo el proceso de instalación física así como los pasos necesarios para la obtención de los diferentes tokens.
 
 \section{Estructura de directorios}
-Para comprender la estructura de directorios debemos conocer las diferentes partes del proyecto y tener en cuenta que son completamente diferentes aunque en este proyecto se han integrado para poder hacer uso del sistema domótico. 
+Para comprender la estructura de directorios debemos conocer las diferentes partes del proyecto y tener en cuenta que son completamente diferentes, aunque en este proyecto se han integrado para poder hacer uso del sistema domótico. 
 
 Tras accederal directorio raiz del proyecto vemos dos directorios, \textbf{credentials} y \textbf{source}. Dentro de \textbf{credentials} tenemos el archivo principal de configuración y dentro de \textbf{source} el resto de directorios del proyecto. Nada más acceder al directorio \textbf{source} podemos ver tres directorios principales:
 
@@ -38,12 +38,12 @@ Por ello, dentro del directorio llamado <<scripts>> que es el que almacena nuest
 
 En todas ellas, los scripts, tanto de Bash como de Python llevan la cabecera específica para el tipo de código contenido en el archivo:
 
-\begin{lstlisting}[language=python,firstnumber=0, basicstyle=\normal]
+\begin{lstlisting}[language=python,firstnumber=0, basicstyle=\normalsize]
 #!/usr/bin/env python3
 \end{lstlisting}
 
 Ésta es la cabecera para los archivos Bash:
-\begin{lstlisting}[language=sh,firstnumber=0, basicstyle=\normal]
+\begin{lstlisting}[language=sh,firstnumber=0, basicstyle=\normalsize]
 #!/bin/bash
 \end{lstlisting}
 
@@ -105,7 +105,7 @@ Como la parte de desarrollo se ha generado desde Raspbian OS utilizando la inter
 
 \subsection{Requerimientos}
 Para poder hacer funcionar correctamente el código se debe clonar el repositorio e instalar los <<requeriments>> que están dentro de la ruta \textbf{/source/scripts/control/}:
-\begin{lstlisting}[language=sh, firstnumber=0, basicstyle=\normal]
+\begin{lstlisting}[language=sh, firstnumber=0, basicstyle=\normalsize]
 pip install -r requirements
 \end{lstlisting}~\\
 

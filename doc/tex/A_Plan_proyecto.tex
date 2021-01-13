@@ -26,7 +26,7 @@ En la primera reunión nos reunimos Álvar Arnaiz González y yo. En ella hice l
 Los objetivos de este <<sprint>> introductorio fueron la búsqueda de repositorios y otros proyectos para tomar ideas o si era posible hacer algún fork. También, el estudio la estructura del proyecto y herramientas software e interfaces a utilizar.
 
 \subsection{Sprint 01 - 09/10/2020 - 15/10/2020}
-Tras determinar el enfoque final de proyecto, se consensuó que los objetivos de este sprint fueron la búsqueda de información relevante, otros proyectos y recursos que puedan servir de utilidad como pueden ser APIS. Se buscaron algunas páginas web para realizar pruebas de extracción de datos con <<web scraping>>~\footnote{Se trata brevemente en el punto 4 de la memoria} y se descompusieron las tareas en unidades pequeñas de trabajo para poder afrontarlas durante sprints.
+Tras determinar el enfoque final de proyecto, se consensuó que los objetivos de este sprint fueron la búsqueda de información relevante, otros proyectos y recursos que pudieran servir de utilidad como pueden ser APIS. Se buscaron algunas páginas web para realizar pruebas de extracción de datos con <<web scraping>>~\footnote{Se trata brevemente en el punto 4 de la memoria} y se descompusieron las tareas en unidades pequeñas de trabajo para poder afrontarlas durante sprints.
 
 En este sprint también generé el repositorio en GitHub para poder trabajar contra él y podemos ver las líneas de código utilizadas en el \href{https://github.com/davidelinformatico/TFG/issues/1}{primer \textit{issue}}.
 
@@ -60,43 +60,45 @@ Vemos en los issues \href{https://github.com/davidelinformatico/TFG/issues/21}{2
 \subsection{Sprint 06 - 13/11/2020 - 19/11/2020}
 Se revisan los puntos anteriores y se compone un tablero de pruebas de forma que se puede controlar el encendido de una bombilla desde nuestra Raspberry Pi. También se graba un vídeo explicativo y se diseñan unos diagramas explicativos.
 
-Podemos ver en el \href{https://github.com/davidelinformatico/TFG/issues/22}{issue 22} que se presenta un diagrama con la lista de los componentes que vamos a utilizar en el tablero de pruebas y un diagrama de como se compondrá el tablero. En este issue también grabé un vídeo para explicar el tablero de pruebas y decidí utilizar un efecto más conservador de cara al final del proyecto.
+Podemos ver en el \href{https://github.com/davidelinformatico/TFG/issues/22}{issue 22} que se presenta un diagrama con la lista de los componentes que vamos a utilizar en el tablero de pruebas y un diagrama de como se compondrá el tablero. En este issue también grabé un vídeo para explicar el tablero de pruebas y decidí utilizar un efecto visual más conservador de cara al final del proyecto.
 
-En el \href{https://github.com/davidelinformatico/TFG/issues/23}{issue 23} he explicado como se controlan los GPIO de nuestra Raspberry Pi desde su distribución Linux~\footnote{Raspbery pi (Raspbian OS).} desde Bash y desde Python.
+En el \href{https://github.com/davidelinformatico/TFG/issues/23}{issue 23} he explicado cómo se controlan los GPIO de nuestra Raspberry Pi desde su distribución Linux~\footnote{Raspbery pi (Raspbian OS).} desde Bash y desde Python.
 
 \subsection{Sprint 07 - 20/11/2020 - 26/11/2020}
 Se realiza una investigación sobre como se puede implantar el bot en nuestro proyecto, se realiza el primer código de pruebas y se presentan las primeras pruebas con el bot. Podemos ver en el \href{https://github.com/davidelinformatico/TFG/issues/13}{issue 13} un resumen de las pruebas que estuve realizando con los diferentes teclados de que dispone Telegram.
 También, se proponen correcciones en la redacción.
 
 \subsection{Sprint 08 - 27/11/2020 - 03/12/2020}
-En el \href{https://github.com/davidelinformatico/TFG/milestone/8?closed=1}{milestone 8}, podemos ver que se incluyen varios issues:
+En el \href{https://github.com/davidelinformatico/TFG/milestone/8?closed=1}{milestone 8}, podemos ver que se incluyen varios issues.
 
-De esta manera, se genera la primera automatización completa de la parte automática del proyecto utilizando CRON y lo pasamos del entorno de pruebas a un entorno de producción en fase experimental. En este momento únicamente tenemos control sobre la máquina de forma física o por VNC.
+El código se divide en tres partes, la parte automática, la parte de control mecánico y la parte del bot. 
+
+En este issue se genera la primera ejecución de forma autónoma de la parte automática del proyecto utilizando CRON y lo pasamos del entorno de pruebas a un entorno de producción en fase experimental. En este momento únicamente tenemos control sobre la máquina de forma física o por VNC.
 Por último, se presentan las primeras funcionalidades del bot, se proponen cambios y mejoras.
 
 \subsection{Sprint 09 - 04/12/2020 - 10/12/2020}
-En el \href{https://github.com/davidelinformatico/TFG/milestone/9?closed=1}{milestone 9} se proponen revisan las funcionalidades del Bot~\cite{misc:TelegramApi} de Telegram~\cite{misc:TelegramApp} que utilizaremos, se proponen cambios y mejoras en el código preexistente en fase de pruebas.
+En el \href{https://github.com/davidelinformatico/TFG/milestone/9?closed=1}{milestone 9} se revisan las funcionalidades del Bot~\cite{misc:TelegramApi} de Telegram~\cite{misc:TelegramApp} que utilizaremos, se proponen cambios y mejoras en el código preexistente en fase de pruebas.
 
 Finalmente se integra un bot de Telegram completamente funcional desde el que podremos lanzar órdenes a nuestro sistema domótico con los scripts existentes.
 
 \subsection{Sprint 10 - 11/12/2020 - 17/12/2020}
-En el \href{https://github.com/davidelinformatico/TFG/milestone/10?closed=1}{milestone 10} se ha aprovechado para optimizar las rutas de los archivos a los que se invoca desde el código en ejecución y se han modificado algunas salidas para que tengan un aspecto visual más atractivo, incluyendo tablas, emoticonos desde Unicode~\cite{misc:UnicodeWikipedia}.
+En el \href{https://github.com/davidelinformatico/TFG/milestone/10?closed=1}{milestone 10} se ha aprovechado para optimizar las rutas de los archivos a los que se invoca desde el código en ejecución y se han modificado algunas salidas para que tengan un aspecto visual más atractivo, incluyendo tablas y emoticonos desde Unicode~\cite{misc:UnicodeWikipedia}.
 
 Se comprueban las funcionalidades proponiendo cambios funcionales y de estilos de forma que se pueda interactuar contra el bot y se muestren los mensajes en un formato más atractivo. También se propone unificar las rutas de trabajo de los diferentes scripts.
 
 
 
 \subsection{Sprint 11 - 18/12/2020 - 24/12/2020}
-Se propone dividir el código por funcionalidades (obtención de información de la web, y por otro lado, modificación de archivos del sistema y se proponen cambios en la redacción a implementar en el sprint 12.
+Se propone estructurar el código por funcionalidades (obtención de información de la web, y por otro lado, modificación de archivos del sistema) y se proponen cambios en la redacción a implementar en el sprint 12.
 
 
 Finalmente, se ha conseguido generar la división del código en 3 archivos principales:
 
-De esta manera conseguimos minimizar las comunicaciones con el exterior y poder relanzar el código separado por funcionalidad lógica de forma que podamos relanzarlo de forma aislada en caso de necesitarlo. Un ejemplo puede ser cuando se modifica la hora de subida de las persianas, el módulo de generación de CRON leería el archivo de parámetros personalizados y generaría la configuración a partir de éstos.
+De esta manera conseguimos minimizar las comunicaciones con el exterior y poder ejecutar cada unidad de código de forma aislada en caso de necesitarlo puesto que se ha estructurado por funcionalidad. Un ejemplo puede ser cuando se modifica la hora de subida de las persianas, el módulo de generación de CRON leería el archivo de parámetros personalizados y generaría la configuración a partir de éstos.
 
 
 \subsection{Sprint 12 - 25/12/2020 - 31/01/2021}
-Se finaliza la redacción de la memoria, antes de la revisión final del texto, y se comienza con los anexos. Además se produce depurado del código y se utiliza SonarCloud~\cite{misc:sonarcloud}.
+Se finaliza la redacción de la memoria, antes de la revisión final del texto, y se comienza con los anexos. Además se realiza un depurado manual del código y también se utiliza SonarCloud~\cite{misc:sonarcloud}.
 
 \subsection{Sprint 13 - 01/12/2020 - 07/01/2021}
 Redacción de los anexos, corrección de la memoria y limpieza de código.
@@ -115,19 +117,19 @@ Edición de vídeos y entrega del proyecto.
 El estudio de viabilidad es inherente a cualquier proyecto y determina si éste puede ser aplicable o no, y también sirve para aclarar algunos puntos importantes para ayudar a la toma de decisiones ejecutivas:
 \begin{itemize}
     \item Señalar las características únicas propias del proyecto en cuestión que permitan poder realizar un estudio de riesgos.
-    \item Enmarcar legalmente el proyecto a realizar y determinar el espacio de mercado encaja.
+    \item Enmarcar legalmente el proyecto a realizar y determinar el nicho de mercado en que encaja.
     \item Poder ajustar el presupuesto del proyecto a las necesidades existentes.
 \end{itemize}
 
 \subsection{Viabilidad económica}
-El primer punto que se tratarán los detalles económicos del proyecto, que son una parte fundamental para saber si el proyecto se puede asumir en un proyecto con carácter comercial desde el ámbito empresarial con carácter profesional.
+En este punto que se tratarán los detalles económicos del proyecto, que son una parte fundamental para saber si el proyecto se puede asumir en un proyecto con carácter comercial desde el ámbito empresarial con carácter profesional.
 
 En esta sección se explica cada uno de los costes asociados al proyecto teniendo en cuenta que se ha intentado minimizar los costes en todos y cada uno de los puntos de la instalación y material.
 
 \subsubsection{Coste de personal}
 Aún habiendo sido desarrollado por una única persona, el apartado de costes de personal es el que contiene un gasto mayor con respecto al resto de apartados económicos.
 
-Se ha estimado un sueldo de 22.000€ brutos anuales en 12 pagas para realizar el cálculo en el intervalo entre el 01 de octubre de 2020 y el 20 de enero de 2021. Si hacemos el cálculo de estos 111 días que ha durado el proyecto, vemos que se corresponde a 3,7 meses de trabajo por lo que el gasto total en personal durante el proyecto asciende a 8.818,33€.
+Se ha estimado un sueldo de 22.000€ brutos anuales en 12 pagas, para realizar el cálculo en el intervalo entre el 01 de octubre de 2020 y el 20 de enero de 2021. Si hacemos el cálculo de estos 111 días que ha durado el proyecto, vemos que se corresponde a 3,7 meses de trabajo por lo que el gasto total en personal durante el proyecto asciende a 8.818,33€.
 El desglose mensual podemos verlo en la tabla~\ref{tab:CostePersonal} y el coste total en la tabla~\ref{tab:CostePersonalTotal}.
 
 \begin{longtable}[c]{@{}lrr@{}}
@@ -180,7 +182,7 @@ Para realizar el cálculo me he apoyado en la documentación oficial que tiene a
 
 
 \subsubsection{Coste hardware}
-Aunque se ha procurado ahorrar en costes de hardware, y sabiendo que este proyecto se puede realizar íntegramente desde la misma máquina Raspberry Pi que se ha utilizado para desarrollar y que puede se trabajar conectado a la máquina incluiré un equipo portátil de gama corporativa desde el que trabajar cómodamente.
+Aunque se ha procurado ahorrar en costes de hardware, y sabiendo que este proyecto se puede realizar íntegramente desde la misma máquina Raspberry Pi que se ha utilizado para desarrollar y que puede se trabajar conectado a la máquina, incluiré un equipo portátil de gama corporativa desde el que trabajar cómodamente.
 
 Tras valorar las características de las diferentes Raspberry Pi, y sabiendo la potencia que necesita el proyecto, adquiriría la versión 3B+ por disponer de mayor potencia y mejor conectividad por una inversión razonable aunque para el proyecto 'reciclaré' una RbP 2B que tengo en desuso. Por ello, en el apartado económico figurará la versión 3B a un precio de 34,30€. El estudio preliminar se realizó en el milestone 3~\cite{misc:Milestone3} y puede observarse online mientras que el coste final se representa en la tabla~\ref{tab:CosteHW}
 
@@ -200,31 +202,36 @@ Para calcular la amortización del material en el tiempo transcurrido he determi
 \endlastfoot
 %
 Portátil Lenovo Thinkpad T50 & 1.427,86 € & 88,05 € \\
-Raspberry Pi 2B & 34,30€ & 2,12€ \\
-Tarjeta SD & 14,08 € & 0,87 € \\
-Cable UTP5e & 14,41 € & 0,89 € \\
-Caja Raspberry Pi & 15,28 € & 0,94 € \\
-Placa Board & 3,50 € & 0,22 € \\
-Dongle WiFi & 6,95 € & 0,43 € \\
-Relés & 38,35 € & 2,36 € \\
-Cables electrónica & 6,59 € & 0,41 € \\
-Conectores de cables electrónicos & 10,70 € & 0,66 € \\
-Crimpadora JST & 12,00 € & 0,74 € \\
-Guía pasacables & 2,00 € & 0,12 € \\ \midrule
-\textbf{Total} & \textbf{1.586,02 €} & \textbf{97,80 €} \\ \bottomrule \\
+Raspberry Pi 2B & 34,30€ & 34,30€ \\
+Tarjeta SD & 14,08 € & 14,08 € \\
+Cable UTP5e & 14,41 € & 14,41 € \\
+Caja Raspberry Pi & 15,28 € & 15,28 € \\
+Placa Board & 3,50 € & 3,50 € \\
+Dongle WiFi & 6,95 € & 6,95 € \\
+Relés & 38,35 € & 38,35 € \\
+Cables electrónica & 6,59 € & 6,59 € \\
+Conectores de cables electrónicos & 10,70 € & 10,70 € \\
+Crimpadora JST & 12,00 € & 12,00 € \\
+Guía pasacables & 2,00 € & 2,00 € \\ \midrule
+\textbf{Total} & \textbf{1.586,02 €} & \textbf{123,86 €} \\ \bottomrule \\
 \caption{Coste total en hardware}
 \label{tab:CosteHW}
 \end{longtable}
 
 \subsubsection{Coste software}
-Como el único programa que no es online lo podemos correr sobre Linux, utilizaremos Linux para ahorrar en costes. El único gasto es la licencia del programa Fritzing, que tiene un costo total de 8€~\cite{misc:Fritzing}.
+Como el único programa que debemos correr en una máquina local, lo podemos hacer sobre Linux, utilizaremos este Sistema Operativo para ahorrar en costes. El único gasto es la licencia del programa Fritzing, que tiene un costo total de 8€~\cite{misc:Fritzing}.
 
 \subsubsection{Costes varios}
-Únicamente incluiré una tarifa de datos y una de móvil por un precio de 50€/mes, al ser casi 4 meses el precio asciende a 200€.
+Únicamente incluiré una tarifa de datos y una de móvil por un precio de 50€/mes.
 El motivo es que se necesita un número de teléfono móvil para poder hacer pruebas con Telegram aunque lo ideal es utilizar dos números de teléfono para hacer algunas pruebas.
+Además, debemos incluir gastos generales de oficina. El cálculo se ha realizado sobre el último precio publicado de un vivero de empresas de Getafe. El precio asciende a 7,48€/$m^{2}$ al mes IVA.exc, por lo que mensualmente pagaremos 108,60€ por una oficina de 12$m^{2}$.
 
-\subsubsection{Costes Total}
-Si sumamos los costes anteriormente descritos, vemos que la suma asciende a \textbf{10.612,35€} que han quedado descritos en la tabla~\ref{tab:CosteTotal}.
+En total, en este subpunto, tenemos un coste mensual de 158,60€. Al tener que mantenerlo 4 meses, el precio asciende a 634.40€.
+
+Podemos comprobar el precio público en~\url{https://www.getafeiniciativas.es/empresas/espacios-para-empresas/centro-municipal-de-empresas/vivero-de-empresas}.
+
+\subsubsection{Coste Total}
+Si sumamos los costes anteriormente descritos, vemos que la suma asciende a \textbf{9.584,59 €} que han quedado descritos en la tabla~\ref{tab:CosteTotal}.
 
 \begin{longtable}[c]{@{}lr@{}}
 \toprule
@@ -239,17 +246,17 @@ Si sumamos los costes anteriormente descritos, vemos que la suma asciende a \tex
 %
 \endlastfoot
 %
-Personal & 8.818,33€ \\
-Hardware & 1.586,02€ \\
-Software & 8€ \\
-Caja Raspberry Pi & 200€ \\ \midrule
-\textbf{Total} & \textbf{10.612,35 €} \\ \bottomrule \\
+Personal & 8.818,33 € \\
+Hardware & 123,86 € \\
+Software & 8 € \\
+Costes varios & 634,40 € \\\midrule
+\textbf{Total} & \textbf{9.584,59 €} \\ \bottomrule \\
 \caption{Tabla de costes totales} 
 \label{tab:CosteTotal}
 \end{longtable}
 
 \subsection{Beneficios}
-En un principio el proyecto está pensado para ser utilizado de forma libre pero, en el caso de cambiar de idea se puede monetizar de varias formas. Quizás, la más sencilla sea un pago por licencia con carácter anual pudiendo poner una suscripción de 1€ o 2€ por cada mes de uso en cada instalación de forma que se podría rentabilizar rápidamente como se ha plasmado en la tabla~\ref{tab:Cuotas1}.~\\~\\~\\
+En un principio el proyecto está pensado para ser utilizado de forma libre pero, en el caso de cambiar de idea se puede monetizar de varias formas. Quizás, la más sencilla sea un pago por licencia con carácter anual pudiendo poner una suscripción de 1€ o 2€ por cada mes de uso en cada instalación de forma que se podría rentabilizar rápidamente como se ha plasmado en la tabla~\ref{tab:Cuotas1}.
 
 
 \begin{longtable}[c]{@{}lrrr@{}}
@@ -325,16 +332,12 @@ urllib3 & 1.24.1 & MIT & Cliente HTTP \\
 datetime & - & ZPL & Módulo para trabajar con fechas y horas \\
 pandas & 1.1.4 & BSD & \begin{tabular}[c]{@{}l@{}}Herramienta de manipulación de datos \\ de alto nivel\end{tabular} \\
 matplotlib & 3.3.3 & PSF based & Biblioteca   para la generación de gráficos \\
-telebot & 0.0.4 & MIT & \begin{tabular}[c]{@{}l@{}}Biblioteca que encapsula todas \\ las llamadas a la API\end{tabular} \\
-time & - & MIT & \begin{tabular}[c]{@{}l@{}}Biblioteca que ofrece funciones\\ relacionadas con el tiempo \end{tabular}\\
+python-telegram-bot & 13.1 & LGPL3 & \begin{tabular}[c]{@{}l@{}}Biblioteca que gestiona \\ la interacción con la API\end{tabular} \\
+pyTelegramBotAPI & 3.7.5 & GPL2 & \begin{tabular}[c]{@{}l@{}}Biblioteca que gestiona \\ el funcionamiento del bot\end{tabular} \\
 simplejson & 3.16.0 & GPL & Paquete para trabajar con objetos json~\cite{misc:Json} \\
 requests & 2.21.0 & Apache 2.0 & Biblioteca HTTP \\
 pycurl & 7.43.0.6 & LGPL/MIT & Cliente   HTTP \\
-telegram & 0.0.1 & GPLv2 to LGPLv3 & Cliente para Telegram \\
-sys & - & MIT & Para acceder a funciones del sistema operativo \\
-math & - & MIT & Para ealizar operaciones matemáticas \\
-os & - & MIT & Para acceder a funciones del sistema operativo \\
-pip & 20.2.4 & MIT & Administrador de paquetes de Python \\ \bottomrule
+telegram & 0.0.1 & GPL2 to LGPL3 & Cliente para Telegram \\ \bottomrule
 \caption{Dependecncias en el BackEnd.}
 \label{tab:BackEnd}
 \end{longtable}

@@ -1,12 +1,13 @@
 \apendice{Documentación de usuario}
 
 \section{Introducción}
-El usuario es aquella persona destinada a utilizar el Sistema generado.
+En este anexo se presenta el manual de usuario.
 
-\section{Requisitos de la instalación física}
-Se incluye la instalación en este punto porque se entiende que cualquiera que disponga el código puede correrlo en su propia instalación realizando la instalación física.
+Aunque se entiende que un usuario es aquella persona destinada a utilizar el sistema generado, en caso, se incluye la instalación física porque se entiende que cualquiera que disponga el código puede correrlo en su propia instalación realizando la instalación física previamente.
 
-\subsection{Instalación física}
+Por ello, este anexo comprende todos los pasos necesarios para implementar el proyecto conforme a normativa consiguiendo un producto completamente funcional. Existen tres pasos globales, estos son: la instalación física, la instalación y la configuración del software desarrollado en este proyecto que veremos a continuación.
+
+\section{Instalación física}
 Para poder realizar la instalación física de nuestra vivienda necesitamos el material detallado en la tabla~\ref{tab:CosteHW}, ya que en este punto se cuenta con que la instalación física está completa para que el sistema pueda cumplir su cometido. Ahora utilizaremos los siguientes materiales:
 \begin{itemize}
     \item Bobina de Cable UTP5e.
@@ -60,7 +61,7 @@ Por facilitar futuras instalaciones, figuro el cálculo para el mismo tubo tambi
     \caption{Cálculos para introducir cableado en tubo.} \label{Img:Calculo}
 \end{figure}
 
-Tras finalizar los cálculos, se hacen las tiradas de cableado y se crimpan los extremos. Podemos ver en la imagen~\ref{Img:CajaDerivacion} una caja de derivación donde ya tenemos albergada la placa de relés.~\\~\\
+Tras finalizar los cálculos, se hacen las tiradas de cableado y se crimpan los extremos. Podemos ver en la imagen~\ref{Img:CajaDerivacion} una caja de derivación donde ya tenemos albergada la placa de relés.
 
 \begin{figure}[h]
     \centering
@@ -76,7 +77,7 @@ En la imagen~\ref{Img:CajaDerivacionPrincipal} vemos la caja de derivación prin
     \caption{Caja de derivación principal instalada.} \label{Img:CajaDerivacionPrincipal}
 \end{figure}
 
-El primer extremo del cable, podemos ver que termina en el relé dentro de la caja de derivación pero el extremo que conectará a la Raspberry Pi no se conectará directamente sino que terminará primero en una protoboard como podemos ver en la imagen~\ref{Img:ProtoboardConecada}, donde podemos diferenciar que existen dos tipos de conectores. Los redondos ya vienen conectorizados de fábrica pero los cuadrados del tipo~\href{https://ae01.alicdn.com/kf/H4205e9c4ec4c4be4864e44b6925a22bdf/10-juegos-de-conector-de-Cable-de-2-54mm-XH2-54-conector-XH-macho-y-hembra.jpg_Q90.jpg_.webp}{JST-XH} los he fabricado según las necesidades.~\\~\\
+El primer extremo del cable, podemos ver que termina en el relé dentro de la caja de derivación pero el extremo que conectará a la Raspberry Pi no se conectará directamente sino que terminará primero en una protoboard como podemos ver en la imagen~\ref{Img:ProtoboardConecada}, donde podemos diferenciar que existen dos tipos de conectores. Los redondos ya vienen conectorizados de fábrica pero los cuadrados del tipo~\href{https://ae01.alicdn.com/kf/H4205e9c4ec4c4be4864e44b6925a22bdf/10-juegos-de-conector-de-Cable-de-2-54mm-XH2-54-conector-XH-macho-y-hembra.jpg_Q90.jpg_.webp}{JST-XH} los he fabricado según las necesidades.
 
 \begin{figure}[h]
     \centering
@@ -136,7 +137,10 @@ Siguiendo esta lógica, podemos ver que en la imagen~\ref{Img:Relé+Pulsador+Rbp
 
 Resumiendo, la instalación mecánica y nuestra instalación mediante relés se instalarán en paralelo para poder activar una opción o la otra según la ocasión.
 
-\section{Requisitos de usuarios}
+
+\section{Instalación Software}
+
+\subsection{Requisitos}
 Para poder ejecutar el código, el usuario necesitará este material, que también podemos ver en la imagen~\ref{material}:
 \begin{itemize}
     \item Un terminal que soporte mensajería mediante Telegram. Cabe recordar que Telegram es multiplataforma, de modo que serviría un ordenador, un smartphone o un smartwatch entre otros.
@@ -153,7 +157,7 @@ Para poder ejecutar el código, el usuario necesitará este material, que tambi�
 \caption{Material básico para ejecutar el código.}\label{material}
 \end{figure}
 
-\section{Obtención de tokens}
+\subsection{Obtención de tokens}
 En este punto se indica como obtener un token para poder utilizar las APIs.
 
 \subsection{Climacell}
@@ -188,7 +192,6 @@ Los pasos para crear nuestro bot y obtener su token, son:
 \end{itemize}
 Éste es el último token que debemos guardar para completar el archivo \texttt{config2.bot}.
 
-\section{Instalación}
 
 \subsection{Sistema Operativo}
 El primer paso es descargar el Sistema Operativo de la web oficial y montarlo en la tarjeta SD con la ayuda de otro equipo informático y el adaptador USB para uSD que vemos en la imagen~\ref{material}. 
@@ -222,7 +225,6 @@ El primer paso es descargar el Sistema Operativo de la web oficial y montarlo en
     \item Una vez termine la grabación de la tarjeta, procederemos a introducirla en la Raspberry Pi por la ranura destinada a ello en la parte inferior de la placa y podremos acceder a Sistema Operativo con la ayuda de una pantalla, un teclado y un ratón.
     \item Debemos completar las siguientes ventanas de configuración:
 \end{enumerate}
-
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{img/Instalación/1.png}
@@ -353,8 +355,11 @@ sudo systemctl start bot
 
 Con esto tendríamos el software completamente instalado.
 
-\section{Inclusión de usuarios en el bot}
+\section{Manual de Usuario}
+En este punto se incluyen las funcionalidades finales que se ponen a disposición del usuario final una vez estén finalizadas las instalaciones física y de software.
+
+\subsection{Inclusión de usuarios en el bot}
 El primer paso es buscar el bot por su nombre. En mi caso se llama \textbf{SDI\_Domo\_bot}.
 Una vez localizado, accedemos a él y le enviamos un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo \texttt{config2.bot}.
 
-AAG: Reestructurar
+[[Falta incluir las opciones del bot y capturas.]]
