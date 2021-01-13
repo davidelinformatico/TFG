@@ -6,8 +6,8 @@ El usuario es aquella persona destinada a utilizar el Sistema generado.
 \section{Requisitos de la instalación física}
 Se incluye la instalación en este punto porque se entiende que cualquiera que disponga el código puede correrlo en su propia instalación realizando la instalación física.
 
-\section{Instalación física}
-Para poder realizar la instalación física de nuestra instalación necesitamos el material detallado en la tabla~\ref{tab:CosteHW}, ya que en este punto se cuenta con que la instalación física está completa para que el sistema pueda cumplir su cometido. Ahora utilizaremos los siguientes materiales:
+\subsection{Instalación física}
+Para poder realizar la instalación física de nuestra vivienda necesitamos el material detallado en la tabla~\ref{tab:CosteHW}, ya que en este punto se cuenta con que la instalación física está completa para que el sistema pueda cumplir su cometido. Ahora utilizaremos los siguientes materiales:
 \begin{itemize}
     \item Bobina de Cable UTP5e.
     \item Placa Board.
@@ -18,7 +18,7 @@ Para poder realizar la instalación física de nuestra instalación necesitamos 
 
 Además requeriremos de crimpadora JST-XH y destornilladores de estrella y plano para trabajar con las clemas eléctricas (elementos de interconexión de conductores) del domicilio.
 
-También necesitamos otros elementos de uso no específico para este proyecto pero que resultan necesarios para que el software funcione correctamente~\footnote{El software puede funcionar correctamente también vía Ethernet.} como son el Dongle Wifi y una línea de datos con salida a Internet.
+También necesitamos otros elementos de uso no específico para este proyecto pero que resultan necesarios para que el software funcione correctamente~\footnote{El software puede funcionar correctamente también vía Ethernet.} como son el Dongle WiFi y una línea de datos con salida a Internet.
 
 \subsection{Tirada de cable}
 Para realizar la tirada de cable necesitaremos hacer algunos cálculos y tener claras algunas consideraciones:
@@ -52,7 +52,7 @@ Ahora, debemos hacer el mismo cálculo del área de la cara interna del tubo:
 \end{equation}\label{E3}
 Finalmente, vemos que~\ref{E3} es mayor que~\ref{E2} de forma que se cumple que el área ocupada (multiplicada por el factor de corrección) es inferior al área total, de modo que podemos albergar nuestro UTP en los tubos sin problema.
 
-Por facilitar futuras instalaciones, figuro el cálculo para el mismo tubo también con cables de 2.5mm$^{2}$ de área en la imagen~\ref{Img:Calculo}:
+Por facilitar futuras instalaciones, figuro el cálculo para el mismo tubo también con cables de 2,5mm$^{2}$ de área en la imagen~\ref{Img:Calculo}:
 
 \begin{figure}[h]
     \centering
@@ -105,7 +105,7 @@ Podemos interactuar con los puertos GPIO desde Bash y desde Python~\cite{misc:Py
 
 
 \subsection{Diagramas eléctricos}
-Para mayor claridad he generado unos planos eléctricos para aclarar como se ha realizado la instalación.
+Para mayor claridad he generado unos planos eléctricos de cómo se ha realizado la instalación.
 
 \begin{figure}[h]
     \centering
@@ -130,7 +130,7 @@ En la imagen~\ref{Img:Relé+Rbp_Fritzing} podemos ver como se conecta, desde la 
 \end{figure}
 
 
-Para explicar el funcionamiento de un pulsador de 3 posiciones para persianas podemos ver la imagen~\ref{img:PulsadorInterno}. En ella podemos ver como en la posición central no tiene ninguna salida, pero en la salida 1 el orden de salida de cabes es (+/-) y en la salida 2 el orden de salida de cables es (-/+). La lógica del cambio de orden en la salida de cables es porque según el sentido de la polaridad el motor girará en un sentido o en otro. Esto se respalda mediante la~\href{https://fisica.laguia2000.com/dinamica-clasica/fuerzas/ley-de-laplace-fuerza-ejercida-sobre-un-conductor}{segunda ley de Laplace} para cada espira del bobinado del motor quedando de la forma~\href{http://www.uco.es/grupos/giie/cirweb/teoria/tema_11/tema_11_01.pdf}{$M=N*(I*B*l+sen\theta)$}.
+Para explicar el funcionamiento de un pulsador de 3 posiciones para persianas podemos ver la imagen~\ref{img:PulsadorInterno}. En ella podemos ver que en la posición central no tiene ninguna salida eléctrica y que las salidas 1 y 2 tienen la polaridad invertida. La lógica del cambio de orden en la salida de cables es porque según el sentido de la polaridad el motor girará en un sentido o en otro. Esto se respalda mediante la~\href{https://fisica.laguia2000.com/dinamica-clasica/fuerzas/ley-de-laplace-fuerza-ejercida-sobre-un-conductor}{segunda ley de Laplace} para cada espira del bobinado del motor quedando de la forma~\href{http://www.uco.es/grupos/giie/cirweb/teoria/tema_11/tema_11_01.pdf}{$M=N*(I*B*l+sen\theta)$}.
 
 Siguiendo esta lógica, podemos ver que en la imagen~\ref{Img:Relé+Pulsador+Rbp_Fritzing} tenemos dos relés de forma que cada uno de ellos deja pasar la corriente en un sentido. En la realidad, el motor no tiene por qué tener dos entradas positivas y dos negativas pero en el dibujo queda mejor ilustrado que son entradas diferentes.
 
@@ -175,7 +175,7 @@ La segunda API es WeatherApi. Para obtener el token debemos realizar los siguien
     \item Accedemos a la pestaña de API Keys.
     \item Obtenemos el token de la pantalla que nos aparece.
 \end{itemize}
-Este token también debemos guardarle muy bien puesto que es uno de los que utilizaremos para que el sistema funcione correctamente.
+Este token también debemos guardarlo muy bien puesto que es uno de los que utilizaremos para que el sistema funcione correctamente.
 
 \subsection{BotFather}
 Los pasos para crear nuestro bot y obtener su token, son:
@@ -191,7 +191,7 @@ Los pasos para crear nuestro bot y obtener su token, son:
 \section{Instalación}
 
 \subsection{Sistema Operativo}
-El primer paso es descargar el Sistema Operativo de la web oficial y montarlo en la tarjeta SD con la ayuda de otro equipo informático y el adaptador USB para uSD que vemos en la imagen\label{material}. 
+El primer paso es descargar el Sistema Operativo de la web oficial y montarlo en la tarjeta SD con la ayuda de otro equipo informático y el adaptador USB para uSD que vemos en la imagen~\ref{material}. 
 
 \begin{enumerate}
     \item Accedemos a: \url{https://www.raspberrypi.org/software/}
@@ -304,7 +304,7 @@ sudo systemctl bot start
 \end{lstlisting}
 Para conseguirlo, he realizado los siguientes pasos:
 
-Se debe generar el archivo de nuestro demonio en lib/systemd/system/ con la extensión <<.service>>:
+Se debe generar el archivo de nuestro demonio en \texttt{lib/systemd/system/} con la extensión <<.service>>:
 \begin{lstlisting}[language=sh, firstnumber=0]
 sudo nano /lib/systemd/system/bot.service
 \end{lstlisting}
@@ -355,5 +355,6 @@ Con esto tendríamos el software completamente instalado.
 
 \section{Inclusión de usuarios en el bot}
 El primer paso es buscar el bot por su nombre. En mi caso se llama \textbf{SDI\_Domo\_bot}.
-Una vez localizado, accedemos a él y le enviamos un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo config2.bot.
+Una vez localizado, accedemos a él y le enviamos un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo \texttt{config2.bot}.
 
+AAG: Reestructurar
