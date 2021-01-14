@@ -1,5 +1,25 @@
 
 def obtencionDatos():
+    '''
+    Esta función dota de información a la parte automática del código y al bot.
+    Consigue leer el archivo de configuración del directorio <<credentials>>, obteniendo
+    los tokens de las APIs, del bot y los periféricos con sus situaciones físicas en
+    la vivienda.
+    
+    @input: no params
+    @output: tokenBot, users, climacellKey, weatherApiKey, persianas, luces, calderas, rutaCred, rutaAuto
+    
+    tokenBot: Token del bot, entregado por BotFather
+    users: Usuarios acreditados
+    climacellKey: Token de Climacell
+    weatherApiKey: Token de weatherApi
+    persianas: Información sobre persianas (ubicaciones y pines).
+    luces: Información sobre luces (ubicaciones y pines).
+    calderas: Información sobre la caldera (ubicación y pin).
+    rutaCred: Ruta del directorio de credenciales, <<credentials>>.
+    rutaAuto: Ruta del directorio <<auto>>.
+    '''
+    
     # Importamos numpy y random para obtener números aleatorios
     import telebot, logging, subprocess, telegram, math, os, random
     from telebot import types

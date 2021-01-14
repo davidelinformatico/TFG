@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+'''
+Este código lee los archivos de InfoRecabada, 2_condicionantes y cabeceera.txt para obtener los datos necesarios para
+generar la programación nueva con Cron, en el archivo CronPruebas; y también, genera el archivo log.cron, que es el
+archivo de consultas sobre la inforamción recopilada para el bot de Telegram.
+
+'''
+
 import urllib, json, datetime, pycurl, requests, os, obtencionDatos, stat, datetime, time, obtencionDatos
 
 tokenBot, users, KeyClimacell, KeyWeatherapi, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()

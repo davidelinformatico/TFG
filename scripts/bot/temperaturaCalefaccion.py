@@ -1,4 +1,16 @@
 def calefaccion(m, bot):
+    '''
+    Este método recibe el mensaje enviado por el usuario y la información del bot que lo recoge.
+    Posteriormente recibe las rutas necesarias de obtencionDatos para llegar al archivo 2_condicionantes,
+    que contiene la temperatura a la que arrancará la caldera y nos enviará la información.
+    Si el usuario nos envía un valor numérico cambiará la temperatura a la que arrancará la caldera y
+    nos informará del cambio. Finalmente vuelca la nueva configuración al programador de tareas y
+    reinicia los servicios.
+
+    @params m, mensaje recogido por el listener; bot, información del bot
+    @return nothing
+    @send envía mensaje informativo al usuario
+    '''
     try:
         import os, obtencionDatos
         from telegram import ParseMode

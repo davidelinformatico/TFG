@@ -1,5 +1,17 @@
 
 def controlPersianas(m, bot):
+    '''
+    Este método recibe el mensaje enviado por el usuario y la información del bot que lo recoge.
+    Nos permite controlar en tiempo real y bajo demanda el movimiento de las persianas. El mensaje debe ser:
+    /acción elemento tiempo
+    Ej: /subir Comedor 2 ; nos permite subir la persiana del comedor un tiempo de 2 segundos.
+    Las estancias y pines de control están definidos en el archivo de configuración y los obtenemos mediante
+    la librería obtenerDatos.
+
+    @params m, mensaje recogido por el listener; bot, información del bot
+    @return nothing
+    @send envía mensaje informativo al usuario
+    '''
     try:
         import os, obtencionDatos
         

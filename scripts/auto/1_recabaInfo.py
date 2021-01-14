@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+'''
+Este script obtiene la información de ubicación, temperaturas y astronómicos desde las API's referenciadas en las variables url*.
+Los datos necesarios para el correcto funcionamiento de este código se realiza mediante la biblioteca obtencionDatos.
+Genera el diagrama de temperaturas dentro de ./diagramas/, con el nombre del día de que se genera;
+y también genera el archivo <<InfoRecabada>> donde almacena la información astronómica y de temperaturas.
+
+'''
+
 import urllib, json, datetime, pycurl, requests, os, obtencionDatos, stat
 import datetime, time
 import pandas as pd 

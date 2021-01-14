@@ -1,4 +1,12 @@
 def info(m, bot):
+    '''
+    Este método recibe el mensaje enviado por el usuario y la información del bot que lo recoge.
+    Obtiene infomación relativa a la máquina y la devuelve en un mensaje informativo.
+    
+    @params m, mensaje recogido por el listener; bot, información del bot
+    @return nothing
+    @send envía mensaje informativo al usuario
+    '''
     try:
         import os, obtencionDatos, time, datetime
         from telegram import ParseMode
@@ -46,6 +54,9 @@ def info(m, bot):
         
 # INFO TEMP
 def temp():
+    '''
+    @return Temperatura del chip de la máquina
+    '''
     import os
     p = os.popen('cat /sys/class/thermal/thermal_zone0/temp')
     result = p.read()
@@ -54,6 +65,9 @@ def temp():
 
 # INFO HD
 def diskSpace():
+    '''
+    @return Espacio en disco
+    '''
     import os
     p = os.popen("df")
     i = 0
@@ -69,6 +83,9 @@ def diskSpace():
 
 # INFO RAM
 def ramInfo():
+    '''
+    @return Información sobre la memoria RAM
+    '''
     import os
     p = os.popen('vmstat -s -S M | grep memory')
     result = p.read()

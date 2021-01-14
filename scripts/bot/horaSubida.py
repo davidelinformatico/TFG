@@ -1,4 +1,18 @@
 def horaSubida(m, bot):
+    '''
+    Este método recibe el mensaje enviado por el usuario y la información del bot que lo recoge.
+    Posteriormente recibe las rutas necesarias de obtencionDatos para llegar a los archivos a consultar,
+    2_condicionantes y log.cron.
+    Informa de la hora a la que se subirán las persianas en la próxima ejecución de la programación y
+    nos permite modificar la hora de subida de las persianas. De forma que se levantarán como pronto a
+    la hora en que amanece y, como tarde a la hora que le digamos.
+    
+    Posteriormente implanta los nuevos datos en el programador de tareas y reinicia los servicios.
+
+    @params m, mensaje recogido por el listener; bot, información del bot
+    @return nothing
+    @send envía mensaje informativo al usuario
+    '''
     try:
         import os, obtencionDatos
         from telegram import ParseMode

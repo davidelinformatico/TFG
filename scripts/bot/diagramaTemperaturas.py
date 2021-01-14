@@ -1,4 +1,16 @@
 def diagrama(m, bot, pwdBot):
+    '''
+    Este método recibe el mensaje enviado por el usuario y la información del bot que lo recoge y su
+    ubicación en la máquina.
+    Posteriormente recibe las rutas necesarias de obtencionDatos para llegar a los diagramas.
+    En caso de existir una imagen se envía la última imagen generada.
+    En caso de solicitar una imagen existente envía esa imagen.
+    En caso de no existir, envía mensaje informativo al usuario
+
+    @params m, mensaje recogido por el listener; bot, información del bot; pwdBot, ubicación del bot
+    @return nothing
+    @send envía imagen al usuario
+    '''
     try:
         import os, obtencionDatos
         

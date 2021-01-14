@@ -1,4 +1,13 @@
 def generador(m, bot):
+    '''
+    Este método recibe el mensaje enviado por el usuario y la información del bot que lo recoge.
+    Posteriormente recibe las rutas necesarias de obtencionDatos para llegar a los archivos que obtienen
+    la información de las APIs externas. Éstos se lanzan desde el script <<lanzaTodoElProceso.sh>>
+
+    @params m, mensaje recogido por el listener; bot, información del bot
+    @return nothing
+    @send envía mensaje informativo al usuario
+    '''
     try:
         import os, obtencionDatos
         #from telegram import ParseMode

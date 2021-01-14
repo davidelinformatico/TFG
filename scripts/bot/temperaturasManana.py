@@ -1,4 +1,14 @@
 def temperaturas(m, bot):
+    '''
+    Este método recibe el mensaje enviado por el usuario y la información del bot que lo recoge.
+    Posteriormente recibe las rutas necesarias de obtencionDatos para llegar al archivo de consultas
+    log.cron, donde obtiene la información del movimiento de las temperaturas del día siguiente y de
+    las horas de subida de persianas y encendido de luces(y posterior bajada de persianas).
+
+    @params m, mensaje recogido por el listener; bot, información del bot
+    @return nothing
+    @send envía mensaje informativo al usuario
+    '''
     try:
         import os, obtencionDatos, sys, time, datetime
         from telegram import ParseMode
@@ -55,7 +65,7 @@ def temperaturas(m, bot):
             print(compilado)
         except Exception as e:
             print("Error en la generación del mensaje: "+str(e))
-        #print(compilado)
+        
         bot.send_message(usuario, text='<pre><code class="language-python">'+compilado+'</code></pre>', parse_mode=ParseMode.HTML)
 
         
