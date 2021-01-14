@@ -3,7 +3,7 @@
 # Trabajo de Fin de Grado 
 > Proyecto domótico autónomo que controla persianas, calefacción y luces.
 
-[![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+[![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/)	[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
  
 ## Objeto
 En proyecto se pretende crear un sistema domótico automatizado que nos permite aumentar la sensación de confort y bienestar dentro de nuestros domicilios.
