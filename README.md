@@ -3,10 +3,8 @@
 # Trabajo de Fin de Grado 
 > Proyecto domótico autónomo que controla persianas, calefacción y luces.
 
-[![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/)		[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+[![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=bugs)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=ncloc)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=security_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG)
 
-
- 
 ## Objeto
 En proyecto se pretende crear un sistema domótico automatizado que nos permite aumentar la sensación de confort y bienestar dentro de nuestros domicilios.
 Nuestro simulador de presencia funciona de forma autónoma subiendo y bajando persianas, así como encendiendo y apagando luces, desde una máquina RaspberryPi mediante relés. De esta forma la vivienda parece estar ocupada de forma que ahuyentamos a potenciales delincuentes.
