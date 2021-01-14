@@ -4,17 +4,22 @@
 > Proyecto domótico autónomo que controla persianas, calefacción y luces.
 
 ## Objeto
-Con este proyecto se pretende crear un sistema domótico automatizado que nos permita aumentar la sensación de confort y bienestar dentro de nuestros domicilios.
-Nuestro simulador de presencia funcionará de forma autónoma subiendo y bajando persianas, así como encendiendo y apagando luces, desde una máquina RaspberryPi mediante relés. De esta forma la vivienda parece estar ocupada de forma que ahuyentamos a potenciales delincuentes.
+En proyecto se pretende crear un sistema domótico automatizado que nos permite aumentar la sensación de confort y bienestar dentro de nuestros domicilios.
+Nuestro simulador de presencia funciona de forma autónoma subiendo y bajando persianas, así como encendiendo y apagando luces, desde una máquina RaspberryPi mediante relés. De esta forma la vivienda parece estar ocupada de forma que ahuyentamos a potenciales delincuentes.
 
 ## Puntos básicos
-Para ello debemos alcanzar algunos objetivos mínimos:
-*	El sistema domótico funcionará de forma autónoma.
-*	Debe ser un proyecto de bajo coste y asequible.
-*	Sistema Operativo GNU.
+Para ello se han alcanzado algunos objetivos mínimos:
+*	El sistema domótico funciona de forma autónoma.
+*	Es un proyecto de bajo coste y asequible.
+*	Corre sobre un Sistema Operativo GNU (Raspbian Os).
 *	Posibilidad de interacción multiplataforma.
 *	Fácilmente escalable.
-*	Conseguir un ahorro energético real.
+*	Consigue un ahorro energético real.
 
 ## Escalabilidad
 Además, este sistema domótico es fácilmente escalable con sistemas de acceso a la vivienda, telefonía IP, música, calefacción, telefonillo IP, etc.
+
+## Calidad del código comprobado con SonarCLoud
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=alert_status)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG)
+
+
