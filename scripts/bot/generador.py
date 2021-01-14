@@ -1,7 +1,7 @@
 def generador(m, bot):
     try:
         import os, obtencionDatos
-        from telegram import ParseMode
+        #from telegram import ParseMode
         
         usuario = m.chat.id
         tokenBot, users, climacellKey, weatherApiKey, persianas, luces, calderas, rutaCred, rutaAuto = obtencionDatos.obtencionDatos()

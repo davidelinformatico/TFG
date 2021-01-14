@@ -1,1 +1,0 @@
-gpio -g mode 12 in

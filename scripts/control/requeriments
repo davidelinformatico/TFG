@@ -1,0 +1,11 @@
+pyTelegramBotAPI
+python-telegram-bot
+pycurl
+urllib3
+simplejson
+datetime
+requests
+datetime
+pandas
+matplotlib
+numpy

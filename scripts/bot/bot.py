@@ -1,14 +1,9 @@
-import telebot, logging, subprocess, telegram, os, time, requests, datetime, sys
+import telebot, subprocess, telegram, os, time, requests, datetime, sys
 from telebot import types
-from telegram import ParseMode
 
 import obtencionDatos, subirPararBajar, temperaturasManana, temperaturaCalefaccion, horaSubida, diagramaTemperaturas
 import generador, datos, horaSubida, info
 
-
-# Registro de eventos
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger('SDI_domo.log')
 
 #Diccionario con los comandos disponibles en el bot.
 commands = {
