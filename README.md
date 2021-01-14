@@ -43,10 +43,8 @@ La calidad del código se ha comprobado mediante la plataforma SonarCloud, acces
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=alert_status)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG)
 
 ## Licencia
-El proyecto se ha desarrollado bajo las siguientes licencias:
-Código Fuente	GPL3  
-Documentación	CC-BY-SA-3.0  
-Imágenes		CC-BY-SA-3.0  
-
-
+El proyecto se ha desarrollado bajo las siguientes licencias:  
+Código Fuente:	GPL3  
+Documentación:	CC-BY-SA-3.0  
+Imágenes:		CC-BY-SA-3.0  
 
