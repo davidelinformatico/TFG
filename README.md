@@ -20,9 +20,6 @@ Para ello se han alcanzado algunos objetivos mínimos:
 *	Fácilmente escalable.
 *	Consigue un ahorro energético real.
 
-## Escalabilidad
-Además, este sistema domótico es fácilmente escalable con sistemas de acceso a la vivienda, telefonía IP, música, calefacción, telefonillo IP, etc.
-
 ## Funcionamiento del código
 
 El código se divide en tres partes:
@@ -37,6 +34,9 @@ Las funciones que nos ofrecen, ordenados cronológicamente son:
 4. Los datos pueden ser entregados mediante un bot de Telegram.
 5. Desde el bot podemos cambiar la configuración de nuestro sistema automatizado, entre otras opciones.
 6. También podemos controlar el sistema de persianas motorizadas a placer.
+
+## Escalabilidad
+Además, este sistema domótico es fácilmente escalable con sistemas de acceso a la vivienda, telefonía IP, música, calefacción, telefonillo IP, etc.
 
 ## Calidad del código comprobado con SonarCLoud
 La calidad del código se ha comprobado mediante la plataforma SonarCloud, accesible desde este logo:
