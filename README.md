@@ -1,6 +1,6 @@
 <img width="300" src="https://www.raspberrypi.org/app/uploads/2017/06/Powered-by-Raspberry-Pi-Logo_Outline-Colour-Screen-500x153.png" align="right" />
 
-# Trabajo de Fin de Grado 
+# Sistema Domótico Inteligente
 > Proyecto domótico autónomo que controla persianas, calefacción y luces.
 
 [![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
