@@ -3,8 +3,6 @@
 # Sistema Domótico Inteligente
 > Proyecto domótico autónomo que controla persianas, calefacción y luces.
 
-[![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
-
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=security_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) 
 
 ## Objeto
@@ -49,3 +47,4 @@ Código Fuente:	GPL3
 Documentación:	CC-BY-SA-3.0  
 Imágenes:		CC-BY-SA-3.0  
 
+[![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
