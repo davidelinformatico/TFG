@@ -44,7 +44,8 @@ def horaSubida(m, bot):
             horaNueva=str(m.text.split(" ")[1])
             
             if len(horaNueva)==5:
-                horaNueva += str(":00")
+                volcado=str(horaNueva[0])+str(horaNueva[1])+":"+str(horaNueva[3])+str(horaNueva[4])+str(":00")
+                horaNueva=volcado
                 f = open(rutaAuto+"2_condicionantes", "w")
                 f.write(str(data[0]) + os.linesep)
                 f.write(str(horaNueva) + os.linesep)
