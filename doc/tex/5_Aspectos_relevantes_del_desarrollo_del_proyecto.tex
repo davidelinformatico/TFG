@@ -21,7 +21,7 @@ El proyecto requirió muchas horas de búsqueda de ideas por la web, ya que no e
 Por ello, para poder desarrollar el proyecto me vi en la necesidad de visitar numerosas páginas web de distinta índole para hacerme a la idea de cómo podría enfocar el proyecto. Aunque, el mayor hándicap a la hora de realizar este proyecto es la desinformación, por lo que me apoyé sobre todo en el REBT~\ref{concepto:RETB}~\cite{manual:REBT} y en mis conocimientos básicos de motores fruto de formación pasada.
 
 La información de cómo funcionan los GPIO la obtuve tras realizar el curso de: “Control de GPIO con Python en Raspberry Pi” de Programo Ergo Sum~\cite{misc:programoergosum}.
-Aunque parte la información de la web de \url{www.bujarra.com}~\cite{misc:BujarraGPIO} está desactualizada, esta publicación me ayudó a comprender cuál era el funcionamiento real de un relé y cómo conectarlo a los GPIO.
+Aunque parte la información de la web de <<bujarra>>~\cite{misc:BujarraGPIO} está desactualizada, esta publicación me ayudó a comprender cuál era el funcionamiento real de un relé y cómo conectarlo a los GPIO.
 
 Otro punto importante a la hora de enfocar correctamente el proyecto fue el estudio del REBT~\cite{manual:REBT}, de su apartado BT-21~\cite{manual:ICT-BT-21}, del reglamento de ICT~\cite{manual:ICT} y los estándares de comunicaciones como son el IEEE802.11~\cite{manual:IEEE802.11} y el TIA568~\cite{manual:568.1}~\cite{manual:568.2}. Creo necesario confrontar estas normativas para poder realizar un proyecto a nivel profesional y documentalmente respaldado.
 
@@ -109,9 +109,9 @@ pip3 install paquete
 
 Controlaremos la Raspberry Pi y sus periféricos mediante comandos Bash y realizaremos el procesado de datos con Python. Se ha tomado esta determinación para conseguir la mayor velocidad de procesamiento posible así como para evitar posibles problemas. Por ello, la automatización que haremos desde CRON que lanzará otros scripts será mediante bash. 
 
-El script que lanza todo el código contiene las siguientes líneas:
+El script que lanza todo el código contiene las siguientes líneas de código~\ref{cod:LanzaProceso}:
 
-\begin{lstlisting}[language=sh, caption={Script que lanza el proceso automático completo.}]
+\begin{lstlisting}[language=sh, caption={Script que lanza el proceso automático completo.}, label={cod:LanzaProceso}]
 #!/bin/bash
 path=$(pwd)
 echo $path
@@ -124,8 +124,8 @@ sh ${path%}/4_reescribeCron.sh
 
 Este archivo es un archivo Bash porque desde Cron no he conseguido lanzar los scripts Python, sin embargo no he tenido problemas al lanzarlo desde este script Bash siempre que especifique nuevamente que se lance con python3.
 
-Por otro lado, para controlar los relés desde los GPIO, debemos configurarlos como OUT y con valor 1 para activarlos y, con valor 0 y configuración IN para desactivarlos. Podemos ver un ejemplo a continuación:
-\begin{lstlisting}[language=sh, caption={Ejemplo activación y desactivación de relé.}]
+Por otro lado, para controlar los relés desde los GPIO, debemos configurarlos como OUT y con valor 1 para activarlos y, con valor 0 y configuración IN para desactivarlos. Podemos ver un ejemplo a continuación, el las líneas de código~\ref{cod:reles}:
+\begin{lstlisting}[language=sh, caption={Ejemplo activación y desactivación de relé.}, label{cod:reles}]
 gpio -g mode 17 out # Activa el rele conectado al pin 17
 sleep 1             # Espera 1 segundo
 gpio -g mode 17 in  # Desactiva el relé conectado al pin 17
@@ -175,10 +175,8 @@ La primera prueba, consistía en la instalación de la Raspberry Pi con un relé
 Llegados a este punto, era interesante el comprobar que se podía lanzar correctamente un script de este tipo desde CRON, encendiendo y apagando la bombilla, que también fue un éxito.
 
 La tirada de cable y conectorizado en todo el domicilio, desde la primera caja de empalmes a las 5 persianas ya que es el punto del domicilio donde se recogen los cables eléctricos que llegan hasta las persianas, quedó como podemos ver en el diagrama~\ref{Img:diagramaBasico}. 
-
 \subsection{Telegram Bot}\label{5.TelegramBot}
 En primer lugar, explicaré qué es un bot. El medio de comunicación con el sistema domótico es un bot de Telegram que he diseñado y programado para hacer completamente funcional el proyecto. Desde el Bot, podemos controlar las persianas de forma instantánea, modificar la configuración del sistema domótico y simulador de presencia, volver a generar recolección de datos y el grabado de los archivos. También podemos obtener información sobre la información recopilada, sobre nuestra Raspberry Pi y sobre el funcionamiento futuro del sistema domótico y simulador de presencia.
-
 \begin{figure}
     \centering
     \includegraphics[width=0.95\textwidth]{img/Diagramas/FuncionamientoBot.png}
@@ -189,7 +187,7 @@ En primer lugar, explicaré qué es un bot. El medio de comunicación con el sis
 Afortunadamente estaba mejor documentado que el resto de la recursos que he consultado para el proyecto pero aún así no ha resultado tarea fácil entender la lógica del bot. 
 Podemos ver la lógica de comunicaciones del bot en la imagen~\ref{Img:FuncionamientoBot}. 
 
-Todos los mensajes de Telegram que llegan a nuestro bot, tienen la misma estructura json, pero de esta estructura utilizamos únicamente unos pocos y podríamos resumir en los que figuran en el  Listing \ref{lst:Resumen} que podemos ver a continuación:~\\~\\
+Todos los mensajes de Telegram que llegan a nuestro bot, tienen la misma estructura json, pero de esta estructura utilizamos únicamente unos pocos y podríamos resumir en los que figuran en las líneas de código~\ref{lst:Resumen}, y que podemos ver a continuación:
 \begin{lstlisting}[language=json,firstnumber=0, basicstyle=\small, caption={Resumen de los datos que utilizamos del mensaje de Telegram.},label={lst:Resumen}]
 {
     'content_type':'text',
@@ -204,9 +202,9 @@ Todos los mensajes de Telegram que llegan a nuestro bot, tienen la misma estruct
 \end{lstlisting}
 
 Al comienzo del proyecto pensé en crear un grupo de usuarios para gestionar esta información pero he creído oportuno que cada usuario tenga su propia interfaz aunque realmente no habría problema en hacerlo de esta manera y hubiera facilitado el proyecto. Esto se ha solucionado incluyendo la lista de usuarios que pueden interactuar con el bot en el archivo de configuración. Para este paso, debemos recoger el id del usuario. Este id aparece varias veces en el json que recibimos en cada mensaje por lo que valdría cualquiera de ellos. Para el resumen he escogido el id que pertenece al objeto chat, junto al nombre y apellidos del propietario y el nombre de usuario.
-El número de usuario es necesario para saber a quién le enviamos el mensaje. Por ejemplo, al comienzo del bot del proyecto tenemos las siguientes líneas:~\\~\\
+El número de usuario es necesario para saber a quién le enviamos el mensaje. Por ejemplo, al comienzo del bot del proyecto tenemos las siguientes líneas del código~\ref{cod:mensajeInicio}:
 
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption={Código para el envío de mensajes al inicio del bot.}, label={cod:mensajeInicio}]
 for usuario in usuarios:
     bot.send_message(usuario, "Iniciando Sistema a las "+str(hora))
 \end{lstlisting}
@@ -214,9 +212,9 @@ for usuario in usuarios:
 Estas líneas envían un mensaje de inicio con la hora a la que se produce el evento a cada uno de los usuarios de la lista de admitidos.
 
 Otro de los puntos necesarios es el de texto que envía el usuario. Gracias a éste obtendremos la orden que enviamos por Telegram y podremos actuar en consecuencia.
-Hay un punto a tener en cuenta para comprender el funcionamiento del bot, éste radica en las líneas que hay al principio de cada uno de los métodos de que dispone el bot:~\\
+Hay un punto a tener en cuenta para comprender el funcionamiento del bot, éste radica en las líneas que hay al principio de cada uno de los métodos de que dispone el bot, y que podemos ver en las líneas de código~\ref{cod:llamadas}:
 
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption={Código de llamada a funciones desde el bot.}, label={cod:llamadas}]
 @bot.message_handler(commands=['temp'])
 @bot.message_handler(func=lambda message: message.text == "t")
 @bot.message_handler(func=lambda message: message.text == "T")

@@ -15,8 +15,6 @@
 \usepackage{graphicx}
 \usepackage{float} %required for the placement specifier H
 
-%\usepackage{subfig}
-
 \usepackage{makecell}
 
 \renewcommand\theadalign{bc}
@@ -279,15 +277,15 @@ morekeywords=[3]{bool,int,str,string,'\n','\t',+,-,*,/,=,\%,\$path,mode,User,Exe
 %
 backgroundcolor=\color{lgrey},
 basicstyle=\scriptsize\ttfamily,
-identifierstyle=\color{black},
-keywordstyle=\color{dgreen}, %dblue
-keywordstyle={[2]\color{red}},
-keywordstyle={[3]\color{olive}},
+identifierstyle=\color{black}\ttfamily,
+keywordstyle=\ttfamily \color{dgreen}, %dblue
+keywordstyle={[2]\ttfamily\color{red}},
+keywordstyle={[3]\ttfamily\color{olive}},
 frame=tlb,% the frame is open on the right side
 resetmargins=false,
-rulesepcolor=\color{black},
+rulesepcolor=\color{black}\ttfamily,
 numbers=left,% % left
-numberstyle=\tiny,
+numberstyle=\tiny\ttfamily,
 numbersep=5pt,
 extendedchars=true, 
 firstnumber=1,
@@ -297,12 +295,13 @@ fontadjust=true,
 keepspaces=true,
 basewidth=0.5em,
 captionpos=t,
-abovecaptionskip=\smallskipamount,% same amount as default
-belowcaptionskip=\smallskipamount,% in caption package
-stringstyle=\color{black},
-commentstyle=\color{teal}
+abovecaptionskip=\smallskipamount\ttfamily,% same amount as default
+belowcaptionskip=\smallskipamount\ttfamily,% in caption package
+stringstyle=\color{black}\ttfamily,
+commentstyle=\color{teal}\ttfamily
 }[keywords,comments,strings]
 
+\renewcommand{\lstlistingname}{Código}%
 
 
 
@@ -648,11 +647,16 @@ commentstyle=\color{teal}
 
 \clearpage
 
-%\listoftables
+\listoftables
 
-%\clearpage
+\renewcommand{\lstlistlistingname}{Lista de códigos}
+\lstlistoflistings
+
+\clearpage
 
 \mainmatter
+
+\clearpage
 
 \appendix
 

@@ -102,15 +102,14 @@ Se finaliza la redacción de la memoria, antes de la revisión final del texto, 
 
 \subsection{Sprint 13 - 01/12/2020 - 07/01/2021}
 Redacción de los anexos, corrección de la memoria y limpieza de código.
-Se ha proporcionado la primera Release y asignado la licencia del proyecto.
+Se ha proporcionado la primera Release estable~\texttt{v1.0} y asignado la licencia del proyecto.
 
 \subsection{Sprint 14 - 08/01/2020 - 14/01/2020}
-Corrección de los anexos y grabado de vídeos.
+Corrección de los anexos y se sube la Release~\texttt{v1.1} con mejoras en el código: se incluyen los archivos generadores de archivos de control y mejoras en los archivos de instalación.
 
 \subsection{Sprint 15 - 15/01/2020 - 20/01/2020}
+Se sube la versión final, como la Release~\texttt{v1.2} en la que se eliminan archivos duplicados en el código, se limpia de incorrecciones y se comentan las funciones y scripts. 
 Edición de vídeos y entrega del proyecto.
-
-
 
 
 \section{Estudio de viabilidad}
@@ -130,11 +129,10 @@ En esta sección se explica cada uno de los costes asociados al proyecto teniend
 Aún habiendo sido desarrollado por una única persona, el apartado de costes de personal es el que contiene un gasto mayor con respecto al resto de apartados económicos.
 
 Se ha estimado un sueldo de 22.000€ brutos anuales en 12 pagas, para realizar el cálculo en el intervalo entre el 01 de octubre de 2020 y el 20 de enero de 2021. Si hacemos el cálculo de estos 111 días que ha durado el proyecto, vemos que se corresponde a 3,7 meses de trabajo por lo que el gasto total en personal durante el proyecto asciende a 8.818,33€.
-El desglose mensual podemos verlo en la tabla~\ref{tab:CostePersonal} y el coste total en la tabla~\ref{tab:CostePersonalTotal}.
+El desglose mensual podemos verlo en la tabla~\ref{tab:CostePersonal} y el coste total en la tabla~\ref{tab:CostePersonalTotal}.~\\~\\~\\~\\ % para evitar que corte la tabla, que dificulta la lectura.
 
 \begin{longtable}[c]{@{}lrr@{}}
 \toprule
-\centering
 \multicolumn{1}{c}{\textbf{Concepto}} & \multicolumn{1}{c}{\textbf{Porcentaje}} & \multicolumn{1}{c}{\textbf{Coste}} \\* \midrule
 \endfirsthead
 %
@@ -145,7 +143,7 @@ El desglose mensual podemos verlo en la tabla~\ref{tab:CostePersonal} y el coste
 %
 \endlastfoot
 %
-Sueldo Bruto Mensual &  & 1833,33 € \\
+Sueldo Base (Neto) &  & 1833,33 € \\
 Contingencias Comunes & 23,60 \% & 432,67 € \\
 Tipo general & 5,50 \% & 100,83 € \\
 Fogasa & 0,20 \% & 3,67 € \\
@@ -202,7 +200,7 @@ Para calcular la amortización del material en el tiempo transcurrido he determi
 \endlastfoot
 %
 Portátil Lenovo Thinkpad T50 & 1.427,86 € & 88,05 € \\
-Raspberry Pi 2B & 34,30€ & 34,30€ \\
+Raspberry Pi 2B & 34,30 € & 34,30 € \\
 Tarjeta SD & 14,08 € & 14,08 € \\
 Cable UTP5e & 14,41 € & 14,41 € \\
 Caja Raspberry Pi & 15,28 € & 15,28 € \\
@@ -211,9 +209,9 @@ Dongle WiFi & 6,95 € & 6,95 € \\
 Relés & 38,35 € & 38,35 € \\
 Cables electrónica & 6,59 € & 6,59 € \\
 Conectores de cables electrónicos & 10,70 € & 10,70 € \\
-Crimpadora JST & 12,00 € & 12,00 € \\
-Guía pasacables & 2,00 € & 2,00 € \\ \midrule
-\textbf{Total} & \textbf{1.586,02 €} & \textbf{123,86 €} \\ \bottomrule \\
+Crimpadora JST & 12,00 € & 0,74 € \\
+Guía pasacables & 2.50 € & 0.15 € \\ 
+\textbf{Total} & \textbf{1.586,52 €} & \textbf{233,11 €} \\ \bottomrule \\
 \caption{Coste total en hardware}
 \label{tab:CosteHW}
 \end{longtable}
@@ -231,7 +229,7 @@ En total, en este subpunto, tenemos un coste mensual de 158,60€. Al tener que 
 Podemos comprobar el precio público en~\url{https://www.getafeiniciativas.es/empresas/espacios-para-empresas/centro-municipal-de-empresas/vivero-de-empresas}.
 
 \subsubsection{Coste Total}
-Si sumamos los costes anteriormente descritos, vemos que la suma asciende a \textbf{9.584,59 €} que han quedado descritos en la tabla~\ref{tab:CosteTotal}.
+Si sumamos los costes anteriormente descritos, vemos que la suma asciende a \textbf{9693,84 €} que han quedado descritos en la tabla~\ref{tab:CosteTotal}.
 
 \begin{longtable}[c]{@{}lr@{}}
 \toprule
@@ -247,10 +245,10 @@ Si sumamos los costes anteriormente descritos, vemos que la suma asciende a \tex
 \endlastfoot
 %
 Personal & 8.818,33 € \\
-Hardware & 123,86 € \\
+Hardware & 233,11 € \\
 Software & 8 € \\
 Costes varios & 634,40 € \\\midrule
-\textbf{Total} & \textbf{9.584,59 €} \\ \bottomrule \\
+\textbf{Total} & \textbf{9693,84 €} \\ \bottomrule \\
 \caption{Tabla de costes totales} 
 \label{tab:CosteTotal}
 \end{longtable}
@@ -274,7 +272,7 @@ En un principio el proyecto está pensado para ser utilizado de forma libre pero
 %
 1 año & 12€ & 24€ & 36€ \\
 2 años & 22€ & 45€ & 50€ \\ \bottomrule \\
-\caption{Cuotas}
+\caption{Cuotas para la posible monetización}
 \label{tab:Cuotas1}
 \end{longtable}
 
@@ -311,7 +309,7 @@ Telegram Api~\cite{misc:TelegramApi} & GPLv3 excepto OpenSSL & API pública de T
 \end{longtable}
 
 \subsubsection{Backend}
-En la parte de BackEnd nos hemos servido de otros códigos o <<dependencias>> que también cuentan con sus propias licencias, como podemos ver en la tabla~\ref{tab:BackEnd}. Al realizar un pequeño estudio podemos determinar compatibilidad de las licencias de las dependencias utilizadas en nuestro proyecto y que podemos ver en la imagen~\ref{LicenseComp}.
+En la parte de BackEnd nos hemos servido de otros códigos o <<dependencias>> que también cuentan con sus propias licencias, como podemos ver en la tabla~\ref{tab:BackEnd}. Al realizar un pequeño estudio podemos determinar compatibilidad de las licencias de las dependencias utilizadas en nuestro proyecto y que podemos ver en la imagen~\ref{LicenseComp}.~\\~\\ % Se incluye para evitar cortar la tabla y que se lea mejor
 
 \footnotesize%%%%%%%%%%%  smaller font size %%%%%%%%
 \begin{longtable}[c]{@{}lccl@{}}
@@ -337,7 +335,8 @@ pyTelegramBotAPI & 3.7.5 & GPL2 & \begin{tabular}[c]{@{}l@{}}Biblioteca que gest
 simplejson & 3.16.0 & GPL & Paquete para trabajar con objetos json~\cite{misc:Json} \\
 requests & 2.21.0 & Apache 2.0 & Biblioteca HTTP \\
 pycurl & 7.43.0.6 & LGPL/MIT & Cliente   HTTP \\
-telegram & 0.0.1 & GPL2 to LGPL3 & Cliente para Telegram \\ \bottomrule
+%telegram & 0.0.1 & GPL2 to LGPL3 & Cliente para Telegram \\ 
+\bottomrule~\\
 \caption{Dependecncias en el BackEnd.}
 \label{tab:BackEnd}
 \end{longtable}
@@ -400,7 +399,7 @@ Fritzing & CC by-sa & Diagramas electrónicos \\* \bottomrule \\
 
 
 \subsubsection{Resumen del licenciamiento del presente proyecto}
-Para facilitar la búsqueda y comprensión de las licencias con que cuenta el proyecto he generado la tabla resúmen~\ref{tab:licproy} y también pueden ver las licencias en los enlaces correspondientes de GPL3~\cite{lic:GPL3} y CC-BY-SA-3.0~\cite{lic:CCbysa3}.
+Para facilitar la búsqueda y comprensión de las licencias con que cuenta el proyecto he generado la tabla resúmen~\ref{tab:licproy} y también pueden ver las licencias en los enlaces correspondientes de GPL3~\cite{lic:GPL3} y CC-BY-SA-3.0~\cite{lic:CCbysa3}.~\\~\\ % Se incluye para evitar que corte la tabla
 
 \begin{longtable}[c]{@{}ll@{}}
 \toprule

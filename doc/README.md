@@ -1,6 +1,3 @@
-# Licencia Documentación GPL3 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
-
 # Plantilla LaTeX
 
 La plantilla se compone de dos documentos maestros: uno para la memoria y otro para los anexos.

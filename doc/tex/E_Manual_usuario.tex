@@ -131,7 +131,8 @@ En la imagen~\ref{Img:Relé+Rbp_Fritzing} podemos ver como se conecta, desde la 
 \end{figure}
 
 
-Para explicar el funcionamiento de un pulsador de 3 posiciones para persianas podemos ver la imagen~\ref{img:PulsadorInterno}. En ella podemos ver que en la posición central no tiene ninguna salida eléctrica y que las salidas 1 y 2 tienen la polaridad invertida. La lógica del cambio de orden en la salida de cables es porque según el sentido de la polaridad el motor girará en un sentido o en otro. Esto se respalda mediante la~\href{https://fisica.laguia2000.com/dinamica-clasica/fuerzas/ley-de-laplace-fuerza-ejercida-sobre-un-conductor}{segunda ley de Laplace} para cada espira del bobinado del motor quedando de la forma~\href{http://www.uco.es/grupos/giie/cirweb/teoria/tema_11/tema_11_01.pdf}{$M=N*(I*B*l+sen\theta)$}.
+Para explicar el funcionamiento de un pulsador de 3 posiciones para persianas podemos ver la imagen~\ref{img:PulsadorInterno}. En ella podemos ver que en la posición central no tiene ninguna salida eléctrica y que las salidas 1 y 2 tienen la polaridad invertida. La lógica del cambio de orden en la salida de cables es porque según el sentido de la polaridad el motor girará en un sentido o en otro. %Esto se respalda mediante la~\href{https://fisica.laguia2000.com/dinamica-clasica/fuerzas/ley-de-laplace-fuerza-ejercida-sobre-un-conductor}{segunda ley de Laplace} para cada espira del bobinado del motor.
+%quedando de la forma~\href{http://www.uco.es/grupos/giie/cirweb/teoria/tema_11/tema_11_01.pdf}{$M=N*(I*B*l+sen\theta)$}.
 
 Siguiendo esta lógica, podemos ver que en la imagen~\ref{Img:Relé+Pulsador+Rbp_Fritzing} tenemos dos relés de forma que cada uno de ellos deja pasar la corriente en un sentido. En la realidad, el motor no tiene por qué tener dos entradas positivas y dos negativas pero en el dibujo queda mejor ilustrado que son entradas diferentes.
 
@@ -227,7 +228,7 @@ El primer paso es descargar el Sistema Operativo de la web oficial y montarlo en
 \end{enumerate}
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{img/Instalación/1.png}
+\includegraphics[width=0.77\textwidth]{img/Instalación/1.png}
 \caption{Ventana de configuración Raspbian 1.}\label{Instala1}
 \end{figure}
 
@@ -255,9 +256,6 @@ El primer paso es descargar el Sistema Operativo de la web oficial y montarlo en
 \caption{Ventana de configuración Raspbian 5.}\label{Instala5}
 \end{figure}
 
-\newpage{\ }\thispagestyle{empty}
-\newpage{\ }\thispagestyle{empty}
-\newpage{\ }\thispagestyle{empty}
 Una vez realizada la configuración básica vamos a habilitar VNC para poder conectarnos desde otros equipos de forma sencilla accediendo al menú de la imagen~\ref{VNC1}. Este punto es opcional pero recomendable para evitar desplazarnos a la ubicación de la Raspberry Pi para hacer cualquier operación en local.
 
 \begin{figure}[h]
@@ -281,8 +279,8 @@ Para descargarnos e instalar el software SDI debemos seguir los siguientes pasos
 
 \begin{enumerate}
     \item Descargar la última release que exista en el repositorio de GitHub en el formato que se prefiera:~\url{https://github.com/davidelinformatico/TFG/releases}
-    \item Para extraer del archivo .tar utilizar:~\\ \texttt{tar -xvf SistemaDomoticoInteligente\_v1.0.tar}.
-    \item Para extraer del archivo .tar.gz utilizar:~\\ \texttt{tar xzvf SistemaDomoticoInteligente\_v1.0.tar.gz}.
+    \item Para extraer del archivo .tar utilizar:~\\ \texttt{tar -xvf SistemaDomoticoInteligente\_v1.2.tar}.
+    \item Para extraer del archivo .tar.gz utilizar:~\\ \texttt{tar xzvf SistemaDomoticoInteligente\_v1.2.tar.gz}.
 \end{enumerate}
 En este punto ya tendremos todos los archivos extraídos.
 
@@ -298,16 +296,16 @@ En este momento se descargarán todos los elementos necesarios de internet y se 
 \subsection{Automatizado y puesta a producción}
 Uno de los puntos de la automatización es la generación de un demonio para nuestro bot de forma que se ejecutará con el inicio del sistema y podremos trabajar con el una sencilla sentencia:
 
-\begin{lstlisting}[language=sh,firstnumber=0]
+\begin{lstlisting}[language=sh,firstnumber=0, caption={Comando que para el servicio del bot.}]
 sudo systemctl bot stop
 \end{lstlisting}
-\begin{lstlisting}[language=sh]
+\begin{lstlisting}[language=sh, caption={Comando que inicia el servicio del bot.}]
 sudo systemctl bot start 
 \end{lstlisting}
 Para conseguirlo, he realizado los siguientes pasos:
 
 Se debe generar el archivo de nuestro demonio en \texttt{lib/systemd/system/} con la extensión <<.service>>:
-\begin{lstlisting}[language=sh, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0, caption={Archivo a modificar para generar el demonio.}]
 sudo nano /lib/systemd/system/bot.service
 \end{lstlisting}
 El contenido del archivo es:
@@ -329,11 +327,11 @@ ExecStart=/usr/bin/env python3 /home/pi/source/TFG/scripts/bot/bot.py
 WantedBy=multi-user.target
 \end{lstlisting}
 Después debemos actualizar los demonios con: 
-\begin{lstlisting}[language=sh, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0, caption={Código para actualizar los demonios.}]
 systemctl daemon-reload
 \end{lstlisting}
 Iniciar el demonio: 
-\begin{lstlisting}[language=sh, firstnumber=0]
+\begin{lstlisting}[language=sh, firstnumber=0, caption={Código para iniciar el demonio.}]
 sudo systemctl start bot
 \end{lstlisting}
 Parar el demonio: 
@@ -346,7 +344,7 @@ sudo systemctl status bot
 \end{lstlisting}
 
 Para incluirlo en el inicio de la máquina habría que moverlo a /etc/init.d y luego ejecutar: 
-\begin{lstlisting}[language=sh, firstnumber=0]    
+\begin{lstlisting}[language=sh, firstnumber=0, caption={Líneas para incluir el demonio en el inicio.}]  
 sudo update-rc.d bot defaults
 sudo systemctl daemon-reload
 sudo systemctl enable bot
@@ -360,6 +358,106 @@ En este punto se incluyen las funcionalidades finales que se ponen a disposició
 
 \subsection{Inclusión de usuarios en el bot}
 El primer paso es buscar el bot por su nombre. En mi caso se llama \textbf{SDI\_Domo\_bot}.
-Una vez localizado, accedemos a él y le enviamos un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo \texttt{config2.bot}.
+Una vez localizado, accedemos a él y le enviamos un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo como podemos ver en la imagen~\ref{Bot:SinPermisos}. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo \texttt{config2.bot}.
 
-[[Falta incluir las opciones del bot y capturas.]]
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{img/SalidasBot/botSinPermisos.jpeg}
+\caption{Mensaje de respuesta a un usuario sin permisos.}\label{Bot:SinPermisos}
+\end{figure}
+
+\subsection{Opciones de que dispone el bot}
+
+\subsubsection{Menú ayuda}
+Una vez tengamos permisos para comunicarnos con nuestro bot podemos ver la ayuda con el comando '\texttt{/ayuda}'. Como se han incluido en muchos de los comandos la primera letra del comando (siempre que sea un comando simple, sin parámetros), también podemos acceder con '\texttt{a}' y '\texttt{A}', y obtendríamos el mensaje de la imagen~\ref{Bot:Ayuda}:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{img/SalidasBot/mensajeAyuda.PNG}
+\caption{Mensaje de Ayuda del bot.}\label{Bot:Ayuda}
+\end{figure}
+
+\subsubsection{Subir y Bajar persianas}
+En este apartado, podemos decidir si queremos que una persiana suba, baje y el tiempo que queremos que esté en movimiento.
+Podemos realizarlo con la siguiente sintaxis:
+
+\texttt{\textbf{Comando Ubicación Tiempo}}  
+
+Podemos ver dos ejemplos en la imagen~\ref{Bot:SubirBajar}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{img/SalidasBot/subirBajar.PNG}
+\caption{Subir y Bajar Persianas.}\label{Bot:SubirBajar}
+\end{figure}
+
+
+\subsubsection{Listado de temperaturas}
+Otro comando interesante es el comando '\texttt{/temp}',que también podemos acceder a él con '\texttt{t}' y '\texttt{T}'. Este comando nos ofrece una tabla informativa con todas las temperaturas del día siguiente además de las horas programadas de subida de persianas, y también, de encendido de luces por la noche y posterior bajada de persianas y apagado de éstas. Podemos ver un ejemplo en la imagen~\ref{Bot:tempHTML}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{img/SalidasBot/temperaturasHTML.PNG}
+\caption{Tabla Informativa de temperaturas y horas programadas.}\label{Bot:tempHTML}
+\end{figure}
+
+\subsubsection{Diagrama de temperaturas}
+De cada día que se lanza la ejecución del programa, también se genera un diagrama de temperaturas que se puede solicitar al bot con el comando '\texttt{/d}', '\texttt{D}' o '\texttt{d}', como podemos ver en la imagen~\ref{Bot:Diagrama}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.64\textwidth]{img/SalidasBot/diagrama.PNG}
+\caption{Diagrama de temperaturas.}\label{Bot:Diagrama}
+\end{figure}
+
+\subsubsection{Temperatura calefacción}
+Con el comando '\texttt{/tempcal}' podemos obtener la temperatura a la que arrancará la caldera. Si queremos cambiar la temperatura ala que arrancará podemos hacerlo con el mismo comando y añadiendo una temperatura como podemos ver en la imagen~\ref{Bot:Calefaccion}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.64\textwidth]{img/SalidasBot/temperaturaCalefaccion.PNG}
+\caption{Temperatura de la calefacción.}\label{Bot:Calefaccion}
+\end{figure}
+
+
+\subsubsection{Datos de Actuación de los periféricos}
+Con el comando '\texttt{/datos}' obtenemos las horas a las que actuará el Sistema Automatizado. Esto es: la hora en que amanece, la hora de subida de persianas, la hora del encendido de luces y la hora de bajada de persianas; como podemos ver en la imagen~\ref{Bot:Datos}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.64\textwidth]{img/SalidasBot/info.PNG}
+\caption{Horas de actuación de los periféricos.}\label{Bot:Datos}
+\end{figure}
+
+
+\subsubsection{Hora de subida de persianas}
+Con el comando '\texttt{/hora}', '\texttt{h}' o '\texttt{H}', obtenemos la hora de subida de persianas. Si escribimos el comando '\texttt{hora}' seguido de una hora en formato HH:MM cambiará la hora en que suben las persianas siempre que sea después del amanecer.
+Podemos ver las dos opciones en la imagen~\ref{Bot:horaPersianas}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.64\textwidth]{img/SalidasBot/horaPersianas.PNG}
+\caption{Hora de subida de persianas.}\label{Bot:horaPersianas}
+\end{figure}
+
+
+
+\subsubsection{Obtención de datos externos}
+En el caso de que queramos que el sistema renueve los datos de que dispone podemos ordenarlo con los comandos '\texttt{/generar}', '\texttt{g}' y '\texttt{G}'. Recordar que para la obtención de datos es imprescindible una línea de datos con salida a Internet. Podemos ver un ejemplo de ejecución en la imagen~\ref{Bot:generar}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.74\textwidth]{img/SalidasBot/generar.PNG}
+\caption{Obtención de datos externos.}\label{Bot:generar}
+\end{figure}
+\subsubsection{Información de la máquina}
+Si queremos conocer algunos parámetros de nuestra Raspberry Pi, podemos obtenerlos con los comandos '\texttt{/info}', '\texttt{i}' o '\texttt{I}'. Podemos ver un ejemplo de ejecución en la imagen~\ref{Bot:infoRbP}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.57\textwidth]{img/SalidasBot/infoRbP.PNG}
+\caption{Información de nuestra Raspberry Pi.}\label{Bot:infoRbP}
+\end{figure}
+
+\subsubsection{Comandos de Apagado y Reinicio}
+Si necesitamos apagar o reiniciar nuestra Raspberry Pi, podemos hacerlo con los comandos '\texttt{/apagar}' y '\texttt{/reiniciar}', respectivamente. En este caso no hay imagen ya que únicamente recibiremos un mensaje indicando que la máquina se apagará o reiniciará según sea la orden enviada.
