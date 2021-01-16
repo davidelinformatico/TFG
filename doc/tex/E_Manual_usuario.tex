@@ -357,8 +357,10 @@ Con esto tendríamos el software completamente instalado.
 En este punto se incluyen las funcionalidades finales que se ponen a disposición del usuario final una vez estén finalizadas las instalaciones física y de software.
 
 \subsection{Inclusión de usuarios en el bot}
-El primer paso es buscar el bot por su nombre. En mi caso se llama \textbf{SDI\_Domo\_bot}.
-Una vez localizado, accedemos a él y le enviamos un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo como podemos ver en la imagen~\ref{Bot:SinPermisos}. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo \texttt{config2.bot}.
+Para el primer usuario, se debe acceder a la versión web de Telegram y aceder al chat de <<Mensajes guardados>>. Entonces, podremos ver en la barra de direcciones la siguiente URL: \texttt{https://web.telegram.org/#/im?p=\textbf{0123456789}_35486168418645737555}. Los dígitos en negrita son los que habría que incluir en el archivo \texttt{config2.bot}.
+
+Posteriormente, debemos buscar el bot por su nombre. En mi caso se llama \textbf{SDI\_Domo\_bot}.
+Una vez localizado, El resto de usuarios le enviarán un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo como podemos ver en la imagen~\ref{Bot:SinPermisos}. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo \texttt{config2.bot}.
 
 \begin{figure}[h]
 \centering
