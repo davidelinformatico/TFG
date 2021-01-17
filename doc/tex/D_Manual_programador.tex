@@ -180,11 +180,11 @@ Para realizar modificaciones en el código únicamente hay que seguir los siguie
     \item Descargar la última release que exista en el repositorio de GitHub en el formato que se prefiera:~\url{https://github.com/davidelinformatico/TFG/releases}
     \item Para extraer del archivo .tar utilizar: 
     \begin{lstlisting}[language=sh, firstnumber=0, basicstyle=\normalsize, caption={Comando para extraer archivos .tar.}] 
-tar -xvf SistemaDomoticoInteligente\_v1.2.tar \end{lstlisting}
+tar -xvf SistemaDomoticoInteligente\_v1.3.tar \end{lstlisting}
         
     \item Para extraer del archivo .tar.gz utilizar:
     \begin{lstlisting}[language=sh, firstnumber=0, basicstyle=\normalsize, caption={Comando para extraer archivos .tar.gz}] 
-tar xzvf SistemaDomoticoInteligente\_v1.2.tar.gz \end{lstlisting}
+tar xzvf SistemaDomoticoInteligente\_v1.3.tar.gz \end{lstlisting}
 \end{enumerate}
 En este punto ya tendremos todos los archivos extraídos y podremos editarlos. Recordar que para completar el software hay que instalar el software especificado en el archivo \texttt{requeriments} que se realiza de forma automática al correr el archivo setup contenido en \textbf{\textasciitilde/source/scripts/auto/}. 
 
@@ -215,7 +215,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.177\linewidth}|}{\textbf{CP-1}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Existencia de datos en archivo de configuración} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{\mbox{Descripción}} & Si existen datos en el archivo de configuración,\par{} el bot inicia sin errores, ya que \par{}dispone de los parámetros de configuración. \\
 \textbf{\mbox{Precondición}} & Config2.bot debe contener los datos necesarios. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Permite ejecutar el bot sin errores. \\
@@ -231,7 +231,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.215\linewidth}|}{\textbf{CP-2}} & \multicolumn{1}{>{\hspace{0pt}}m{0.722\linewidth}|}{Se muestra el comando de ayuda} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Se ha configurado el comando de ayuda y la envía~\par{}cuando es necesario. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Solicitamos ayuda con '/ayuda' . \\
@@ -247,7 +247,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.2\linewidth}|}{\textbf{CP-3}} & \multicolumn{1}{>{\hspace{0pt}}m{0.741\linewidth}|}{Movimiento de las persianas} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Las persianas se mueven bajo demanda. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Comando '/subir' 'estancia' tiempo y~'/bajar' 'estancia' tiempo\par\null\par{}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}>{\cellcolor[rgb]{0.937,0.937,0.937}}l}/subir Cocina 3\par{}/bajar Dormitorio 4\end{tabular} \\
@@ -262,7 +262,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.196\linewidth}|}{\textbf{CP-4}} & \multicolumn{1}{>{\hspace{0pt}}m{0.745\linewidth}|}{Envío de tabla de temperaturas} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Se envía una tabla informativa con las temperaturas del día\par{}siguiente por horas. Se incluyen la hora de subida de las\par{}persianas y la hora de encendido de luces y la posterior\par{}bajada de persianas y apagado de luces. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Deben existir datos en el archivo de consulta log.bot. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /temp \\
@@ -277,7 +277,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.19\linewidth}|}{\textbf{CP-5}} & \multicolumn{1}{>{\hspace{0pt}}m{0.75\linewidth}|}{Diagrama de temperaturas} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Se envía una imagen generada con las temperaturas del\par{}día siguiente. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir alguna imagen \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /d o /d seguido de un nombre de imagen. \\
@@ -293,7 +293,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.198\linewidth}|}{\textbf{CP-6}} & \multicolumn{1}{>{\hspace{0pt}}m{0.743\linewidth}|}{Temperatura de la calefacción} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Informa de la temperatura a la que se enciende la caldera, y~\par{}también, nos permite modificarla. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe haber información en el archivo 2\_condicionantes. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /tempcal, o /tempcal seguido \par{}de una temperatura. \\
@@ -308,7 +308,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.213\linewidth}|}{\textbf{CP-7}} & \multicolumn{1}{>{\hspace{0pt}}m{0.724\linewidth}|}{Información de acciones} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Informa de las horas de interacción con los periféricos. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir información en el archivo log.cron \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /datos, d o D. \\
@@ -324,7 +324,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.207\linewidth}|}{\textbf{CP-8}} & \multicolumn{1}{>{\hspace{0pt}}m{0.731\linewidth}|}{Hora de subida de las persianas} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Informa de la hora de subida de las persianas y\par{}también permite modificarla. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir información en el archivo 2\_condicionantes \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /hora o /hora seguido de una hora. \\
@@ -339,7 +339,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.213\linewidth}|}{\textbf{CP-9}} & \multicolumn{1}{>{\hspace{0pt}}m{0.724\linewidth}|}{Obtención de datos bajo demanda} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Obtiene los datos de las APIs \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot además de los TOKEN de las APIs.\par{}Debemos tener salida a Internet. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /generar. \\
@@ -354,7 +354,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.213\linewidth}|}{\textbf{CP-10}} & \multicolumn{1}{>{\hspace{0pt}}m{0.724\linewidth}|}{Información del sistema} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Envía información de la máquina. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot además de los TOKEN de las APIs. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /info, i o I \\
@@ -371,7 +371,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.236\linewidth}|}{\textbf{CP-11}} & \multicolumn{1}{>{\hspace{0pt}}m{0.695\linewidth}|}{Apagado y Reinicio} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Apaga o reinicia la máquina \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /apagar o reiniciar. \\
@@ -388,7 +388,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.2\linewidth}|}{\textbf{CP-100}} & \multicolumn{1}{>{\hspace{0pt}}m{0.741\linewidth}|}{Recabado de información} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Llama a las APIs y obtiene la información \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Se debe tener línea de datos con salida a~\par{}Internet. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script python3 1\_recabaInfo.py \\
@@ -403,7 +403,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.188\linewidth}|}{\textbf{CP-101}} & \multicolumn{1}{>{\hspace{0pt}}m{0.752\linewidth}|}{Procesado de información} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Lee el archivo InfoRecabada y genera el diagrama y los archivos\par{}de CronPruebas y log.cron. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Deben existir los datos. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script python3 3\_cocinado.py \\
@@ -419,7 +419,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.203\linewidth}|}{\textbf{CP-102}} & \multicolumn{1}{>{\hspace{0pt}}m{0.737\linewidth}|}{Configuración de Cron} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Lee el archivo CronPruebas, lo vuelca a Cron y reinicia los\par{}servicios de la máquina. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir el archivo CronPruebas. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script sh 4\_reescribeCron.sh \\
@@ -434,7 +434,7 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \hline
 \rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.186\linewidth}|}{\textbf{CP-200}} & \multicolumn{1}{>{\hspace{0pt}}m{0.754\linewidth}|}{Cambio de estado de periféricos} \endfirsthead 
 \hline
-\textbf{Versión} & 1.2 \\
+\textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Comprobamos que los periféricos se moverán como esperamos\par{}cuando lo hagan de forma automática. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Deben existir los scripts dentro del directorio control. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos cada uno de los scripts con el comando sh. \\
