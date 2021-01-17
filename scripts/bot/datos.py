@@ -30,7 +30,7 @@ def datos(m, bot):
         mm += str(" Amanecer Ubicac | ")+matrix1[5].split(" ")[4]+ str(" | &#127749; \n|")
         mm += str(" Subir Persianas | ")+matrix1[6].split(" ")[3]+ str(" | &#127773; \n|")
         mm += str(" Encendido luces | ")+matrix1[7].split(" ")[3]+ str(" | &#128161; \n|")
-        mm += str(" Bajar Persianas | ")+matrix1[7].split(" ")[3]+ str(" | &#127770; \n</pre>")
+        mm += str(" Bajar Persianas | ")+matrix1[8].split(" ")[3]+ str(" | &#127770; \n</pre>")
 
         print(mm)
         bot.send_message(usuario, text=mm, parse_mode=ParseMode.HTML)
