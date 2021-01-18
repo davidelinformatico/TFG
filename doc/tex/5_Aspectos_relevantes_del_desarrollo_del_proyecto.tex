@@ -42,7 +42,7 @@ Se eligió Scrum como la metodología global sobre la que realizar el proyecto d
 Reseñar que en las fases de trabajos físicos no se ha aplicado Scrum pero se ha realizado con un criterio lo más cercano posible. Por ello, se predispuso realizar la tirada de cable y el conexionado la misma semana para que pudiera integrarse lo mejor posible en la metodología.
 
 \section{Desarrollo del proyecto}
-A medida que el proyecto ha ido tomando forma también se han ido implementando cambios: La idea original del proyecto era parametrizar los elementos según horas pero posteriormente se valoró e implantó la idea de tomar datos externos para poder controlar los elementos del sistema domótico. El proyecto se ha creado de forma cronológica siguiendo los pasos que se desarrollan a continuación.
+A medida que el proyecto ha ido tomando forma también se han ido implementando cambios: la idea original del proyecto era parametrizar los elementos según franjas horarias pero posteriormente se valoró e implantó la idea de tomar datos externos para poder controlar los elementos del sistema domótico. El proyecto se ha creado de forma cronológica siguiendo los pasos que se desarrollan a continuación.
 
 El proyecto se comenzó por los scripts de extracción de datos para comprobar que se podía realizar el software que se había propuesto antes de continuar ya que es más fácil presentar cambios al principio que cuando el proyecto está avanzado. Aunque cabe destacar que se ha invertido una gran cantidad de tiempo en la búsqueda de información y normativas que desconocía, así como en la extracción y el tratamiento de datos.
 
@@ -103,9 +103,7 @@ Utilizaremos dos tipos de scripts, Bash~\cite{misc:Linux} y Python~\cite{misc:Py
 
 Una vez determinados los datos que vamos a necesitar en un notebook de Jupyter debemos realizar la extracción de estas líneas de código a un script Python.
 En este punto tuve un problema bastante sencillo de resolver: el script necesita importar librerías para hacerlo correr y necesitaba instalarlas. En principio, esto no debería ser un problema ya que sabemos que se puede instalar con Pip. El problema surge al tener instalado Python v2 y Python v3, ya que si instalas las librerías utilizando Pip no funcionarán con Python3. Así que, hay que instalarlas con Pip3 para poder utilizarlas desde Python3:
-\begin{lstlisting}[language=sh,firstnumber=1]
-pip3 install paquete
-\end{lstlisting}
+
 
 Controlaremos la Raspberry Pi y sus periféricos mediante comandos Bash y realizaremos el procesado de datos con Python. Se ha tomado esta determinación para conseguir la mayor velocidad de procesamiento posible así como para evitar posibles problemas. Por ello, la automatización que haremos desde CRON que lanzará otros scripts será mediante bash. 
 
@@ -122,10 +120,10 @@ python3 ${path%}/3_cocinado.py
 sh ${path%}/4_reescribeCron.sh
 \end{lstlisting}
 
-Este archivo es un archivo Bash porque desde Cron no he conseguido lanzar los scripts Python, sin embargo no he tenido problemas al lanzarlo desde este script Bash siempre que especifique nuevamente que se lance con python3.
+Este archivo es un archivo Bash porque desde Cron no he conseguido lanzar los scripts Python, sin embargo no he tenido problemas al lanzarlo desde este script Bash siempre que especifique nuevamente que se lance con Python3.
 
 Por otro lado, para controlar los relés desde los GPIO, debemos configurarlos como OUT y con valor 1 para activarlos y, con valor 0 y configuración IN para desactivarlos. Podemos ver un ejemplo a continuación, el las líneas de código~\ref{cod:reles}:
-\begin{lstlisting}[language=sh, caption={Ejemplo activación y desactivación de relé.}, label{cod:reles}]
+\begin{lstlisting}[language=sh, caption={Ejemplo activación y desactivación de relé.}, label={cod:reles}]
 gpio -g mode 17 out # Activa el rele conectado al pin 17
 sleep 1             # Espera 1 segundo
 gpio -g mode 17 in  # Desactiva el relé conectado al pin 17
@@ -176,16 +174,12 @@ Llegados a este punto, era interesante el comprobar que se podía lanzar correct
 
 La tirada de cable y conectorizado en todo el domicilio, desde la primera caja de empalmes a las 5 persianas ya que es el punto del domicilio donde se recogen los cables eléctricos que llegan hasta las persianas, quedó como podemos ver en el diagrama~\ref{Img:diagramaBasico}. 
 \subsection{Telegram Bot}\label{5.TelegramBot}
-En primer lugar, explicaré qué es un bot. El medio de comunicación con el sistema domótico es un bot de Telegram que he diseñado y programado para hacer completamente funcional el proyecto. Desde el Bot, podemos controlar las persianas de forma instantánea, modificar la configuración del sistema domótico y simulador de presencia, volver a generar recolección de datos y el grabado de los archivos. También podemos obtener información sobre la información recopilada, sobre nuestra Raspberry Pi y sobre el funcionamiento futuro del sistema domótico y simulador de presencia.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\textwidth]{img/Diagramas/FuncionamientoBot.png}
-    \caption{Comunicación del bot. } \label{Img:FuncionamientoBot}
-\end{figure}
+El medio de comunicación con el sistema domótico es un bot de Telegram que he diseñado y programado para hacer completamente funcional el proyecto. Desde el Bot, podemos controlar las persianas de forma instantánea, modificar la configuración del sistema domótico y simulador de presencia, volver a generar recolección de datos y el grabado de los archivos. También podemos obtener información sobre la información recopilada, sobre nuestra Raspberry Pi y sobre el funcionamiento futuro del sistema domótico y simulador de presencia.
+
 
 
 Afortunadamente estaba mejor documentado que el resto de la recursos que he consultado para el proyecto pero aún así no ha resultado tarea fácil entender la lógica del bot. 
-Podemos ver la lógica de comunicaciones del bot en la imagen~\ref{Img:FuncionamientoBot}. 
+Podemos ver la lógica de comunicaciones del bot en la imagen~\ref{Img:3.FuncionamientoBot}. 
 
 Todos los mensajes de Telegram que llegan a nuestro bot, tienen la misma estructura json, pero de esta estructura utilizamos únicamente unos pocos y podríamos resumir en los que figuran en las líneas de código~\ref{lst:Resumen}, y que podemos ver a continuación:
 \begin{lstlisting}[language=json,firstnumber=0, basicstyle=\small, caption={Resumen de los datos que utilizamos del mensaje de Telegram.},label={lst:Resumen}]
@@ -212,7 +206,7 @@ for usuario in usuarios:
 Estas líneas envían un mensaje de inicio con la hora a la que se produce el evento a cada uno de los usuarios de la lista de admitidos.
 
 Otro de los puntos necesarios es el de texto que envía el usuario. Gracias a éste obtendremos la orden que enviamos por Telegram y podremos actuar en consecuencia.
-Hay un punto a tener en cuenta para comprender el funcionamiento del bot, éste radica en las líneas que hay al principio de cada uno de los métodos de que dispone el bot, y que podemos ver en las líneas de código~\ref{cod:llamadas}:
+Hay un punto a tener en cuenta para comprender el funcionamiento del bot, éste radica en las líneas que hay al principio de cada uno de los métodos de que dispone el bot, y que podemos ver en las líneas de código~\ref{cod:llamadas}:~\\~\\
 
 \begin{lstlisting}[language=Python, caption={Código de llamada a funciones desde el bot.}, label={cod:llamadas}]
 @bot.message_handler(commands=['temp'])

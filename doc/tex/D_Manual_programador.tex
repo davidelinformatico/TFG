@@ -6,6 +6,8 @@ En este apartado se incluye la información técnica relacionada con el código,
 \section{Estructura de directorios}
 Para comprender la estructura de directorios debemos conocer las diferentes partes del proyecto y tener en cuenta que son completamente diferentes, aunque en este proyecto se han integrado para poder hacer uso del sistema domótico. 
 
+El repositorio del proyecto se encuentra en la siguiente URL de GitHub:~\url{https://github.com/davidelinformatico/TFG}.
+
 Tras accederal directorio raiz del proyecto vemos dos directorios, \textbf{credentials} y \textbf{source}. Dentro de \textbf{credentials} tenemos el archivo principal de configuración y dentro de \textbf{source} el resto de directorios del proyecto. Nada más acceder al directorio \textbf{source} podemos ver tres directorios principales:
 
 \begin{figure}[h]
@@ -62,7 +64,7 @@ El proceso de automatización comprende varias fases:
 \end{enumerate}
 La fase de~\textbf{recopilación} de datos llama a la API de~\textbf{geolocalización} y nos devuelve, entre otros, los parámetros de nuestra ubicación en formato de latitud y longitud. Posteriormente, estos datos de ubicación son necesarios para incorporarlos en la consulta de las APIs de~\textbf{meteorología} y~\textbf{astronomía} y obtener la información de la salida y puesta del sol así como la información de las temperaturas del día siguiente en dicha ubicación. Con esta recopilación de datos tenemos la base para poder determinar el comportamiento autónomo que necesitamos por lo que almacenaremos esta información en un archivo de datos.
 
-El siguiente paso es leer las preferencias del usuario, que se almacenan en el archivo de condicionantes. Y, una vez tengamos estos datos, podemos pasar a generar el Cron para controlar de forma automática toda la instalación y generar el diagrama de temperaturas para poder enviarlo cuando se solicite. Las imágenes se almacenan dentro del directorio ./diagramas, en formato PNG.
+El siguiente paso es leer las preferencias del usuario, que se almacenan en el archivo de condicionantes. Y, una vez tengamos estos datos, podemos pasar a generar el Cron para controlar de forma automática toda la instalación y generar el diagrama de temperaturas para poder enviarlo cuando se solicite. Las imágenes se almacenan dentro del directorio \texttt{./diagramas}, en formato PNG.
 
 Estas fases se han confeccionado al final del proyecto puesto que al principio se desarrolló de forma unitaria pero surgió el problema de que, cada vez que queríamos hacer una modificación en el sistema domótico de cualquier índole, teníamos que hacer una petición nueva a las APIs y generar de nuevo un archivo Cron con los parámetros del usuario <<al vuelo>> para conseguir regenerar la automatización con los parámetros nuevos. Este sistema funcionaba correctamente pero era poco eficiente puesto que se multiplican las operaciones en función de las veces que se quiera modificar algún parámetro.
 Únicamente he permitido realizar dos salidas <<al vuelo>> tras obtener los datos, estos son: el grabado de los datos recién obtenidos y la gráfica de las temperaturas conforme a dichos datos.
@@ -104,7 +106,7 @@ Este punto tiene como objetivo explicar los medios necesarios para continuar con
 Como la parte de desarrollo se ha generado desde Raspbian OS utilizando la interfaz para desarrollo Python, <<Thonny Python IDE>>, este punto será corto ya que el propio sistema operativo dispone del software necesario.
 
 \subsection{Requerimientos}
-Para poder hacer funcionar correctamente el código se debe clonar el repositorio e instalar los <<requeriments>> que están dentro de la ruta \textbf{/source/scripts/control/}:
+Para poder hacer funcionar correctamente el código se debe clonar el repositorio e instalar los <<requeriments>> que están dentro de la ruta \texttt{\textbf{/source/scripts/control/}}:
 \begin{lstlisting}[language=sh, firstnumber=0, basicstyle=\normalsize, caption={Comando para instalar las librerías neceasrias.}]
 pip install -r requirements
 \end{lstlisting}~\\
@@ -208,79 +210,80 @@ Como el proyecto no cuenta con testigos de cambios de estado de los periféricos
 Por otro lado, las pruebas sobre la parte del proyecto que se comunica con las APIs y procesa la información se ha realizado de forma manual ya que únicamente son dos archivos y son relativamente cortos. 
 
 
-No obstante, las pruebas que se han realizado son las siguientes:
+No obstante, las pruebas que se han realizado son las que aparecen en las tablas~\ref{CP-1} -~\ref{CP200}:
 
-\begin{longtable}{>{\hspace{0pt}}m{0.177\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
+\label{CP-1}
 \caption{CP-1 Existencia de datos en archivo de configuración}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.177\linewidth}|}{\textbf{CP-1}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Existencia de datos en archivo de configuración} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-1}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Existencia de datos en archivo de configuración} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{\mbox{Descripción}} & Si existen datos en el archivo de configuración,\par{} el bot inicia sin errores, ya que \par{}dispone de los parámetros de configuración. \\
-\textbf{\mbox{Precondición}} & Config2.bot debe contener los datos necesarios. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{\mbox{Descripción}} & Si existen datos en el archivo de configuración,el bot inicia sin errores, ya que dispone de los parámetros de \mbox{configuración}. \\
+\textbf{\mbox{Precondición}} & \texttt{Config2.bot} debe contener los datos necesarios. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Permite ejecutar el bot sin errores. \\
 \textbf{\mbox{Postcondición}} & El bot envía un mensaje de inicio a todos los usuarios. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{\mbox{Excepciones}} & Si el archivo config2.bot el sistema dará error. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{\mbox{Excepciones}} & Si el archivo \texttt{config2.bot} el sistema dará error. \\
 \textbf{\mbox{Importancia}} & Crítica. \\
 \hline
 \end{longtable}
 
 
-\begin{longtable}{>{\hspace{0pt}}m{0.215\linewidth}>{\hspace{0pt}}m{0.722\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-2 Se muestra el comando de ayuda}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.215\linewidth}|}{\textbf{CP-2}} & \multicolumn{1}{>{\hspace{0pt}}m{0.722\linewidth}|}{Se muestra el comando de ayuda} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-2}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Se muestra el comando de ayuda} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Se ha configurado el comando de ayuda y la envía~\par{}cuando es necesario. \\
 \textbf{Precondición} & El bot debe haber iniciado correctamente. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Solicitamos ayuda con '/ayuda' . \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Solicitamos ayuda con '\texttt{/ayuda}' . \\
 \textbf{Postcondición} & El bot envía un mensaje con las opciones disponibles. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepciones} &  \\
 \textbf{Importancia} & Baja. \\
-\hline~\\~\\~\\ % para que no corte la tabla
+\hline~\\~\\~\\~\\~\\~\\ % para que no corte la tabla
 \end{longtable}
 
 
-\begin{longtable}{>{\hspace{0pt}}m{0.2\linewidth}>{\hspace{0pt}}m{0.741\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-3 Movimiento de las persianas}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.2\linewidth}|}{\textbf{CP-3}} & \multicolumn{1}{>{\hspace{0pt}}m{0.741\linewidth}|}{Movimiento de las persianas} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-3}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Movimiento de las persianas} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Las persianas se mueven bajo demanda. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Comando '/subir' 'estancia' tiempo y~'/bajar' 'estancia' tiempo\par\null\par{}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}>{\cellcolor[rgb]{0.937,0.937,0.937}}l}/subir Cocina 3\par{}/bajar Dormitorio 4\end{tabular} \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo \texttt{config2.bot}. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Comando '\texttt{/subir}' '\texttt{estancia}' \texttt{tiempo} y~'\texttt{/bajar}' '\texttt{estancia}' \texttt{tiempo}. Por ejemplo:\par{} \texttt{/subir Cocina 3}\par{}\texttt{/bajar Dormitorio 4} \\
 \textbf{Postcondición} & Se observa que la persiana de la cocina sube 3 segundos y\par{}que la persiana del dormitorio baja 4 segundos. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Notas} & Este caso de pruebas hay que realizarlo con todas las~\par{}persianas, tanto en modo subida como en modo bajada. \\
 \textbf{Importancia} & Media. \\
 \hline
 \end{longtable}
 
-\begin{longtable}{>{\hspace{0pt}}m{0.196\linewidth}>{\hspace{0pt}}m{0.745\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-4 Envío de tabla de temperaturas}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.196\linewidth}|}{\textbf{CP-4}} & \multicolumn{1}{>{\hspace{0pt}}m{0.745\linewidth}|}{Envío de tabla de temperaturas} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-4}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Envío de tabla de temperaturas} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Se envía una tabla informativa con las temperaturas del día\par{}siguiente por horas. Se incluyen la hora de subida de las\par{}persianas y la hora de encendido de luces y la posterior\par{}bajada de persianas y apagado de luces. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Deben existir datos en el archivo de consulta log.bot. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /temp \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Se envía una tabla informativa con las temperaturas del díasiguiente por horas. Se incluyen la hora de subida de las persianas y la hora de encendido de luces y la posterior bajada de persianas y apagado de luces. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}.~\par{}Deben existir datos en el archivo de consulta \texttt{log.bot}. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/temp} \\
 \textbf{Postcondición} & Envía la tabla solicitada en formato HTML, con iconos. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si los archivos no tienen datos o no existen no se envía nada. \\
 \textbf{Importancia} & Baja. \\
 \hline
-\end{longtable}
+\end{longtable}~\\~\\~\\~\\
 
-\begin{longtable}{>{\hspace{0pt}}m{0.19\linewidth}>{\hspace{0pt}}m{0.75\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-5 Diagrama de temperaturas}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.19\linewidth}|}{\textbf{CP-5}} & \multicolumn{1}{>{\hspace{0pt}}m{0.75\linewidth}|}{Diagrama de temperaturas} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-5}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Diagrama de temperaturas} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Se envía una imagen generada con las temperaturas del\par{}día siguiente. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir alguna imagen \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /d o /d seguido de un nombre de imagen. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}. Debe existir alguna imagen \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/d} o \texttt{/d} seguido de un nombre de imagen. \\
 \textbf{Postcondición} & Envía la imagen solicitada o predeterminada. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si no existen los datos no hace nada. \\
 \textbf{Importancia} & Baja. \\
@@ -288,30 +291,30 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \end{longtable}
 
 
-\begin{longtable}{>{\hspace{0pt}}m{0.198\linewidth}>{\hspace{0pt}}m{0.743\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-6 Temperatura de la calefacción}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.198\linewidth}|}{\textbf{CP-6}} & \multicolumn{1}{>{\hspace{0pt}}m{0.743\linewidth}|}{Temperatura de la calefacción} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-6}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Temperatura de la calefacción} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Informa de la temperatura a la que se enciende la caldera, y~\par{}también, nos permite modificarla. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe haber información en el archivo 2\_condicionantes. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /tempcal, o /tempcal seguido \par{}de una temperatura. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Informa de la temperatura a la que se enciende la caldera, y también, nos permite modificarla. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}. Debe haber información en el archivo \texttt{2\_condicionantes}. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/tempcal}, o \texttt{/tempcal} seguido \par{}de una temperatura. \\
 \textbf{Postcondición} & Si se solicita cambia la temperatura y siempre envía la\par{}información sobre la temperatura a la que arranca la caldera. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si no existen los datos no envía la temperatura.\par{}Si se introduce otra cosa envía mensaje de error. \\
 \textbf{Importancia} & Baja. \\
-\hline~\\~\\~\\ % para que no corte la tabla
+\hline~\\~\\~\\~\\~\\~\\~\\~\\~\\ % para que no corte la tabla
 \end{longtable}
 
-\begin{longtable}{>{\hspace{0pt}}m{0.213\linewidth}>{\hspace{0pt}}m{0.724\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-7 Información de acciones}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.213\linewidth}|}{\textbf{CP-7}} & \multicolumn{1}{>{\hspace{0pt}}m{0.724\linewidth}|}{Información de acciones} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-7}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Información de acciones} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Informa de las horas de interacción con los periféricos. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir información en el archivo log.cron \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /datos, d o D. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}.~\par{}Debe existir información en el archivo \texttt{log.cron}. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/datos}, \texttt{d} o \texttt{D}. \\
 \textbf{Postcondición} & Envía la información solicitada. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si no existen los datos no envía la información \\
 \textbf{Importancia} & Baja. \\
@@ -319,127 +322,128 @@ No obstante, las pruebas que se han realizado son las siguientes:
 \end{longtable}
 
 
-\begin{longtable}{>{\hspace{0pt}}m{0.207\linewidth}>{\hspace{0pt}}m{0.731\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-8 Hora de subida de las persianas}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.207\linewidth}|}{\textbf{CP-8}} & \multicolumn{1}{>{\hspace{0pt}}m{0.731\linewidth}|}{Hora de subida de las persianas} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-8}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Hora de subida de las persianas} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Informa de la hora de subida de las persianas y\par{}también permite modificarla. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir información en el archivo 2\_condicionantes \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /hora o /hora seguido de una hora. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}.~\par{}Debe existir información en el archivo \texttt{2\_condicionantes} \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/hora} o \texttt{/hora} seguido de una hora. \\
 \textbf{Postcondición} & Envía o modifica la información solicitada. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si el formato no es el correcto envía mensaje de error.\par{}Si no existe la información no envía hora. \\
 \textbf{Importancia} & Baja. \\
-\hline~\\~\\~\\~\\~\\~\\ % para que no corte la tabla
+\hline~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\ % para que no corte la tabla
 \end{longtable}
 
-\begin{longtable}{>{\hspace{0pt}}m{0.213\linewidth}>{\hspace{0pt}}m{0.724\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-9 Obtención de datos bajo demanda}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.213\linewidth}|}{\textbf{CP-9}} & \multicolumn{1}{>{\hspace{0pt}}m{0.724\linewidth}|}{Obtención de datos bajo demanda} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-9}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Obtención de datos bajo demanda} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Obtiene los datos de las APIs \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot además de los TOKEN de las APIs.\par{}Debemos tener salida a Internet. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /generar. \\
-\textbf{Postcondición} & Solicita la información y genera los archivos log.cron,\par{}InfoRecabada, CronPruebas y la implanta en Cron.\par{}Envía mensaje de confirmación. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot} además de los token de las APIs.\par{}Debemos tener salida a Internet. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/generar}. \\
+\textbf{Postcondición} & Solicita la información y genera los archivos \texttt{log.cron}, \texttt{InfoRecabada}, \texttt{CronPruebas} y la implanta en \texttt{Cron}.\par{}Envía mensaje de confirmación. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si no hay datos en 2\_condicionantes escribe blancos. \\
 \textbf{Importancia} & Alta. \\
 \hline
 \end{longtable}
 
-\begin{longtable}{>{\hspace{0pt}}m{0.213\linewidth}>{\hspace{0pt}}m{0.724\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-10 Información del sistema}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.213\linewidth}|}{\textbf{CP-10}} & \multicolumn{1}{>{\hspace{0pt}}m{0.724\linewidth}|}{Información del sistema} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-10}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Información del sistema} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Envía información de la máquina. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot además de los TOKEN de las APIs. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /info, i o I \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot} además de los token de las APIs. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/info}, \texttt{i} o \texttt{I} \\
 \textbf{Postcondición} & Envía mensaje de con la información de Sistema. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} &  \\
 \textbf{Importancia} & Baja. \\
-\hline~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\ % para que no corte la tabla
+\hline
 \end{longtable}
 
 
 
-\begin{longtable}{>{\hspace{0pt}}m{0.236\linewidth}>{\hspace{0pt}}m{0.695\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-11 Apagado y Reinicio}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.236\linewidth}|}{\textbf{CP-11}} & \multicolumn{1}{>{\hspace{0pt}}m{0.695\linewidth}|}{Apagado y Reinicio} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-11}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Apagado y Reinicio} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Apaga o reinicia la máquina \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando /apagar o reiniciar. \\
-\textbf{Postcondición} & El comando /reiniciar, reinicia la máquina y al\par{}volver a iniciar veremos el mensaje de inicio.\par{}El comando /apagar apaga la máquina.\par{} \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} &  \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Enviamos el comando \texttt{/apagar} o \texttt{/reiniciar}. \\
+\textbf{Postcondición} & El comando \texttt{/reiniciar}, reinicia la máquina y al volver a iniciar veremos el mensaje de inicio.\par{}El comando \texttt{/apagar}, apaga la máquina.\\
+\rowcolor[rgb]{0.937,0.937,0.937}
 \textbf{Importancia} & Baja. \\
 \hline
 \end{longtable}
 
 
 
-\begin{longtable}{>{\hspace{0pt}}m{0.2\linewidth}>{\hspace{0pt}}m{0.741\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-100 Recabado de información}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.2\linewidth}|}{\textbf{CP-100}} & \multicolumn{1}{>{\hspace{0pt}}m{0.741\linewidth}|}{Recabado de información} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-100}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Recabado de información} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Llama a las APIs y obtiene la información \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Se debe tener línea de datos con salida a~\par{}Internet. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script python3 1\_recabaInfo.py \\
-\textbf{Postcondición} & Si consigue la información escribe el archivo InfoRecabada.\par{} \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}. Se debe tener línea de datos con salida a Internet. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script \texttt{python3 1\_recabaInfo.py} \\
+\textbf{Postcondición} & Si consigue la información escribe el archivo \texttt{InfoRecabada}. \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si hay excepción informa de el error \\
 \textbf{Importancia} & Alta \\
-\hline~\\~\\~\\~\\~\\ % para que no corte la tabla
+\hline
 \end{longtable}
 
-\begin{longtable}{>{\hspace{0pt}}m{0.188\linewidth}>{\hspace{0pt}}m{0.752\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-101 Procesado de la información}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.188\linewidth}|}{\textbf{CP-101}} & \multicolumn{1}{>{\hspace{0pt}}m{0.752\linewidth}|}{Procesado de información} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-101}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Procesado de información} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Lee el archivo InfoRecabada y genera el diagrama y los archivos\par{}de CronPruebas y log.cron. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Deben existir los datos. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script python3 3\_cocinado.py \\
-\textbf{Postcondición} & Genera el diagrama y los archivos CronPruebas y log.cron\par{} \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Lee el archivo \texttt{InfoRecabada} y genera el diagrama y los archivos de \texttt{CronPruebas} y \texttt{log.cron}. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}.~\par{}Deben existir los datos. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script \texttt{python3 3\_cocinado.py} \\
+\textbf{Postcondición} & Genera el diagrama y los archivos \texttt{CronPruebas} y \texttt{log.cron} \\
 \rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si hay excepción informa de el error \\
 \textbf{Importancia} & Alta \\
 \hline
-\end{longtable}
+\end{longtable}~\\~\\~\\~\\~\\~\\~\\~\\ % para que no corte la tabla
 
 
-\begin{longtable}{>{\hspace{0pt}}m{0.203\linewidth}>{\hspace{0pt}}m{0.737\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
 \caption{CP-102 Configuración de Cron}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.203\linewidth}|}{\textbf{CP-102}} & \multicolumn{1}{>{\hspace{0pt}}m{0.737\linewidth}|}{Configuración de Cron} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-102}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Configuración de Cron} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Lee el archivo CronPruebas, lo vuelca a Cron y reinicia los\par{}servicios de la máquina. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Debe existir el archivo CronPruebas. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script sh 4\_reescribeCron.sh \\
-\textbf{Postcondición} & Vuelca el contenido del archivo al archivo de configuración\par{}del programador de tareas del sistema, Cron. Además,\par{}reinicia los servicios.\par{} \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si el archivo CronPruebas está vacío, al volcarlo a Cron,\par{}éste también lo estará. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Lee el archivo \texttt{CronPruebas}, lo vuelca a \texttt{Cron} y reinicia los servicios de la máquina. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}. Debe existir el archivo \texttt{CronPruebas}. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos el script \texttt{sh 4\_reescribeCron.sh}. \\
+\textbf{Postcondición} & Vuelca el contenido del archivo al archivo de configuración del programador de tareas del sistema, \texttt{Cron}. Además, reinicia los servicios.\\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si el archivo \texttt{CronPruebas} está vacío, al volcarlo a \texttt{Cron},\par{}éste también lo estará. \\
 \textbf{Importancia} & Alta \\
 \hline
 \end{longtable}
 
-\begin{longtable}{>{\hspace{0pt}}m{0.186\linewidth}>{\hspace{0pt}}m{0.754\linewidth}}
+\begin{longtable}{>{\hspace{0pt}}m{0.25\linewidth}>{\hspace{0pt}}m{0.764\linewidth}}
+\label{CP200}
 \caption{CP-200 Cambio de estado de periféricos}\\ 
 \hline
-\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.186\linewidth}|}{\textbf{CP-200}} & \multicolumn{1}{>{\hspace{0pt}}m{0.754\linewidth}|}{Cambio de estado de periféricos} \endfirsthead 
+\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.25\linewidth}|}{\textbf{CP-200}} & \multicolumn{1}{>{\hspace{0pt}}m{0.764\linewidth}|}{Cambio de estado de periféricos} \endfirsthead 
 \hline
 \textbf{Versión} & 1.3 \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Comprobamos que los periféricos se moverán como esperamos\par{}cuando lo hagan de forma automática. \\
-\textbf{Precondición} & El bot debe haber iniciado correctamente,\par{}obteniendo los parámetros de configuración del\par{}archivo config2.bot.~\par{}Deben existir los scripts dentro del directorio control. \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos cada uno de los scripts con el comando sh. \\
-\textbf{Postcondición} & Cambia de estado los periféricos: Sube todas las persianas, baja~\par{}todas las persianas, enciende las luces, apaga las luces y~\par{}enciende y apaga la caldera.\par{} \\
-\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si no están bien conectadas las líneas de los periféricos no~\par{}funcionarán correctamente. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Comprobamos que los periféricos se moverán como esperamos cuando lo hagan de forma automática. \\
+\textbf{Precondición} & El bot debe haber iniciado correctamente, obteniendo los parámetros de configuración del archivo \texttt{config2.bot}.~\par{}Deben existir los scripts dentro del directorio \texttt{control}. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & Lanzamos cada uno de los scripts con el comando \texttt{sh}. \\
+\textbf{Postcondición} & Cambia de estado los periféricos: Sube todas las persianas, baja todas las persianas, enciende las luces, apaga las luces y enciende y apaga la caldera. \\
+\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepción} & Si no están bien conectadas las líneas de los periféricos no funcionarán correctamente. \\
 \textbf{Importancia} & Alta \\
 \hline
 \end{longtable}

@@ -3,7 +3,7 @@
 \section{Introducción}
 En este anexo se presenta el manual de usuario.
 
-Aunque se entiende que un usuario es aquella persona destinada a utilizar el sistema generado, en caso, se incluye la instalación física porque se entiende que cualquiera que disponga el código puede correrlo en su propia instalación realizando la instalación física previamente.
+Aunque se entiende que un usuario es aquella persona destinada a utilizar el sistema generado, en este caso, se incluye la instalación física porque se entiende que cualquiera que disponga el código puede correrlo en su propia instalación realizando la instalación física previamente.
 
 Por ello, este anexo comprende todos los pasos necesarios para implementar el proyecto conforme a normativa consiguiendo un producto completamente funcional. Existen tres pasos globales, estos son: la instalación física, la instalación y la configuración del software desarrollado en este proyecto que veremos a continuación.
 
@@ -21,8 +21,8 @@ Además requeriremos de crimpadora JST-XH y destornilladores de estrella y plano
 
 También necesitamos otros elementos de uso no específico para este proyecto pero que resultan necesarios para que el software funcione correctamente~\footnote{El software puede funcionar correctamente también vía Ethernet.} como son el Dongle WiFi y una línea de datos con salida a Internet.
 
-\subsection{Tirada de cable}
-Para realizar la tirada de cable necesitaremos hacer algunos cálculos y tener claras algunas consideraciones:
+\subsection{Instalación de cableado}
+Para realizar la tirada de cable necesitaremos hacer algunos cálculos y tener claras algunas consideraciones, las cuales se explican a continuación:
 
 \subsubsection{Consideraciones}
 Debemos tener claras las características eléctricas que soporta cada uno de los pines GPIO de nuestra Raspberry Pi. Cada uno de los pines, soporta 3,3VDC~\footnote{VDC:Voltage Direct Current.} y 16 mA, excepto algunos pines de alimentación, que cuentan con hasta 5VDC.
@@ -200,7 +200,7 @@ El primer paso es descargar el Sistema Operativo de la web oficial y montarlo en
 \begin{enumerate}
     \item Accedemos a: \url{https://www.raspberrypi.org/software/}
     \item Descargamos el software para montar la imagen en nuestra uSD \url{https://downloads.raspberrypi.org/imager/imager_1.5.exe}
-    \item Introducimos el adaptador USB con la uSD en el equipo y corremos el software <<imagen\_1.5.exe>> para instalarlo, en este caso.
+    \item Introducimos el adaptador USB con la uSD en el equipo y corremos el software \texttt{imagen\_1.5.exe} para instalarlo, en este caso.
     \item En la ventana de instalación, seleccionamos <<install>> como figura en la imagen~\ref{instalacionRaspbian} para instalar el programa <<imager>> de Raspberry Pi Foundation.
 \end{enumerate}
 
@@ -357,7 +357,11 @@ Con esto tendríamos el software completamente instalado.
 En este punto se incluyen las funcionalidades finales que se ponen a disposición del usuario final una vez estén finalizadas las instalaciones física y de software.
 
 \subsection{Inclusión de usuarios en el bot}
-Para el primer usuario, se debe acceder a la versión web de Telegram y aceder al chat de <<Mensajes guardados>>. Entonces, podremos ver en la barra de direcciones la siguiente URL: \texttt{https://web.telegram.org/#/im?p=\textbf{0123456789}_35486168418645737555}. Los dígitos en negrita son los que habría que incluir en el archivo \texttt{config2.bot}.
+Para el primer usuario, se debe acceder a la versión web de Telegram y aceder al chat de <<Mensajes guardados>>. Entonces, podremos ver en la barra de direcciones la siguiente URL:
+
+\mbox{https://web.telegram.org/#/im?p=\textbf{0123456789}\_35486168418645737555}. 
+
+Los dígitos en negrita son los que habría que incluir en el archivo \texttt{config2.bot}.
 
 Posteriormente, debemos buscar el bot por su nombre. En mi caso se llama \textbf{SDI\_Domo\_bot}.
 Una vez localizado, El resto de usuarios le enviarán un mensaje. A lo que nuestro bot nos responderá con un mensaje con un número largo como podemos ver en la imagen~\ref{Bot:SinPermisos}. Éste número largo es el que debemos incluir en el apartado de usuarios dentro del archivo \texttt{config2.bot}.
