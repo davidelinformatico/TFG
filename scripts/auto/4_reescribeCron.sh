@@ -19,7 +19,7 @@ else
     DIA=`date +"%d/%m/%Y"`
     HORA=`date +"%H:%M"`
 
-    echo "Error CronPruebas instante - $DIA $HORA" >> erroresCronPruebas.txt
+    sed -i '1i Error CronPruebas - $DIA $HORA' erroresCronPruebas.txt
 fi
 
 
