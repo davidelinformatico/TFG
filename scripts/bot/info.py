@@ -46,6 +46,15 @@ def info(m, bot):
 
         m2="*Temperatura CPU: *"+ str(temperatura)[:5]+"ºC\n\n"+"*Fecha: *"+ str(datetime.datetime.today())[:-10]+"h"
         
+        try:
+            f = open(rutaAuto+"erroresCronPruebas", "r")
+            data = f.read()
+            f.close()
+
+            m2+="\n\n*Último error en CronPruebas: *"+ str(data)[:16]
+        except:
+            pass 
+
         bot.send_message(usuario, m2, parse_mode=ParseMode.MARKDOWN)
 
     except Exception as e:
