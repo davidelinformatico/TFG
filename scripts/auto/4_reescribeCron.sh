@@ -1,12 +1,26 @@
 #!/bin/bash
 ####################################################################
 ### Este archivo vuelca la configuración del archivo CronPruebas ###
-### al archivo de configuración de Cron.						 ###
+### al archivo de configuración de Cron. En caso de no tener las ###
+### líneas esperadas en CronPruebas no se vuelca el contenido,   ###
+### dejando constancia en el archivo erroresCronPruebas.         ###
 ####################################################################
 
-sudo cp ${PWD%/*}/auto/CronPruebas /var/spool/cron/crontabs/pi
-sudo service cron restart
-sudo service cron stop
-sudo service cron start
+
+lineas=`cat ${PWD%/*}/auto/CronPruebas | wc -l`
+
+if [ $lineas = 82 ];
+then
+    sudo cp ${PWD%/*}/auto/CronPruebas /var/spool/cron/crontabs/pi
+    sudo service cron restart
+    sudo service cron stop
+    sudo service cron start
+else
+    DIA=`date +"%d/%m/%Y"`
+    HORA=`date +"%H:%M"`
+
+    echo "Error CronPruebas instante - $DIA $HORA" >> erroresCronPruebas.txt
+fi
+
 
 
