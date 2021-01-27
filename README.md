@@ -48,3 +48,6 @@ Documentación:	CC-BY-SA-3.0
 Imágenes:		CC-BY-SA-3.0  
 
 [![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+
+## Donativo al desarrollo
+https://www.paypal.com/donate?hosted_button_id=JMTPACKMU58PA
