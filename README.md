@@ -5,6 +5,11 @@
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=davidelinformatico_TFG&metric=security_rating)](https://sonarcloud.io/dashboard?id=davidelinformatico_TFG) 
 
+## Donativo al desarrollo
+Si este proyecto te ayuda a reducir tu tiempo de desarrollo o a mejorar tu vida diaria, puedes contribuir con:
+
+[![Donate with PayPal](https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=JMTPACKMU58PA)
+
 ## Objeto
 En proyecto se pretende crear un sistema domótico automatizado que nos permite aumentar la sensación de confort y bienestar dentro de nuestros domicilios.
 Nuestro simulador de presencia funciona de forma autónoma subiendo y bajando persianas, así como encendiendo y apagando luces, desde una máquina RaspberryPi mediante relés. De esta forma la vivienda parece estar ocupada de forma que ahuyentamos a potenciales delincuentes.
@@ -49,5 +54,4 @@ Imágenes:		CC-BY-SA-3.0
 
 [![License: CC BY-SA 3.0](https://licensebuttons.net/l/by-sa/3.0/es/88x31.png)](https://creativecommons.org/licenses/by-sa/3.0/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
 
-## Donativo al desarrollo
-[![Donate with PayPal](https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=JMTPACKMU58PA)
+
