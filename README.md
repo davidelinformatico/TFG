@@ -52,6 +52,6 @@ Imágenes:		CC-BY-SA-3.0
 ## Donativo al desarrollo
 [
   ![Donate with PayPal]
-  (https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)
+  (https://www.paypal.com/en_ES/i/scr/pixel.gif)
 ]
 (https://www.paypal.com/donate?hosted_button_id=JMTPACKMU58PA)
